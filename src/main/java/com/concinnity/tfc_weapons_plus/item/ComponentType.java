@@ -1,0 +1,36 @@
+package com.concinnity.tfc_weapons_plus.item;
+
+/**
+ * Sealed interface for component types using modern Java 21 sealed classes
+ */
+public sealed interface ComponentType permits ComponentType.Grip, ComponentType.Guard, ComponentType.Pommel, ComponentType.Hilt {
+    
+    String name();
+    
+    record Grip() implements ComponentType {
+        @Override
+        public String name() { return "grip"; }
+    }
+    
+    record Guard() implements ComponentType {
+        @Override
+        public String name() { return "guard"; }
+    }
+    
+    record Pommel() implements ComponentType {
+        @Override
+        public String name() { return "pommel"; }
+    }
+    
+    record Hilt() implements ComponentType {
+        @Override
+        public String name() { return "hilt"; }
+    }
+    
+    // Constants for easy access
+    ComponentType GRIP = new Grip();
+    ComponentType GUARD = new Guard();
+    ComponentType POMMEL = new Pommel();
+    ComponentType HILT = new Hilt();
+}
+

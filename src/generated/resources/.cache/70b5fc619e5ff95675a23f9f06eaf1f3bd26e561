@@ -1,0 +1,19 @@
+// 1.21.1	2025-12-03T22:09:21.135705486	TFC Item Heat Data
+b904642d2fdf04fcc76918232e27ce0589261960 data/tfc/item_heat/metal/guard/bismuth_bronze.json
+ef04668438fd3cb03b80c2cad5819efe51ee323b data/tfc/item_heat/metal/guard/black_bronze.json
+e4f34fb917381c643ab506fcdbf64275de838876 data/tfc/item_heat/metal/guard/black_steel.json
+356302fae640b673217cb77928e39a1f85d8969a data/tfc/item_heat/metal/guard/blue_steel.json
+4b8d6d7d7662fd2b7c26f9efb6ddc067c153d496 data/tfc/item_heat/metal/guard/bronze.json
+3fc9a87fee148a429fdbde8162fb5edc4c91a7d8 data/tfc/item_heat/metal/guard/copper.json
+df53cac90f5945c9061a0729b40b6f6dfd6afda5 data/tfc/item_heat/metal/guard/red_steel.json
+32aa681ffb75c44e066b902580eea3d45e328c51 data/tfc/item_heat/metal/guard/steel.json
+c8e40882db955c8c4a89fbf3a38442ad71377c4f data/tfc/item_heat/metal/guard/wrought_iron.json
+85996cef9350c58e17c6ce017af6d69c8bf80f78 data/tfc/item_heat/metal/pommel/bismuth_bronze.json
+6bde3c9a4ec1752a2f554b57b85537855a15ccd3 data/tfc/item_heat/metal/pommel/black_bronze.json
+1ab0c008dbd09ee3c4917e84a19a422616314a3d data/tfc/item_heat/metal/pommel/black_steel.json
+ae72994cd8eabca88db8fb03474eff4ffb4ce3af data/tfc/item_heat/metal/pommel/blue_steel.json
+addfeab0ba27a1bcc7c6a92df82b192f2d084e34 data/tfc/item_heat/metal/pommel/bronze.json
+9820c418013e750a7978bfaab8afe741356969b3 data/tfc/item_heat/metal/pommel/copper.json
+9849834b1381fc2740cad4a62d146c4540cff75c data/tfc/item_heat/metal/pommel/red_steel.json
+0856b64415657494d3f3987c04aa71119d5baa64 data/tfc/item_heat/metal/pommel/steel.json
+3df10e05650b5ac7f85c369d39482e707010c94d data/tfc/item_heat/metal/pommel/wrought_iron.json

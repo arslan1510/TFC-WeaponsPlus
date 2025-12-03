@@ -1,0 +1,8 @@
+{
+  "forging_temperature": 950.0,
+  "heat_capacity": 2.857,
+  "ingredient": {
+    "item": "tfc_weapons_plus:metal/guard/bronze"
+  },
+  "welding_temperature": 950.0
+}

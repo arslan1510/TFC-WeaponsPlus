@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "tfc_weapons_plus:metal/guard/wrought_iron"
+    },
+    "P": {
+      "item": "tfc_weapons_plus:metal/pommel/wrought_iron"
+    },
+    "R": {
+      "item": "tfc_weapons_plus:wood/grip"
+    }
+  },
+  "pattern": [
+    " P ",
+    " G ",
+    " R "
+  ],
+  "result": {
+    "count": 1,
+    "id": "tfc_weapons_plus:metal/hilt/wrought_iron"
+  }
+}

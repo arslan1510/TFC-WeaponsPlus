@@ -1,0 +1,54 @@
+package com.concinnity.tfc_weapons_plus.datagen;
+
+import com.concinnity.tfc_weapons_plus.TFCWeaponsPlus;
+import com.concinnity.tfc_weapons_plus.integration.MetalHelper;
+import com.concinnity.tfc_weapons_plus.item.ModItems;
+
+import net.minecraft.data.PackOutput;
+import net.neoforged.neoforge.common.data.LanguageProvider;
+
+/**
+ * Generates language files
+ * Includes translations for metal variants
+ */
+public final class ModLanguageProvider extends LanguageProvider {
+    
+    public ModLanguageProvider(PackOutput output, String locale) {
+        super(output, TFCWeaponsPlus.MODID, locale);
+    }
+    
+    @Override
+    protected void addTranslations() {
+        // Basic item names
+        add(ModItems.GRIP.get(), "Grip");
+        
+        // Metal variant names for guard, pommel, and hilt
+        MetalHelper.getAllMetalNames().forEach(metalName -> {
+            MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
+                // Guard variants
+                ModItems.getGuardForMetal(metalName).ifPresent(guard -> {
+                    add(guard, props.name() + " Guard");
+                });
+                
+                // Pommel variants
+                ModItems.getPommelForMetal(metalName).ifPresent(pommel -> {
+                    add(pommel, props.name() + " Pommel");
+                });
+                
+                // Hilt variants (assembled from grip + guard + pommel)
+                ModItems.getHiltForMetal(metalName).ifPresent(hilt -> {
+                    add(hilt, props.name() + " Hilt");
+                });
+            });
+        });
+        
+        // Tooltips
+        add("tooltip.tfc_weapons_plus.component_type", "Component Type: %s");
+        add("tooltip.tfc_weapons_plus.material", "Material: %s");
+        add("tooltip.tfc_weapons_plus.metal_tier", "Tier: %s");
+        
+        // Creative tab
+        add("itemGroup.tfc_weapons_plus", "TFC Weapons Plus");
+    }
+}
+

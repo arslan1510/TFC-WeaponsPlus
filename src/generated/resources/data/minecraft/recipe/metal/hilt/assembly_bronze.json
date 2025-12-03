@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "tfc_weapons_plus:metal/guard/bronze"
+    },
+    "P": {
+      "item": "tfc_weapons_plus:metal/pommel/bronze"
+    },
+    "R": {
+      "item": "tfc_weapons_plus:wood/grip"
+    }
+  },
+  "pattern": [
+    " P ",
+    " G ",
+    " R "
+  ],
+  "result": {
+    "count": 1,
+    "id": "tfc_weapons_plus:metal/hilt/bronze"
+  }
+}

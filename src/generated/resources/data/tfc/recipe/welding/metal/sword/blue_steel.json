@@ -1,0 +1,14 @@
+{
+  "type": "tfc:welding",
+  "bonus": "copy_best",
+  "first_input": {
+    "item": "tfc_weapons_plus:metal/hilt/blue_steel"
+  },
+  "result": {
+    "count": 1,
+    "id": "tfc:metal/sword/blue_steel"
+  },
+  "second_input": {
+    "item": "tfc:metal/sword_blade/blue_steel"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tfc_weapons_plus:item/metal/pommel/black_steel"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "forging_temperature": 1080.0,
+  "heat_capacity": 2.857,
+  "ingredient": {
+    "item": "tfc_weapons_plus:metal/pommel/copper"
+  },
+  "welding_temperature": 1080.0
+}

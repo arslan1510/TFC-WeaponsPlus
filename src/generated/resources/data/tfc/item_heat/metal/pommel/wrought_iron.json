@@ -1,0 +1,8 @@
+{
+  "forging_temperature": 1535.0,
+  "heat_capacity": 2.857,
+  "ingredient": {
+    "item": "tfc_weapons_plus:metal/pommel/wrought_iron"
+  },
+  "welding_temperature": 1535.0
+}

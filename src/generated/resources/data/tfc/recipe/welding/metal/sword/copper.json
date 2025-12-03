@@ -1,0 +1,14 @@
+{
+  "type": "tfc:welding",
+  "bonus": "copy_best",
+  "first_input": {
+    "item": "tfc_weapons_plus:metal/hilt/copper"
+  },
+  "result": {
+    "count": 1,
+    "id": "tfc:metal/sword/copper"
+  },
+  "second_input": {
+    "item": "tfc:metal/sword_blade/copper"
+  }
+}

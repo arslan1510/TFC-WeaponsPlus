@@ -1,0 +1,14 @@
+{
+  "type": "tfc:welding",
+  "bonus": "copy_best",
+  "first_input": {
+    "item": "tfc_weapons_plus:metal/hilt/wrought_iron"
+  },
+  "result": {
+    "count": 1,
+    "id": "tfc:metal/sword/wrought_iron"
+  },
+  "second_input": {
+    "item": "tfc:metal/sword_blade/wrought_iron"
+  }
+}
