@@ -14,6 +14,12 @@ A TerraFirmaCraft addon for Minecraft 1.21.1 that adds modular weapon components
 2. Run `./gradlew build` (or `gradlew.bat build` on Windows)
 3. The built JAR will be in `build/libs/`
 
+## Roadmap
+
+- Adding more weapon types
+- Fixing recipes
+- Additional features and improvements
+
 ## License
 
 All Rights Reserved
