@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-04T15:48:34.461074305	TFC Anvil Recipes
+// 1.21.1	2025-12-04T17:06:23.832048291	TFC Anvil Recipes
 681db3da5df04c10f9d4d8b3eb9c04108603f58c data/tfc_weapons_plus/recipe/anvil/metal/guard/bismuth_bronze.json
 600bdbd380d459cf7f99483f60d1c1d66e46a5b0 data/tfc_weapons_plus/recipe/anvil/metal/guard/black_bronze.json
 17dc1fa5670e8d4c051d490fc797f69730925565 data/tfc_weapons_plus/recipe/anvil/metal/guard/black_steel.json
@@ -36,6 +36,15 @@ f6a9be7586a4fcbac96046588ca0df2c7ee5ffa3 data/tfc_weapons_plus/recipe/anvil/meta
 3f5a26021050bf03c7b69bab4e874b405a5ea05e data/tfc_weapons_plus/recipe/heating/metal/guard/red_steel.json
 e0db27d3d4533d28d8c572fdc3825c69af25e8f0 data/tfc_weapons_plus/recipe/heating/metal/guard/steel.json
 e35587caeaee86763fd71c3d9c7309514e24ab38 data/tfc_weapons_plus/recipe/heating/metal/guard/wrought_iron.json
+dcfae52cef1a6e9bf4dc9586c1be9a684562b622 data/tfc_weapons_plus/recipe/heating/metal/longsword_blade/bismuth_bronze.json
+8e2ec8d3440853f0a848a7e3ee7322d3913c517a data/tfc_weapons_plus/recipe/heating/metal/longsword_blade/black_bronze.json
+0770ecf409cdad5481e8be33ac8e58c50114a63b data/tfc_weapons_plus/recipe/heating/metal/longsword_blade/black_steel.json
+541b4812df2cc691f2581903ca3743bc671bc342 data/tfc_weapons_plus/recipe/heating/metal/longsword_blade/blue_steel.json
+606fca244cdf26aa5ff2624d9245d106d78299ac data/tfc_weapons_plus/recipe/heating/metal/longsword_blade/bronze.json
+1250e758d5b91c22bc84bb71b0eeb44e2ee48bb7 data/tfc_weapons_plus/recipe/heating/metal/longsword_blade/copper.json
+a27c0ef16c72238b79af8166f40af9c60af0a606 data/tfc_weapons_plus/recipe/heating/metal/longsword_blade/red_steel.json
+89b4e02d8aa87125884746f4e3dc87934202618b data/tfc_weapons_plus/recipe/heating/metal/longsword_blade/steel.json
+57ea44bae795122fd0be677831bfdec9336d76a9 data/tfc_weapons_plus/recipe/heating/metal/longsword_blade/wrought_iron.json
 3482faa9c38e505b08aec9f0e7c9276645ff606a data/tfc_weapons_plus/recipe/heating/metal/pommel/bismuth_bronze.json
 a1bb44da26a665497132a8c3ee312b1bec237762 data/tfc_weapons_plus/recipe/heating/metal/pommel/black_bronze.json
 a670b2be17ff59964bf5f3672db46478fe9f5c0d data/tfc_weapons_plus/recipe/heating/metal/pommel/black_steel.json

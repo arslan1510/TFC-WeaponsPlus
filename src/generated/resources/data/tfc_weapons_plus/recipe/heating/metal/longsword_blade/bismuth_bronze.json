@@ -1,0 +1,11 @@
+{
+  "type": "tfc:heating",
+  "ingredient": {
+    "item": "tfc_weapons_plus:metal/longsword_blade/bismuth_bronze"
+  },
+  "result_fluid": {
+    "amount": 200,
+    "id": "tfc:metal/bismuth_bronze"
+  },
+  "temperature": 985.0
+}
