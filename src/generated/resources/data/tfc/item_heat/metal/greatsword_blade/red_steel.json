@@ -1,0 +1,8 @@
+{
+  "forging_temperature": 1540.0,
+  "heat_capacity": 11.428,
+  "ingredient": {
+    "item": "tfc_weapons_plus:metal/greatsword_blade/red_steel"
+  },
+  "welding_temperature": 1540.0
+}

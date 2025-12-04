@@ -1,4 +1,13 @@
-// 1.21.1	2025-12-04T17:06:23.832048291	TFC Anvil Recipes
+// 1.21.1	2025-12-04T18:47:01.405317514	TFC Anvil Recipes
+3be16d454a164d07d5d49459b7d64b7b3081f817 data/tfc_weapons_plus/recipe/anvil/metal/greatsword_blade/bismuth_bronze.json
+dc164564f70ffba5b21ae9d7b94862fb7b679046 data/tfc_weapons_plus/recipe/anvil/metal/greatsword_blade/black_bronze.json
+1da498b3101a9d43717284fcbd5014d35fafce61 data/tfc_weapons_plus/recipe/anvil/metal/greatsword_blade/black_steel.json
+4edbe65d6aacc7bd45f590ad8793baea68aa2540 data/tfc_weapons_plus/recipe/anvil/metal/greatsword_blade/blue_steel.json
+c8aa3bcb050578f6b2530831a66fe0cefa28921b data/tfc_weapons_plus/recipe/anvil/metal/greatsword_blade/bronze.json
+51585520e1a2254df2333912dfe3e4b9ac32a798 data/tfc_weapons_plus/recipe/anvil/metal/greatsword_blade/copper.json
+7afc337ac18f91e52b9a58f4384fee31931a1b3e data/tfc_weapons_plus/recipe/anvil/metal/greatsword_blade/red_steel.json
+8cc13e376ed26d49cd9dc9b06f8fb653546f415d data/tfc_weapons_plus/recipe/anvil/metal/greatsword_blade/steel.json
+2a899ab62432da9f2a5cbcbcea0da36ffa0f2f23 data/tfc_weapons_plus/recipe/anvil/metal/greatsword_blade/wrought_iron.json
 681db3da5df04c10f9d4d8b3eb9c04108603f58c data/tfc_weapons_plus/recipe/anvil/metal/guard/bismuth_bronze.json
 600bdbd380d459cf7f99483f60d1c1d66e46a5b0 data/tfc_weapons_plus/recipe/anvil/metal/guard/black_bronze.json
 17dc1fa5670e8d4c051d490fc797f69730925565 data/tfc_weapons_plus/recipe/anvil/metal/guard/black_steel.json
@@ -27,6 +36,15 @@ e564a3a3f88073fadefcf2a1fd07080ff60fa86a data/tfc_weapons_plus/recipe/anvil/meta
 f6a9be7586a4fcbac96046588ca0df2c7ee5ffa3 data/tfc_weapons_plus/recipe/anvil/metal/pommel/steel.json
 14425cf13f5304e4778b2e9692234a7483a49ea6 data/tfc_weapons_plus/recipe/anvil/metal/pommel/wrought_iron.json
 895138802053949ec52955c6e1dc4443c4ee562d data/tfc_weapons_plus/recipe/anvil/wood/grip.json
+78ad3ff660565e8027761055f7e5b2536c4f6119 data/tfc_weapons_plus/recipe/heating/metal/greatsword_blade/bismuth_bronze.json
+718c2f06be5efa9a1e6e3240852465c390fd0157 data/tfc_weapons_plus/recipe/heating/metal/greatsword_blade/black_bronze.json
+e5d057530a0d35e8dd77dbcdd8b83e0b6a5f3de8 data/tfc_weapons_plus/recipe/heating/metal/greatsword_blade/black_steel.json
+2786da89a5dac1cffd7c4a0e2e763e4e4b53a51d data/tfc_weapons_plus/recipe/heating/metal/greatsword_blade/blue_steel.json
+a4caacf7a6c8cf23592088468e4519e93ccd57c3 data/tfc_weapons_plus/recipe/heating/metal/greatsword_blade/bronze.json
+e39d953c365cf7ddf7c9608c2ca32f9d3b49fd93 data/tfc_weapons_plus/recipe/heating/metal/greatsword_blade/copper.json
+98dfaf246a18501c98ca69123e0eaecf0ba67289 data/tfc_weapons_plus/recipe/heating/metal/greatsword_blade/red_steel.json
+125138361392e27f1aa09d2902df078150e9b8dc data/tfc_weapons_plus/recipe/heating/metal/greatsword_blade/steel.json
+5831cc2abbd53bc0ce067d7348c5d179c0ced2b5 data/tfc_weapons_plus/recipe/heating/metal/greatsword_blade/wrought_iron.json
 8eed30722d2183bfb2accc523c3b7051dbe8a954 data/tfc_weapons_plus/recipe/heating/metal/guard/bismuth_bronze.json
 3fd0f9b855115b1f93b99fe40b6b7724bfd88dc8 data/tfc_weapons_plus/recipe/heating/metal/guard/black_bronze.json
 05ab77efb86fd61518c6163e87aae3b875c9e814 data/tfc_weapons_plus/recipe/heating/metal/guard/black_steel.json

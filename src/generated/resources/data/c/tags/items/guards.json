@@ -1,14 +1,14 @@
 {
   "replace": false,
   "values": [
-    "tfc_weapons_plus:metal/guard/steel",
-    "tfc_weapons_plus:metal/guard/black_bronze",
-    "tfc_weapons_plus:metal/guard/wrought_iron",
-    "tfc_weapons_plus:metal/guard/bismuth_bronze",
-    "tfc_weapons_plus:metal/guard/copper",
-    "tfc_weapons_plus:metal/guard/red_steel",
     "tfc_weapons_plus:metal/guard/black_steel",
-    "tfc_weapons_plus:metal/guard/blue_steel",
-    "tfc_weapons_plus:metal/guard/bronze"
+    "tfc_weapons_plus:metal/guard/red_steel",
+    "tfc_weapons_plus:metal/guard/copper",
+    "tfc_weapons_plus:metal/guard/bismuth_bronze",
+    "tfc_weapons_plus:metal/guard/wrought_iron",
+    "tfc_weapons_plus:metal/guard/black_bronze",
+    "tfc_weapons_plus:metal/guard/steel",
+    "tfc_weapons_plus:metal/guard/bronze",
+    "tfc_weapons_plus:metal/guard/blue_steel"
   ]
 }

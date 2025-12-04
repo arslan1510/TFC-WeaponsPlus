@@ -65,6 +65,13 @@ public final class ModItemTagsProvider implements DataProvider {
                     ResourceLocation tfcMetalTagId = ResourceLocation.fromNamespaceAndPath("tfc", "metal/" + normalizedMetal);
                     futures.add(createTagFile(output, tfcMetalTagId, blade, tfcTagPathProvider));
                 });
+                
+                // Greatsword blade tags
+                ModItems.getGreatswordBladeForMetal(metalName).ifPresent(blade -> {
+                    // TFC metal tag so greatsword blade can be melted
+                    ResourceLocation tfcMetalTagId = ResourceLocation.fromNamespaceAndPath("tfc", "metal/" + normalizedMetal);
+                    futures.add(createTagFile(output, tfcMetalTagId, blade, tfcTagPathProvider));
+                });
             });
             
             // General common tags
@@ -108,6 +115,26 @@ public final class ModItemTagsProvider implements DataProvider {
                 futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("tfc", "deals_slashing_damage"), allLongswords, tfcTagPathProvider));
             }
             
+            // Collect all greatswords for general tags
+            var allGreatswords = MetalHelper.getAllMetalNames()
+                .map(ModItems::getGreatswordForMetal)
+                .filter(java.util.Optional::isPresent)
+                .map(java.util.Optional::get)
+                .toList();
+            
+            if (!allGreatswords.isEmpty()) {
+                // Add all greatswords to common tool tags (these will be merged with existing tags)
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools"), allGreatswords, commonTagPathProvider));
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools/swords"), allGreatswords, commonTagPathProvider));
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools/melee_weapons"), allGreatswords, commonTagPathProvider));
+                
+                // Add all greatswords to minecraft:swords tag (TFC's deals_slashing_damage references this)
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("minecraft", "swords"), allGreatswords, commonTagPathProvider));
+                
+                // Add all greatswords to TFC slashing damage tag
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("tfc", "deals_slashing_damage"), allGreatswords, tfcTagPathProvider));
+            }
+            
             // Add longswords to TFC metal-specific tool tags (like tfc:tools/red_steel)
             // This matches how TFC includes swords in their metal tool tags
             MetalHelper.getAllMetalNames().forEach(metalName -> {
@@ -116,6 +143,13 @@ public final class ModItemTagsProvider implements DataProvider {
                     // TFC tool tag for this metal (e.g., tfc:tools/red_steel)
                     ResourceLocation tfcToolTagId = ResourceLocation.fromNamespaceAndPath("tfc", "tools/" + normalizedMetal);
                     futures.add(createTagFile(output, tfcToolTagId, longsword, tfcTagPathProvider));
+                });
+                
+                // Add greatswords to TFC metal-specific tool tags
+                ModItems.getGreatswordForMetal(metalName).ifPresent(greatsword -> {
+                    // TFC tool tag for this metal (e.g., tfc:tools/red_steel)
+                    ResourceLocation tfcToolTagId = ResourceLocation.fromNamespaceAndPath("tfc", "tools/" + normalizedMetal);
+                    futures.add(createTagFile(output, tfcToolTagId, greatsword, tfcTagPathProvider));
                 });
             });
             

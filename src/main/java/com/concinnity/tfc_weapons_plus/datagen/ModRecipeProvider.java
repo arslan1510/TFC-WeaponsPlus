@@ -26,6 +26,7 @@ public final class ModRecipeProvider extends RecipeProvider {
         generateHiltAssemblyRecipes(output);
         generateSwordAssemblyRecipes(output);
         generateLongswordAssemblyRecipes(output);
+        generateGreatswordAssemblyRecipes(output);
     }
     
     /**
@@ -127,6 +128,36 @@ public final class ModRecipeProvider extends RecipeProvider {
         // Generate recipes for same-metal combinations only
         MetalHelper.getAllMetalNames().forEach(metalName -> {
             createLongswordAssemblyRecipe(output, metalName);
+        });
+    }
+    
+    /**
+     * Create greatsword assembly recipe: greatsword = greatsword_blade + hilt (crafting table)
+     * Blade and hilt must be the same metal
+     */
+    private void createGreatswordAssemblyRecipe(RecipeOutput output, String metalName) {
+        ModItems.getHiltForMetal(metalName).ifPresent(hilt -> {
+            ModItems.getGreatswordBladeForMetal(metalName).ifPresent(blade -> {
+                ModItems.getGreatswordForMetal(metalName).ifPresent(greatsword -> {
+                    String normalizedMetal = normalizeMetalName(metalName);
+                    
+                    ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, greatsword)
+                        .pattern("B")
+                        .pattern("H")
+                        .define('B', blade)
+                        .define('H', hilt)
+                        .unlockedBy("has_hilt", has(hilt))
+                        .unlockedBy("has_blade", has(blade))
+                        .save(output, "metal/greatsword/assembly_" + normalizedMetal);
+                });
+            });
+        });
+    }
+    
+    private void generateGreatswordAssemblyRecipes(RecipeOutput output) {
+        // Generate recipes for same-metal combinations only
+        MetalHelper.getAllMetalNames().forEach(metalName -> {
+            createGreatswordAssemblyRecipe(output, metalName);
         });
     }
     

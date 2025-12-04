@@ -1,4 +1,13 @@
-// 1.21.1	2025-12-04T15:48:34.462970962	TFC Item Heat Data
+// 1.21.1	2025-12-04T18:47:01.406501116	TFC Item Heat Data
+5c043ac33767f54157333f7f6cb9c8e082460c21 data/tfc/item_heat/metal/greatsword_blade/bismuth_bronze.json
+e77d6dd005cdfe15feec954e04030f9b69e7b754 data/tfc/item_heat/metal/greatsword_blade/black_bronze.json
+3f22217ba68ca10ed30a9d156351139555ad5013 data/tfc/item_heat/metal/greatsword_blade/black_steel.json
+e71dcf730e5d47983b4cc7882a89d61b6e97ad90 data/tfc/item_heat/metal/greatsword_blade/blue_steel.json
+97579d6e929cfb8076f2685350380e4c3f7c49d4 data/tfc/item_heat/metal/greatsword_blade/bronze.json
+0b98d378e0337619ec178e3f795fa48bf57dc081 data/tfc/item_heat/metal/greatsword_blade/copper.json
+3eb3e7d53f9f6b6943f97632e6a1d00eebf59c70 data/tfc/item_heat/metal/greatsword_blade/red_steel.json
+f41c3d01caeb2c8564692a4106264678e0435bd6 data/tfc/item_heat/metal/greatsword_blade/steel.json
+fc7738a32bb990eaf9a9f6cca2d9c217c3111fec data/tfc/item_heat/metal/greatsword_blade/wrought_iron.json
 b904642d2fdf04fcc76918232e27ce0589261960 data/tfc/item_heat/metal/guard/bismuth_bronze.json
 ef04668438fd3cb03b80c2cad5819efe51ee323b data/tfc/item_heat/metal/guard/black_bronze.json
 e4f34fb917381c643ab506fcdbf64275de838876 data/tfc/item_heat/metal/guard/black_steel.json

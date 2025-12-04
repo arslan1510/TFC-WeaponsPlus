@@ -1,4 +1,22 @@
-// 1.21.1	2025-12-04T16:17:34.738219105	Item Models: tfc_weapons_plus
+// 1.21.1	2025-12-04T18:47:01.404678932	Item Models: tfc_weapons_plus
+c9e5090dd1138960b524c70642c878b6d009ef83 assets/tfc_weapons_plus/models/item/metal/greatsword/bismuth_bronze.json
+ef7ed629914efddf527dd8dac4d4290c4b7707a1 assets/tfc_weapons_plus/models/item/metal/greatsword/black_bronze.json
+eb62d7e7101aab5a8b984438d6e6f0f279ec3419 assets/tfc_weapons_plus/models/item/metal/greatsword/black_steel.json
+c570615ef8908ad22eedddb411df746aca6d1842 assets/tfc_weapons_plus/models/item/metal/greatsword/blue_steel.json
+cb52d4ea981dae96b84e9793d5161f0c6c974676 assets/tfc_weapons_plus/models/item/metal/greatsword/bronze.json
+77f797c7c656bd4c1dda6a69cdc3a3b87473f93b assets/tfc_weapons_plus/models/item/metal/greatsword/copper.json
+3716e323b8d7e228cb5d6d03fbd735e80ec1152e assets/tfc_weapons_plus/models/item/metal/greatsword/red_steel.json
+e95045534771353818e0137fc75b78937d73f9f1 assets/tfc_weapons_plus/models/item/metal/greatsword/steel.json
+36326b24e2010d94e1cbc57b4ddd8976e948f636 assets/tfc_weapons_plus/models/item/metal/greatsword/wrought_iron.json
+efbbfe2c95e4e0979ab7337ec40a2b4d496547ec assets/tfc_weapons_plus/models/item/metal/greatsword_blade/bismuth_bronze.json
+ec5cba90a7bce7afaf6571c708d88418033439fe assets/tfc_weapons_plus/models/item/metal/greatsword_blade/black_bronze.json
+a157f5b59a0cafb91c36a7da370af330542284bd assets/tfc_weapons_plus/models/item/metal/greatsword_blade/black_steel.json
+118d2766dbc458fbd54adb437f229cc0037dbf5e assets/tfc_weapons_plus/models/item/metal/greatsword_blade/blue_steel.json
+213e571e61b877f23709bb66d4c6c78cea46752f assets/tfc_weapons_plus/models/item/metal/greatsword_blade/bronze.json
+68e30e64bed9d2183b7070db4f4ceacc9cf07bf6 assets/tfc_weapons_plus/models/item/metal/greatsword_blade/copper.json
+1d1de00509c7043c66cc43e58405da5746d70b5c assets/tfc_weapons_plus/models/item/metal/greatsword_blade/red_steel.json
+684b28495f19e317c78718f1fbc4baae9139a128 assets/tfc_weapons_plus/models/item/metal/greatsword_blade/steel.json
+4e5d3210e3f9dcddfb7f510f352ed43b9e94023f assets/tfc_weapons_plus/models/item/metal/greatsword_blade/wrought_iron.json
 3057626f7eb76fbd7c0aa357059c176101685f34 assets/tfc_weapons_plus/models/item/metal/guard/bismuth_bronze.json
 47effe88431412503fd415f99c5e4dfe3b1ebb33 assets/tfc_weapons_plus/models/item/metal/guard/black_bronze.json
 eddd5342fa551e6533aed155088b6fa003c98c09 assets/tfc_weapons_plus/models/item/metal/guard/black_steel.json

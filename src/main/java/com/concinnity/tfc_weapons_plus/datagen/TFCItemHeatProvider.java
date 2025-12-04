@@ -36,7 +36,8 @@ public final class TFCItemHeatProvider implements DataProvider {
                 .flatMap(metalName -> Stream.of(
                     generateItemHeat(metalName, ModItems.getGuardForMetal(metalName), output),
                     generateItemHeat(metalName, ModItems.getPommelForMetal(metalName), output),
-                    generateLongswordBladeHeat(metalName, output)
+                    generateLongswordBladeHeat(metalName, output),
+                    generateGreatswordBladeHeat(metalName, output)
                 ))
                 .filter(future -> future != null)
                 .toList();
@@ -64,6 +65,35 @@ public final class TFCItemHeatProvider implements DataProvider {
                 ingredientObj.addProperty("item", bladeId);
                 heatData.add("ingredient", ingredientObj);
                 heatData.addProperty("heat_capacity", 5.714f); // Double ingot (200 units / 35 = 5.714)
+                heatData.addProperty("forging_temperature", (float) props.meltingPoint());
+                heatData.addProperty("welding_temperature", (float) props.meltingPoint());
+                
+                // Save to TFC namespace: data/tfc/item_heat/{item_path}.json
+                String itemPath = bladeId.replace(TFCWeaponsPlus.MODID + ":", "");
+                return saveItemHeat(output, heatData, itemPath);
+            })
+            .orElse(CompletableFuture.completedFuture(null));
+    }
+    
+    private CompletableFuture<?> generateGreatswordBladeHeat(String metalName, CachedOutput output) {
+        String normalizedMetal = normalizeMetalName(metalName);
+        String bladeId = TFCWeaponsPlus.MODID + ":metal/greatsword_blade/" + normalizedMetal;
+        ResourceLocation bladeLoc = ResourceLocation.parse(bladeId);
+        
+        // Check if greatsword blade item exists in registry
+        if (!BuiltInRegistries.ITEM.containsKey(bladeLoc)) {
+            return CompletableFuture.completedFuture(null);
+        }
+        
+        return MetalHelper.getMetalProperties(metalName)
+            .map(props -> {
+                // Create item_heat JSON for greatsword blade
+                // Greatsword blade uses double_sheets, so heat capacity should be 4x ingot (400 units / 35 = 11.428)
+                JsonObject heatData = new JsonObject();
+                JsonObject ingredientObj = new JsonObject();
+                ingredientObj.addProperty("item", bladeId);
+                heatData.add("ingredient", ingredientObj);
+                heatData.addProperty("heat_capacity", 11.428f); // Double sheet (400 units / 35 = 11.428)
                 heatData.addProperty("forging_temperature", (float) props.meltingPoint());
                 heatData.addProperty("welding_temperature", (float) props.meltingPoint());
                 

@@ -113,6 +113,24 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
             });
         }
         
+        // Greatsword blade from double sheet - requires more material than regular sword
+        // Check if greatsword blade item exists (will be registered separately)
+        String greatswordBladeId = TFCWeaponsPlus.MODID + ":metal/greatsword_blade/" + normalizedMetal;
+        ResourceLocation greatswordBladeLoc = ResourceLocation.parse(greatswordBladeId);
+        if (BuiltInRegistries.ITEM.containsKey(greatswordBladeLoc)) {
+            MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
+                futures.add(createAnvilRecipeWithTag(
+                    output,
+                    "metal/greatsword_blade/" + normalizedMetal,
+                    "c:double_sheets/" + normalizedMetal,
+                    greatswordBladeId,
+                    props.tier(),
+                    // TFC sword blade sequence: bend third-to-last, bend second-to-last, hit last
+                    List.of("bend_third_last", "bend_second_last", "hit_last")
+                ));
+            });
+        }
+        
         return futures.stream();
     }
     
@@ -201,6 +219,22 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
                     longswordBladeId,
                     props.meltingPoint(),
                     200, // Double ingot = 200 units (same as TFC sword blade)
+                    normalizedMetal
+                ));
+            });
+        }
+        
+        // Greatsword blade heating recipe - double sheet = 400 units
+        String greatswordBladeId = TFCWeaponsPlus.MODID + ":metal/greatsword_blade/" + normalizedMetal;
+        ResourceLocation greatswordBladeLoc = ResourceLocation.parse(greatswordBladeId);
+        if (BuiltInRegistries.ITEM.containsKey(greatswordBladeLoc)) {
+            MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
+                futures.add(createHeatingRecipe(
+                    output,
+                    "metal/greatsword_blade/" + normalizedMetal,
+                    greatswordBladeId,
+                    props.meltingPoint(),
+                    400, // Double sheet = 400 units (more than double ingot)
                     normalizedMetal
                 ));
             });

@@ -59,6 +59,13 @@ public final class ModItemModelProvider extends ItemModelProvider {
                 withExistingParent("item/metal/longsword_blade/" + normalizedMetal, mcLoc("item/handheld"))
                     .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/longsword_blade/" + normalizedMetal));
             });
+            
+            // Greatsword blade models - Model path must match item ID: item/metal/greatsword_blade/{metal}
+            // Using item/handheld for 3D appearance
+            ModItems.getGreatswordBladeForMetal(metalName).ifPresent(blade -> {
+                withExistingParent("item/metal/greatsword_blade/" + normalizedMetal, mcLoc("item/handheld"))
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/greatsword_blade/" + normalizedMetal));
+            });
         });
         
         // Generate models for longswords (same metal for blade and hilt)
@@ -70,6 +77,18 @@ public final class ModItemModelProvider extends ItemModelProvider {
             ModItems.getLongswordForMetal(metalName).ifPresent(longsword -> {
                 withExistingParent(modelPath, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/template_longsword"))
                     .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/longsword/" + normalizedMetal));
+            });
+        });
+        
+        // Generate models for greatswords (same metal for blade and hilt)
+        // Use local template_greatsword model for proper sizing when held
+        MetalHelper.getAllMetalNames().forEach(metalName -> {
+            String normalizedMetal = normalizeMetalName(metalName);
+            String modelPath = "item/metal/greatsword/" + normalizedMetal;
+            
+            ModItems.getGreatswordForMetal(metalName).ifPresent(greatsword -> {
+                withExistingParent(modelPath, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/template_greatsword"))
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/greatsword/" + normalizedMetal));
             });
         });
     }

@@ -36,6 +36,13 @@ public final class ModItems {
     // Key format: metal name
     public static final Map<String, DeferredItem<Item>> LONGSWORD_VARIANTS = new HashMap<>();
     
+    // Greatsword blade variants (9 metals)
+    public static final Map<String, DeferredItem<Item>> GREATSWORD_BLADE_VARIANTS = new HashMap<>();
+    
+    // Greatsword items (9 metals - blade and hilt must match)
+    // Key format: metal name
+    public static final Map<String, DeferredItem<Item>> GREATSWORD_VARIANTS = new HashMap<>();
+    
     static {
         // Register metal variants for guard, pommel, and hilt
         MetalHelper.getAllMetalNames().forEach(metalName -> {
@@ -69,6 +76,22 @@ public final class ModItems {
                 LONGSWORD_VARIANTS.put(metalName, ITEMS.register(longswordId, 
                     () -> new LongswordItem(metalName, weaponProps)));
             });
+            
+            // Register greatsword blade for this metal
+            String greatswordBladeId = "metal/greatsword_blade/" + normalizedMetal;
+            GREATSWORD_BLADE_VARIANTS.put(metalName, ITEMS.register(greatswordBladeId, 
+                () -> new MetalComponentItem(ComponentType.GREATSWORD_BLADE, metalName, new Item.Properties())));
+            
+            // Register greatsword for this metal (blade and hilt must match)
+            // Use weapon properties with durability matching TFC sword
+            String greatswordId = "metal/greatsword/" + normalizedMetal;
+            MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
+                Item.Properties weaponProps = new Item.Properties()
+                    .durability(props.durability());
+                
+                GREATSWORD_VARIANTS.put(metalName, ITEMS.register(greatswordId, 
+                    () -> new GreatswordItem(metalName, weaponProps)));
+            });
         });
     }
     
@@ -86,7 +109,13 @@ public final class ModItems {
                         HILT_VARIANTS.values().stream().map(DeferredItem::get),
                         Stream.concat(
                             LONGSWORD_BLADE_VARIANTS.values().stream().map(DeferredItem::get),
-                            LONGSWORD_VARIANTS.values().stream().map(DeferredItem::get)
+                            Stream.concat(
+                                LONGSWORD_VARIANTS.values().stream().map(DeferredItem::get),
+                                Stream.concat(
+                                    GREATSWORD_BLADE_VARIANTS.values().stream().map(DeferredItem::get),
+                                    GREATSWORD_VARIANTS.values().stream().map(DeferredItem::get)
+                                )
+                            )
                         )
                     )
                 )
@@ -131,6 +160,22 @@ public final class ModItems {
      */
     public static Optional<Item> getLongswordForMetal(String metalName) {
         return Optional.ofNullable(LONGSWORD_VARIANTS.get(metalName))
+            .map(DeferredItem::get);
+    }
+    
+    /**
+     * Get greatsword blade item for a specific metal
+     */
+    public static Optional<Item> getGreatswordBladeForMetal(String metalName) {
+        return Optional.ofNullable(GREATSWORD_BLADE_VARIANTS.get(metalName))
+            .map(DeferredItem::get);
+    }
+    
+    /**
+     * Get greatsword item for a specific metal (blade and hilt are the same metal)
+     */
+    public static Optional<Item> getGreatswordForMetal(String metalName) {
+        return Optional.ofNullable(GREATSWORD_VARIANTS.get(metalName))
             .map(DeferredItem::get);
     }
     
