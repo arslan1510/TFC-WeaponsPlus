@@ -18,7 +18,6 @@ public final class ModDataGenerators {
         generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new TFCAnvilRecipeProvider(packOutput, lookupProvider));
-        generator.addProvider(event.includeServer(), new TFCWeldingRecipeProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new TFCItemHeatProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), new ModItemTagsProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeClient(), new ModLanguageProvider(packOutput, "en_us"));

@@ -53,10 +53,11 @@ def create_hilt_texture(grip_path, guard_path, pommel_path, output_path):
     if grip.size != (16, 16):
         grip = grip.resize((16, 16), Image.Resampling.LANCZOS)
     
-    # Make guard bigger (scale up to 20x20)
+    # Make guard bigger (scale up to 24x24 for thicker appearance)
     guard = Image.open(guard_path).convert("RGBA")
-    if guard.size != (20, 20):
-        guard = guard.resize((20, 20), Image.Resampling.LANCZOS)
+    guard_size = 24  # Increased from 20 to 24 for thicker guard
+    if guard.size != (guard_size, guard_size):
+        guard = guard.resize((guard_size, guard_size), Image.Resampling.LANCZOS)
     
     # Make pommel 25% smaller (16 * 0.75 = 12x12)
     pommel = Image.open(pommel_path).convert("RGBA")
@@ -71,15 +72,15 @@ def create_hilt_texture(grip_path, guard_path, pommel_path, output_path):
     # Position components vertically (from bottom to top for layering):
     # 1. Draw grip first (base layer, middle section)
     grip_x = (output_size[0] - grip.width) // 2
-    hilt_texture.paste(grip, (grip_x, 10), grip)  # Base layer
+    hilt_texture.paste(grip, (grip_x, 8), grip)  # Base layer
     
     # 2. Draw pommel on top of grip (centered horizontally, top section)
     pommel_x = (output_size[0] - pommel.width) // 2
-    hilt_texture.paste(pommel, (pommel_x, 5), pommel)  # On top of grip layer-wise
+    hilt_texture.paste(pommel, (pommel_x, 3), pommel)  # On top of grip layer-wise
     
     # 3. Draw guard below grip (centered horizontally, bottom section)
     guard_x = (output_size[0] - guard.width) // 2
-    hilt_texture.paste(guard, (guard_x, 16), guard)  # Below grip
+    hilt_texture.paste(guard, (guard_x, 12), guard)  # Below grip
     
     # Clean up alpha edges to remove surrounding semi-transparent pixels
     hilt_texture = clean_alpha_edges(hilt_texture)
