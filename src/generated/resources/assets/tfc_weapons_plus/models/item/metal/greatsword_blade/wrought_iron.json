@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "tfc_weapons_plus:item/template_greatsword_blade",
   "textures": {
     "layer0": "tfc_weapons_plus:item/metal/greatsword_blade/wrought_iron"
   }

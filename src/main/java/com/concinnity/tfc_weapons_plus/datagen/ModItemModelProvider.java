@@ -55,16 +55,16 @@ public final class ModItemModelProvider extends ItemModelProvider {
                 .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/hilt/" + normalizedMetal));
             
             // Longsword blade models - Model path must match item ID: item/metal/longsword_blade/{metal}
-            // Using item/handheld for 3D appearance
+            // Use local template_longsword_blade model for proper sizing and GUI display
             ModItems.getLongswordBladeForMetal(metalName).ifPresent(blade -> {
-                withExistingParent("item/metal/longsword_blade/" + normalizedMetal, mcLoc("item/handheld"))
+                withExistingParent("item/metal/longsword_blade/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/template_longsword_blade"))
                     .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/longsword_blade/" + normalizedMetal));
             });
             
             // Greatsword blade models - Model path must match item ID: item/metal/greatsword_blade/{metal}
-            // Using item/handheld for 3D appearance
+            // Use local template_greatsword_blade model for proper sizing and GUI display
             ModItems.getGreatswordBladeForMetal(metalName).ifPresent(blade -> {
-                withExistingParent("item/metal/greatsword_blade/" + normalizedMetal, mcLoc("item/handheld"))
+                withExistingParent("item/metal/greatsword_blade/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/template_greatsword_blade"))
                     .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/greatsword_blade/" + normalizedMetal));
             });
         });
