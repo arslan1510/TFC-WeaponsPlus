@@ -101,9 +101,23 @@ public final class ModItemTagsProvider implements DataProvider {
                 futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools/swords"), allLongswords, commonTagPathProvider));
                 futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools/melee_weapons"), allLongswords, commonTagPathProvider));
                 
+                // Add all longswords to minecraft:swords tag (TFC's deals_slashing_damage references this)
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("minecraft", "swords"), allLongswords, commonTagPathProvider));
+                
                 // Add all longswords to TFC slashing damage tag
                 futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("tfc", "deals_slashing_damage"), allLongswords, tfcTagPathProvider));
             }
+            
+            // Add longswords to TFC metal-specific tool tags (like tfc:tools/red_steel)
+            // This matches how TFC includes swords in their metal tool tags
+            MetalHelper.getAllMetalNames().forEach(metalName -> {
+                String normalizedMetal = normalizeMetalName(metalName);
+                ModItems.getLongswordForMetal(metalName).ifPresent(longsword -> {
+                    // TFC tool tag for this metal (e.g., tfc:tools/red_steel)
+                    ResourceLocation tfcToolTagId = ResourceLocation.fromNamespaceAndPath("tfc", "tools/" + normalizedMetal);
+                    futures.add(createTagFile(output, tfcToolTagId, longsword, tfcTagPathProvider));
+                });
+            });
             
             return CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
         });

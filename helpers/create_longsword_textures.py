@@ -146,7 +146,7 @@ def create_longsword_texture(blade_path, hilt_path, output_path):
     
     # Rotate hilt to specified rotation (132 degrees)
     # Using BICUBIC for rotation (LANCZOS not supported for rotation in this PIL version)
-    hilt_rotation = 132
+    hilt_rotation = 135
     # Using expand=True to ensure rotated image fits in canvas
     hilt = hilt.rotate(hilt_rotation, expand=True, resample=Image.Resampling.BICUBIC)
     # Remove black pixels that may appear after rotation
@@ -209,7 +209,7 @@ def create_longsword_texture(blade_path, hilt_path, output_path):
     # Position blade first (base layer)
     # Use alpha composite for proper transparency handling
     blade_x_offset = 1
-    blade_y_offset = -11
+    blade_y_offset = -12
     blade_x = (output_size[0] - blade.width) // 2 + blade_x_offset
     blade_y = blade_y_offset
     # Create a temporary image for proper alpha compositing
