@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-04T14:08:33.901710666	TFC Anvil Recipes
+// 1.21.1	2025-12-04T15:48:34.461074305	TFC Anvil Recipes
 681db3da5df04c10f9d4d8b3eb9c04108603f58c data/tfc_weapons_plus/recipe/anvil/metal/guard/bismuth_bronze.json
 600bdbd380d459cf7f99483f60d1c1d66e46a5b0 data/tfc_weapons_plus/recipe/anvil/metal/guard/black_bronze.json
 17dc1fa5670e8d4c051d490fc797f69730925565 data/tfc_weapons_plus/recipe/anvil/metal/guard/black_steel.json
@@ -8,6 +8,15 @@
 81b8d9278e4f01a52886d2b17564923c6b999071 data/tfc_weapons_plus/recipe/anvil/metal/guard/red_steel.json
 9c81330b5a8f788b463133b35df87491172c7d53 data/tfc_weapons_plus/recipe/anvil/metal/guard/steel.json
 106b43e4f210bc38026d1011120d6e499223ce80 data/tfc_weapons_plus/recipe/anvil/metal/guard/wrought_iron.json
+c8d5696eb64cdd47b292ef9bb16fbea4b431b639 data/tfc_weapons_plus/recipe/anvil/metal/longsword_blade/bismuth_bronze.json
+b0194ae1df6a2e1ae1b9e195dc6640c08c600c5c data/tfc_weapons_plus/recipe/anvil/metal/longsword_blade/black_bronze.json
+de91e9cfa88c47b490568b90c7bbaf5f2485ac5a data/tfc_weapons_plus/recipe/anvil/metal/longsword_blade/black_steel.json
+937b2445ec8a30b130292637a4193ac64e989565 data/tfc_weapons_plus/recipe/anvil/metal/longsword_blade/blue_steel.json
+4521782d93678c9b826d8173caf5c72fcafeab19 data/tfc_weapons_plus/recipe/anvil/metal/longsword_blade/bronze.json
+44d40d4a4b7a467832afda77c291b0e8f159e4c3 data/tfc_weapons_plus/recipe/anvil/metal/longsword_blade/copper.json
+ab2619189b0e130fde1529fa3e66e6f0084a6be2 data/tfc_weapons_plus/recipe/anvil/metal/longsword_blade/red_steel.json
+fa19f778da49d77c0fb2e735f0b9db199edb4dd9 data/tfc_weapons_plus/recipe/anvil/metal/longsword_blade/steel.json
+c96064f23e0cfbd894405a3758942f0e9b7a443b data/tfc_weapons_plus/recipe/anvil/metal/longsword_blade/wrought_iron.json
 508bbdf9796fe9b81c06ac7b8a741ae9c068728f data/tfc_weapons_plus/recipe/anvil/metal/pommel/bismuth_bronze.json
 a4d269706d0ab44c40da94b78107ad20cecfe290 data/tfc_weapons_plus/recipe/anvil/metal/pommel/black_bronze.json
 a53e22f56261f5f9cf0e3dc5602a21a3f9bc8d8e data/tfc_weapons_plus/recipe/anvil/metal/pommel/black_steel.json

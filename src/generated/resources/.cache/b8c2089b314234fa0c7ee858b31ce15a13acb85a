@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-04T14:08:33.900227631	Item Tags (Common & TFC)
+// 1.21.1	2025-12-04T16:34:13.305350029	Item Tags (Common & TFC)
 209a9625851d5aad4aa976cfa6204083bb49a1ef data/c/tags/items/guard/bismuth_bronze.json
 3faa31f730393e5541682baaf0ea57ddd36fb4a3 data/c/tags/items/guard/black_bronze.json
 a62ccf630438f4e61fc92e5832614fb587164803 data/c/tags/items/guard/black_steel.json
@@ -8,7 +8,7 @@ efd1042f9de3cf11ee7512341cf1a1c79e2366fe data/c/tags/items/guard/copper.json
 7e9c3eb7e01dceddaac1cef0a3d951f0d7ef51b0 data/c/tags/items/guard/red_steel.json
 8f8e6632d4134403a60dfb403072a7134b4d1ce1 data/c/tags/items/guard/steel.json
 bca23ff1f80ba2c9dbf9d445065ef546c946dc26 data/c/tags/items/guard/wrought_iron.json
-7715d86dece9d4300eb4a20ed89a00a0dd06a94a data/c/tags/items/guards.json
+161e3f41cb2d7ef4f4f2eeb03a80bb7d9305057a data/c/tags/items/guards.json
 07bc97bae9da2fa296b010ec6609ee2ca72d216d data/c/tags/items/pommel/bismuth_bronze.json
 7cde18239d5d9ace3d028750a8d5b4af6b60d5bb data/c/tags/items/pommel/black_bronze.json
 ba64a1cf6b190e1d328f3b9f5917bc4bd75d4c29 data/c/tags/items/pommel/black_steel.json
@@ -18,13 +18,17 @@ c4e40c58db674db3d6a075e4944dc7d6e6e78a96 data/c/tags/items/pommel/copper.json
 4d39d1c126fd9d390e56a5a16b1a496b921a5a9d data/c/tags/items/pommel/red_steel.json
 6d82fc3f28e92664ee0f51c4519278801e40d810 data/c/tags/items/pommel/steel.json
 d28283b07745ba16596a1e4649a9a2ff54f3073c data/c/tags/items/pommel/wrought_iron.json
-749edb2abaef8922b37a30f3ed78b97c47ae999f data/c/tags/items/pommels.json
-07bc97bae9da2fa296b010ec6609ee2ca72d216d data/tfc/tags/items/metal/bismuth_bronze.json
+fcf38e0e917d5033bc1cc859e8bf2c98f63278eb data/c/tags/items/pommels.json
+7fb4938cce97ed9c6baab66d2475e3e612323a93 data/c/tags/items/tools.json
+7fb4938cce97ed9c6baab66d2475e3e612323a93 data/c/tags/items/tools/melee_weapons.json
+7fb4938cce97ed9c6baab66d2475e3e612323a93 data/c/tags/items/tools/swords.json
+7fb4938cce97ed9c6baab66d2475e3e612323a93 data/tfc/tags/items/deals_slashing_damage.json
+209a9625851d5aad4aa976cfa6204083bb49a1ef data/tfc/tags/items/metal/bismuth_bronze.json
 7cde18239d5d9ace3d028750a8d5b4af6b60d5bb data/tfc/tags/items/metal/black_bronze.json
-ba64a1cf6b190e1d328f3b9f5917bc4bd75d4c29 data/tfc/tags/items/metal/black_steel.json
+a62ccf630438f4e61fc92e5832614fb587164803 data/tfc/tags/items/metal/black_steel.json
 f1a2be842914a571bc55e38271e23bc1d22a4fee data/tfc/tags/items/metal/blue_steel.json
-a7e3969f6b03b5bb8663eaf7b12c5a2d6506bb5b data/tfc/tags/items/metal/bronze.json
-c4e40c58db674db3d6a075e4944dc7d6e6e78a96 data/tfc/tags/items/metal/copper.json
-4d39d1c126fd9d390e56a5a16b1a496b921a5a9d data/tfc/tags/items/metal/red_steel.json
-6d82fc3f28e92664ee0f51c4519278801e40d810 data/tfc/tags/items/metal/steel.json
+4e01961e359b7b7e28b683feb862c37ec20152bd data/tfc/tags/items/metal/bronze.json
+39e55ff85a901bc120dc4c1ec42a1f473487b5ce data/tfc/tags/items/metal/copper.json
+7e9c3eb7e01dceddaac1cef0a3d951f0d7ef51b0 data/tfc/tags/items/metal/red_steel.json
+f49fe3a15182f2e959462d7d5494b6b1adee01dc data/tfc/tags/items/metal/steel.json
 d28283b07745ba16596a1e4649a9a2ff54f3073c data/tfc/tags/items/metal/wrought_iron.json

@@ -29,6 +29,13 @@ public final class ModItems {
     public static final Map<String, DeferredItem<Item>> POMMEL_VARIANTS = new HashMap<>();
     public static final Map<String, DeferredItem<Item>> HILT_VARIANTS = new HashMap<>();
     
+    // Longsword blade variants (9 metals)
+    public static final Map<String, DeferredItem<Item>> LONGSWORD_BLADE_VARIANTS = new HashMap<>();
+    
+    // Longsword items (9 metals - blade and hilt must match)
+    // Key format: metal name
+    public static final Map<String, DeferredItem<Item>> LONGSWORD_VARIANTS = new HashMap<>();
+    
     static {
         // Register metal variants for guard, pommel, and hilt
         MetalHelper.getAllMetalNames().forEach(metalName -> {
@@ -46,12 +53,27 @@ public final class ModItems {
             // Hilt is assembled from grip + guard + pommel, but has metal-specific visual
             HILT_VARIANTS.put(metalName, ITEMS.register(hiltId, 
                 () -> new MetalComponentItem(ComponentType.HILT, metalName, new Item.Properties())));
+            
+            // Register longsword blade for this metal
+            String longswordBladeId = "metal/longsword_blade/" + normalizedMetal;
+            LONGSWORD_BLADE_VARIANTS.put(metalName, ITEMS.register(longswordBladeId, 
+                () -> new MetalComponentItem(ComponentType.LONGSWORD_BLADE, metalName, new Item.Properties())));
+            
+            // Register longsword for this metal (blade and hilt must match)
+            // Use weapon properties with durability matching TFC sword
+            String longswordId = "metal/longsword/" + normalizedMetal;
+            MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
+                Item.Properties weaponProps = new Item.Properties()
+                    .durability(props.durability());
+                
+                LONGSWORD_VARIANTS.put(metalName, ITEMS.register(longswordId, 
+                    () -> new LongswordItem(metalName, weaponProps)));
+            });
         });
     }
     
     /**
      * Get all registered items as a stream for functional operations
-     * Note: Blades are provided by TFC, not this mod
      */
     public static Stream<Item> getAllItems() {
         return Stream.concat(
@@ -60,7 +82,13 @@ public final class ModItems {
                 GUARD_VARIANTS.values().stream().map(DeferredItem::get),
                 Stream.concat(
                     POMMEL_VARIANTS.values().stream().map(DeferredItem::get),
-                    HILT_VARIANTS.values().stream().map(DeferredItem::get)
+                    Stream.concat(
+                        HILT_VARIANTS.values().stream().map(DeferredItem::get),
+                        Stream.concat(
+                            LONGSWORD_BLADE_VARIANTS.values().stream().map(DeferredItem::get),
+                            LONGSWORD_VARIANTS.values().stream().map(DeferredItem::get)
+                        )
+                    )
                 )
             )
         );
@@ -87,6 +115,22 @@ public final class ModItems {
      */
     public static Optional<Item> getHiltForMetal(String metalName) {
         return Optional.ofNullable(HILT_VARIANTS.get(metalName))
+            .map(DeferredItem::get);
+    }
+    
+    /**
+     * Get longsword blade item for a specific metal
+     */
+    public static Optional<Item> getLongswordBladeForMetal(String metalName) {
+        return Optional.ofNullable(LONGSWORD_BLADE_VARIANTS.get(metalName))
+            .map(DeferredItem::get);
+    }
+    
+    /**
+     * Get longsword item for a specific metal (blade and hilt are the same metal)
+     */
+    public static Optional<Item> getLongswordForMetal(String metalName) {
+        return Optional.ofNullable(LONGSWORD_VARIANTS.get(metalName))
             .map(DeferredItem::get);
     }
     

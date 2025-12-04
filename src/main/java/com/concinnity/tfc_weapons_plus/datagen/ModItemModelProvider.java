@@ -23,7 +23,8 @@ public final class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         // Generate models for basic components
         // Grip model path must match item ID: item/wood/grip
-        withExistingParent("item/wood/grip", mcLoc("item/generated"))
+        // Using item/handheld for 3D appearance (like tools/weapons)
+        withExistingParent("item/wood/grip", mcLoc("item/handheld"))
             .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/wood/grip"));
         
         // Generate models for metal variants of guard and pommel
@@ -31,23 +32,45 @@ public final class ModItemModelProvider extends ItemModelProvider {
             String normalizedMetal = normalizeMetalName(metalName);
             
             // Guard variants - Model path must match item ID: item/metal/guard/{metal}
+            // Using item/handheld for 3D appearance
             // TFC format: namespace:item/path/to/texture
             ModItems.getGuardForMetal(metalName).ifPresent(guard -> {
-                withExistingParent("item/metal/guard/" + normalizedMetal, mcLoc("item/generated"))
+                withExistingParent("item/metal/guard/" + normalizedMetal, mcLoc("item/handheld"))
                     .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/guard/" + normalizedMetal));
             });
             
             // Pommel variants - Model path must match item ID: item/metal/pommel/{metal}
+            // Using item/handheld for 3D appearance
             // TFC format: namespace:item/path/to/texture
             ModItems.getPommelForMetal(metalName).ifPresent(pommel -> {
-                withExistingParent("item/metal/pommel/" + normalizedMetal, mcLoc("item/generated"))
+                withExistingParent("item/metal/pommel/" + normalizedMetal, mcLoc("item/handheld"))
                     .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/pommel/" + normalizedMetal));
             });
             
             // Hilt models - Model path must match item ID: item/metal/hilt/{metal}
+            // Using item/handheld for 3D appearance
             // Uses combined texture with pommel (top), grip (middle), guard (bottom)
-            withExistingParent("item/metal/hilt/" + normalizedMetal, mcLoc("item/generated"))
+            withExistingParent("item/metal/hilt/" + normalizedMetal, mcLoc("item/handheld"))
                 .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/hilt/" + normalizedMetal));
+            
+            // Longsword blade models - Model path must match item ID: item/metal/longsword_blade/{metal}
+            // Using item/handheld for 3D appearance
+            ModItems.getLongswordBladeForMetal(metalName).ifPresent(blade -> {
+                withExistingParent("item/metal/longsword_blade/" + normalizedMetal, mcLoc("item/handheld"))
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/longsword_blade/" + normalizedMetal));
+            });
+        });
+        
+        // Generate models for longswords (same metal for blade and hilt)
+        // Use local template_longsword model for proper sizing when held
+        MetalHelper.getAllMetalNames().forEach(metalName -> {
+            String normalizedMetal = normalizeMetalName(metalName);
+            String modelPath = "item/metal/longsword/" + normalizedMetal;
+            
+            ModItems.getLongswordForMetal(metalName).ifPresent(longsword -> {
+                withExistingParent(modelPath, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/template_longsword"))
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/longsword/" + normalizedMetal));
+            });
         });
     }
     

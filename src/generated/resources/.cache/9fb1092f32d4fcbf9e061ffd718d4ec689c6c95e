@@ -1,4 +1,13 @@
-// 1.21.1	2025-12-04T14:08:33.902209684	Recipes
+// 1.21.1	2025-12-04T16:12:02.045678147	Recipes
+955d3f3e8a5365ca637da609fae02aa58c4c7f39 data/minecraft/advancement/recipes/combat/metal/longsword/assembly_bismuth_bronze.json
+a6c29ce780cbd36939813b27c37480961e415aff data/minecraft/advancement/recipes/combat/metal/longsword/assembly_black_bronze.json
+ead5e89e86d4a835647cf676e0d6821260512e04 data/minecraft/advancement/recipes/combat/metal/longsword/assembly_black_steel.json
+6758afcbe89a3b280392e1b7a9105c5edb4c3a02 data/minecraft/advancement/recipes/combat/metal/longsword/assembly_blue_steel.json
+c821198cacbfc3abd08b851ebf53f73a87c403aa data/minecraft/advancement/recipes/combat/metal/longsword/assembly_bronze.json
+e6269d717e52969152b85c3d526e657c6d2fc848 data/minecraft/advancement/recipes/combat/metal/longsword/assembly_copper.json
+d5300475f6c1ad3b890581af9977466195105e65 data/minecraft/advancement/recipes/combat/metal/longsword/assembly_red_steel.json
+fcedcf81ff3f2a6cae6ae34318a53217bf59fa26 data/minecraft/advancement/recipes/combat/metal/longsword/assembly_steel.json
+340363e93521f38cb77d86accad224223730863d data/minecraft/advancement/recipes/combat/metal/longsword/assembly_wrought_iron.json
 84b273ce5dcfc2e08abd794cb6b06ec18b8237b8 data/minecraft/advancement/recipes/combat/metal/sword/assembly_bismuth_bronze.json
 1dfe9b5069f95024dcc2a44c65a57e212d507272 data/minecraft/advancement/recipes/combat/metal/sword/assembly_black_bronze.json
 8ced80541bcdbfb0376b454180674dcf7c525919 data/minecraft/advancement/recipes/combat/metal/sword/assembly_black_steel.json
@@ -26,6 +35,15 @@ aa4ca9d2ad61daab0ee73f22532cfcaaa36aafe4 data/minecraft/recipe/metal/hilt/assemb
 e4372541cd1a8a1eedb5dd7eb12cf73cfd58cdd4 data/minecraft/recipe/metal/hilt/assembly_red_steel.json
 490a1c67aa5c9c2bf37ba9c259679bc0c9890297 data/minecraft/recipe/metal/hilt/assembly_steel.json
 94003e7a1a5f9b3496d0649222ab810ed18a6304 data/minecraft/recipe/metal/hilt/assembly_wrought_iron.json
+7da614ed400180a6fd04f59e0f4ea783980bd12a data/minecraft/recipe/metal/longsword/assembly_bismuth_bronze.json
+d4a39ea8cb03a6fa0cd26cd9468b469b53ba945e data/minecraft/recipe/metal/longsword/assembly_black_bronze.json
+2d7fcf468374c1fd5cbc282baa612b0f11e13a14 data/minecraft/recipe/metal/longsword/assembly_black_steel.json
+900daa1c6b9fa4b7e08c78fd325508d2beb8a118 data/minecraft/recipe/metal/longsword/assembly_blue_steel.json
+d6e78c270293eb2b94d94829efefb495057eedcf data/minecraft/recipe/metal/longsword/assembly_bronze.json
+5bde6c486f1204c473fc460b689b478602b12342 data/minecraft/recipe/metal/longsword/assembly_copper.json
+b0dfbc211a25618fa8c05aafeb94cff185570ea5 data/minecraft/recipe/metal/longsword/assembly_red_steel.json
+39ef17391a4c76a6d18c056eb6accc88b331555f data/minecraft/recipe/metal/longsword/assembly_steel.json
+97621146eddeb51c56dcd3bbd01680b0bf19cf96 data/minecraft/recipe/metal/longsword/assembly_wrought_iron.json
 15c69f85f8a579369f7144d147e3b019ac58eebd data/minecraft/recipe/metal/sword/assembly_bismuth_bronze.json
 7f39f1cd2a0171165f1754c517adfbd0aef95bda data/minecraft/recipe/metal/sword/assembly_black_bronze.json
 71eaa5b80f8b054b807d90fa6009b98c4376c8ce data/minecraft/recipe/metal/sword/assembly_black_steel.json

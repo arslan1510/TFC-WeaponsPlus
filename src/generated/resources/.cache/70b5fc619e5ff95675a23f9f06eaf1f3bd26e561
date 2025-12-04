@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-04T14:08:33.902724669	TFC Item Heat Data
+// 1.21.1	2025-12-04T15:48:34.462970962	TFC Item Heat Data
 b904642d2fdf04fcc76918232e27ce0589261960 data/tfc/item_heat/metal/guard/bismuth_bronze.json
 ef04668438fd3cb03b80c2cad5819efe51ee323b data/tfc/item_heat/metal/guard/black_bronze.json
 e4f34fb917381c643ab506fcdbf64275de838876 data/tfc/item_heat/metal/guard/black_steel.json
@@ -8,6 +8,15 @@ e4f34fb917381c643ab506fcdbf64275de838876 data/tfc/item_heat/metal/guard/black_st
 df53cac90f5945c9061a0729b40b6f6dfd6afda5 data/tfc/item_heat/metal/guard/red_steel.json
 32aa681ffb75c44e066b902580eea3d45e328c51 data/tfc/item_heat/metal/guard/steel.json
 c8e40882db955c8c4a89fbf3a38442ad71377c4f data/tfc/item_heat/metal/guard/wrought_iron.json
+b47ebb777da068ec9935168b5711d08ff58cf1fd data/tfc/item_heat/metal/longsword_blade/bismuth_bronze.json
+2b94839b395662bd8c343109b0ec7a648582ddf7 data/tfc/item_heat/metal/longsword_blade/black_bronze.json
+5a1dca6566a0c7692cc5c9a9fc1d17407824f33b data/tfc/item_heat/metal/longsword_blade/black_steel.json
+822457c2f73d8b14ea8d7e86bac1157a5bcbffb3 data/tfc/item_heat/metal/longsword_blade/blue_steel.json
+c3e60f204d9ad6a1d10c730e820a88630788c159 data/tfc/item_heat/metal/longsword_blade/bronze.json
+ef82e3970fc92f2b0032fd424e89dccae90c2b90 data/tfc/item_heat/metal/longsword_blade/copper.json
+40cea651aa0c151e1b5c8df6bf6f47907e01adec data/tfc/item_heat/metal/longsword_blade/red_steel.json
+6f6e30955ed6374b631df7566bd7f972caba7ee8 data/tfc/item_heat/metal/longsword_blade/steel.json
+1119615d580330fda48ada6330bb7c9257a358f2 data/tfc/item_heat/metal/longsword_blade/wrought_iron.json
 85996cef9350c58e17c6ce017af6d69c8bf80f78 data/tfc/item_heat/metal/pommel/bismuth_bronze.json
 6bde3c9a4ec1752a2f554b57b85537855a15ccd3 data/tfc/item_heat/metal/pommel/black_bronze.json
 1ab0c008dbd09ee3c4917e84a19a422616314a3d data/tfc/item_heat/metal/pommel/black_steel.json

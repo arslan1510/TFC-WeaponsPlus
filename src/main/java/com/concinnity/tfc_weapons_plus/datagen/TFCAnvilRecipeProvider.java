@@ -95,6 +95,24 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
             });
         });
         
+        // Longsword blade from double ingot - matches TFC sword blade rules exactly
+        // Check if longsword blade item exists (will be registered separately)
+        String longswordBladeId = TFCWeaponsPlus.MODID + ":metal/longsword_blade/" + normalizedMetal;
+        ResourceLocation longswordBladeLoc = ResourceLocation.parse(longswordBladeId);
+        if (BuiltInRegistries.ITEM.containsKey(longswordBladeLoc)) {
+            MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
+                futures.add(createAnvilRecipeWithTag(
+                    output,
+                    "metal/longsword_blade/" + normalizedMetal,
+                    "c:double_ingots/" + normalizedMetal,
+                    longswordBladeId,
+                    props.tier(),
+                    // TFC sword blade sequence: bend third-to-last, bend second-to-last, hit last
+                    List.of("bend_third_last", "bend_second_last", "hit_last")
+                ));
+            });
+        }
+        
         return futures.stream();
     }
     
@@ -171,6 +189,22 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
                 ));
             });
         });
+        
+        // Longsword blade heating recipe - double ingot = 200 units
+        String longswordBladeId = TFCWeaponsPlus.MODID + ":metal/longsword_blade/" + normalizedMetal;
+        ResourceLocation longswordBladeLoc = ResourceLocation.parse(longswordBladeId);
+        if (BuiltInRegistries.ITEM.containsKey(longswordBladeLoc)) {
+            MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
+                futures.add(createHeatingRecipe(
+                    output,
+                    "metal/longsword_blade/" + normalizedMetal,
+                    longswordBladeId,
+                    props.meltingPoint(),
+                    200, // Double ingot = 200 units (same as TFC sword blade)
+                    normalizedMetal
+                ));
+            });
+        }
         
         return futures.stream();
     }

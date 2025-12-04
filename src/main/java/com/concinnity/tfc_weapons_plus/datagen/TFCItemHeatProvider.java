@@ -35,13 +35,49 @@ public final class TFCItemHeatProvider implements DataProvider {
             var futures = MetalHelper.getAllMetalNames()
                 .flatMap(metalName -> Stream.of(
                     generateItemHeat(metalName, ModItems.getGuardForMetal(metalName), output),
-                    generateItemHeat(metalName, ModItems.getPommelForMetal(metalName), output)
+                    generateItemHeat(metalName, ModItems.getPommelForMetal(metalName), output),
+                    generateLongswordBladeHeat(metalName, output)
                 ))
                 .filter(future -> future != null)
                 .toList();
             
             return CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
         });
+    }
+    
+    private CompletableFuture<?> generateLongswordBladeHeat(String metalName, CachedOutput output) {
+        String normalizedMetal = normalizeMetalName(metalName);
+        String bladeId = TFCWeaponsPlus.MODID + ":metal/longsword_blade/" + normalizedMetal;
+        ResourceLocation bladeLoc = ResourceLocation.parse(bladeId);
+        
+        // Check if longsword blade item exists in registry
+        if (!BuiltInRegistries.ITEM.containsKey(bladeLoc)) {
+            return CompletableFuture.completedFuture(null);
+        }
+        
+        return MetalHelper.getMetalProperties(metalName)
+            .map(props -> {
+                // Create item_heat JSON for longsword blade
+                // Longsword blade uses double_ingots, so heat capacity should be 2x ingot (200 units / 35 = 5.714)
+                JsonObject heatData = new JsonObject();
+                JsonObject ingredientObj = new JsonObject();
+                ingredientObj.addProperty("item", bladeId);
+                heatData.add("ingredient", ingredientObj);
+                heatData.addProperty("heat_capacity", 5.714f); // Double ingot (200 units / 35 = 5.714)
+                heatData.addProperty("forging_temperature", (float) props.meltingPoint());
+                heatData.addProperty("welding_temperature", (float) props.meltingPoint());
+                
+                // Save to TFC namespace: data/tfc/item_heat/{item_path}.json
+                String itemPath = bladeId.replace(TFCWeaponsPlus.MODID + ":", "");
+                return saveItemHeat(output, heatData, itemPath);
+            })
+            .orElse(CompletableFuture.completedFuture(null));
+    }
+    
+    private String normalizeMetalName(String metalName) {
+        return metalName.toLowerCase()
+            .replace(" ", "_")
+            .replace("-", "_");
     }
     
     private CompletableFuture<?> generateItemHeat(String metalName, java.util.Optional<net.minecraft.world.item.Item> itemOpt, CachedOutput output) {

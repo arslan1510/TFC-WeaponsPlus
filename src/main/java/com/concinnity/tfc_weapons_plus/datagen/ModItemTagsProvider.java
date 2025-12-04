@@ -58,6 +58,13 @@ public final class ModItemTagsProvider implements DataProvider {
                     ResourceLocation tfcMetalTagId = ResourceLocation.fromNamespaceAndPath("tfc", "metal/" + normalizedMetal);
                     futures.add(createTagFile(output, tfcMetalTagId, pommel, tfcTagPathProvider));
                 });
+                
+                // Longsword blade tags
+                ModItems.getLongswordBladeForMetal(metalName).ifPresent(blade -> {
+                    // TFC metal tag so longsword blade can be melted
+                    ResourceLocation tfcMetalTagId = ResourceLocation.fromNamespaceAndPath("tfc", "metal/" + normalizedMetal);
+                    futures.add(createTagFile(output, tfcMetalTagId, blade, tfcTagPathProvider));
+                });
             });
             
             // General common tags
@@ -79,6 +86,23 @@ public final class ModItemTagsProvider implements DataProvider {
             
             if (!allPommels.isEmpty()) {
                 futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "pommels"), allPommels, commonTagPathProvider));
+            }
+            
+            // Collect all longswords for general tags
+            var allLongswords = MetalHelper.getAllMetalNames()
+                .map(ModItems::getLongswordForMetal)
+                .filter(java.util.Optional::isPresent)
+                .map(java.util.Optional::get)
+                .toList();
+            
+            if (!allLongswords.isEmpty()) {
+                // Add all longswords to common tool tags (these will be merged with existing tags)
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools"), allLongswords, commonTagPathProvider));
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools/swords"), allLongswords, commonTagPathProvider));
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools/melee_weapons"), allLongswords, commonTagPathProvider));
+                
+                // Add all longswords to TFC slashing damage tag
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("tfc", "deals_slashing_damage"), allLongswords, tfcTagPathProvider));
             }
             
             return CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));

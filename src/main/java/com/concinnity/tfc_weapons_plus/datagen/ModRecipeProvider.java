@@ -25,6 +25,7 @@ public final class ModRecipeProvider extends RecipeProvider {
     protected void buildRecipes(RecipeOutput output) {
         generateHiltAssemblyRecipes(output);
         generateSwordAssemblyRecipes(output);
+        generateLongswordAssemblyRecipes(output);
     }
     
     /**
@@ -96,6 +97,36 @@ public final class ModRecipeProvider extends RecipeProvider {
     private void generateSwordAssemblyRecipes(RecipeOutput output) {
         MetalHelper.getAllMetalNames().forEach(metalName -> {
             createSwordAssemblyRecipe(output, metalName);
+        });
+    }
+    
+    /**
+     * Create longsword assembly recipe: longsword = longsword_blade + hilt (crafting table)
+     * Blade and hilt must be the same metal
+     */
+    private void createLongswordAssemblyRecipe(RecipeOutput output, String metalName) {
+        ModItems.getHiltForMetal(metalName).ifPresent(hilt -> {
+            ModItems.getLongswordBladeForMetal(metalName).ifPresent(blade -> {
+                ModItems.getLongswordForMetal(metalName).ifPresent(longsword -> {
+                    String normalizedMetal = normalizeMetalName(metalName);
+                    
+                    ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, longsword)
+                        .pattern("B")
+                        .pattern("H")
+                        .define('B', blade)
+                        .define('H', hilt)
+                        .unlockedBy("has_hilt", has(hilt))
+                        .unlockedBy("has_blade", has(blade))
+                        .save(output, "metal/longsword/assembly_" + normalizedMetal);
+                });
+            });
+        });
+    }
+    
+    private void generateLongswordAssemblyRecipes(RecipeOutput output) {
+        // Generate recipes for same-metal combinations only
+        MetalHelper.getAllMetalNames().forEach(metalName -> {
+            createLongswordAssemblyRecipe(output, metalName);
         });
     }
     

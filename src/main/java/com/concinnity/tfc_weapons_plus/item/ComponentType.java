@@ -3,7 +3,7 @@ package com.concinnity.tfc_weapons_plus.item;
 /**
  * Sealed interface for component types using modern Java 21 sealed classes
  */
-public sealed interface ComponentType permits ComponentType.Grip, ComponentType.Guard, ComponentType.Pommel, ComponentType.Hilt {
+public sealed interface ComponentType permits ComponentType.Grip, ComponentType.Guard, ComponentType.Pommel, ComponentType.Hilt, ComponentType.LongswordBlade {
     
     String name();
     
@@ -27,10 +27,16 @@ public sealed interface ComponentType permits ComponentType.Grip, ComponentType.
         public String name() { return "hilt"; }
     }
     
+    record LongswordBlade() implements ComponentType {
+        @Override
+        public String name() { return "longsword_blade"; }
+    }
+    
     // Constants for easy access
     ComponentType GRIP = new Grip();
     ComponentType GUARD = new Guard();
     ComponentType POMMEL = new Pommel();
     ComponentType HILT = new Hilt();
+    ComponentType LONGSWORD_BLADE = new LongswordBlade();
 }
 

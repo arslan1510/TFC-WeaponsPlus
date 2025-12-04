@@ -39,6 +39,21 @@ public final class ModLanguageProvider extends LanguageProvider {
                 ModItems.getHiltForMetal(metalName).ifPresent(hilt -> {
                     add(hilt, props.name() + " Hilt");
                 });
+                
+                // Longsword blade variants
+                ModItems.getLongswordBladeForMetal(metalName).ifPresent(blade -> {
+                    add(blade, props.name() + " Longsword Blade");
+                });
+            });
+        });
+        
+        // Generate translations for longswords (same metal for blade and hilt)
+        MetalHelper.getAllMetalNames().forEach(metalName -> {
+            MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
+                ModItems.getLongswordForMetal(metalName).ifPresent(longsword -> {
+                    // Format: "{Metal} Longsword"
+                    add(longsword, props.name() + " Longsword");
+                });
             });
         });
         
