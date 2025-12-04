@@ -13,7 +13,6 @@ import net.minecraft.resources.ResourceLocation;
 
 import java.nio.file.Path;
 import java.util.concurrent.CompletableFuture;
-import java.util.stream.Stream;
 
 /**
  * Generates TFC welding recipes for sword assembly (hilt + blade)

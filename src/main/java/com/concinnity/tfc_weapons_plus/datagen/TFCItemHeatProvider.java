@@ -71,11 +71,6 @@ public final class TFCItemHeatProvider implements DataProvider {
             .orElse(CompletableFuture.completedFuture(null));
     }
     
-    private String normalizeMetalName(String metalName) {
-        return metalName.toLowerCase()
-            .replace(" ", "_")
-            .replace("-", "_");
-    }
     
     private CompletableFuture<?> saveItemHeat(CachedOutput output, JsonObject json, String itemPath) {
         ResourceLocation id = ResourceLocation.fromNamespaceAndPath("tfc", "item_heat/" + itemPath);

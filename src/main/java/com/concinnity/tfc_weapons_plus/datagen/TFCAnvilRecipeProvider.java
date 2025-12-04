@@ -104,41 +104,7 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
             .replace("-", "_");
     }
     
-    private CompletableFuture<?> createAnvilRecipeWithStrings(
-        CachedOutput output,
-        String recipeName,
-        String inputId,
-        String resultId,
-        int tier,
-        List<String> rules
-    ) {
-        JsonObject recipe = new JsonObject();
-        recipe.addProperty("type", "tfc:anvil");
-        recipe.addProperty("apply_bonus", true);
-        
-        // Ingredient - TFC uses object format: {"item":"..."} or {"tag":"..."}
-        JsonObject ingredient = new JsonObject();
-        ingredient.addProperty("item", inputId);
-        recipe.add("ingredient", ingredient);
-        
-        // Result is an object with count and id (order matters - count first)
-        JsonObject result = new JsonObject();
-        result.addProperty("count", 1);
-        result.addProperty("id", resultId);
-        recipe.add("result", result);
-        
-        // Tier requirement
-        recipe.addProperty("tier", tier);
-        
-        // Rules
-        JsonArray rulesArray = new JsonArray();
-        rules.forEach(rulesArray::add);
-        recipe.add("rules", rulesArray);
-        
-        // Save to mod namespace: data/tfc_weapons_plus/recipe/anvil/{recipeName}.json
-        return saveRecipe(output, recipe, "anvil/" + recipeName);
-    }
-    
+
     private CompletableFuture<?> createAnvilRecipeWithTag(
         CachedOutput output,
         String recipeName,

@@ -1,17 +1,46 @@
 #!/usr/bin/env python3
 """
 Create combined hilt textures by positioning grip, guard, and pommel correctly
-- Grip: Full vertical height (base layer)
-- Pommel: Top position, reduced to 50% size (0.5x scale)
-- Guard: Positioned lower on the grip
+Output size: 32x32 pixels
+Positioning (from top to bottom):
+- Pommel: Top of texture, moved up slightly (y=-1)
+- Grip: Middle of texture (y=10)
+- Guard: Below grip, moved lower (y=26)
 """
 
 from PIL import Image
 import os
 
+def clean_alpha_edges(image, threshold=128):
+    """
+    Clean up semi-transparent edges by making pixels either fully opaque or fully transparent.
+    This removes grey alpha halos around the edges.
+    
+    Args:
+        image: PIL Image in RGBA mode
+        threshold: Alpha threshold (0-255). Pixels above this become fully opaque, below become fully transparent.
+    """
+    if image.mode != 'RGBA':
+        image = image.convert('RGBA')
+    
+    pixels = image.load()
+    width, height = image.size
+    
+    for y in range(height):
+        for x in range(width):
+            r, g, b, a = pixels[x, y]
+            # If alpha is above threshold, make it fully opaque
+            # If below, make it fully transparent
+            if a >= threshold:
+                pixels[x, y] = (r, g, b, 255)
+            else:
+                pixels[x, y] = (r, g, b, 0)
+    
+    return image
+
 def create_hilt_texture(grip_path, guard_path, pommel_path, output_path):
     """
-    Create a combined hilt texture with positioned components
+    Create a combined hilt texture with positioned components (32x32 output)
     
     Args:
         grip_path: Path to grip texture
@@ -19,42 +48,45 @@ def create_hilt_texture(grip_path, guard_path, pommel_path, output_path):
         pommel_path: Path to pommel texture (metal-specific)
         output_path: Path to save combined texture
     """
-    # Load textures
+    # Load textures and resize appropriately
     grip = Image.open(grip_path).convert("RGBA")
+    if grip.size != (16, 16):
+        grip = grip.resize((16, 16), Image.Resampling.LANCZOS)
+    
+    # Make guard bigger (scale up to 20x20)
     guard = Image.open(guard_path).convert("RGBA")
+    if guard.size != (20, 20):
+        guard = guard.resize((20, 20), Image.Resampling.LANCZOS)
+    
+    # Make pommel 25% smaller (16 * 0.75 = 12x12)
     pommel = Image.open(pommel_path).convert("RGBA")
+    pommel_size = int(16 * 0.75)  # 25% smaller = 12x12
+    if pommel.size != (pommel_size, pommel_size):
+        pommel = pommel.resize((pommel_size, pommel_size), Image.Resampling.LANCZOS)
     
-    size_h = grip.size[1]
-    size_w = grip.size[0]
-    # Reduce all components to smaller size
-    grip_width, grip_height = grip.size
-    grip_scaled = grip.resize((grip_width // 2, grip_height // 2), Image.Resampling.LANCZOS)
-    
-    guard_width, guard_height = guard.size
-    guard_scaled = guard.resize((guard_width // 2, guard_height // 2), Image.Resampling.LANCZOS)
-    
-    pommel_width, pommel_height = pommel.size
-    pommel_scaled = pommel.resize((pommel_width // 4, pommel_height // 4), Image.Resampling.LANCZOS)
-    
-    # Use grip's scaled size as base for output (grip is vertical, full height)
-    output_size = (size_w, size_h)
+    # Create 32x32 output canvas
+    output_size = (32, 32)
     hilt_texture = Image.new("RGBA", output_size, (0, 0, 0, 0))
     
-    # 1. Draw grip first (base layer, full height, centered horizontally)
-    # Move grip up a bit
-    grip_x = (output_size[0] - grip_scaled.width) // 2
-    grip_y = 190  # Move up by 2 pixels
-    hilt_texture.paste(grip_scaled, (grip_x, grip_y), grip_scaled)
+    # Position components vertically (from bottom to top for layering):
+    # 1. Draw grip first (base layer, middle section)
+    grip_x = (output_size[0] - grip.width) // 2
+    hilt_texture.paste(grip, (grip_x, 10), grip)  # Base layer
     
-    # 2. Draw pommel at the top, centered horizontally
-    pommel_x = (output_size[0] - pommel_scaled.width) // 2
-    pommel_y = 160  # Move up by 2 pixels
-    hilt_texture.paste(pommel_scaled, (pommel_x, pommel_y), pommel_scaled)
+    # 2. Draw pommel on top of grip (centered horizontally, top section)
+    pommel_x = (output_size[0] - pommel.width) // 2
+    hilt_texture.paste(pommel, (pommel_x, 5), pommel)  # On top of grip layer-wise
     
-    # 3. Draw guard positioned lower on the grip (moved up from 50% to 40%)
-    guard_x = (output_size[0] - guard_scaled.width) // 2
-    guard_y = int(output_size[1] * 0.4) - 3  # 40% down from top, moved up by 3 pixels
-    hilt_texture.paste(guard_scaled, (guard_x, guard_y), guard_scaled)
+    # 3. Draw guard below grip (centered horizontally, bottom section)
+    guard_x = (output_size[0] - guard.width) // 2
+    hilt_texture.paste(guard, (guard_x, 16), guard)  # Below grip
+    
+    # Clean up alpha edges to remove surrounding semi-transparent pixels
+    hilt_texture = clean_alpha_edges(hilt_texture)
+    
+    # Create output directory if it doesn't exist
+    output_dir = os.path.dirname(output_path)
+    os.makedirs(output_dir, exist_ok=True)
     
     # Save the combined texture
     hilt_texture.save(output_path, "PNG")

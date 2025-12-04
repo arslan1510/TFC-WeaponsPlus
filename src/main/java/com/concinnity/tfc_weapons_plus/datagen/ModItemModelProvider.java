@@ -45,7 +45,7 @@ public final class ModItemModelProvider extends ItemModelProvider {
             });
             
             // Hilt models - Model path must match item ID: item/metal/hilt/{metal}
-            // The combined texture has grip, guard, and pommel positioned correctly
+            // Uses combined texture with pommel (top), grip (middle), guard (bottom)
             withExistingParent("item/metal/hilt/" + normalizedMetal, mcLoc("item/generated"))
                 .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/hilt/" + normalizedMetal));
         });

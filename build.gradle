@@ -122,8 +122,10 @@ dependencies {
     // Click on the version you want, then copy the file ID from the URL or file details
     implementation "curse.maven:terrafirmacraft-302973:${tfc_file_id}"
 
-    // Example project dependency using a sister or child project:
-    // implementation project(":myproject")
+    // Patchouli dependency - using CurseForge Maven
+    // Find the file ID from: https://www.curseforge.com/minecraft/mc-mods/patchouli
+    // Click on the version you want, then copy the file ID from the URL or file details
+    implementation "curse.maven:patchouli-306770:${patchouli_file_id}"
 
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
