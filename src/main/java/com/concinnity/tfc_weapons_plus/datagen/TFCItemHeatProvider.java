@@ -3,6 +3,7 @@ package com.concinnity.tfc_weapons_plus.datagen;
 import com.concinnity.tfc_weapons_plus.TFCWeaponsPlus;
 import com.concinnity.tfc_weapons_plus.integration.MetalHelper;
 import com.concinnity.tfc_weapons_plus.item.ModItems;
+import com.concinnity.tfc_weapons_plus.util.NameUtils;
 
 import com.google.gson.JsonObject;
 import net.minecraft.core.HolderLookup;
@@ -47,7 +48,7 @@ public final class TFCItemHeatProvider implements DataProvider {
     }
     
     private CompletableFuture<?> generateLongswordBladeHeat(String metalName, CachedOutput output) {
-        String normalizedMetal = normalizeMetalName(metalName);
+        String normalizedMetal = NameUtils.normalizeMetalName(metalName);
         String bladeId = TFCWeaponsPlus.MODID + ":metal/longsword_blade/" + normalizedMetal;
         ResourceLocation bladeLoc = ResourceLocation.parse(bladeId);
         
@@ -76,7 +77,7 @@ public final class TFCItemHeatProvider implements DataProvider {
     }
     
     private CompletableFuture<?> generateGreatswordBladeHeat(String metalName, CachedOutput output) {
-        String normalizedMetal = normalizeMetalName(metalName);
+        String normalizedMetal = NameUtils.normalizeMetalName(metalName);
         String bladeId = TFCWeaponsPlus.MODID + ":metal/greatsword_blade/" + normalizedMetal;
         ResourceLocation bladeLoc = ResourceLocation.parse(bladeId);
         
@@ -102,12 +103,6 @@ public final class TFCItemHeatProvider implements DataProvider {
                 return saveItemHeat(output, heatData, itemPath);
             })
             .orElse(CompletableFuture.completedFuture(null));
-    }
-    
-    private String normalizeMetalName(String metalName) {
-        return metalName.toLowerCase()
-            .replace(" ", "_")
-            .replace("-", "_");
     }
     
     private CompletableFuture<?> generateItemHeat(String metalName, java.util.Optional<net.minecraft.world.item.Item> itemOpt, CachedOutput output) {

@@ -3,13 +3,17 @@ package com.concinnity.tfc_weapons_plus.integration;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
+import com.concinnity.tfc_weapons_plus.util.NameUtils;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.neoforged.fml.ModList;
 
 import java.util.Optional;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Integration with TerraFirmaCraft mod
@@ -19,6 +23,10 @@ public final class TFCIntegration {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static boolean initialized = false;
     private static final String TFC_NAMESPACE = "tfc";
+    private static final String TFC_MOD_ID = "tfc";
+    
+    // Cache for failed lookups to avoid repeated debug messages
+    private static final Set<ResourceLocation> failedLookups = ConcurrentHashMap.newKeySet();
     
     /**
      * Initialize TFC integration
@@ -43,18 +51,30 @@ public final class TFCIntegration {
     }
     
     /**
+     * Check if TFC mod is loaded
+     */
+    private static boolean isTFCLoaded() {
+        return ModList.get().isLoaded(TFC_MOD_ID);
+    }
+    
+    /**
      * Get TFC item by metal name and item type
      */
     private static Optional<Item> getTFCItem(String metalName, String itemType) {
         try {
-            String normalizedMetal = normalizeMetalName(metalName);
+            String normalizedMetal = NameUtils.normalizeMetalName(metalName);
             ResourceLocation itemId = ResourceLocation.fromNamespaceAndPath(TFC_NAMESPACE, normalizedMetal + "_" + itemType);
             
             if (BuiltInRegistries.ITEM.containsKey(itemId)) {
                 Item item = BuiltInRegistries.ITEM.get(itemId);
+                // Remove from failed cache if it was there
+                failedLookups.remove(itemId);
                 return Optional.of(item);
             } else {
-                LOGGER.debug("TFC item not found: {}", itemId);
+                // Only log if TFC is loaded and we haven't logged this failure before
+                if (isTFCLoaded() && failedLookups.add(itemId)) {
+                    LOGGER.trace("TFC item not found: {} (this may be normal during data generation)", itemId);
+                }
                 return Optional.empty();
             }
         } catch (Exception e) {
@@ -78,7 +98,7 @@ public final class TFCIntegration {
      * Path: tfc:wood/lumber/{wood_type}
      */
     public static Optional<Item> getTFCWoodLumber(String woodType) {
-        return getTFCItemByPath("wood/lumber/" + normalizeWoodName(woodType));
+        return getTFCItemByPath("wood/lumber/" + NameUtils.normalizeWoodName(woodType));
     }
     
     public static Optional<Ingredient> getTFCWoodLumberIngredient(String woodType) {
@@ -92,11 +112,11 @@ public final class TFCIntegration {
     }
     
     public static Optional<Item> getTFCSwordBlade(String metalName) {
-        return getTFCItemByPath("metal/sword_blade/" + normalizeMetalName(metalName));
+        return getTFCItemByPath("metal/sword_blade/" + NameUtils.normalizeMetalName(metalName));
     }
     
     public static Optional<Item> getTFCSword(String metalName) {
-        return getTFCItemByPath("metal/sword/" + normalizeMetalName(metalName));
+        return getTFCItemByPath("metal/sword/" + NameUtils.normalizeMetalName(metalName));
     }
     
     public static Optional<Ingredient> getTFCSwordBladeIngredient(String metalName) {
@@ -115,27 +135,20 @@ public final class TFCIntegration {
             
             if (BuiltInRegistries.ITEM.containsKey(itemId)) {
                 Item item = BuiltInRegistries.ITEM.get(itemId);
+                // Remove from failed cache if it was there
+                failedLookups.remove(itemId);
                 return Optional.of(item);
             } else {
-                LOGGER.debug("TFC item not found: {}", itemId);
+                // Only log if TFC is loaded and we haven't logged this failure before
+                if (isTFCLoaded() && failedLookups.add(itemId)) {
+                    LOGGER.trace("TFC item not found: {} (this may be normal during data generation)", itemId);
+                }
                 return Optional.empty();
             }
         } catch (Exception e) {
             LOGGER.error("Error getting TFC item by path: {}", itemPath, e);
             return Optional.empty();
         }
-    }
-    
-    private static String normalizeMetalName(String metalName) {
-        return metalName.toLowerCase()
-            .replace(" ", "_")
-            .replace("-", "_");
-    }
-    
-    private static String normalizeWoodName(String woodName) {
-        return woodName.toLowerCase()
-            .replace(" ", "_")
-            .replace("-", "_");
     }
     
     private TFCIntegration() {}

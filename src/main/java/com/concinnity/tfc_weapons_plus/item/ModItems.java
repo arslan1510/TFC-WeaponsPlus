@@ -2,6 +2,9 @@ package com.concinnity.tfc_weapons_plus.item;
 
 import com.concinnity.tfc_weapons_plus.TFCWeaponsPlus;
 import com.concinnity.tfc_weapons_plus.integration.MetalHelper;
+import com.concinnity.tfc_weapons_plus.item.weapon.GreatswordItem;
+import com.concinnity.tfc_weapons_plus.item.weapon.LongswordItem;
+import com.concinnity.tfc_weapons_plus.util.NameUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,7 +49,7 @@ public final class ModItems {
     static {
         // Register metal variants for guard, pommel, and hilt
         MetalHelper.getAllMetalNames().forEach(metalName -> {
-            String normalizedMetal = normalizeMetalName(metalName);
+            String normalizedMetal = NameUtils.normalizeMetalName(metalName);
             String guardId = "metal/guard/" + normalizedMetal;
             String pommelId = "metal/pommel/" + normalizedMetal;
             String hiltId = "metal/hilt/" + normalizedMetal;
@@ -99,28 +102,16 @@ public final class ModItems {
      * Get all registered items as a stream for functional operations
      */
     public static Stream<Item> getAllItems() {
-        return Stream.concat(
+        return Stream.of(
             Stream.of(GRIP.get()),
-            Stream.concat(
-                GUARD_VARIANTS.values().stream().map(DeferredItem::get),
-                Stream.concat(
-                    POMMEL_VARIANTS.values().stream().map(DeferredItem::get),
-                    Stream.concat(
-                        HILT_VARIANTS.values().stream().map(DeferredItem::get),
-                        Stream.concat(
-                            LONGSWORD_BLADE_VARIANTS.values().stream().map(DeferredItem::get),
-                            Stream.concat(
-                                LONGSWORD_VARIANTS.values().stream().map(DeferredItem::get),
-                                Stream.concat(
-                                    GREATSWORD_BLADE_VARIANTS.values().stream().map(DeferredItem::get),
-                                    GREATSWORD_VARIANTS.values().stream().map(DeferredItem::get)
-                                )
-                            )
-                        )
-                    )
-                )
-            )
-        );
+            GUARD_VARIANTS.values().stream().map(DeferredItem::get),
+            POMMEL_VARIANTS.values().stream().map(DeferredItem::get),
+            HILT_VARIANTS.values().stream().map(DeferredItem::get),
+            LONGSWORD_BLADE_VARIANTS.values().stream().map(DeferredItem::get),
+            LONGSWORD_VARIANTS.values().stream().map(DeferredItem::get),
+            GREATSWORD_BLADE_VARIANTS.values().stream().map(DeferredItem::get),
+            GREATSWORD_VARIANTS.values().stream().map(DeferredItem::get)
+        ).flatMap(s -> s);
     }
     
     /**
@@ -177,15 +168,6 @@ public final class ModItems {
     public static Optional<Item> getGreatswordForMetal(String metalName) {
         return Optional.ofNullable(GREATSWORD_VARIANTS.get(metalName))
             .map(DeferredItem::get);
-    }
-    
-    /**
-     * Normalize metal name for use in resource paths
-     */
-    private static String normalizeMetalName(String metalName) {
-        return metalName.toLowerCase()
-            .replace(" ", "_")
-            .replace("-", "_");
     }
     
     private ModItems() {

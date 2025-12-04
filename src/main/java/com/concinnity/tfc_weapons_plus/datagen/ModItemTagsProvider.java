@@ -2,6 +2,7 @@ package com.concinnity.tfc_weapons_plus.datagen;
 
 import com.concinnity.tfc_weapons_plus.integration.MetalHelper;
 import com.concinnity.tfc_weapons_plus.item.ModItems;
+import com.concinnity.tfc_weapons_plus.util.NameUtils;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -38,7 +39,7 @@ public final class ModItemTagsProvider implements DataProvider {
             
             // Generate tags for each metal variant
             MetalHelper.getAllMetalNames().forEach(metalName -> {
-                String normalizedMetal = normalizeMetalName(metalName);
+                String normalizedMetal = NameUtils.normalizeMetalName(metalName);
                 
                 // Common namespace tags for cross-mod compatibility
                 ModItems.getGuardForMetal(metalName).ifPresent(guard -> {
@@ -138,7 +139,7 @@ public final class ModItemTagsProvider implements DataProvider {
             // Add longswords to TFC metal-specific tool tags (like tfc:tools/red_steel)
             // This matches how TFC includes swords in their metal tool tags
             MetalHelper.getAllMetalNames().forEach(metalName -> {
-                String normalizedMetal = normalizeMetalName(metalName);
+                String normalizedMetal = NameUtils.normalizeMetalName(metalName);
                 ModItems.getLongswordForMetal(metalName).ifPresent(longsword -> {
                     // TFC tool tag for this metal (e.g., tfc:tools/red_steel)
                     ResourceLocation tfcToolTagId = ResourceLocation.fromNamespaceAndPath("tfc", "tools/" + normalizedMetal);
@@ -155,12 +156,6 @@ public final class ModItemTagsProvider implements DataProvider {
             
             return CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
         });
-    }
-    
-    private String normalizeMetalName(String metalName) {
-        return metalName.toLowerCase()
-            .replace(" ", "_")
-            .replace("-", "_");
     }
     
     private CompletableFuture<?> createTagFile(CachedOutput output, ResourceLocation tagId, net.minecraft.world.item.Item item, PackOutput.PathProvider pathProvider) {

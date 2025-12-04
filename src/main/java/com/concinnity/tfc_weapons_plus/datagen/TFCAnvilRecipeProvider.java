@@ -3,6 +3,7 @@ package com.concinnity.tfc_weapons_plus.datagen;
 import com.concinnity.tfc_weapons_plus.TFCWeaponsPlus;
 import com.concinnity.tfc_weapons_plus.integration.MetalHelper;
 import com.concinnity.tfc_weapons_plus.item.ModItems;
+import com.concinnity.tfc_weapons_plus.util.NameUtils;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -49,7 +50,7 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
     }
     
     private Stream<CompletableFuture<?>> generateComponentAnvilRecipes(String metalName, CachedOutput output) {
-        String normalizedMetal = normalizeMetalName(metalName);
+        String normalizedMetal = NameUtils.normalizeMetalName(metalName);
         List<CompletableFuture<?>> futures = new java.util.ArrayList<>();
         
         // Grip from any wood lumber (using tag) - only generate once, not per metal
@@ -134,13 +135,6 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
         return futures.stream();
     }
     
-    private String normalizeMetalName(String metalName) {
-        return metalName.toLowerCase()
-            .replace(" ", "_")
-            .replace("-", "_");
-    }
-    
-
     private CompletableFuture<?> createAnvilRecipeWithTag(
         CachedOutput output,
         String recipeName,
@@ -177,7 +171,7 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
     }
     
     private Stream<CompletableFuture<?>> generateHeatingRecipes(String metalName, CachedOutput output) {
-        String normalizedMetal = normalizeMetalName(metalName);
+        String normalizedMetal = NameUtils.normalizeMetalName(metalName);
         List<CompletableFuture<?>> futures = new java.util.ArrayList<>();
         
         // Guard heating recipe - ingot = 100 units

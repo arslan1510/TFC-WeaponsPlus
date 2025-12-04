@@ -2,6 +2,7 @@ package com.concinnity.tfc_weapons_plus.datagen;
 
 import com.concinnity.tfc_weapons_plus.integration.MetalHelper;
 import com.concinnity.tfc_weapons_plus.item.ModItems;
+import com.concinnity.tfc_weapons_plus.util.NameUtils;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -46,7 +47,7 @@ public final class ModRecipeProvider extends RecipeProvider {
                     .unlockedBy("has_grip", has(ModItems.GRIP.get()))
                     .unlockedBy("has_guard", has(guard))
                     .unlockedBy("has_pommel", has(pommel))
-                    .save(output, "metal/hilt/assembly_" + normalizeMetalName(metalName));
+                    .save(output, "metal/hilt/assembly_" + NameUtils.normalizeMetalName(metalName));
                 });
             });
         });
@@ -63,7 +64,7 @@ public final class ModRecipeProvider extends RecipeProvider {
      */
     private void createSwordAssemblyRecipe(RecipeOutput output, String metalName) {
         ModItems.getHiltForMetal(metalName).ifPresent(hilt -> {
-            String normalizedMetal = normalizeMetalName(metalName);
+            String normalizedMetal = NameUtils.normalizeMetalName(metalName);
             String bladeId = "tfc:metal/sword_blade/" + normalizedMetal;
             String swordId = "tfc:metal/sword/" + normalizedMetal;
             
@@ -84,15 +85,9 @@ public final class ModRecipeProvider extends RecipeProvider {
                     .define('H', hilt)
                     .unlockedBy("has_hilt", has(hilt))
                     .unlockedBy("has_blade", has(blade))
-                    .save(output, "metal/sword/assembly_" + normalizeMetalName(metalName));
+                    .save(output, "metal/sword/assembly_" + NameUtils.normalizeMetalName(metalName));
             }
         });
-    }
-    
-    private String normalizeMetalName(String metalName) {
-        return metalName.toLowerCase()
-            .replace(" ", "_")
-            .replace("-", "_");
     }
     
     private void generateSwordAssemblyRecipes(RecipeOutput output) {
@@ -109,7 +104,7 @@ public final class ModRecipeProvider extends RecipeProvider {
         ModItems.getHiltForMetal(metalName).ifPresent(hilt -> {
             ModItems.getLongswordBladeForMetal(metalName).ifPresent(blade -> {
                 ModItems.getLongswordForMetal(metalName).ifPresent(longsword -> {
-                    String normalizedMetal = normalizeMetalName(metalName);
+                    String normalizedMetal = NameUtils.normalizeMetalName(metalName);
                     
                     ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, longsword)
                         .pattern("B")
@@ -139,7 +134,7 @@ public final class ModRecipeProvider extends RecipeProvider {
         ModItems.getHiltForMetal(metalName).ifPresent(hilt -> {
             ModItems.getGreatswordBladeForMetal(metalName).ifPresent(blade -> {
                 ModItems.getGreatswordForMetal(metalName).ifPresent(greatsword -> {
-                    String normalizedMetal = normalizeMetalName(metalName);
+                    String normalizedMetal = NameUtils.normalizeMetalName(metalName);
                     
                     ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, greatsword)
                         .pattern("B")

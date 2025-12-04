@@ -3,6 +3,7 @@ package com.concinnity.tfc_weapons_plus.datagen;
 import com.concinnity.tfc_weapons_plus.TFCWeaponsPlus;
 import com.concinnity.tfc_weapons_plus.integration.MetalHelper;
 import com.concinnity.tfc_weapons_plus.item.ModItems;
+import com.concinnity.tfc_weapons_plus.util.NameUtils;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -29,7 +30,7 @@ public final class ModItemModelProvider extends ItemModelProvider {
         
         // Generate models for metal variants of guard and pommel
         MetalHelper.getAllMetalNames().forEach(metalName -> {
-            String normalizedMetal = normalizeMetalName(metalName);
+            String normalizedMetal = NameUtils.normalizeMetalName(metalName);
             
             // Guard variants - Model path must match item ID: item/metal/guard/{metal}
             // Using item/handheld for 3D appearance
@@ -71,7 +72,7 @@ public final class ModItemModelProvider extends ItemModelProvider {
         // Generate models for longswords (same metal for blade and hilt)
         // Use local template_longsword model for proper sizing when held
         MetalHelper.getAllMetalNames().forEach(metalName -> {
-            String normalizedMetal = normalizeMetalName(metalName);
+            String normalizedMetal = NameUtils.normalizeMetalName(metalName);
             String modelPath = "item/metal/longsword/" + normalizedMetal;
             
             ModItems.getLongswordForMetal(metalName).ifPresent(longsword -> {
@@ -83,7 +84,7 @@ public final class ModItemModelProvider extends ItemModelProvider {
         // Generate models for greatswords (same metal for blade and hilt)
         // Use local template_greatsword model for proper sizing when held
         MetalHelper.getAllMetalNames().forEach(metalName -> {
-            String normalizedMetal = normalizeMetalName(metalName);
+            String normalizedMetal = NameUtils.normalizeMetalName(metalName);
             String modelPath = "item/metal/greatsword/" + normalizedMetal;
             
             ModItems.getGreatswordForMetal(metalName).ifPresent(greatsword -> {
@@ -91,12 +92,6 @@ public final class ModItemModelProvider extends ItemModelProvider {
                     .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/greatsword/" + normalizedMetal));
             });
         });
-    }
-    
-    private String normalizeMetalName(String metalName) {
-        return metalName.toLowerCase()
-            .replace(" ", "_")
-            .replace("-", "_");
     }
 }
 
