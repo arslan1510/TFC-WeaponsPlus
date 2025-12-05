@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "tfc_weapons_plus:item/metal/waraxe_head/black_bronze"
+  }
+}

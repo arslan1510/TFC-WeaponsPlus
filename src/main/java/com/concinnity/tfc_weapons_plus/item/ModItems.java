@@ -4,6 +4,7 @@ import com.concinnity.tfc_weapons_plus.TFCWeaponsPlus;
 import com.concinnity.tfc_weapons_plus.integration.MetalHelper;
 import com.concinnity.tfc_weapons_plus.item.weapon.GreatswordItem;
 import com.concinnity.tfc_weapons_plus.item.weapon.LongswordItem;
+import com.concinnity.tfc_weapons_plus.item.weapon.WarAxeItem;
 import com.concinnity.tfc_weapons_plus.util.NameUtils;
 
 import java.util.HashMap;
@@ -45,6 +46,12 @@ public final class ModItems {
     // Greatsword items (9 metals - blade and hilt must match)
     // Key format: metal name
     public static final Map<String, DeferredItem<Item>> GREATSWORD_VARIANTS = new HashMap<>();
+    
+    // Waraxe head component variants (9 metals)
+    public static final Map<String, DeferredItem<Item>> WARAXE_HEAD_VARIANTS = new HashMap<>();
+    
+    // Waraxe items (9 metals)
+    public static final Map<String, DeferredItem<Item>> WARAXE_VARIANTS = new HashMap<>();
     
     static {
         // Register metal variants for guard, pommel, and hilt
@@ -95,6 +102,21 @@ public final class ModItems {
                 GREATSWORD_VARIANTS.put(metalName, ITEMS.register(greatswordId, 
                     () -> new GreatswordItem(metalName, weaponProps)));
             });
+            
+            // Register waraxe head for this metal (single sheet requirement handled in recipes)
+            String waraxeHeadId = "metal/waraxe_head/" + normalizedMetal;
+            WARAXE_HEAD_VARIANTS.put(metalName, ITEMS.register(waraxeHeadId,
+                () -> new MetalComponentItem(ComponentType.WARAXE_HEAD, metalName, new Item.Properties())));
+            
+            // Register waraxe item for this metal
+            String waraxeId = "metal/waraxe/" + normalizedMetal;
+            MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
+                Item.Properties weaponProps = new Item.Properties()
+                    .durability(props.durability());
+                
+                WARAXE_VARIANTS.put(metalName, ITEMS.register(waraxeId,
+                    () -> new WarAxeItem(metalName, weaponProps)));
+            });
         });
     }
     
@@ -110,7 +132,9 @@ public final class ModItems {
             LONGSWORD_BLADE_VARIANTS.values().stream().map(DeferredItem::get),
             LONGSWORD_VARIANTS.values().stream().map(DeferredItem::get),
             GREATSWORD_BLADE_VARIANTS.values().stream().map(DeferredItem::get),
-            GREATSWORD_VARIANTS.values().stream().map(DeferredItem::get)
+            GREATSWORD_VARIANTS.values().stream().map(DeferredItem::get),
+            WARAXE_HEAD_VARIANTS.values().stream().map(DeferredItem::get),
+            WARAXE_VARIANTS.values().stream().map(DeferredItem::get)
         ).flatMap(s -> s);
     }
     
@@ -167,6 +191,22 @@ public final class ModItems {
      */
     public static Optional<Item> getGreatswordForMetal(String metalName) {
         return Optional.ofNullable(GREATSWORD_VARIANTS.get(metalName))
+            .map(DeferredItem::get);
+    }
+    
+    /**
+     * Get waraxe head item for a specific metal
+     */
+    public static Optional<Item> getWarAxeHeadForMetal(String metalName) {
+        return Optional.ofNullable(WARAXE_HEAD_VARIANTS.get(metalName))
+            .map(DeferredItem::get);
+    }
+    
+    /**
+     * Get waraxe item for a specific metal
+     */
+    public static Optional<Item> getWarAxeForMetal(String metalName) {
+        return Optional.ofNullable(WARAXE_VARIANTS.get(metalName))
             .map(DeferredItem::get);
     }
     

@@ -1,0 +1,6 @@
+{
+  "parent": "tfc_weapons_plus:item/template_waraxe",
+  "textures": {
+    "layer0": "tfc_weapons_plus:item/metal/waraxe/wrought_iron"
+  }
+}

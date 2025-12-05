@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "tfc_weapons_plus:metal/waraxe_head/black_bronze"
+    },
+    "R": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "pattern": [
+    "  H",
+    " R ",
+    "R  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "tfc_weapons_plus:metal/waraxe/black_bronze"
+  }
+}

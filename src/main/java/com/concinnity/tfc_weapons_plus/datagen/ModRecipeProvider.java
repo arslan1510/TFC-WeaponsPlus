@@ -28,6 +28,7 @@ public final class ModRecipeProvider extends RecipeProvider {
         generateSwordAssemblyRecipes(output);
         generateLongswordAssemblyRecipes(output);
         generateGreatswordAssemblyRecipes(output);
+        generateWarAxeAssemblyRecipes(output);
     }
     
     /**
@@ -154,6 +155,30 @@ public final class ModRecipeProvider extends RecipeProvider {
         MetalHelper.getAllMetalNames().forEach(metalName -> {
             createGreatswordAssemblyRecipe(output, metalName);
         });
+    }
+    
+    /**
+     * Create waraxe assembly recipe: waraxe = waraxe_head + 2 wooden rods (diagonal)
+     */
+    private void createWarAxeAssemblyRecipe(RecipeOutput output, String metalName) {
+        ModItems.getWarAxeHeadForMetal(metalName).ifPresent(head -> {
+            ModItems.getWarAxeForMetal(metalName).ifPresent(waraxe -> {
+                String normalizedMetal = NameUtils.normalizeMetalName(metalName);
+                
+                ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, waraxe)
+                    .pattern("  H")
+                    .pattern(" R ")
+                    .pattern("R  ")
+                    .define('H', head)
+                    .define('R', net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM, net.minecraft.resources.ResourceLocation.parse("c:rods/wooden")))
+                    .unlockedBy("has_head", has(head))
+                    .save(output, "metal/waraxe/assembly_" + normalizedMetal);
+            });
+        });
+    }
+    
+    private void generateWarAxeAssemblyRecipes(RecipeOutput output) {
+        MetalHelper.getAllMetalNames().forEach(metalName -> createWarAxeAssemblyRecipe(output, metalName));
     }
     
 }

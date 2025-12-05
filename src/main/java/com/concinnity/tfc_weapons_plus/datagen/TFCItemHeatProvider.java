@@ -38,7 +38,8 @@ public final class TFCItemHeatProvider implements DataProvider {
                     generateItemHeat(metalName, ModItems.getGuardForMetal(metalName), output),
                     generateItemHeat(metalName, ModItems.getPommelForMetal(metalName), output),
                     generateLongswordBladeHeat(metalName, output),
-                    generateGreatswordBladeHeat(metalName, output)
+                    generateGreatswordBladeHeat(metalName, output),
+                    generateWarAxeHeadHeat(metalName, output)
                 ))
                 .filter(future -> future != null)
                 .toList();
@@ -100,6 +101,31 @@ public final class TFCItemHeatProvider implements DataProvider {
                 
                 // Save to TFC namespace: data/tfc/item_heat/{item_path}.json
                 String itemPath = bladeId.replace(TFCWeaponsPlus.MODID + ":", "");
+                return saveItemHeat(output, heatData, itemPath);
+            })
+            .orElse(CompletableFuture.completedFuture(null));
+    }
+    
+    private CompletableFuture<?> generateWarAxeHeadHeat(String metalName, CachedOutput output) {
+        String normalizedMetal = NameUtils.normalizeMetalName(metalName);
+        String headId = TFCWeaponsPlus.MODID + ":metal/waraxe_head/" + normalizedMetal;
+        ResourceLocation headLoc = ResourceLocation.parse(headId);
+        
+        if (!BuiltInRegistries.ITEM.containsKey(headLoc)) {
+            return CompletableFuture.completedFuture(null);
+        }
+        
+        return MetalHelper.getMetalProperties(metalName)
+            .map(props -> {
+                JsonObject heatData = new JsonObject();
+                JsonObject ingredientObj = new JsonObject();
+                ingredientObj.addProperty("item", headId);
+                heatData.add("ingredient", ingredientObj);
+                heatData.addProperty("heat_capacity", 5.714f); // Single sheet (200 units / 35 = 5.714)
+                heatData.addProperty("forging_temperature", (float) props.meltingPoint());
+                heatData.addProperty("welding_temperature", (float) props.meltingPoint());
+                
+                String itemPath = headId.replace(TFCWeaponsPlus.MODID + ":", "");
                 return saveItemHeat(output, heatData, itemPath);
             })
             .orElse(CompletableFuture.completedFuture(null));

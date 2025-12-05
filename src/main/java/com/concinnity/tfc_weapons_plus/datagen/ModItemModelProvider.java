@@ -67,6 +67,12 @@ public final class ModItemModelProvider extends ItemModelProvider {
                 withExistingParent("item/metal/greatsword_blade/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/template_greatsword_blade"))
                     .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/greatsword_blade/" + normalizedMetal));
             });
+            
+            // Waraxe head models - flat component
+            ModItems.getWarAxeHeadForMetal(metalName).ifPresent(head -> {
+                withExistingParent("item/metal/waraxe_head/" + normalizedMetal, mcLoc("item/handheld"))
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/waraxe_head/" + normalizedMetal));
+            });
         });
         
         // Generate models for longswords (same metal for blade and hilt)
@@ -90,6 +96,17 @@ public final class ModItemModelProvider extends ItemModelProvider {
             ModItems.getGreatswordForMetal(metalName).ifPresent(greatsword -> {
                 withExistingParent(modelPath, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/template_greatsword"))
                     .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/greatsword/" + normalizedMetal));
+            });
+        });
+        
+        // Generate models for waraxes
+        MetalHelper.getAllMetalNames().forEach(metalName -> {
+            String normalizedMetal = NameUtils.normalizeMetalName(metalName);
+            String modelPath = "item/metal/waraxe/" + normalizedMetal;
+            
+            ModItems.getWarAxeForMetal(metalName).ifPresent(waraxe -> {
+                withExistingParent(modelPath, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/template_waraxe"))
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/waraxe/" + normalizedMetal));
             });
         });
     }

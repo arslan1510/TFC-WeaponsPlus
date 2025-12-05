@@ -1,0 +1,16 @@
+{
+  "type": "tfc:anvil",
+  "apply_bonus": true,
+  "ingredient": {
+    "tag": "c:sheets/copper"
+  },
+  "result": {
+    "count": 1,
+    "id": "tfc_weapons_plus:metal/waraxe_head/copper"
+  },
+  "rules": [
+    "punch_last",
+    "hit_second_last"
+  ],
+  "tier": 1
+}
