@@ -19,6 +19,7 @@ A TerraFirmaCraft addon for Minecraft 1.21.1 that adds modular weapon components
 - Adding more weapon types
 - Fixing recipes
 - Additional features and improvements
+- Better 3D models
 
 ## License
 
