@@ -42,11 +42,11 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
                 .flatMap(metalName -> generateHeatingRecipes(metalName, output))
                 .toList();
             
-            var waraxeHeadFutures = MetalHelper.getAllMetalNames()
-                .flatMap(metalName -> generateWarAxeHeadRecipes(metalName, output))
+            var greataxeHeadFutures = MetalHelper.getAllMetalNames()
+                .flatMap(metalName -> generateGreatAxeHeadRecipes(metalName, output))
                 .toList();
             
-            var allFutures = Stream.of(componentFutures.stream(), heatingFutures.stream(), waraxeHeadFutures.stream())
+            var allFutures = Stream.of(componentFutures.stream(), heatingFutures.stream(), greataxeHeadFutures.stream())
                 .flatMap(s -> s)
                 .toList();
             
@@ -140,16 +140,16 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
         return futures.stream();
     }
     
-    private Stream<CompletableFuture<?>> generateWarAxeHeadRecipes(String metalName, CachedOutput output) {
+    private Stream<CompletableFuture<?>> generateGreatAxeHeadRecipes(String metalName, CachedOutput output) {
         String normalizedMetal = NameUtils.normalizeMetalName(metalName);
         List<CompletableFuture<?>> futures = new java.util.ArrayList<>();
         
-        // Waraxe head from single sheet
-        ModItems.getWarAxeHeadForMetal(metalName).ifPresent(head -> {
+        // Greataxe head from single sheet
+        ModItems.getGreatAxeHeadForMetal(metalName).ifPresent(head -> {
             MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
                 futures.add(createAnvilRecipeWithTag(
                     output,
-                    "metal/waraxe_head/" + normalizedMetal,
+                    "metal/greataxe_head/" + normalizedMetal,
                     "c:sheets/" + normalizedMetal,
                     BuiltInRegistries.ITEM.getKey(head).toString(),
                     props.tier(),
@@ -260,15 +260,15 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
             });
         }
         
-        // Waraxe head heating recipe - single sheet = 200 units
-        String waraxeHeadId = TFCWeaponsPlus.MODID + ":metal/waraxe_head/" + normalizedMetal;
-        ResourceLocation waraxeHeadLoc = ResourceLocation.parse(waraxeHeadId);
-        if (BuiltInRegistries.ITEM.containsKey(waraxeHeadLoc)) {
+        // Greataxe head heating recipe - single sheet = 200 units
+        String greataxeHeadId = TFCWeaponsPlus.MODID + ":metal/greataxe_head/" + normalizedMetal;
+        ResourceLocation greataxeHeadLoc = ResourceLocation.parse(greataxeHeadId);
+        if (BuiltInRegistries.ITEM.containsKey(greataxeHeadLoc)) {
             MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
                 futures.add(createHeatingRecipe(
                     output,
-                    "metal/waraxe_head/" + normalizedMetal,
-                    waraxeHeadId,
+                    "metal/greataxe_head/" + normalizedMetal,
+                    greataxeHeadId,
                     props.meltingPoint(),
                     200, // Single sheet = 200 units
                     normalizedMetal

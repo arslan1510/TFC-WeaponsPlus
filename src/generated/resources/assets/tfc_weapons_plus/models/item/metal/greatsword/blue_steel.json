@@ -1,5 +1,5 @@
 {
-  "parent": "tfc_weapons_plus:item/template_greatsword",
+  "parent": "tfc_weapons_plus:item/greatsword",
   "textures": {
     "layer0": "tfc_weapons_plus:item/metal/greatsword/blue_steel"
   }

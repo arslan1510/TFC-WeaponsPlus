@@ -1,5 +1,5 @@
 {
-  "parent": "tfc_weapons_plus:item/template_greatsword_blade",
+  "parent": "tfc_weapons_plus:item/greatsword_blade",
   "textures": {
     "layer0": "tfc_weapons_plus:item/metal/greatsword_blade/bismuth_bronze"
   }

@@ -1,5 +1,5 @@
 {
-  "parent": "tfc_weapons_plus:item/template_waraxe",
+  "parent": "tfc_weapons_plus:item/waraxe",
   "textures": {
     "layer0": "tfc_weapons_plus:item/metal/waraxe/red_steel"
   }

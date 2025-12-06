@@ -25,7 +25,7 @@ public final class MetalHelper {
             return new MetalProperties(name, durability, efficiency, attackDamage, tier, meltingPoint);
         }
     }
-    
+
     // Metal properties map - using functional approach
     // Heating temperatures from TFC sword blade recipes: copper=1080, bronze=950, bismuth_bronze=985, black_bronze=1070, wrought_iron=1535, steel=1540, black_steel=1485, blue_steel=1540, red_steel=1540
     private static final Map<String, MetalProperties> METAL_PROPERTIES = Map.ofEntries(

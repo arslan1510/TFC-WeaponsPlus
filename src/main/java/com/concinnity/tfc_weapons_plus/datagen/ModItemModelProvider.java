@@ -13,6 +13,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 /**
  * Generates item models using functional programming patterns
  * Includes metal variants for guard and pommel
+ * All components use custom 3D parent models for proper appearance
  */
 public final class ModItemModelProvider extends ItemModelProvider {
     
@@ -23,92 +24,91 @@ public final class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         // Generate models for basic components
-        // Grip model path must match item ID: item/wood/grip
-        // Using item/handheld for 3D appearance (like tools/weapons)
-        withExistingParent("item/wood/grip", mcLoc("item/handheld"))
+        // Grip model - uses custom 3D parent model
+        // Model path must match item ID: item/wood/grip
+        withExistingParent("item/wood/grip", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/grip"))
             .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/wood/grip"));
         
         // Generate models for metal variants of guard and pommel
+        // All variants use the same grayscale base texture - colors applied via tinting
         MetalHelper.getAllMetalNames().forEach(metalName -> {
             String normalizedMetal = NameUtils.normalizeMetalName(metalName);
-            
-            // Guard variants - Model path must match item ID: item/metal/guard/{metal}
-            // Using item/handheld for 3D appearance
-            // TFC format: namespace:item/path/to/texture
+
+            // Guard variants - uses custom 3D parent model with single grayscale texture
+            // Model path must match item ID: item/metal/guard/{metal}
             ModItems.getGuardForMetal(metalName).ifPresent(guard -> {
-                withExistingParent("item/metal/guard/" + normalizedMetal, mcLoc("item/handheld"))
-                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/guard/" + normalizedMetal));
+                withExistingParent("item/metal/guard/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/guard"))
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/guard/base"));
             });
-            
-            // Pommel variants - Model path must match item ID: item/metal/pommel/{metal}
-            // Using item/handheld for 3D appearance
-            // TFC format: namespace:item/path/to/texture
+
+            // Pommel variants - uses custom 3D parent model with single grayscale texture
+            // Model path must match item ID: item/metal/pommel/{metal}
             ModItems.getPommelForMetal(metalName).ifPresent(pommel -> {
-                withExistingParent("item/metal/pommel/" + normalizedMetal, mcLoc("item/handheld"))
-                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/pommel/" + normalizedMetal));
+                withExistingParent("item/metal/pommel/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/pommel"))
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/pommel/base"));
             });
             
-            // Hilt models - Model path must match item ID: item/metal/hilt/{metal}
-            // Using item/handheld for 3D appearance
-            // Uses combined texture with pommel (top), grip (middle), guard (bottom)
-            withExistingParent("item/metal/hilt/" + normalizedMetal, mcLoc("item/handheld"))
+            // Hilt models - uses custom 3D parent model
+            // Model path must match item ID: item/metal/hilt/{metal}
+            // Texture is generated at build-time by combining guard + grip + pommel
+            withExistingParent("item/metal/hilt/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/hilt"))
                 .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/hilt/" + normalizedMetal));
             
-            // Longsword blade models - Model path must match item ID: item/metal/longsword_blade/{metal}
-            // Use local template_longsword_blade model for proper sizing and GUI display
+            // Longsword blade models - uses custom 3D parent model with single grayscale texture
+            // Model path must match item ID: item/metal/longsword_blade/{metal}
             ModItems.getLongswordBladeForMetal(metalName).ifPresent(blade -> {
-                withExistingParent("item/metal/longsword_blade/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/template_longsword_blade"))
-                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/longsword_blade/" + normalizedMetal));
+                withExistingParent("item/metal/longsword_blade/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/longsword_blade"))
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/longsword_blade/base"));
             });
-            
-            // Greatsword blade models - Model path must match item ID: item/metal/greatsword_blade/{metal}
-            // Use local template_greatsword_blade model for proper sizing and GUI display
+
+            // Greatsword blade models - uses custom 3D parent model with single grayscale texture
+            // Model path must match item ID: item/metal/greatsword_blade/{metal}
             ModItems.getGreatswordBladeForMetal(metalName).ifPresent(blade -> {
-                withExistingParent("item/metal/greatsword_blade/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/template_greatsword_blade"))
-                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/greatsword_blade/" + normalizedMetal));
+                withExistingParent("item/metal/greatsword_blade/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/greatsword_blade"))
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/greatsword_blade/base"));
             });
-            
-            // Waraxe head models - flat component
-            ModItems.getWarAxeHeadForMetal(metalName).ifPresent(head -> {
-                withExistingParent("item/metal/waraxe_head/" + normalizedMetal, mcLoc("item/handheld"))
-                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/waraxe_head/" + normalizedMetal));
+
+            // Greataxe head models - uses custom 3D parent model with single grayscale texture
+            ModItems.getGreatAxeHeadForMetal(metalName).ifPresent(head -> {
+                withExistingParent("item/metal/greataxe_head/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/greataxe_head"))
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/greataxe_head/base"));
             });
         });
         
         // Generate models for longswords (same metal for blade and hilt)
-        // Use local template_longsword model for proper sizing when held
+        // Uses custom 3D parent model for proper sizing when held
         MetalHelper.getAllMetalNames().forEach(metalName -> {
             String normalizedMetal = NameUtils.normalizeMetalName(metalName);
             String modelPath = "item/metal/longsword/" + normalizedMetal;
             
             ModItems.getLongswordForMetal(metalName).ifPresent(longsword -> {
-                withExistingParent(modelPath, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/template_longsword"))
+                withExistingParent(modelPath, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/longsword"))
                     .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/longsword/" + normalizedMetal));
             });
         });
         
         // Generate models for greatswords (same metal for blade and hilt)
-        // Use local template_greatsword model for proper sizing when held
+        // Uses custom 3D parent model for proper sizing when held
         MetalHelper.getAllMetalNames().forEach(metalName -> {
             String normalizedMetal = NameUtils.normalizeMetalName(metalName);
             String modelPath = "item/metal/greatsword/" + normalizedMetal;
             
             ModItems.getGreatswordForMetal(metalName).ifPresent(greatsword -> {
-                withExistingParent(modelPath, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/template_greatsword"))
+                withExistingParent(modelPath, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/greatsword"))
                     .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/greatsword/" + normalizedMetal));
             });
         });
         
-        // Generate models for waraxes
+        // Generate models for greataxes
+        // Uses custom 3D parent model for proper sizing when held
         MetalHelper.getAllMetalNames().forEach(metalName -> {
             String normalizedMetal = NameUtils.normalizeMetalName(metalName);
-            String modelPath = "item/metal/waraxe/" + normalizedMetal;
-            
-            ModItems.getWarAxeForMetal(metalName).ifPresent(waraxe -> {
-                withExistingParent(modelPath, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/template_waraxe"))
-                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/waraxe/" + normalizedMetal));
+            String modelPath = "item/metal/greataxe/" + normalizedMetal;
+
+            ModItems.getGreatAxeForMetal(metalName).ifPresent(greataxe -> {
+                withExistingParent(modelPath, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/greataxe"))
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/greataxe/" + normalizedMetal));
             });
         });
     }
 }
-

@@ -50,9 +50,9 @@ public final class ModLanguageProvider extends LanguageProvider {
                     add(blade, props.name() + " Greatsword Blade");
                 });
                 
-                // Waraxe head variants
-                ModItems.getWarAxeHeadForMetal(metalName).ifPresent(head -> {
-                    add(head, props.name() + " Waraxe Head");
+                // Greataxe head variants
+                ModItems.getGreatAxeHeadForMetal(metalName).ifPresent(head -> {
+                    add(head, props.name() + " Greataxe Head");
                 });
             });
         });
@@ -77,11 +77,11 @@ public final class ModLanguageProvider extends LanguageProvider {
             });
         });
         
-        // Generate translations for waraxes
+        // Generate translations for greataxes
         MetalHelper.getAllMetalNames().forEach(metalName -> {
             MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
-                ModItems.getWarAxeForMetal(metalName).ifPresent(waraxe -> {
-                    add(waraxe, props.name() + " Waraxe");
+                ModItems.getGreatAxeForMetal(metalName).ifPresent(greataxe -> {
+                    add(greataxe, props.name() + " Greataxe");
                 });
             });
         });

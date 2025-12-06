@@ -66,11 +66,11 @@ public final class WeaponAttributes {
     }
     
     /**
-     * Create attributes for a waraxe.
+     * Create attributes for a greataxe.
      * Attack damage: between longsword and greatsword (5 + tier bonus)
      * Attack speed: slightly slower than greatsword to emphasize weight.
      */
-    public static ItemAttributeModifiers createWarAxeAttributes(Tier tier) {
+    public static ItemAttributeModifiers createGreatAxeAttributes(Tier tier) {
         int attackDamage = 5 + (int) tier.getAttackDamageBonus();
         float attackSpeed = -3.1f;
         

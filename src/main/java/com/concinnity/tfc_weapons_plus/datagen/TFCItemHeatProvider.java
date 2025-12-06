@@ -39,7 +39,7 @@ public final class TFCItemHeatProvider implements DataProvider {
                     generateItemHeat(metalName, ModItems.getPommelForMetal(metalName), output),
                     generateLongswordBladeHeat(metalName, output),
                     generateGreatswordBladeHeat(metalName, output),
-                    generateWarAxeHeadHeat(metalName, output)
+                    generateGreatAxeHeadHeat(metalName, output)
                 ))
                 .filter(future -> future != null)
                 .toList();
@@ -106,9 +106,9 @@ public final class TFCItemHeatProvider implements DataProvider {
             .orElse(CompletableFuture.completedFuture(null));
     }
     
-    private CompletableFuture<?> generateWarAxeHeadHeat(String metalName, CachedOutput output) {
+    private CompletableFuture<?> generateGreatAxeHeadHeat(String metalName, CachedOutput output) {
         String normalizedMetal = NameUtils.normalizeMetalName(metalName);
-        String headId = TFCWeaponsPlus.MODID + ":metal/waraxe_head/" + normalizedMetal;
+        String headId = TFCWeaponsPlus.MODID + ":metal/greataxe_head/" + normalizedMetal;
         ResourceLocation headLoc = ResourceLocation.parse(headId);
         
         if (!BuiltInRegistries.ITEM.containsKey(headLoc)) {

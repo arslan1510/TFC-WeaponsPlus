@@ -74,8 +74,8 @@ public final class ModItemTagsProvider implements DataProvider {
                     futures.add(createTagFile(output, tfcMetalTagId, blade, tfcTagPathProvider));
                 });
                 
-                // Waraxe head tags
-                ModItems.getWarAxeHeadForMetal(metalName).ifPresent(head -> {
+                // Greataxe head tags
+                ModItems.getGreatAxeHeadForMetal(metalName).ifPresent(head -> {
                     ResourceLocation tfcMetalTagId = ResourceLocation.fromNamespaceAndPath("tfc", "metal/" + normalizedMetal);
                     futures.add(createTagFile(output, tfcMetalTagId, head, tfcTagPathProvider));
                 });
@@ -142,19 +142,19 @@ public final class ModItemTagsProvider implements DataProvider {
                 futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("tfc", "deals_slashing_damage"), allGreatswords, tfcTagPathProvider));
             }
             
-            // Collect all waraxes for general tags
-            var allWarAxes = MetalHelper.getAllMetalNames()
-                .map(ModItems::getWarAxeForMetal)
+            // Collect all greataxes for general tags
+            var allGreatAxes = MetalHelper.getAllMetalNames()
+                .map(ModItems::getGreatAxeForMetal)
                 .filter(java.util.Optional::isPresent)
                 .map(java.util.Optional::get)
                 .toList();
             
-            if (!allWarAxes.isEmpty()) {
-                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools"), allWarAxes, commonTagPathProvider));
-                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools/axes"), allWarAxes, commonTagPathProvider));
-                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools/melee_weapons"), allWarAxes, commonTagPathProvider));
-                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("minecraft", "axes"), allWarAxes, commonTagPathProvider));
-                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("tfc", "deals_slashing_damage"), allWarAxes, tfcTagPathProvider));
+            if (!allGreatAxes.isEmpty()) {
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools"), allGreatAxes, commonTagPathProvider));
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools/axes"), allGreatAxes, commonTagPathProvider));
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools/melee_weapons"), allGreatAxes, commonTagPathProvider));
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("minecraft", "axes"), allGreatAxes, commonTagPathProvider));
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("tfc", "deals_slashing_damage"), allGreatAxes, tfcTagPathProvider));
             }
             
             // Add longswords to TFC metal-specific tool tags (like tfc:tools/red_steel)
@@ -174,10 +174,10 @@ public final class ModItemTagsProvider implements DataProvider {
                     futures.add(createTagFile(output, tfcToolTagId, greatsword, tfcTagPathProvider));
                 });
                 
-                // Add waraxes to TFC metal-specific tool tags
-                ModItems.getWarAxeForMetal(metalName).ifPresent(waraxe -> {
+                // Add greataxes to TFC metal-specific tool tags
+                ModItems.getGreatAxeForMetal(metalName).ifPresent(greataxe -> {
                     ResourceLocation tfcToolTagId = ResourceLocation.fromNamespaceAndPath("tfc", "tools/" + normalizedMetal);
-                    futures.add(createTagFile(output, tfcToolTagId, waraxe, tfcTagPathProvider));
+                    futures.add(createTagFile(output, tfcToolTagId, greataxe, tfcTagPathProvider));
                 });
             });
             
