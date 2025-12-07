@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "tfc_weapons_plus:item/hilt",
   "textures": {
     "layer0": "tfc_weapons_plus:item/metal/hilt/black_steel"
   }

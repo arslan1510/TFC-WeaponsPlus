@@ -83,5 +83,24 @@ public final class WeaponAttributes {
                 EquipmentSlotGroup.MAINHAND)
             .build();
     }
+    
+    /**
+     * Create attributes for a greathammer.
+     * Attack damage: similar to greataxe (5 + tier bonus)
+     * Attack speed: slightly slower than greataxe to emphasize weight of hammer.
+     */
+    public static ItemAttributeModifiers createGreatHammerAttributes(Tier tier) {
+        int attackDamage = 5 + (int) tier.getAttackDamageBonus();
+        float attackSpeed = -3.2f;
+        
+        return ItemAttributeModifiers.builder()
+            .add(Attributes.ATTACK_DAMAGE,
+                new AttributeModifier(SwordItem.BASE_ATTACK_DAMAGE_ID, attackDamage, AttributeModifier.Operation.ADD_VALUE),
+                EquipmentSlotGroup.MAINHAND)
+            .add(Attributes.ATTACK_SPEED,
+                new AttributeModifier(SwordItem.BASE_ATTACK_SPEED_ID, attackSpeed, AttributeModifier.Operation.ADD_VALUE),
+                EquipmentSlotGroup.MAINHAND)
+            .build();
+    }
 }
 

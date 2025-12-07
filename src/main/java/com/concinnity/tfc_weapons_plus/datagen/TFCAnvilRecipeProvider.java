@@ -46,7 +46,11 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
                 .flatMap(metalName -> generateGreatAxeHeadRecipes(metalName, output))
                 .toList();
             
-            var allFutures = Stream.of(componentFutures.stream(), heatingFutures.stream(), greataxeHeadFutures.stream())
+            var greathammerHeadFutures = MetalHelper.getAllMetalNames()
+                .flatMap(metalName -> generateGreatHammerHeadRecipes(metalName, output))
+                .toList();
+            
+            var allFutures = Stream.of(componentFutures.stream(), heatingFutures.stream(), greataxeHeadFutures.stream(), greathammerHeadFutures.stream())
                 .flatMap(s -> s)
                 .toList();
             
@@ -151,6 +155,27 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
                     output,
                     "metal/greataxe_head/" + normalizedMetal,
                     "c:sheets/" + normalizedMetal,
+                    BuiltInRegistries.ITEM.getKey(head).toString(),
+                    props.tier(),
+                    List.of("punch_last", "hit_second_last")
+                ));
+            });
+        });
+        
+        return futures.stream();
+    }
+    
+    private Stream<CompletableFuture<?>> generateGreatHammerHeadRecipes(String metalName, CachedOutput output) {
+        String normalizedMetal = NameUtils.normalizeMetalName(metalName);
+        List<CompletableFuture<?>> futures = new java.util.ArrayList<>();
+        
+        // Greathammer head from double sheet
+        ModItems.getGreatHammerHeadForMetal(metalName).ifPresent(head -> {
+            MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
+                futures.add(createAnvilRecipeWithTag(
+                    output,
+                    "metal/greathammer_head/" + normalizedMetal,
+                    "c:double_sheets/" + normalizedMetal,
                     BuiltInRegistries.ITEM.getKey(head).toString(),
                     props.tier(),
                     List.of("punch_last", "hit_second_last")
@@ -271,6 +296,22 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
                     greataxeHeadId,
                     props.meltingPoint(),
                     200, // Single sheet = 200 units
+                    normalizedMetal
+                ));
+            });
+        }
+        
+        // Greathammer head heating recipe - double sheet = 400 units
+        String greathammerHeadId = TFCWeaponsPlus.MODID + ":metal/greathammer_head/" + normalizedMetal;
+        ResourceLocation greathammerHeadLoc = ResourceLocation.parse(greathammerHeadId);
+        if (BuiltInRegistries.ITEM.containsKey(greathammerHeadLoc)) {
+            MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
+                futures.add(createHeatingRecipe(
+                    output,
+                    "metal/greathammer_head/" + normalizedMetal,
+                    greathammerHeadId,
+                    props.meltingPoint(),
+                    400, // Double sheet = 400 units
                     normalizedMetal
                 ));
             });

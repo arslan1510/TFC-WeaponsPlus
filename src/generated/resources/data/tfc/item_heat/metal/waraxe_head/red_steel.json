@@ -1,8 +1,0 @@
-{
-  "forging_temperature": 1540.0,
-  "heat_capacity": 5.714,
-  "ingredient": {
-    "item": "tfc_weapons_plus:metal/waraxe_head/red_steel"
-  },
-  "welding_temperature": 1540.0
-}

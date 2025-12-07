@@ -5,6 +5,7 @@ import com.concinnity.tfc_weapons_plus.integration.MetalHelper;
 import com.concinnity.tfc_weapons_plus.item.weapon.GreatswordItem;
 import com.concinnity.tfc_weapons_plus.item.weapon.LongswordItem;
 import com.concinnity.tfc_weapons_plus.item.weapon.GreatAxeItem;
+import com.concinnity.tfc_weapons_plus.item.weapon.GreatHammerItem;
 import com.concinnity.tfc_weapons_plus.util.NameUtils;
 
 import java.util.HashMap;
@@ -52,6 +53,12 @@ public final class ModItems {
     
     // Greataxe items (9 metals)
     public static final Map<String, DeferredItem<Item>> GREATAXE_VARIANTS = new HashMap<>();
+    
+    // Greathammer head component variants (9 metals)
+    public static final Map<String, DeferredItem<Item>> GREATHAMMER_HEAD_VARIANTS = new HashMap<>();
+    
+    // Greathammer items (9 metals)
+    public static final Map<String, DeferredItem<Item>> GREATHAMMER_VARIANTS = new HashMap<>();
     
     static {
         // Register metal variants for guard, pommel, and hilt
@@ -117,6 +124,21 @@ public final class ModItems {
                 GREATAXE_VARIANTS.put(metalName, ITEMS.register(greataxeId,
                     () -> new GreatAxeItem(metalName, weaponProps)));
             });
+            
+            // Register greathammer head for this metal (single sheet requirement handled in recipes)
+            String greathammerHeadId = "metal/greathammer_head/" + normalizedMetal;
+            GREATHAMMER_HEAD_VARIANTS.put(metalName, ITEMS.register(greathammerHeadId,
+                () -> new MetalComponentItem(ComponentType.GREATHAMMER_HEAD, metalName, new Item.Properties())));
+            
+            // Register greathammer item for this metal
+            String greathammerId = "metal/greathammer/" + normalizedMetal;
+            MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
+                Item.Properties weaponProps = new Item.Properties()
+                    .durability(props.durability());
+                
+                GREATHAMMER_VARIANTS.put(metalName, ITEMS.register(greathammerId,
+                    () -> new GreatHammerItem(metalName, weaponProps)));
+            });
         });
     }
     
@@ -134,7 +156,9 @@ public final class ModItems {
             GREATSWORD_BLADE_VARIANTS.values().stream().map(DeferredItem::get),
             GREATSWORD_VARIANTS.values().stream().map(DeferredItem::get),
             GREATAXE_HEAD_VARIANTS.values().stream().map(DeferredItem::get),
-            GREATAXE_VARIANTS.values().stream().map(DeferredItem::get)
+            GREATAXE_VARIANTS.values().stream().map(DeferredItem::get),
+            GREATHAMMER_HEAD_VARIANTS.values().stream().map(DeferredItem::get),
+            GREATHAMMER_VARIANTS.values().stream().map(DeferredItem::get)
         ).flatMap(s -> s);
     }
     
@@ -207,6 +231,22 @@ public final class ModItems {
      */
     public static Optional<Item> getGreatAxeForMetal(String metalName) {
         return Optional.ofNullable(GREATAXE_VARIANTS.get(metalName))
+            .map(DeferredItem::get);
+    }
+    
+    /**
+     * Get greathammer head item for a specific metal
+     */
+    public static Optional<Item> getGreatHammerHeadForMetal(String metalName) {
+        return Optional.ofNullable(GREATHAMMER_HEAD_VARIANTS.get(metalName))
+            .map(DeferredItem::get);
+    }
+    
+    /**
+     * Get greathammer item for a specific metal
+     */
+    public static Optional<Item> getGreatHammerForMetal(String metalName) {
+        return Optional.ofNullable(GREATHAMMER_VARIANTS.get(metalName))
             .map(DeferredItem::get);
     }
     

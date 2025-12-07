@@ -3,7 +3,8 @@
 	"credit": "Made by C",
 	"texture_size": [32, 32],
 	"textures": {
-		"layer0": "tfc_weapons_plus:item/metal/longsword_blade/steel"
+		"layer0": "tfc_weapons_plus:item/metal/longsword_blade/steel",
+		"particle": "tfc_weapons_plus:item/metal/longsword_blade/base"
 	},
 	"elements": [
 		{
@@ -96,6 +97,7 @@
 		},
 		"gui": {
 			"rotation": [30, -135, 0],
+			"translation": [0, -4.25, 0],
 			"scale": [0.5, 0.5, 0.5]
 		}
 	},

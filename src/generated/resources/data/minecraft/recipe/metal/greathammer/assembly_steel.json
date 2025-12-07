@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "tfc_weapons_plus:metal/greathammer_head/steel"
+    },
+    "R": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "pattern": [
+    "  H",
+    " R ",
+    "R  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "tfc_weapons_plus:metal/greathammer/steel"
+  }
+}

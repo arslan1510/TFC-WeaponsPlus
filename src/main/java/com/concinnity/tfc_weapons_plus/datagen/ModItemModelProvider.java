@@ -30,22 +30,22 @@ public final class ModItemModelProvider extends ItemModelProvider {
             .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/wood/grip"));
         
         // Generate models for metal variants of guard and pommel
-        // All variants use the same grayscale base texture - colors applied via tinting
+        // Each variant uses its own per-metal texture file
         MetalHelper.getAllMetalNames().forEach(metalName -> {
             String normalizedMetal = NameUtils.normalizeMetalName(metalName);
 
-            // Guard variants - uses custom 3D parent model with single grayscale texture
+            // Guard variants - uses custom 3D parent model with per-metal texture
             // Model path must match item ID: item/metal/guard/{metal}
             ModItems.getGuardForMetal(metalName).ifPresent(guard -> {
                 withExistingParent("item/metal/guard/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/guard"))
-                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/guard/base"));
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/guard/" + normalizedMetal));
             });
 
-            // Pommel variants - uses custom 3D parent model with single grayscale texture
+            // Pommel variants - uses custom 3D parent model with per-metal texture
             // Model path must match item ID: item/metal/pommel/{metal}
             ModItems.getPommelForMetal(metalName).ifPresent(pommel -> {
                 withExistingParent("item/metal/pommel/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/pommel"))
-                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/pommel/base"));
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/pommel/" + normalizedMetal));
             });
             
             // Hilt models - uses custom 3D parent model
@@ -54,24 +54,30 @@ public final class ModItemModelProvider extends ItemModelProvider {
             withExistingParent("item/metal/hilt/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/hilt"))
                 .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/hilt/" + normalizedMetal));
             
-            // Longsword blade models - uses custom 3D parent model with single grayscale texture
+            // Longsword blade models - use per-metal textures
             // Model path must match item ID: item/metal/longsword_blade/{metal}
             ModItems.getLongswordBladeForMetal(metalName).ifPresent(blade -> {
                 withExistingParent("item/metal/longsword_blade/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/longsword_blade"))
-                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/longsword_blade/base"));
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/longsword_blade/" + normalizedMetal));
             });
 
-            // Greatsword blade models - uses custom 3D parent model with single grayscale texture
+            // Greatsword blade models - use per-metal textures
             // Model path must match item ID: item/metal/greatsword_blade/{metal}
             ModItems.getGreatswordBladeForMetal(metalName).ifPresent(blade -> {
                 withExistingParent("item/metal/greatsword_blade/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/greatsword_blade"))
-                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/greatsword_blade/base"));
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/greatsword_blade/" + normalizedMetal));
             });
 
-            // Greataxe head models - uses custom 3D parent model with single grayscale texture
+            // Greataxe head models - uses custom 3D parent model with per-metal texture
             ModItems.getGreatAxeHeadForMetal(metalName).ifPresent(head -> {
                 withExistingParent("item/metal/greataxe_head/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/greataxe_head"))
-                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/greataxe_head/base"));
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/greataxe_head/" + normalizedMetal));
+            });
+            
+            // Greathammer head models - uses custom 3D parent model with per-metal texture
+            ModItems.getGreatHammerHeadForMetal(metalName).ifPresent(head -> {
+                withExistingParent("item/metal/greathammer_head/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/greathammer_head"))
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/greathammer_head/" + normalizedMetal));
             });
         });
         
@@ -108,6 +114,18 @@ public final class ModItemModelProvider extends ItemModelProvider {
             ModItems.getGreatAxeForMetal(metalName).ifPresent(greataxe -> {
                 withExistingParent(modelPath, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/greataxe"))
                     .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/greataxe/" + normalizedMetal));
+            });
+        });
+        
+        // Generate models for greathammers
+        // Uses custom 3D parent model for proper sizing when held
+        MetalHelper.getAllMetalNames().forEach(metalName -> {
+            String normalizedMetal = NameUtils.normalizeMetalName(metalName);
+            String modelPath = "item/metal/greathammer/" + normalizedMetal;
+
+            ModItems.getGreatHammerForMetal(metalName).ifPresent(greathammer -> {
+                withExistingParent(modelPath, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/greathammer"))
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/greathammer/" + normalizedMetal));
             });
         });
     }

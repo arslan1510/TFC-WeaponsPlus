@@ -1,0 +1,16 @@
+{
+  "type": "tfc:anvil",
+  "apply_bonus": true,
+  "ingredient": {
+    "tag": "c:sheets/black_steel"
+  },
+  "result": {
+    "count": 1,
+    "id": "tfc_weapons_plus:metal/greataxe_head/black_steel"
+  },
+  "rules": [
+    "punch_last",
+    "hit_second_last"
+  ],
+  "tier": 5
+}

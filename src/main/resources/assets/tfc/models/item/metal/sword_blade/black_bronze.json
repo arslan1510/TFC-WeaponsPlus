@@ -1,0 +1,113 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made by C",
+	"texture_size": [32, 32],
+	"textures": {
+		"layer0": "tfc:item/metal/sword_blade/black_bronze"
+	},
+	"elements": [
+		{
+			"name": "Blade Part 2",
+			"from": [7.7, 20.83535, 6.95],
+			"to": [8.2, 23.03535, 9.15],
+			"rotation": {"angle": -45, "axis": "x", "origin": [8.5, 21.88535, 8.01464]},
+			"faces": {
+				"north": {"uv": [4.5, 0, 5, 10], "texture": "#layer0"},
+				"east": {"uv": [6, 8.5, 7, 9.5], "texture": "#layer0"},
+				"south": {"uv": [4.5, 0, 5, 10], "texture": "#layer0"},
+				"west": {"uv": [8.5, 6, 9.5, 7], "texture": "#layer0"},
+				"up": {"uv": [10, 6.5, 9.5, 5.5], "texture": "#layer0"},
+				"down": {"uv": [10, 5.5, 9.5, 6.5], "texture": "#layer0"}
+			}
+		},
+		{
+			"name": "Blade Part 2",
+			"from": [7.7, 8, 6.5],
+			"to": [8.2, 22, 9.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 1, 8.5]},
+			"faces": {
+				"north": {"uv": [3, 0, 3.5, 10.5], "texture": "#layer0"},
+				"east": {"uv": [0, 0, 1.5, 10.5], "texture": "#layer0"},
+				"south": {"uv": [3.5, 0, 4, 10.5], "texture": "#layer0"},
+				"west": {"uv": [1.5, 0, 3, 10.5], "texture": "#layer0"},
+				"up": {"uv": [9.5, 10, 9, 8.5], "texture": "#layer0"},
+				"down": {"uv": [5.5, 9.5, 5, 11], "texture": "#layer0"}
+			}
+		},
+		{
+			"name": "Blade Part 3",
+			"from": [7.6, 7.1, 7.5],
+			"to": [8.3, 22.2, 8.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.51768, 18.46768, 8.00732]},
+			"faces": {
+				"north": {"uv": [0, 0, 1.5, 10.5], "texture": "#layer0"},
+				"east": {"uv": [3.5, 0, 4, 10.5], "texture": "#layer0"},
+				"south": {"uv": [1.5, 0, 3, 10.5], "texture": "#layer0"},
+				"west": {"uv": [3, 0, 3.5, 10.5], "texture": "#layer0"},
+				"up": {"uv": [9.5, 10, 9, 8.5], "rotation": 270, "texture": "#layer0"},
+				"down": {"uv": [5.5, 9.5, 5, 11], "rotation": 90, "texture": "#layer0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [-0.5, 0, 2]
+		},
+		"thirdperson_lefthand": {
+			"translation": [-0.5, 0, 2]
+		},
+		"firstperson_righthand": {
+			"rotation": [15, 0, -5],
+			"translation": [1, 0, 1],
+			"scale": [0.68, 0.68, 0.68]
+		},
+		"firstperson_lefthand": {
+			"rotation": [15, 0, -5],
+			"translation": [1, 0, 1],
+			"scale": [0.68, 0.68, 0.68]
+		},
+		"ground": {
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"gui": {
+			"rotation": [30, -135, 0],
+			"translation": [0, -1.75, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"fixed": {
+			"rotation": [0, 90, 0],
+			"translation": [0, -4, 0],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"on_shelf": {
+			"rotation": [0, 90, 0]
+		}
+	},
+	"groups": [
+		{
+			"name": "Blade Part 2",
+			"origin": [8, 6, 8],
+			"color": 0,
+			"children": [
+				{
+					"name": "Guard Part 4",
+					"origin": [8, 7.5, 8],
+					"color": 0,
+					"children": []
+				},
+				{
+					"name": "Blade Part 2",
+					"origin": [8, 8, 8],
+					"color": 0,
+					"children": [0, 1]
+				},
+				{
+					"name": "Blade Part 2",
+					"origin": [8, 8, 8],
+					"color": 0,
+					"children": [2]
+				}
+			]
+		}
+	]
+}

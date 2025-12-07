@@ -54,6 +54,11 @@ public final class ModLanguageProvider extends LanguageProvider {
                 ModItems.getGreatAxeHeadForMetal(metalName).ifPresent(head -> {
                     add(head, props.name() + " Greataxe Head");
                 });
+                
+                // Greathammer head variants
+                ModItems.getGreatHammerHeadForMetal(metalName).ifPresent(head -> {
+                    add(head, props.name() + " Greathammer Head");
+                });
             });
         });
         
@@ -82,6 +87,15 @@ public final class ModLanguageProvider extends LanguageProvider {
             MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
                 ModItems.getGreatAxeForMetal(metalName).ifPresent(greataxe -> {
                     add(greataxe, props.name() + " Greataxe");
+                });
+            });
+        });
+        
+        // Generate translations for greathammers
+        MetalHelper.getAllMetalNames().forEach(metalName -> {
+            MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
+                ModItems.getGreatHammerForMetal(metalName).ifPresent(greathammer -> {
+                    add(greathammer, props.name() + " Greathammer");
                 });
             });
         });

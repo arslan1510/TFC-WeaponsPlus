@@ -1,0 +1,8 @@
+{
+  "forging_temperature": 1080.0,
+  "heat_capacity": 5.714,
+  "ingredient": {
+    "item": "tfc_weapons_plus:metal/greataxe_head/copper"
+  },
+  "welding_temperature": 1080.0
+}

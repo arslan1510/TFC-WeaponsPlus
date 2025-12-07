@@ -29,6 +29,7 @@ public final class ModRecipeProvider extends RecipeProvider {
         generateLongswordAssemblyRecipes(output);
         generateGreatswordAssemblyRecipes(output);
         generateGreatAxeAssemblyRecipes(output);
+        generateGreatHammerAssemblyRecipes(output);
     }
     
     /**
@@ -179,6 +180,30 @@ public final class ModRecipeProvider extends RecipeProvider {
     
     private void generateGreatAxeAssemblyRecipes(RecipeOutput output) {
         MetalHelper.getAllMetalNames().forEach(metalName -> createGreatAxeAssemblyRecipe(output, metalName));
+    }
+    
+    /**
+     * Create greathammer assembly recipe: greathammer = greathammer_head + 2 wooden rods (diagonal)
+     */
+    private void createGreatHammerAssemblyRecipe(RecipeOutput output, String metalName) {
+        ModItems.getGreatHammerHeadForMetal(metalName).ifPresent(head -> {
+            ModItems.getGreatHammerForMetal(metalName).ifPresent(greathammer -> {
+                String normalizedMetal = NameUtils.normalizeMetalName(metalName);
+                
+                ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, greathammer)
+                    .pattern("  H")
+                    .pattern(" R ")
+                    .pattern("R  ")
+                    .define('H', head)
+                    .define('R', net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM, net.minecraft.resources.ResourceLocation.parse("c:rods/wooden")))
+                    .unlockedBy("has_head", has(head))
+                    .save(output, "metal/greathammer/assembly_" + normalizedMetal);
+            });
+        });
+    }
+    
+    private void generateGreatHammerAssemblyRecipes(RecipeOutput output) {
+        MetalHelper.getAllMetalNames().forEach(metalName -> createGreatHammerAssemblyRecipe(output, metalName));
     }
     
 }

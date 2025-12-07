@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "tfc_weapons_plus:item/pommel",
   "textures": {
     "layer0": "tfc_weapons_plus:item/metal/pommel/bismuth_bronze"
   }

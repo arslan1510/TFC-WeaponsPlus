@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "tfc_weapons_plus:metal/greataxe_head/blue_steel"
+    },
+    "R": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "pattern": [
+    "  H",
+    " R ",
+    "R  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "tfc_weapons_plus:metal/greataxe/blue_steel"
+  }
+}

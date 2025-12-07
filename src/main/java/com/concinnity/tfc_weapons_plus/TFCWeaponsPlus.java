@@ -32,9 +32,9 @@ public final class TFCWeaponsPlus {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> MODULAR_WEAPON_TAB = 
         CREATIVE_MODE_TABS.register("modular_weapon", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.tfc_weapons_plus"))
-            .icon(() -> ModItems.getPommelForMetal("copper")
+            .icon(() -> ModItems.getGreatswordForMetal("copper")
                 .map(ItemStack::new)
-                .orElseGet(() -> ModItems.getHiltForMetal("copper")
+                .orElseGet(() -> ModItems.getLongswordForMetal("copper")
                     .map(ItemStack::new)
                     .orElseGet(() -> new ItemStack(ModItems.GRIP.get()))))
             .displayItems((parameters, output) -> {

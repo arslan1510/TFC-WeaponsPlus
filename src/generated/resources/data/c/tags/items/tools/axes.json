@@ -1,14 +1,14 @@
 {
   "replace": false,
   "values": [
-    "tfc_weapons_plus:metal/waraxe/black_steel",
-    "tfc_weapons_plus:metal/waraxe/red_steel",
-    "tfc_weapons_plus:metal/waraxe/copper",
-    "tfc_weapons_plus:metal/waraxe/bismuth_bronze",
-    "tfc_weapons_plus:metal/waraxe/wrought_iron",
-    "tfc_weapons_plus:metal/waraxe/black_bronze",
-    "tfc_weapons_plus:metal/waraxe/steel",
-    "tfc_weapons_plus:metal/waraxe/bronze",
-    "tfc_weapons_plus:metal/waraxe/blue_steel"
+    "tfc_weapons_plus:metal/greathammer/black_bronze",
+    "tfc_weapons_plus:metal/greathammer/wrought_iron",
+    "tfc_weapons_plus:metal/greathammer/bismuth_bronze",
+    "tfc_weapons_plus:metal/greathammer/copper",
+    "tfc_weapons_plus:metal/greathammer/red_steel",
+    "tfc_weapons_plus:metal/greathammer/black_steel",
+    "tfc_weapons_plus:metal/greathammer/blue_steel",
+    "tfc_weapons_plus:metal/greathammer/bronze",
+    "tfc_weapons_plus:metal/greathammer/steel"
   ]
 }
