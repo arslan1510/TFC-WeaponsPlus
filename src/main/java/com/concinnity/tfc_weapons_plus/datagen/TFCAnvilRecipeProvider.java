@@ -141,6 +141,24 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
             });
         }
         
+        // Shortsword blade from single ingot - smaller weapon, less material
+        // Check if shortsword blade item exists (will be registered separately)
+        String shortswordBladeId = TFCWeaponsPlus.MODID + ":metal/shortsword_blade/" + normalizedMetal;
+        ResourceLocation shortswordBladeLoc = ResourceLocation.parse(shortswordBladeId);
+        if (BuiltInRegistries.ITEM.containsKey(shortswordBladeLoc)) {
+            MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
+                futures.add(createAnvilRecipeWithTag(
+                    output,
+                    "metal/shortsword_blade/" + normalizedMetal,
+                    "c:ingots/" + normalizedMetal,
+                    shortswordBladeId,
+                    props.tier(),
+                    // Simpler sequence for smaller blade: hit second-to-last, hit last
+                    List.of("hit_second_last", "hit_last")
+                ));
+            });
+        }
+        
         return futures.stream();
     }
     
@@ -280,6 +298,22 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
                     greatswordBladeId,
                     props.meltingPoint(),
                     400, // Double sheet = 400 units (more than double ingot)
+                    normalizedMetal
+                ));
+            });
+        }
+        
+        // Shortsword blade heating recipe - single ingot = 100 units
+        String shortswordBladeId = TFCWeaponsPlus.MODID + ":metal/shortsword_blade/" + normalizedMetal;
+        ResourceLocation shortswordBladeLoc = ResourceLocation.parse(shortswordBladeId);
+        if (BuiltInRegistries.ITEM.containsKey(shortswordBladeLoc)) {
+            MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
+                futures.add(createHeatingRecipe(
+                    output,
+                    "metal/shortsword_blade/" + normalizedMetal,
+                    shortswordBladeId,
+                    props.meltingPoint(),
+                    100, // Single ingot = 100 units (same as guard/pommel)
                     normalizedMetal
                 ));
             });

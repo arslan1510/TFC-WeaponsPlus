@@ -1,14 +1,14 @@
 {
   "replace": false,
   "values": [
-    "tfc_weapons_plus:metal/pommel/black_bronze",
-    "tfc_weapons_plus:metal/pommel/wrought_iron",
-    "tfc_weapons_plus:metal/pommel/bismuth_bronze",
-    "tfc_weapons_plus:metal/pommel/copper",
-    "tfc_weapons_plus:metal/pommel/red_steel",
     "tfc_weapons_plus:metal/pommel/black_steel",
-    "tfc_weapons_plus:metal/pommel/blue_steel",
+    "tfc_weapons_plus:metal/pommel/red_steel",
+    "tfc_weapons_plus:metal/pommel/copper",
+    "tfc_weapons_plus:metal/pommel/bismuth_bronze",
+    "tfc_weapons_plus:metal/pommel/wrought_iron",
+    "tfc_weapons_plus:metal/pommel/black_bronze",
+    "tfc_weapons_plus:metal/pommel/steel",
     "tfc_weapons_plus:metal/pommel/bronze",
-    "tfc_weapons_plus:metal/pommel/steel"
+    "tfc_weapons_plus:metal/pommel/blue_steel"
   ]
 }

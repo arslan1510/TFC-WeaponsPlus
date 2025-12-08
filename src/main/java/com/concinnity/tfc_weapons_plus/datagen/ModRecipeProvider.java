@@ -28,6 +28,7 @@ public final class ModRecipeProvider extends RecipeProvider {
         generateSwordAssemblyRecipes(output);
         generateLongswordAssemblyRecipes(output);
         generateGreatswordAssemblyRecipes(output);
+        generateShortswordAssemblyRecipes(output);
         generateGreatAxeAssemblyRecipes(output);
         generateGreatHammerAssemblyRecipes(output);
     }
@@ -155,6 +156,36 @@ public final class ModRecipeProvider extends RecipeProvider {
         // Generate recipes for same-metal combinations only
         MetalHelper.getAllMetalNames().forEach(metalName -> {
             createGreatswordAssemblyRecipe(output, metalName);
+        });
+    }
+    
+    /**
+     * Create shortsword assembly recipe: shortsword = shortsword_blade + hilt (crafting table)
+     * Blade and hilt must be the same metal
+     */
+    private void createShortswordAssemblyRecipe(RecipeOutput output, String metalName) {
+        ModItems.getHiltForMetal(metalName).ifPresent(hilt -> {
+            ModItems.getShortswordBladeForMetal(metalName).ifPresent(blade -> {
+                ModItems.getShortswordForMetal(metalName).ifPresent(shortsword -> {
+                    String normalizedMetal = NameUtils.normalizeMetalName(metalName);
+                    
+                    ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, shortsword)
+                        .pattern("B")
+                        .pattern("H")
+                        .define('B', blade)
+                        .define('H', hilt)
+                        .unlockedBy("has_hilt", has(hilt))
+                        .unlockedBy("has_blade", has(blade))
+                        .save(output, "metal/shortsword/assembly_" + normalizedMetal);
+                });
+            });
+        });
+    }
+    
+    private void generateShortswordAssemblyRecipes(RecipeOutput output) {
+        // Generate recipes for same-metal combinations only
+        MetalHelper.getAllMetalNames().forEach(metalName -> {
+            createShortswordAssemblyRecipe(output, metalName);
         });
     }
     

@@ -50,6 +50,11 @@ public final class ModLanguageProvider extends LanguageProvider {
                     add(blade, props.name() + " Greatsword Blade");
                 });
                 
+                // Shortsword blade variants
+                ModItems.getShortswordBladeForMetal(metalName).ifPresent(blade -> {
+                    add(blade, props.name() + " Shortsword Blade");
+                });
+                
                 // Greataxe head variants
                 ModItems.getGreatAxeHeadForMetal(metalName).ifPresent(head -> {
                     add(head, props.name() + " Greataxe Head");
@@ -78,6 +83,16 @@ public final class ModLanguageProvider extends LanguageProvider {
                 ModItems.getGreatswordForMetal(metalName).ifPresent(greatsword -> {
                     // Format: "{Metal} Greatsword"
                     add(greatsword, props.name() + " Greatsword");
+                });
+            });
+        });
+        
+        // Generate translations for shortswords (same metal for blade and hilt)
+        MetalHelper.getAllMetalNames().forEach(metalName -> {
+            MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
+                ModItems.getShortswordForMetal(metalName).ifPresent(shortsword -> {
+                    // Format: "{Metal} Shortsword"
+                    add(shortsword, props.name() + " Shortsword");
                 });
             });
         });

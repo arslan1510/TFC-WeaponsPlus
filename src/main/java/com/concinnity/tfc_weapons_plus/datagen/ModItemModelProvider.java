@@ -68,6 +68,13 @@ public final class ModItemModelProvider extends ItemModelProvider {
                     .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/greatsword_blade/" + normalizedMetal));
             });
 
+            // Shortsword blade models - use per-metal textures
+            // Model path must match item ID: item/metal/shortsword_blade/{metal}
+            ModItems.getShortswordBladeForMetal(metalName).ifPresent(blade -> {
+                withExistingParent("item/metal/shortsword_blade/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/shortsword_blade"))
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/shortsword_blade/" + normalizedMetal));
+            });
+
             // Greataxe head models - uses custom 3D parent model with per-metal texture
             ModItems.getGreatAxeHeadForMetal(metalName).ifPresent(head -> {
                 withExistingParent("item/metal/greataxe_head/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/greataxe_head"))
@@ -102,6 +109,18 @@ public final class ModItemModelProvider extends ItemModelProvider {
             ModItems.getGreatswordForMetal(metalName).ifPresent(greatsword -> {
                 withExistingParent(modelPath, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/greatsword"))
                     .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/greatsword/" + normalizedMetal));
+            });
+        });
+        
+        // Generate models for shortswords (same metal for blade and hilt)
+        // Uses custom 3D parent model for proper sizing when held
+        MetalHelper.getAllMetalNames().forEach(metalName -> {
+            String normalizedMetal = NameUtils.normalizeMetalName(metalName);
+            String modelPath = "item/metal/shortsword/" + normalizedMetal;
+            
+            ModItems.getShortswordForMetal(metalName).ifPresent(shortsword -> {
+                withExistingParent(modelPath, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/shortsword"))
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/shortsword/" + normalizedMetal));
             });
         });
         

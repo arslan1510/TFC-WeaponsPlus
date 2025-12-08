@@ -102,5 +102,24 @@ public final class WeaponAttributes {
                 EquipmentSlotGroup.MAINHAND)
             .build();
     }
+    
+    /**
+     * Create attributes for a shortsword.
+     * Attack damage: less than sword (2 + tier bonus, vs sword's 3 + tier)
+     * Attack speed: faster than sword (-2.0f vs sword's -2.4f)
+     */
+    public static ItemAttributeModifiers createShortswordAttributes(Tier tier) {
+        int attackDamage = 2 + (int) tier.getAttackDamageBonus();
+        float attackSpeed = -2.0f;
+        
+        return ItemAttributeModifiers.builder()
+            .add(Attributes.ATTACK_DAMAGE,
+                new AttributeModifier(SwordItem.BASE_ATTACK_DAMAGE_ID, attackDamage, AttributeModifier.Operation.ADD_VALUE),
+                EquipmentSlotGroup.MAINHAND)
+            .add(Attributes.ATTACK_SPEED,
+                new AttributeModifier(SwordItem.BASE_ATTACK_SPEED_ID, attackSpeed, AttributeModifier.Operation.ADD_VALUE),
+                EquipmentSlotGroup.MAINHAND)
+            .build();
+    }
 }
 

@@ -74,6 +74,13 @@ public final class ModItemTagsProvider implements DataProvider {
                     futures.add(createTagFile(output, tfcMetalTagId, blade, tfcTagPathProvider));
                 });
                 
+                // Shortsword blade tags
+                ModItems.getShortswordBladeForMetal(metalName).ifPresent(blade -> {
+                    // TFC metal tag so shortsword blade can be melted
+                    ResourceLocation tfcMetalTagId = ResourceLocation.fromNamespaceAndPath("tfc", "metal/" + normalizedMetal);
+                    futures.add(createTagFile(output, tfcMetalTagId, blade, tfcTagPathProvider));
+                });
+                
                 // Greataxe head tags
                 ModItems.getGreatAxeHeadForMetal(metalName).ifPresent(head -> {
                     ResourceLocation tfcMetalTagId = ResourceLocation.fromNamespaceAndPath("tfc", "metal/" + normalizedMetal);
@@ -148,6 +155,26 @@ public final class ModItemTagsProvider implements DataProvider {
                 futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("tfc", "deals_slashing_damage"), allGreatswords, tfcTagPathProvider));
             }
             
+            // Collect all shortswords for general tags
+            var allShortswords = MetalHelper.getAllMetalNames()
+                .map(ModItems::getShortswordForMetal)
+                .filter(java.util.Optional::isPresent)
+                .map(java.util.Optional::get)
+                .toList();
+            
+            if (!allShortswords.isEmpty()) {
+                // Add all shortswords to common tool tags (these will be merged with existing tags)
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools"), allShortswords, commonTagPathProvider));
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools/swords"), allShortswords, commonTagPathProvider));
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools/melee_weapons"), allShortswords, commonTagPathProvider));
+                
+                // Add all shortswords to minecraft:swords tag (TFC's deals_slashing_damage references this)
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("minecraft", "swords"), allShortswords, commonTagPathProvider));
+                
+                // Add all shortswords to TFC slashing damage tag
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("tfc", "deals_slashing_damage"), allShortswords, tfcTagPathProvider));
+            }
+            
             // Collect all greataxes for general tags
             var allGreatAxes = MetalHelper.getAllMetalNames()
                 .map(ModItems::getGreatAxeForMetal)
@@ -194,6 +221,13 @@ public final class ModItemTagsProvider implements DataProvider {
                     // TFC tool tag for this metal (e.g., tfc:tools/red_steel)
                     ResourceLocation tfcToolTagId = ResourceLocation.fromNamespaceAndPath("tfc", "tools/" + normalizedMetal);
                     futures.add(createTagFile(output, tfcToolTagId, greatsword, tfcTagPathProvider));
+                });
+                
+                // Add shortswords to TFC metal-specific tool tags
+                ModItems.getShortswordForMetal(metalName).ifPresent(shortsword -> {
+                    // TFC tool tag for this metal (e.g., tfc:tools/red_steel)
+                    ResourceLocation tfcToolTagId = ResourceLocation.fromNamespaceAndPath("tfc", "tools/" + normalizedMetal);
+                    futures.add(createTagFile(output, tfcToolTagId, shortsword, tfcTagPathProvider));
                 });
                 
                 // Add greataxes to TFC metal-specific tool tags

@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-07T21:57:18.452904798	Item Models: tfc_weapons_plus
+// 1.21.1	2025-12-08T15:46:23.011118817	Item Models: tfc_weapons_plus
 cdf8dd88f6dde0972ad97c7f873b5febfd662878 assets/tfc_weapons_plus/models/item/metal/greataxe/bismuth_bronze.json
 7829e2ba1e97b035d06a8d424d06faa2b8735639 assets/tfc_weapons_plus/models/item/metal/greataxe/black_bronze.json
 e3aadb9d8f15dc79837fb996850c50496bc40aa8 assets/tfc_weapons_plus/models/item/metal/greataxe/black_steel.json
@@ -98,4 +98,22 @@ f0e76e7e41ea4ad6b3f7cc3e02fc55d562c862d9 assets/tfc_weapons_plus/models/item/met
 2c1c918455157292c43802db3bed11604edef0bf assets/tfc_weapons_plus/models/item/metal/pommel/red_steel.json
 8baff4ac611d86f1eb60b96f76b0f45f0803d126 assets/tfc_weapons_plus/models/item/metal/pommel/steel.json
 e6d0e34b0dce90243b0515f7a2db207e631c4557 assets/tfc_weapons_plus/models/item/metal/pommel/wrought_iron.json
+16bb8950a936dd40b94e02814c229eb6d6bfd4e9 assets/tfc_weapons_plus/models/item/metal/shortsword/bismuth_bronze.json
+9106ee42f5969d4a96e9a8f85b2173d8ff9bce85 assets/tfc_weapons_plus/models/item/metal/shortsword/black_bronze.json
+b06100fd61dfd7348ab4321a9cb113c2e38533f8 assets/tfc_weapons_plus/models/item/metal/shortsword/black_steel.json
+9189c8b066b850e3ff38dd1347612ade0d27d5f5 assets/tfc_weapons_plus/models/item/metal/shortsword/blue_steel.json
+4c4390c6df5f9e0bc6460f49693fb124be5b2348 assets/tfc_weapons_plus/models/item/metal/shortsword/bronze.json
+6e937e951d8b978cffddf2ac21e447fe47bacffc assets/tfc_weapons_plus/models/item/metal/shortsword/copper.json
+31cdd3cdc7f18962c2d57e55435179cfe7419ade assets/tfc_weapons_plus/models/item/metal/shortsword/red_steel.json
+cb415135e92b5065e4a91d2cdb9627b17c4efd7a assets/tfc_weapons_plus/models/item/metal/shortsword/steel.json
+fcd4d0d0de409145721aeac9f5c1950b5e427c63 assets/tfc_weapons_plus/models/item/metal/shortsword/wrought_iron.json
+5409aa410537ba16b2a2833ce5ddb0e787686d51 assets/tfc_weapons_plus/models/item/metal/shortsword_blade/bismuth_bronze.json
+e08ca58ccff1654c84d0fcf22c10d9342f8c3197 assets/tfc_weapons_plus/models/item/metal/shortsword_blade/black_bronze.json
+c4527ebc6bbc576c50e4435b4b2ce704075e8cf8 assets/tfc_weapons_plus/models/item/metal/shortsword_blade/black_steel.json
+848de4a7e178dcb00a4e1e0fe30a6bc660f07037 assets/tfc_weapons_plus/models/item/metal/shortsword_blade/blue_steel.json
+2ffe907d9e8fd8406dee14ecd47a45f3824ac65b assets/tfc_weapons_plus/models/item/metal/shortsword_blade/bronze.json
+e93f7122a7195c1580eadfb8936dd4522e50f941 assets/tfc_weapons_plus/models/item/metal/shortsword_blade/copper.json
+3bae4885830c4e204a5f43b501303e63e74ba3fa assets/tfc_weapons_plus/models/item/metal/shortsword_blade/red_steel.json
+60521dfa5c6b25d34ba8d74f8c64b15cdd83db8c assets/tfc_weapons_plus/models/item/metal/shortsword_blade/steel.json
+7fa3cee6d063fed9f0c2c752c7004033e9379ec3 assets/tfc_weapons_plus/models/item/metal/shortsword_blade/wrought_iron.json
 4d69f5e2388d184e1e1cac002ad951a90e491889 assets/tfc_weapons_plus/models/item/wood/grip.json

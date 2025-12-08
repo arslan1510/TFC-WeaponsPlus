@@ -4,6 +4,7 @@ import com.concinnity.tfc_weapons_plus.TFCWeaponsPlus;
 import com.concinnity.tfc_weapons_plus.integration.MetalHelper;
 import com.concinnity.tfc_weapons_plus.item.weapon.GreatswordItem;
 import com.concinnity.tfc_weapons_plus.item.weapon.LongswordItem;
+import com.concinnity.tfc_weapons_plus.item.weapon.ShortswordItem;
 import com.concinnity.tfc_weapons_plus.item.weapon.GreatAxeItem;
 import com.concinnity.tfc_weapons_plus.item.weapon.GreatHammerItem;
 import com.concinnity.tfc_weapons_plus.util.NameUtils;
@@ -47,6 +48,13 @@ public final class ModItems {
     // Greatsword items (9 metals - blade and hilt must match)
     // Key format: metal name
     public static final Map<String, DeferredItem<Item>> GREATSWORD_VARIANTS = new HashMap<>();
+    
+    // Shortsword blade variants (9 metals)
+    public static final Map<String, DeferredItem<Item>> SHORTSWORD_BLADE_VARIANTS = new HashMap<>();
+    
+    // Shortsword items (9 metals - blade and hilt must match)
+    // Key format: metal name
+    public static final Map<String, DeferredItem<Item>> SHORTSWORD_VARIANTS = new HashMap<>();
     
     // Greataxe head component variants (9 metals)
     public static final Map<String, DeferredItem<Item>> GREATAXE_HEAD_VARIANTS = new HashMap<>();
@@ -110,6 +118,22 @@ public final class ModItems {
                     () -> new GreatswordItem(metalName, weaponProps)));
             });
             
+            // Register shortsword blade for this metal
+            String shortswordBladeId = "metal/shortsword_blade/" + normalizedMetal;
+            SHORTSWORD_BLADE_VARIANTS.put(metalName, ITEMS.register(shortswordBladeId, 
+                () -> new MetalComponentItem(ComponentType.SHORTSWORD_BLADE, metalName, new Item.Properties())));
+            
+            // Register shortsword for this metal (blade and hilt must match)
+            // Use weapon properties with durability matching TFC sword
+            String shortswordId = "metal/shortsword/" + normalizedMetal;
+            MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
+                Item.Properties weaponProps = new Item.Properties()
+                    .durability(props.durability());
+                
+                SHORTSWORD_VARIANTS.put(metalName, ITEMS.register(shortswordId, 
+                    () -> new ShortswordItem(metalName, weaponProps)));
+            });
+            
             // Register greataxe head for this metal (single sheet requirement handled in recipes)
             String greataxeHeadId = "metal/greataxe_head/" + normalizedMetal;
             GREATAXE_HEAD_VARIANTS.put(metalName, ITEMS.register(greataxeHeadId,
@@ -155,6 +179,8 @@ public final class ModItems {
             LONGSWORD_VARIANTS.values().stream().map(DeferredItem::get),
             GREATSWORD_BLADE_VARIANTS.values().stream().map(DeferredItem::get),
             GREATSWORD_VARIANTS.values().stream().map(DeferredItem::get),
+            SHORTSWORD_BLADE_VARIANTS.values().stream().map(DeferredItem::get),
+            SHORTSWORD_VARIANTS.values().stream().map(DeferredItem::get),
             GREATAXE_HEAD_VARIANTS.values().stream().map(DeferredItem::get),
             GREATAXE_VARIANTS.values().stream().map(DeferredItem::get),
             GREATHAMMER_HEAD_VARIANTS.values().stream().map(DeferredItem::get),
@@ -215,6 +241,22 @@ public final class ModItems {
      */
     public static Optional<Item> getGreatswordForMetal(String metalName) {
         return Optional.ofNullable(GREATSWORD_VARIANTS.get(metalName))
+            .map(DeferredItem::get);
+    }
+    
+    /**
+     * Get shortsword blade item for a specific metal
+     */
+    public static Optional<Item> getShortswordBladeForMetal(String metalName) {
+        return Optional.ofNullable(SHORTSWORD_BLADE_VARIANTS.get(metalName))
+            .map(DeferredItem::get);
+    }
+    
+    /**
+     * Get shortsword item for a specific metal (blade and hilt are the same metal)
+     */
+    public static Optional<Item> getShortswordForMetal(String metalName) {
+        return Optional.ofNullable(SHORTSWORD_VARIANTS.get(metalName))
             .map(DeferredItem::get);
     }
     
