@@ -67,12 +67,12 @@ public final class WeaponAttributes {
     
     /**
      * Create attributes for a greataxe.
-     * Attack damage: between longsword and greatsword (5 + tier bonus)
-     * Attack speed: slightly slower than greatsword to emphasize weight.
+     * Attack damage: heavy cleaver (6 + tier bonus, matching greatsword damage)
+     * Attack speed: slightly faster than before to feel like a sharpened axe.
      */
     public static ItemAttributeModifiers createGreatAxeAttributes(Tier tier) {
-        int attackDamage = 5 + (int) tier.getAttackDamageBonus();
-        float attackSpeed = -3.1f;
+        int attackDamage = 6 + (int) tier.getAttackDamageBonus();
+        float attackSpeed = -3.0f;
         
         return ItemAttributeModifiers.builder()
             .add(Attributes.ATTACK_DAMAGE,
@@ -86,12 +86,12 @@ public final class WeaponAttributes {
     
     /**
      * Create attributes for a greathammer.
-     * Attack damage: similar to greataxe (5 + tier bonus)
-     * Attack speed: slightly slower than greataxe to emphasize weight of hammer.
+     * Attack damage: heavier than greataxe (7 + tier bonus)
+     * Attack speed: heavy swing but still usable.
      */
     public static ItemAttributeModifiers createGreatHammerAttributes(Tier tier) {
-        int attackDamage = 5 + (int) tier.getAttackDamageBonus();
-        float attackSpeed = -3.2f;
+        int attackDamage = 7 + (int) tier.getAttackDamageBonus();
+        float attackSpeed = -3.25f;
         
         return ItemAttributeModifiers.builder()
             .add(Attributes.ATTACK_DAMAGE,
@@ -111,6 +111,25 @@ public final class WeaponAttributes {
     public static ItemAttributeModifiers createShortswordAttributes(Tier tier) {
         int attackDamage = 2 + (int) tier.getAttackDamageBonus();
         float attackSpeed = -2.0f;
+        
+        return ItemAttributeModifiers.builder()
+            .add(Attributes.ATTACK_DAMAGE,
+                new AttributeModifier(SwordItem.BASE_ATTACK_DAMAGE_ID, attackDamage, AttributeModifier.Operation.ADD_VALUE),
+                EquipmentSlotGroup.MAINHAND)
+            .add(Attributes.ATTACK_SPEED,
+                new AttributeModifier(SwordItem.BASE_ATTACK_SPEED_ID, attackSpeed, AttributeModifier.Operation.ADD_VALUE),
+                EquipmentSlotGroup.MAINHAND)
+            .build();
+    }
+    
+    /**
+     * Create attributes for a morningstar.
+     * Attack damage: axe-like (6 + tier bonus)
+     * Attack speed: axe-like (-3.2f)
+     */
+    public static ItemAttributeModifiers createMorningstarAttributes(Tier tier) {
+        int attackDamage = 6 + (int) tier.getAttackDamageBonus();
+        float attackSpeed = -3.2f;
         
         return ItemAttributeModifiers.builder()
             .add(Attributes.ATTACK_DAMAGE,

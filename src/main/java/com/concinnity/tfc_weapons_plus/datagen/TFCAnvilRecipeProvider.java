@@ -50,7 +50,11 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
                 .flatMap(metalName -> generateGreatHammerHeadRecipes(metalName, output))
                 .toList();
             
-            var allFutures = Stream.of(componentFutures.stream(), heatingFutures.stream(), greataxeHeadFutures.stream(), greathammerHeadFutures.stream())
+            var morningstarHeadFutures = MetalHelper.getAllMetalNames()
+                .flatMap(metalName -> generateMorningstarHeadRecipes(metalName, output))
+                .toList();
+            
+            var allFutures = Stream.of(componentFutures.stream(), heatingFutures.stream(), greataxeHeadFutures.stream(), greathammerHeadFutures.stream(), morningstarHeadFutures.stream())
                 .flatMap(s -> s)
                 .toList();
             
@@ -204,6 +208,27 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
         return futures.stream();
     }
     
+    private Stream<CompletableFuture<?>> generateMorningstarHeadRecipes(String metalName, CachedOutput output) {
+        String normalizedMetal = NameUtils.normalizeMetalName(metalName);
+        List<CompletableFuture<?>> futures = new java.util.ArrayList<>();
+        
+        // Morningstar head from single ingot
+        ModItems.getMorningstarHeadForMetal(metalName).ifPresent(head -> {
+            MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
+                futures.add(createAnvilRecipeWithTag(
+                    output,
+                    "metal/morningstar_head/" + normalizedMetal,
+                    "c:ingots/" + normalizedMetal,
+                    BuiltInRegistries.ITEM.getKey(head).toString(),
+                    props.tier(),
+                    List.of("hit_second_last", "hit_last")
+                ));
+            });
+        });
+        
+        return futures.stream();
+    }
+    
     private CompletableFuture<?> createAnvilRecipeWithTag(
         CachedOutput output,
         String recipeName,
@@ -346,6 +371,22 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
                     greathammerHeadId,
                     props.meltingPoint(),
                     400, // Double sheet = 400 units
+                    normalizedMetal
+                ));
+            });
+        }
+        
+        // Morningstar head heating recipe - single ingot = 100 units
+        String morningstarHeadId = TFCWeaponsPlus.MODID + ":metal/morningstar_head/" + normalizedMetal;
+        ResourceLocation morningstarHeadLoc = ResourceLocation.parse(morningstarHeadId);
+        if (BuiltInRegistries.ITEM.containsKey(morningstarHeadLoc)) {
+            MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
+                futures.add(createHeatingRecipe(
+                    output,
+                    "metal/morningstar_head/" + normalizedMetal,
+                    morningstarHeadId,
+                    props.meltingPoint(),
+                    100, // Single ingot = 100 units (same as guard/pommel)
                     normalizedMetal
                 ));
             });

@@ -1,0 +1,16 @@
+{
+  "type": "tfc:anvil",
+  "apply_bonus": true,
+  "ingredient": {
+    "tag": "c:ingots/wrought_iron"
+  },
+  "result": {
+    "count": 1,
+    "id": "tfc_weapons_plus:metal/morningstar_head/wrought_iron"
+  },
+  "rules": [
+    "hit_second_last",
+    "hit_last"
+  ],
+  "tier": 3
+}

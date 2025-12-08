@@ -92,6 +92,12 @@ public final class ModItemTagsProvider implements DataProvider {
                     ResourceLocation tfcMetalTagId = ResourceLocation.fromNamespaceAndPath("tfc", "metal/" + normalizedMetal);
                     futures.add(createTagFile(output, tfcMetalTagId, head, tfcTagPathProvider));
                 });
+                
+                // Morningstar head tags
+                ModItems.getMorningstarHeadForMetal(metalName).ifPresent(head -> {
+                    ResourceLocation tfcMetalTagId = ResourceLocation.fromNamespaceAndPath("tfc", "metal/" + normalizedMetal);
+                    futures.add(createTagFile(output, tfcMetalTagId, head, tfcTagPathProvider));
+                });
             });
             
             // General common tags
@@ -199,11 +205,27 @@ public final class ModItemTagsProvider implements DataProvider {
             
             if (!allGreatHammers.isEmpty()) {
                 futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools"), allGreatHammers, commonTagPathProvider));
-                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools/axes"), allGreatHammers, commonTagPathProvider));
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools/hammer"), allGreatHammers, commonTagPathProvider));
                 futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools/melee_weapons"), allGreatHammers, commonTagPathProvider));
-                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("minecraft", "axes"), allGreatHammers, commonTagPathProvider));
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("tfc", "trip_hammers"), allGreatHammers, tfcTagPathProvider));
                 // Greathammer deals crushing damage, not slashing
                 futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("tfc", "deals_crushing_damage"), allGreatHammers, tfcTagPathProvider));
+            }
+            
+            // Collect all morningstars for general tags
+            var allMorningstars = MetalHelper.getAllMetalNames()
+                .map(ModItems::getMorningstarForMetal)
+                .filter(java.util.Optional::isPresent)
+                .map(java.util.Optional::get)
+                .toList();
+            
+            if (!allMorningstars.isEmpty()) {
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools"), allMorningstars, commonTagPathProvider));
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools/axes"), allMorningstars, commonTagPathProvider));
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools/melee_weapons"), allMorningstars, commonTagPathProvider));
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("minecraft", "axes"), allMorningstars, commonTagPathProvider));
+                // Morningstar deals crushing damage
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("tfc", "deals_crushing_damage"), allMorningstars, tfcTagPathProvider));
             }
             
             // Add longswords to TFC metal-specific tool tags (like tfc:tools/red_steel)
@@ -240,6 +262,12 @@ public final class ModItemTagsProvider implements DataProvider {
                 ModItems.getGreatHammerForMetal(metalName).ifPresent(greathammer -> {
                     ResourceLocation tfcToolTagId = ResourceLocation.fromNamespaceAndPath("tfc", "tools/" + normalizedMetal);
                     futures.add(createTagFile(output, tfcToolTagId, greathammer, tfcTagPathProvider));
+                });
+                
+                // Add morningstars to TFC metal-specific tool tags
+                ModItems.getMorningstarForMetal(metalName).ifPresent(morningstar -> {
+                    ResourceLocation tfcToolTagId = ResourceLocation.fromNamespaceAndPath("tfc", "tools/" + normalizedMetal);
+                    futures.add(createTagFile(output, tfcToolTagId, morningstar, tfcTagPathProvider));
                 });
             });
             

@@ -64,6 +64,11 @@ public final class ModLanguageProvider extends LanguageProvider {
                 ModItems.getGreatHammerHeadForMetal(metalName).ifPresent(head -> {
                     add(head, props.name() + " Greathammer Head");
                 });
+                
+                // Morningstar head variants
+                ModItems.getMorningstarHeadForMetal(metalName).ifPresent(head -> {
+                    add(head, props.name() + " Morningstar Head");
+                });
             });
         });
         
@@ -111,6 +116,15 @@ public final class ModLanguageProvider extends LanguageProvider {
             MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
                 ModItems.getGreatHammerForMetal(metalName).ifPresent(greathammer -> {
                     add(greathammer, props.name() + " Greathammer");
+                });
+            });
+        });
+        
+        // Generate translations for morningstars
+        MetalHelper.getAllMetalNames().forEach(metalName -> {
+            MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
+                ModItems.getMorningstarForMetal(metalName).ifPresent(morningstar -> {
+                    add(morningstar, props.name() + " Morningstar");
                 });
             });
         });

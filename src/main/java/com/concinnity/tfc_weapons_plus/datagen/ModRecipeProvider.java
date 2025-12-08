@@ -31,6 +31,7 @@ public final class ModRecipeProvider extends RecipeProvider {
         generateShortswordAssemblyRecipes(output);
         generateGreatAxeAssemblyRecipes(output);
         generateGreatHammerAssemblyRecipes(output);
+        generateMorningstarAssemblyRecipes(output);
     }
     
     /**
@@ -235,6 +236,35 @@ public final class ModRecipeProvider extends RecipeProvider {
     
     private void generateGreatHammerAssemblyRecipes(RecipeOutput output) {
         MetalHelper.getAllMetalNames().forEach(metalName -> createGreatHammerAssemblyRecipe(output, metalName));
+    }
+    
+    /**
+     * Create morningstar assembly recipe: morningstar = grip + pommel + morningstar_head (vertical)
+     */
+    private void createMorningstarAssemblyRecipe(RecipeOutput output, String metalName) {
+        ModItems.getMorningstarHeadForMetal(metalName).ifPresent(head -> {
+            ModItems.getPommelForMetal(metalName).ifPresent(pommel -> {
+                ModItems.getMorningstarForMetal(metalName).ifPresent(morningstar -> {
+                    String normalizedMetal = NameUtils.normalizeMetalName(metalName);
+                    
+                    ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, morningstar)
+                        .pattern("P")
+                        .pattern("H")
+                        .pattern("R")
+                        .define('P', pommel)
+                        .define('H', head)
+                        .define('R', ModItems.GRIP.get())
+                        .unlockedBy("has_head", has(head))
+                        .unlockedBy("has_pommel", has(pommel))
+                        .unlockedBy("has_grip", has(ModItems.GRIP.get()))
+                        .save(output, "metal/morningstar/assembly_" + normalizedMetal);
+                });
+            });
+        });
+    }
+    
+    private void generateMorningstarAssemblyRecipes(RecipeOutput output) {
+        MetalHelper.getAllMetalNames().forEach(metalName -> createMorningstarAssemblyRecipe(output, metalName));
     }
     
 }

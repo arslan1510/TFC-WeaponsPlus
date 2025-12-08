@@ -7,6 +7,7 @@ import com.concinnity.tfc_weapons_plus.item.weapon.LongswordItem;
 import com.concinnity.tfc_weapons_plus.item.weapon.ShortswordItem;
 import com.concinnity.tfc_weapons_plus.item.weapon.GreatAxeItem;
 import com.concinnity.tfc_weapons_plus.item.weapon.GreatHammerItem;
+import com.concinnity.tfc_weapons_plus.item.weapon.MorningstarItem;
 import com.concinnity.tfc_weapons_plus.util.NameUtils;
 
 import java.util.HashMap;
@@ -67,6 +68,12 @@ public final class ModItems {
     
     // Greathammer items (9 metals)
     public static final Map<String, DeferredItem<Item>> GREATHAMMER_VARIANTS = new HashMap<>();
+    
+    // Morningstar head component variants (9 metals)
+    public static final Map<String, DeferredItem<Item>> MORNINGSTAR_HEAD_VARIANTS = new HashMap<>();
+    
+    // Morningstar items (9 metals)
+    public static final Map<String, DeferredItem<Item>> MORNINGSTAR_VARIANTS = new HashMap<>();
     
     static {
         // Register metal variants for guard, pommel, and hilt
@@ -163,6 +170,21 @@ public final class ModItems {
                 GREATHAMMER_VARIANTS.put(metalName, ITEMS.register(greathammerId,
                     () -> new GreatHammerItem(metalName, weaponProps)));
             });
+            
+            // Register morningstar head for this metal (single ingot requirement handled in recipes)
+            String morningstarHeadId = "metal/morningstar_head/" + normalizedMetal;
+            MORNINGSTAR_HEAD_VARIANTS.put(metalName, ITEMS.register(morningstarHeadId,
+                () -> new MetalComponentItem(ComponentType.MORNINGSTAR_HEAD, metalName, new Item.Properties())));
+            
+            // Register morningstar item for this metal
+            String morningstarId = "metal/morningstar/" + normalizedMetal;
+            MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
+                Item.Properties weaponProps = new Item.Properties()
+                    .durability(props.durability());
+                
+                MORNINGSTAR_VARIANTS.put(metalName, ITEMS.register(morningstarId,
+                    () -> new MorningstarItem(metalName, weaponProps)));
+            });
         });
     }
     
@@ -184,7 +206,9 @@ public final class ModItems {
             GREATAXE_HEAD_VARIANTS.values().stream().map(DeferredItem::get),
             GREATAXE_VARIANTS.values().stream().map(DeferredItem::get),
             GREATHAMMER_HEAD_VARIANTS.values().stream().map(DeferredItem::get),
-            GREATHAMMER_VARIANTS.values().stream().map(DeferredItem::get)
+            GREATHAMMER_VARIANTS.values().stream().map(DeferredItem::get),
+            MORNINGSTAR_HEAD_VARIANTS.values().stream().map(DeferredItem::get),
+            MORNINGSTAR_VARIANTS.values().stream().map(DeferredItem::get)
         ).flatMap(s -> s);
     }
     
@@ -289,6 +313,22 @@ public final class ModItems {
      */
     public static Optional<Item> getGreatHammerForMetal(String metalName) {
         return Optional.ofNullable(GREATHAMMER_VARIANTS.get(metalName))
+            .map(DeferredItem::get);
+    }
+    
+    /**
+     * Get morningstar head item for a specific metal
+     */
+    public static Optional<Item> getMorningstarHeadForMetal(String metalName) {
+        return Optional.ofNullable(MORNINGSTAR_HEAD_VARIANTS.get(metalName))
+            .map(DeferredItem::get);
+    }
+    
+    /**
+     * Get morningstar item for a specific metal
+     */
+    public static Optional<Item> getMorningstarForMetal(String metalName) {
+        return Optional.ofNullable(MORNINGSTAR_VARIANTS.get(metalName))
             .map(DeferredItem::get);
     }
     

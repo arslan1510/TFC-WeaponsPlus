@@ -1,0 +1,16 @@
+{
+  "type": "tfc:anvil",
+  "apply_bonus": true,
+  "ingredient": {
+    "tag": "c:ingots/black_bronze"
+  },
+  "result": {
+    "count": 1,
+    "id": "tfc_weapons_plus:metal/morningstar_head/black_bronze"
+  },
+  "rules": [
+    "hit_second_last",
+    "hit_last"
+  ],
+  "tier": 2
+}

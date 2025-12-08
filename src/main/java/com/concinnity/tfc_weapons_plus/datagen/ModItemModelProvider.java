@@ -86,6 +86,12 @@ public final class ModItemModelProvider extends ItemModelProvider {
                 withExistingParent("item/metal/greathammer_head/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/greathammer_head"))
                     .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/greathammer_head/" + normalizedMetal));
             });
+            
+            // Morningstar head models - uses custom 3D parent model with per-metal texture
+            ModItems.getMorningstarHeadForMetal(metalName).ifPresent(head -> {
+                withExistingParent("item/metal/morningstar_head/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/morningstar_head"))
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/morningstar_head/" + normalizedMetal));
+            });
         });
         
         // Generate models for longswords (same metal for blade and hilt)
@@ -145,6 +151,18 @@ public final class ModItemModelProvider extends ItemModelProvider {
             ModItems.getGreatHammerForMetal(metalName).ifPresent(greathammer -> {
                 withExistingParent(modelPath, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/greathammer"))
                     .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/greathammer/" + normalizedMetal));
+            });
+        });
+        
+        // Generate models for morningstars
+        // Uses custom 3D parent model for proper sizing when held
+        MetalHelper.getAllMetalNames().forEach(metalName -> {
+            String normalizedMetal = NameUtils.normalizeMetalName(metalName);
+            String modelPath = "item/metal/morningstar/" + normalizedMetal;
+
+            ModItems.getMorningstarForMetal(metalName).ifPresent(morningstar -> {
+                withExistingParent(modelPath, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/morningstar"))
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/morningstar/" + normalizedMetal));
             });
         });
     }

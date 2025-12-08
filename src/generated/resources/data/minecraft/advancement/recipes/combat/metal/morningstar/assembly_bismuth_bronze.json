@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_grip": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfc_weapons_plus:wood/grip"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_head": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfc_weapons_plus:metal/morningstar_head/bismuth_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_pommel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfc_weapons_plus:metal/pommel/bismuth_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:metal/morningstar/assembly_bismuth_bronze"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_head",
+      "has_pommel",
+      "has_grip"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:metal/morningstar/assembly_bismuth_bronze"
+    ]
+  }
+}

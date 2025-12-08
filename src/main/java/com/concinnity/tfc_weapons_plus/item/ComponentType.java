@@ -3,7 +3,7 @@ package com.concinnity.tfc_weapons_plus.item;
 /**
  * Sealed interface for component types using modern Java 21 sealed classes
  */
-public sealed interface ComponentType permits ComponentType.Grip, ComponentType.Guard, ComponentType.Pommel, ComponentType.Hilt, ComponentType.LongswordBlade, ComponentType.GreatswordBlade, ComponentType.ShortswordBlade, ComponentType.GreatAxeHead, ComponentType.GreatHammerHead {
+public sealed interface ComponentType permits ComponentType.Grip, ComponentType.Guard, ComponentType.Pommel, ComponentType.Hilt, ComponentType.LongswordBlade, ComponentType.GreatswordBlade, ComponentType.ShortswordBlade, ComponentType.GreatAxeHead, ComponentType.GreatHammerHead, ComponentType.MorningstarHead {
     
     String name();
     
@@ -52,6 +52,11 @@ public sealed interface ComponentType permits ComponentType.Grip, ComponentType.
         public String name() { return "greathammer_head"; }
     }
     
+    record MorningstarHead() implements ComponentType {
+        @Override
+        public String name() { return "morningstar_head"; }
+    }
+    
     // Constants for easy access
     ComponentType GRIP = new Grip();
     ComponentType GUARD = new Guard();
@@ -62,5 +67,6 @@ public sealed interface ComponentType permits ComponentType.Grip, ComponentType.
     ComponentType SHORTSWORD_BLADE = new ShortswordBlade();
     ComponentType GREATAXE_HEAD = new GreatAxeHead();
     ComponentType GREATHAMMER_HEAD = new GreatHammerHead();
+    ComponentType MORNINGSTAR_HEAD = new MorningstarHead();
 }
 

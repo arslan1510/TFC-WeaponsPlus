@@ -1,0 +1,6 @@
+{
+  "parent": "tfc_weapons_plus:item/morningstar_head",
+  "textures": {
+    "layer0": "tfc_weapons_plus:item/metal/morningstar_head/black_bronze"
+  }
+}

@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-08T15:46:23.011118817	Item Models: tfc_weapons_plus
+// 1.21.1	2025-12-08T18:49:31.05379793	Item Models: tfc_weapons_plus
 cdf8dd88f6dde0972ad97c7f873b5febfd662878 assets/tfc_weapons_plus/models/item/metal/greataxe/bismuth_bronze.json
 7829e2ba1e97b035d06a8d424d06faa2b8735639 assets/tfc_weapons_plus/models/item/metal/greataxe/black_bronze.json
 e3aadb9d8f15dc79837fb996850c50496bc40aa8 assets/tfc_weapons_plus/models/item/metal/greataxe/black_steel.json
@@ -89,6 +89,24 @@ b8072c47835ecc7c68bfe1b3eb20d41debe1c519 assets/tfc_weapons_plus/models/item/met
 4ad814eda8cb8480bcf7dc422d08f21224c37807 assets/tfc_weapons_plus/models/item/metal/longsword_blade/red_steel.json
 d9442ff3634fa777c6827b517e3e0b89871d548e assets/tfc_weapons_plus/models/item/metal/longsword_blade/steel.json
 6269b80c094a4665aebb49ef4103a3c88b540c27 assets/tfc_weapons_plus/models/item/metal/longsword_blade/wrought_iron.json
+f8334b7fb0872097bf1826e22115617050724fe8 assets/tfc_weapons_plus/models/item/metal/morningstar/bismuth_bronze.json
+d219f3487bdeadaff5414f9d67ae15fe493f0984 assets/tfc_weapons_plus/models/item/metal/morningstar/black_bronze.json
+0be98dc42441a5fb07e5efe67bfe899d7255466c assets/tfc_weapons_plus/models/item/metal/morningstar/black_steel.json
+d56228edca81b980ec5ddc3a32c094ce5ecdcb99 assets/tfc_weapons_plus/models/item/metal/morningstar/blue_steel.json
+f997157cbe7fd9a53d6db548488f3d715301d00e assets/tfc_weapons_plus/models/item/metal/morningstar/bronze.json
+d2cb792515624f596d6a5056e43204eb484d2131 assets/tfc_weapons_plus/models/item/metal/morningstar/copper.json
+6773b76a0f405f87e892942400da5a7fa11fa9c8 assets/tfc_weapons_plus/models/item/metal/morningstar/red_steel.json
+3eef3e0cc3231f8cb3bf8c97f36ea46b1dd75248 assets/tfc_weapons_plus/models/item/metal/morningstar/steel.json
+f3e4fde9c7cafa73558c167c3453c7294f65d73e assets/tfc_weapons_plus/models/item/metal/morningstar/wrought_iron.json
+cbc4049798038168096ee41109d1bfa87eca19d2 assets/tfc_weapons_plus/models/item/metal/morningstar_head/bismuth_bronze.json
+f3fdbd043c892a13a359de82b74bf4e80138b2b9 assets/tfc_weapons_plus/models/item/metal/morningstar_head/black_bronze.json
+b810b0abba2b3596e504337f6497f8bde12ad233 assets/tfc_weapons_plus/models/item/metal/morningstar_head/black_steel.json
+3560aa12b4cea2b1aef1f70d0f010d0cdb946c03 assets/tfc_weapons_plus/models/item/metal/morningstar_head/blue_steel.json
+e61f84ef7fcebe8dc06e8896a2fb9956483d1943 assets/tfc_weapons_plus/models/item/metal/morningstar_head/bronze.json
+644610b2daf7dcf0db46b1a2c3be38ededfa19dd assets/tfc_weapons_plus/models/item/metal/morningstar_head/copper.json
+10d4583a4ee153faf154ea7841ab2d4b0895601a assets/tfc_weapons_plus/models/item/metal/morningstar_head/red_steel.json
+9429dcfc090caef96f342bdef93f2af66249499a assets/tfc_weapons_plus/models/item/metal/morningstar_head/steel.json
+8522ad7b8596645cb8e7bdd155a06e500ab005d3 assets/tfc_weapons_plus/models/item/metal/morningstar_head/wrought_iron.json
 8f5ae024d17764ed8e89dff141acc1a40ef25322 assets/tfc_weapons_plus/models/item/metal/pommel/bismuth_bronze.json
 bb2de89dda3b69ea21ef9954ee35d402fcda0201 assets/tfc_weapons_plus/models/item/metal/pommel/black_bronze.json
 0b59bf63ac8c7cf6a443db26e5ad55a933a86036 assets/tfc_weapons_plus/models/item/metal/pommel/black_steel.json

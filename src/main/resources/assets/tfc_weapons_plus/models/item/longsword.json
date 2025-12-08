@@ -149,10 +149,10 @@
 	],
 	"display": {
 		"thirdperson_righthand": {
-			"translation": [0, 2, 2]
+			"translation": [-0.5, 2, 2]
 		},
 		"thirdperson_lefthand": {
-			"translation": [0, 2, 2]
+			"translation": [-0.5, 2, 2]
 		},
 		"firstperson_righthand": {
 			"rotation": [15, 0, -5],

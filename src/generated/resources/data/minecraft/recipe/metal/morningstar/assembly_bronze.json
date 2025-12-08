@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "tfc_weapons_plus:metal/morningstar_head/bronze"
+    },
+    "P": {
+      "item": "tfc_weapons_plus:metal/pommel/bronze"
+    },
+    "R": {
+      "item": "tfc_weapons_plus:wood/grip"
+    }
+  },
+  "pattern": [
+    "P",
+    "H",
+    "R"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tfc_weapons_plus:metal/morningstar/bronze"
+  }
+}
