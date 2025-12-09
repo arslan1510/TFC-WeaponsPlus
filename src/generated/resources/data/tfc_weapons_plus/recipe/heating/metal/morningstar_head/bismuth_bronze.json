@@ -1,11 +1,9 @@
 {
   "type": "tfc:heating",
+  "duration": 600,
   "ingredient": {
-    "item": "tfc_weapons_plus:metal/morningstar_head/bismuth_bronze"
+    "ingredient": "tfc:ingot/bismuth_bronze"
   },
-  "result_fluid": {
-    "amount": 100,
-    "id": "tfc:metal/bismuth_bronze"
-  },
-  "temperature": 985.0
+  "result": "tfc_weapons_plus:metal/morningstar_head/bismuth_bronze",
+  "temperature": 600
 }

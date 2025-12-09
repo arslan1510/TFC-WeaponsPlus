@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "H": {
+      "item": "tfc_weapons_plus:metal/hilt/black_steel"
+    },
+    "L": {
+      "tag": "tfc:lumber"
+    }
+  },
+  "pattern": [
+    " L",
+    " H",
+    "L "
+  ],
+  "result": {
+    "count": 1,
+    "id": "tfc_weapons_plus:metal/quarterstaff/black_steel"
+  }
+}

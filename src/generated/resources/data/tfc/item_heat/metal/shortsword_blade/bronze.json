@@ -1,0 +1,8 @@
+{
+  "forging_temperature": 570.0,
+  "heat_capacity": 0.08571429,
+  "ingredient": {
+    "item": "tfc_weapons_plus:metal/shortsword_blade/bronze"
+  },
+  "welding_temperature": 760.0
+}

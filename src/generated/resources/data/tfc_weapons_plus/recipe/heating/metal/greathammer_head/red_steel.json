@@ -1,11 +1,9 @@
 {
   "type": "tfc:heating",
+  "duration": 600,
   "ingredient": {
-    "item": "tfc_weapons_plus:metal/greathammer_head/red_steel"
+    "ingredient": "tfc:double_sheet/red_steel"
   },
-  "result_fluid": {
-    "amount": 400,
-    "id": "tfc:metal/red_steel"
-  },
-  "temperature": 1540.0
+  "result": "tfc_weapons_plus:metal/greathammer_head/red_steel",
+  "temperature": 600
 }

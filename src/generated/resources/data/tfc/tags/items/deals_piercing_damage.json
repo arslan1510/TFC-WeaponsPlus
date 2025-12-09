@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "tfc_weapons_plus:metal/shortsword/bismuth_bronze",
+    "tfc_weapons_plus:metal/shortsword/black_bronze",
+    "tfc_weapons_plus:metal/shortsword/bronze",
+    "tfc_weapons_plus:metal/shortsword/copper",
+    "tfc_weapons_plus:metal/shortsword/wrought_iron",
+    "tfc_weapons_plus:metal/shortsword/steel",
+    "tfc_weapons_plus:metal/shortsword/black_steel",
+    "tfc_weapons_plus:metal/shortsword/blue_steel",
+    "tfc_weapons_plus:metal/shortsword/red_steel"
+  ]
+}

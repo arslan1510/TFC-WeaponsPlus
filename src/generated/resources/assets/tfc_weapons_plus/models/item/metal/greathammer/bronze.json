@@ -1,5 +1,5 @@
 {
-  "parent": "tfc_weapons_plus:item/greathammer",
+  "parent": "tfc_weapons_plus:item/metal/greathammer/greathammer",
   "textures": {
     "layer0": "tfc_weapons_plus:item/metal/greathammer/bronze"
   }

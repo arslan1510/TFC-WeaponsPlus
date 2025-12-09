@@ -1,5 +1,5 @@
 {
-  "parent": "tfc_weapons_plus:item/longsword_blade",
+  "parent": "tfc_weapons_plus:item/metal/longsword_blade/longsword_blade",
   "textures": {
     "layer0": "tfc_weapons_plus:item/metal/longsword_blade/steel"
   }

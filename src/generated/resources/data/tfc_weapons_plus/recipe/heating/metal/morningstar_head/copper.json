@@ -1,11 +1,9 @@
 {
   "type": "tfc:heating",
+  "duration": 600,
   "ingredient": {
-    "item": "tfc_weapons_plus:metal/morningstar_head/copper"
+    "ingredient": "tfc:ingot/copper"
   },
-  "result_fluid": {
-    "amount": 100,
-    "id": "tfc:metal/copper"
-  },
-  "temperature": 1080.0
+  "result": "tfc_weapons_plus:metal/morningstar_head/copper",
+  "temperature": 600
 }

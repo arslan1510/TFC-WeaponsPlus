@@ -1,5 +1,5 @@
 {
-  "parent": "tfc_weapons_plus:item/hilt",
+  "parent": "tfc_weapons_plus:item/metal/hilt/hilt",
   "textures": {
     "layer0": "tfc_weapons_plus:item/metal/hilt/bismuth_bronze"
   }

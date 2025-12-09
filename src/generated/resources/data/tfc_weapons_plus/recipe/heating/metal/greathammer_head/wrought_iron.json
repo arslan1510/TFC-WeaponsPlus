@@ -1,11 +1,9 @@
 {
   "type": "tfc:heating",
+  "duration": 600,
   "ingredient": {
-    "item": "tfc_weapons_plus:metal/greathammer_head/wrought_iron"
+    "ingredient": "tfc:double_sheet/wrought_iron"
   },
-  "result_fluid": {
-    "amount": 400,
-    "id": "tfc:metal/cast_iron"
-  },
-  "temperature": 1535.0
+  "result": "tfc_weapons_plus:metal/greathammer_head/wrought_iron",
+  "temperature": 600
 }

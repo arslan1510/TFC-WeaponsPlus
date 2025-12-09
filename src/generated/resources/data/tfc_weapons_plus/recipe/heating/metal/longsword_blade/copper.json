@@ -1,11 +1,9 @@
 {
   "type": "tfc:heating",
+  "duration": 600,
   "ingredient": {
-    "item": "tfc_weapons_plus:metal/longsword_blade/copper"
+    "ingredient": "tfc:double_ingot/copper"
   },
-  "result_fluid": {
-    "amount": 200,
-    "id": "tfc:metal/copper"
-  },
-  "temperature": 1080.0
+  "result": "tfc_weapons_plus:metal/longsword_blade/copper",
+  "temperature": 600
 }

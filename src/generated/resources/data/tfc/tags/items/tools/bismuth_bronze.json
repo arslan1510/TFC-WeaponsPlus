@@ -1,6 +1,12 @@
 {
   "replace": false,
   "values": [
+    "tfc_weapons_plus:metal/longsword/bismuth_bronze",
+    "tfc_weapons_plus:metal/greatsword/bismuth_bronze",
+    "tfc_weapons_plus:metal/shortsword/bismuth_bronze",
+    "tfc_weapons_plus:metal/greataxe/bismuth_bronze",
+    "tfc_weapons_plus:metal/greathammer/bismuth_bronze",
+    "tfc_weapons_plus:metal/morningstar/bismuth_bronze",
     "tfc_weapons_plus:metal/quarterstaff/bismuth_bronze"
   ]
 }

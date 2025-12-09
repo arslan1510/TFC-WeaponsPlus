@@ -1,11 +1,9 @@
 {
   "type": "tfc:heating",
+  "duration": 600,
   "ingredient": {
-    "item": "tfc_weapons_plus:metal/longsword_blade/blue_steel"
+    "ingredient": "tfc:double_ingot/blue_steel"
   },
-  "result_fluid": {
-    "amount": 200,
-    "id": "tfc:metal/blue_steel"
-  },
-  "temperature": 1540.0
+  "result": "tfc_weapons_plus:metal/longsword_blade/blue_steel",
+  "temperature": 600
 }

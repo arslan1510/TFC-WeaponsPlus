@@ -1,11 +1,9 @@
 {
   "type": "tfc:heating",
+  "duration": 600,
   "ingredient": {
-    "item": "tfc_weapons_plus:metal/greataxe_head/bismuth_bronze"
+    "ingredient": "tfc:sheet/bismuth_bronze"
   },
-  "result_fluid": {
-    "amount": 200,
-    "id": "tfc:metal/bismuth_bronze"
-  },
-  "temperature": 985.0
+  "result": "tfc_weapons_plus:metal/greataxe_head/bismuth_bronze",
+  "temperature": 600
 }

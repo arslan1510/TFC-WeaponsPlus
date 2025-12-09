@@ -1,11 +1,9 @@
 {
   "type": "tfc:heating",
+  "duration": 600,
   "ingredient": {
-    "item": "tfc_weapons_plus:metal/greataxe_head/steel"
+    "ingredient": "tfc:sheet/steel"
   },
-  "result_fluid": {
-    "amount": 200,
-    "id": "tfc:metal/steel"
-  },
-  "temperature": 1540.0
+  "result": "tfc_weapons_plus:metal/greataxe_head/steel",
+  "temperature": 600
 }

@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blade": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfc:metal/sword_blade/black_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_hilt": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfc_weapons_plus:metal/hilt/black_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tfc_weapons_plus:crafting/metal/sword/assembly_black_steel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_hilt",
+      "has_blade"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tfc_weapons_plus:crafting/metal/sword/assembly_black_steel"
+    ]
+  }
+}

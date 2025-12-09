@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "H": {
+      "item": "tfc_weapons_plus:metal/morningstar_head/black_bronze"
+    },
+    "R": {
+      "item": "tfc_weapons_plus:wood/grip"
+    }
+  },
+  "pattern": [
+    "H",
+    "H",
+    "R"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tfc_weapons_plus:metal/morningstar/black_bronze"
+  }
+}

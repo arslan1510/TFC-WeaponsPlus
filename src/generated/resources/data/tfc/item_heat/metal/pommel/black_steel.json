@@ -1,8 +1,8 @@
 {
-  "forging_temperature": 1485.0,
-  "heat_capacity": 2.857,
+  "forging_temperature": 891.00006,
+  "heat_capacity": 0.08571429,
   "ingredient": {
     "item": "tfc_weapons_plus:metal/pommel/black_steel"
   },
-  "welding_temperature": 1485.0
+  "welding_temperature": 1188.0
 }
