@@ -3,8 +3,8 @@
 	"credit": "Made by C",
 	"texture_size": [64, 64],
 	"textures": {
-		"particle": "tfc_weapons_plus:greathammer",
-		"layer0": "tfc_weapons_plus:greathammer"
+		"particle": "tfc_weapons_plus:item/metal/greathammer/steel",
+		"layer0": "tfc_weapons_plus:item/metal/greathammer/steel"
 	},
 	"elements": [
 		{

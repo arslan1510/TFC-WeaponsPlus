@@ -1,9 +1,0 @@
-{
-  "type": "tfc:heating",
-  "duration": 600,
-  "ingredient": {
-    "ingredient": "tfc:sheet/wrought_iron"
-  },
-  "result": "tfc_weapons_plus:metal/greataxe_head/wrought_iron",
-  "temperature": 600
-}

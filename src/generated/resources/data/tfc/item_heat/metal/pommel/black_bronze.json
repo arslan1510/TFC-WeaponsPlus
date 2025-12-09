@@ -1,6 +1,6 @@
 {
   "forging_temperature": 642.0,
-  "heat_capacity": 0.08571429,
+  "heat_capacity": 1.4285715,
   "ingredient": {
     "item": "tfc_weapons_plus:metal/pommel/black_bronze"
   },

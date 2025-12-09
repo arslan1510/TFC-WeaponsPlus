@@ -1,6 +1,6 @@
 {
   "forging_temperature": 921.00006,
-  "heat_capacity": 0.08571429,
+  "heat_capacity": 4.285714,
   "ingredient": {
     "item": "tfc_weapons_plus:metal/morningstar/wrought_iron"
   },

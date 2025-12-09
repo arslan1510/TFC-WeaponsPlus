@@ -1,6 +1,6 @@
 {
   "forging_temperature": 570.0,
-  "heat_capacity": 0.2857143,
+  "heat_capacity": 5.714286,
   "ingredient": {
     "item": "tfc_weapons_plus:metal/longsword/bronze"
   },

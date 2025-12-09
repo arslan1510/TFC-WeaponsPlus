@@ -1,9 +1,0 @@
-{
-  "type": "tfc:heating",
-  "duration": 600,
-  "ingredient": {
-    "ingredient": "tfc:ingot/red_steel"
-  },
-  "result": "tfc_weapons_plus:metal/shortsword_blade/red_steel",
-  "temperature": 600
-}

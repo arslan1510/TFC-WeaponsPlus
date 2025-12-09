@@ -1,9 +1,0 @@
-{
-  "type": "tfc:heating",
-  "duration": 600,
-  "ingredient": {
-    "ingredient": "tfc:double_sheet/blue_steel"
-  },
-  "result": "tfc_weapons_plus:metal/greatsword_blade/blue_steel",
-  "temperature": 600
-}

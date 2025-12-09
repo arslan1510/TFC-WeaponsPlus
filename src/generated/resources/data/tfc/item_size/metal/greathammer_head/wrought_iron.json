@@ -2,6 +2,6 @@
   "ingredient": {
     "item": "tfc_weapons_plus:metal/greathammer_head/wrought_iron"
   },
-  "size": "normal",
-  "weight": "heavy"
+  "size": "very_large",
+  "weight": "very_heavy"
 }

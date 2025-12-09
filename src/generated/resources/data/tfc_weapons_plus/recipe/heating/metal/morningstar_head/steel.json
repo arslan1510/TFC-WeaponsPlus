@@ -1,9 +1,0 @@
-{
-  "type": "tfc:heating",
-  "duration": 600,
-  "ingredient": {
-    "ingredient": "tfc:ingot/steel"
-  },
-  "result": "tfc_weapons_plus:metal/morningstar_head/steel",
-  "temperature": 600
-}

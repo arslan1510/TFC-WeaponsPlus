@@ -3,8 +3,8 @@ package com.concinnity.tfc_weapons_plus.providers;
 import com.concinnity.tfc_weapons_plus.TFCWeaponsPlus;
 import com.concinnity.tfc_weapons_plus.item.ModItems;
 import com.concinnity.tfc_weapons_plus.util.NameUtils;
-import com.concinnity.tfc_weapons_plus.util.MetalData;
 import net.dries007.tfc.common.TFCTags;
+import net.dries007.tfc.util.Metal;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -14,9 +14,11 @@ import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
+import java.util.stream.Stream;
 
 /**
  * Generates recipes for the mod using data-driven approach.
@@ -81,7 +83,7 @@ public final class ModRecipeProvider extends RecipeProvider {
     protected void buildRecipes(RecipeOutput output) {
         generateHiltAssemblyRecipes(output);
         generateSwordAssemblyRecipes(output);
-        MetalData.names().forEach(metalName -> {
+        metalNames().forEach(metalName -> {
             BLADE_HILT_RECIPES.forEach(recipe -> recipe.generate(output, metalName));
             HEAD_GRIP_RECIPES.forEach(recipe -> recipe.generate(output, metalName));
             generateMorningstarRecipe(output, metalName);
@@ -90,7 +92,7 @@ public final class ModRecipeProvider extends RecipeProvider {
     }
 
     private void generateHiltAssemblyRecipes(RecipeOutput output) {
-        MetalData.names().forEach(metalName -> {
+        metalNames().forEach(metalName -> {
             Item guard = ModItems.getGuardForMetal(metalName);
             Item pommel = ModItems.getPommelForMetal(metalName);
             Item hilt = ModItems.getHiltForMetal(metalName);
@@ -107,7 +109,7 @@ public final class ModRecipeProvider extends RecipeProvider {
     }
 
     private void generateSwordAssemblyRecipes(RecipeOutput output) {
-        MetalData.names().forEach(metalName -> {
+        metalNames().forEach(metalName -> {
             Item hilt = ModItems.getHiltForMetal(metalName);
             String normalized = NameUtils.normalizeMetalName(metalName);
             String bladeId = "tfc:metal/sword_blade/" + normalized;
@@ -127,6 +129,12 @@ public final class ModRecipeProvider extends RecipeProvider {
                     .save(output, recipeId("metal/sword/assembly_" + normalized));
             }
         });
+    }
+
+    private static Stream<String> metalNames() {
+        return Arrays.stream(Metal.values())
+            .filter(metal -> metal.tier() > 0 && metal.allParts())
+            .map(Metal::getSerializedName);
     }
 
     private void generateMorningstarRecipe(RecipeOutput output, String metalName) {

@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "tfc_weapons_plus:item/wood/grip"
-  }
+  "parent": "tfc_weapons_plus:item/wood/grip/grip"
 }

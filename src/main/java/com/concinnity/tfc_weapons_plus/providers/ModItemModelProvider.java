@@ -55,11 +55,9 @@ public final class ModItemModelProvider extends ItemModelProvider {
     
     @Override
     protected void registerModels() {
-        // Grip model
-        getBuilder("item/wood/grip")
-            .parent(ITEM_GENERATED)
-            .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MOD_ID, "item/wood/grip"));
-        
+        // Grip model - use custom 3D parent model
+        withExistingParent("item/wood/grip", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MOD_ID, "item/wood/grip/grip"));
+
         metals().forEach(metal -> {
             String metalName = metal.getSerializedName();
             String normalized = NameUtils.normalizeMetalName(metalName);

@@ -4,7 +4,7 @@
 	"texture_size": [32, 32],
 	"textures": {
 		"layer0": "tfc_weapons_plus:item/metal/longsword_blade/steel",
-		"particle": "tfc_weapons_plus:item/metal/longsword_blade/base"
+		"particle": "tfc_weapons_plus:item/metal/longsword_blade/steel"
 	},
 	"elements": [
 		{

@@ -144,8 +144,5 @@
   "item.tfc_weapons_plus.metal.shortsword_blade.steel": "Steel Shortsword Blade",
   "item.tfc_weapons_plus.metal.shortsword_blade.wrought_iron": "Wrought Iron Shortsword Blade",
   "item.tfc_weapons_plus.wood.grip": "Grip",
-  "itemGroup.tfc_weapons_plus": "TFC Weapons Plus",
-  "tooltip.tfc_weapons_plus.component_type": "Component Type: %s",
-  "tooltip.tfc_weapons_plus.material": "Material: %s",
-  "tooltip.tfc_weapons_plus.metal_tier": "Tier: %s"
+  "itemGroup.tfc_weapons_plus": "TFC Weapons Plus"
 }

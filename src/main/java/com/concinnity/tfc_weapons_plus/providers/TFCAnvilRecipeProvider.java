@@ -3,11 +3,12 @@ package com.concinnity.tfc_weapons_plus.providers;
 import com.concinnity.tfc_weapons_plus.TFCWeaponsPlus;
 import com.concinnity.tfc_weapons_plus.item.ModItems;
 import com.concinnity.tfc_weapons_plus.util.NameUtils;
-import com.concinnity.tfc_weapons_plus.util.MetalData;
 import com.concinnity.tfc_weapons_plus.util.WeaponRegistry;
+import com.concinnity.tfc_weapons_plus.util.data.FluidHeatData;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import net.dries007.tfc.util.Metal;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.CachedOutput;
@@ -17,6 +18,7 @@ import net.minecraft.resources.ResourceLocation;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -30,7 +32,6 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
     private final CompletableFuture<HolderLookup.Provider> lookupProvider;
 
     private record AnvilSpec(String type, String ingredientFormat, List<String> rules) {}
-    private record HeatingSpec(String type, String ingredientId) {}
 
     private static final List<AnvilSpec> ANVIL_SPECS = List.of(
         new AnvilSpec("guard", "c:ingots/%s", List.of("hit_second_last", "hit_last")),
@@ -43,15 +44,6 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
         new AnvilSpec("morningstar_head", "c:ingots/%s", List.of("hit_second_last", "hit_last"))
     );
 
-    private static final List<HeatingSpec> HEATING_SPECS = List.of(
-        new HeatingSpec("longsword_blade", "tfc:double_ingot/%s"),
-        new HeatingSpec("greatsword_blade", "tfc:double_sheet/%s"),
-        new HeatingSpec("shortsword_blade", "tfc:ingot/%s"),
-        new HeatingSpec("greataxe_head", "tfc:sheet/%s"),
-        new HeatingSpec("greathammer_head", "tfc:double_sheet/%s"),
-        new HeatingSpec("morningstar_head", "tfc:ingot/%s")
-    );
-    
     public TFCAnvilRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
         this.output = output;
         this.lookupProvider = lookupProvider;
@@ -60,14 +52,14 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
     @Override
     public CompletableFuture<?> run(CachedOutput output) {
         return lookupProvider.thenCompose(provider -> {
-            var metalNames = MetalData.names().toList();
+            var metalNames = metalNames().toList();
             var defsByType = WeaponRegistry.all()
                 .collect(java.util.stream.Collectors.toMap(WeaponRegistry.ItemDef::type, def -> def));
 
             var allFutures = metalNames.stream()
                 .flatMap(metalName -> Stream.concat(
                     generateComponentAnvilRecipes(metalName, output, defsByType),
-                    generateHeatingRecipes(metalName, output, defsByType)
+                    generateMeltingRecipes(metalName, output, defsByType)
                 ))
                 .toArray(CompletableFuture[]::new);
 
@@ -98,13 +90,13 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
                 return;
             }
             var item = def.item(metalName);
-            var props = propsFor(metalName);
+            int tier = Metal.valueOf(metalName.toUpperCase()).toolTier().level();
             futures.add(createAnvilRecipeWithTag(
                 output,
                 def.path(metalName),
                 spec.ingredientFormat().formatted(normalizedMetal),
                 BuiltInRegistries.ITEM.getKey(item).toString(),
-                props.tier(),
+                tier,
                 spec.rules()
             ));
         });
@@ -146,52 +138,57 @@ public final class TFCAnvilRecipeProvider implements DataProvider {
         // Save to mod namespace: data/tfc_weapons_plus/recipe/anvil/{recipeName}.json
         return saveRecipe(output, recipe, "anvil/" + recipeName);
     }
-    
-    private Stream<CompletableFuture<?>> generateHeatingRecipes(String metalName, CachedOutput output, Map<String, WeaponRegistry.ItemDef> defsByType) {
+
+    private Stream<CompletableFuture<?>> generateMeltingRecipes(String metalName, CachedOutput output, Map<String, WeaponRegistry.ItemDef> defsByType) {
         String normalizedMetal = NameUtils.normalizeMetalName(metalName);
         List<CompletableFuture<?>> futures = new ArrayList<>();
+        Metal metal = Metal.valueOf(metalName.toUpperCase());
+        float meltingPoint = FluidHeatData.getFluidHeat(metal).meltTemperature();
 
-        HEATING_SPECS.forEach(spec -> {
-            var def = defsByType.get(spec.type());
-            if (def == null) {
-                return;
-            }
+        // Generate melting recipes for all weapons
+        WeaponRegistry.weapons().forEach(def -> {
             var item = def.item(metalName);
             futures.add(
-                createHeatingRecipe(output, def.path(metalName), item, spec.ingredientId().formatted(normalizedMetal))
+                createMeltingRecipe(output, def.path(metalName), item, normalizedMetal, def.heatUnits(), meltingPoint)
             );
         });
-        
+
         return futures.stream();
     }
-    
-    private CompletableFuture<?> createHeatingRecipe(CachedOutput output, String recipeName, net.minecraft.world.item.Item resultItem, String ingredientId) {
+
+    private CompletableFuture<?> createMeltingRecipe(CachedOutput output, String recipeName, net.minecraft.world.item.Item item, String normalizedMetal, int fluidAmount, float temperature) {
         JsonObject recipe = new JsonObject();
         recipe.addProperty("type", "tfc:heating");
-        recipe.addProperty("result", net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(resultItem).toString());
-        
-        // Ingredient using ID string
+
+        // Ingredient
         JsonObject ingredient = new JsonObject();
-        ingredient.addProperty("ingredient", ingredientId);
+        ingredient.addProperty("item", BuiltInRegistries.ITEM.getKey(item).toString());
         recipe.add("ingredient", ingredient);
-        
-        // Melting point pulled from FluidHeat data via TFC helper (handled in runtime)
-        recipe.addProperty("temperature", 600);
-        recipe.addProperty("duration", 600);
-        
+
+        // Result fluid (melts into liquid metal)
+        JsonObject resultFluid = new JsonObject();
+        resultFluid.addProperty("id", "tfc:metal/" + normalizedMetal);
+        resultFluid.addProperty("amount", fluidAmount);
+        recipe.add("result_fluid", resultFluid);
+
+        recipe.addProperty("temperature", temperature);
+        recipe.addProperty("use_durability", true);  // Damaged items give less fluid
+
         return saveRecipe(output, recipe, "heating/" + recipeName);
     }
-    
+
     private CompletableFuture<?> saveRecipe(CachedOutput output, JsonObject json, String recipePath) {
         ResourceLocation id = ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MOD_ID, recipePath);
         Path path = this.output.getOutputFolder().resolve("data/" + id.getNamespace() + "/recipe/" + id.getPath() + ".json");
         return DataProvider.saveStable(output, json, path);
     }
 
-    private MetalData.Props propsFor(String metalName) {
-        return MetalData.dataProps(MetalData.fromName(metalName));
+    private static Stream<String> metalNames() {
+        return Arrays.stream(Metal.values())
+            .filter(metal -> metal.tier() > 0 && metal.allParts())
+            .map(Metal::getSerializedName);
     }
-    
+
     @Override
     public String getName() {
         return "TFC Anvil Recipes";

@@ -1,9 +1,0 @@
-{
-  "type": "tfc:heating",
-  "duration": 600,
-  "ingredient": {
-    "ingredient": "tfc:sheet/red_steel"
-  },
-  "result": "tfc_weapons_plus:metal/greataxe_head/red_steel",
-  "temperature": 600
-}

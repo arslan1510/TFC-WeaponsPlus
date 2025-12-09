@@ -53,72 +53,61 @@ public final class WeaponRegistry {
         Map.entry("quarterstaff", ModItems::getQuarterstaffForMetal)
     );
 
-    private record Meta(Size size, Weight weight, int heatUnits) {}
+    /**
+     * Metadata for items and weapons. Components have null combat stats.
+     */
+    private record Meta(
+        Size size,
+        Weight weight,
+        int heatUnits,
+        Float baseWeight,    // Combat stat (null for components)
+        Float baseDamage,    // Combat stat (null for components)
+        Float baseSpeed      // Combat stat (null for components)
+    ) {
+        // Convenience constructor for components (no combat stats)
+        Meta(Size size, Weight weight, int heatUnits) {
+            this(size, weight, heatUnits, null, null, null);
+        }
+    }
 
     private static final Map<String, Meta> METADATA = Map.ofEntries(
-        Map.entry("guard", new Meta(Size.SMALL, Weight.LIGHT, 3)),
-        Map.entry("pommel", new Meta(Size.SMALL, Weight.LIGHT, 3)),
-        Map.entry("hilt", new Meta(Size.SMALL, Weight.LIGHT, 3)),
-        Map.entry("longsword_blade", new Meta(Size.NORMAL, Weight.MEDIUM, 5)),
-        Map.entry("greatsword_blade", new Meta(Size.NORMAL, Weight.MEDIUM, 10)),
-        Map.entry("shortsword_blade", new Meta(Size.NORMAL, Weight.MEDIUM, 3)),
-        Map.entry("greataxe_head", new Meta(Size.NORMAL, Weight.HEAVY, 5)),
-        Map.entry("greathammer_head", new Meta(Size.NORMAL, Weight.HEAVY, 10)),
-        Map.entry("morningstar_head", new Meta(Size.NORMAL, Weight.HEAVY, 3)),
-        Map.entry("longsword", new Meta(Size.LARGE, Weight.HEAVY, 10)),
-        Map.entry("greatsword", new Meta(Size.LARGE, Weight.HEAVY, 15)),
-        Map.entry("shortsword", new Meta(Size.NORMAL, Weight.MEDIUM, 7)),
-        Map.entry("greataxe", new Meta(Size.LARGE, Weight.VERY_HEAVY, 5)),
-        Map.entry("greathammer", new Meta(Size.LARGE, Weight.VERY_HEAVY, 10)),
-        Map.entry("morningstar", new Meta(Size.NORMAL, Weight.HEAVY, 3)),
-        Map.entry("quarterstaff", new Meta(Size.NORMAL, Weight.HEAVY, 5))
+        // Small components - fits in small vessels (50 mb = 0.5 ingots each)
+        Map.entry("guard", new Meta(Size.SMALL, Weight.LIGHT, 50)),
+        Map.entry("pommel", new Meta(Size.SMALL, Weight.LIGHT, 50)),
+        Map.entry("hilt", new Meta(Size.SMALL, Weight.LIGHT, 50)),
+        // Blades/heads - intermediate crafting items (metal cost before assembly)
+        Map.entry("shortsword_blade", new Meta(Size.LARGE, Weight.MEDIUM, 100)),      // 1 ingot
+        Map.entry("longsword_blade", new Meta(Size.LARGE, Weight.HEAVY, 150)),        // 1.5 ingots
+        Map.entry("greatsword_blade", new Meta(Size.VERY_LARGE, Weight.HEAVY, 250)),  // 2.5 ingots
+        Map.entry("greataxe_head", new Meta(Size.LARGE, Weight.HEAVY, 150)),          // 1.5 ingots
+        Map.entry("greathammer_head", new Meta(Size.VERY_LARGE, Weight.VERY_HEAVY, 350)), // 3.5 ingots
+        Map.entry("morningstar_head", new Meta(Size.NORMAL, Weight.HEAVY, 100)),      // 1 ingot
+        // Complete weapons - sized relative to TFC swords (VERY_LARGE + VERY_HEAVY)
+        // Melting values match TFC pattern: sword = 200mb (2 ingots)
+        // Includes combat stats: baseWeight, baseDamage, baseSpeed
+        Map.entry("shortsword", new Meta(Size.LARGE, Weight.HEAVY, 150, 0.8f, 2.5f, -2.0f)),             // 1.5 ingots
+        Map.entry("longsword", new Meta(Size.VERY_LARGE, Weight.VERY_HEAVY, 200, 1.0f, 3.0f, -2.4f)),    // 2 ingots (same as TFC sword)
+        Map.entry("greatsword", new Meta(Size.HUGE, Weight.VERY_HEAVY, 300, 1.5f, 5.0f, -2.8f)),         // 3 ingots
+        Map.entry("greataxe", new Meta(Size.VERY_LARGE, Weight.VERY_HEAVY, 200, 1.6f, 5.5f, -2.9f)),     // 2 ingots
+        Map.entry("greathammer", new Meta(Size.HUGE, Weight.VERY_HEAVY, 400, 1.8f, 6.0f, -3.1f)),        // 4 ingots
+        Map.entry("morningstar", new Meta(Size.LARGE, Weight.HEAVY, 150, 1.7f, 5.8f, -3.0f)),            // 1.5 ingots
+        Map.entry("quarterstaff", new Meta(Size.VERY_LARGE, Weight.HEAVY, 100, 0.9f, 3.0f, -2.3f))       // 1 ingot (mostly wood)
     );
 
     /**
-     * Weapon stats metadata stored in EnumMap for fast lookups
+     * Weapon stats metadata
      */
     public record WeaponStatsMeta(float baseWeight, float baseDamage, float baseSpeed) {}
 
-    private static final EnumMap<WeaponType, WeaponStatsMeta> WEAPON_STATS_BY_ENUM = new EnumMap<>(WeaponType.class);
-
-    static {
-        // Initialize EnumMap with weapon stats from WeaponType enum
-        for (WeaponType type : WeaponType.values()) {
-            WEAPON_STATS_BY_ENUM.put(type, new WeaponStatsMeta(
-                type.getBaseWeight(),
-                type.getBaseDamage(),
-                type.getBaseSpeed()
-            ));
-        }
-    }
-
     /**
-     * Metal density multipliers based on TFC metal properties
-     */
-    public static float getMetalDensityMultiplier(String metalName) {
-        return switch (metalName.toLowerCase()) {
-            case "copper" -> 0.9f;
-            case "bismuth_bronze" -> 0.95f;
-            case "bronze" -> 1.0f;
-            case "black_bronze" -> 1.05f;
-            case "wrought_iron" -> 1.1f;
-            case "steel" -> 1.2f;
-            case "black_steel" -> 1.3f;
-            case "blue_steel", "red_steel" -> 1.4f;
-            default -> 1.0f;
-        };
-    }
-
-    /**
-     * Get weapon stats metadata for a weapon type - uses EnumMap for O(1) lookup
+     * Get weapon stats metadata for a weapon type
      */
     public static WeaponStatsMeta getWeaponStats(String weaponType) {
-        try {
-            WeaponType type = WeaponType.fromName(weaponType);
-            return WEAPON_STATS_BY_ENUM.get(type);
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("No weapon stats found for type: " + weaponType, e);
+        Meta meta = METADATA.get(weaponType);
+        if (meta == null || meta.baseWeight == null) {
+            throw new IllegalArgumentException("No weapon stats found for type: " + weaponType);
         }
+        return new WeaponStatsMeta(meta.baseWeight, meta.baseDamage, meta.baseSpeed);
     }
 
     // Lazy-initialized item definitions list
@@ -142,7 +131,7 @@ public final class WeaponRegistry {
 
     // Tag groupings
     public static final Set<String> SWORDS = Set.of("longsword", "greatsword", "shortsword");
-    public static final Set<String> AXES = Set.of("greataxe", "morningstar");
+    public static final Set<String> AXES = Set.of("greataxe");
     public static final Set<String> SLASHING = Set.of("longsword", "greatsword", "shortsword", "greataxe");
     public static final Set<String> CRUSHING = Set.of("greathammer", "morningstar", "quarterstaff");
     public static final Set<String> PIERCING = Set.of("shortsword");
