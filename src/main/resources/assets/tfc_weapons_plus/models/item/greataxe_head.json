@@ -3,15 +3,15 @@
 	"credit": "Made by C",
 	"texture_size": [64, 64],
 	"textures": {
-		"particle": "tfc_weapons_plus:greataxe",
-		"layer0": "tfc_weapons_plus:greataxe"
+		"particle": "tfc_weapons_plus:base",
+		"layer0": "tfc_weapons_plus:base"
 	},
 	"elements": [
 		{
 			"name": "Head Part 3",
-			"from": [7.9, 24.05461, 5.59402],
-			"to": [8.1, 30.57237, 9.69402],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 26.91775, 6.64402]},
+			"from": [7.6, 24.05461, 5.49402],
+			"to": [8.4, 30.57237, 9.79402],
+			"rotation": {"angle": 0, "axis": "x", "origin": [8, 26.91775, 6.64402]},
 			"faces": {
 				"north": {"uv": [2.25, 4.25, 2.5, 6], "texture": "#layer0"},
 				"east": {"uv": [7, 8.5, 13, 12.25], "texture": "#layer0"},
@@ -23,36 +23,64 @@
 		},
 		{
 			"name": "Head Part 4",
-			"from": [7.9, 30.57237, 5.69402],
-			"to": [8.1, 32, 10.19402],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 26.91775, 6.64402]},
+			"from": [7.6, 30.57237, 5.69402],
+			"to": [8.4, 32, 10.29402],
+			"rotation": {"angle": 0, "axis": "x", "origin": [8, 26.91775, 6.64402]},
 			"faces": {
 				"north": {"uv": [2.25, 3.75, 2.5, 4.25], "texture": "#layer0"},
 				"east": {"uv": [7, 7.75, 13, 8.5], "texture": "#layer0"},
-				"south": {"uv": [2.5, 3.75, 2.75, 4.25], "texture": "#layer0"},
+				"south": {"uv": [15.75, 1.25, 16, 1.75], "texture": "#layer0"},
 				"west": {"uv": [10, 0, 16, 0.75], "texture": "#layer0"},
-				"up": {"uv": [2.25, 5.5, 2, 3.75], "texture": "#layer0"},
-				"down": {"uv": [2, 3.75, 1.75, 5.5], "texture": "#layer0"}
+				"up": {"uv": [16, 12.5, 15.75, 10.75], "texture": "#layer0"},
+				"down": {"uv": [7.25, 5.5, 7, 6.5], "texture": "#layer0"}
+			}
+		},
+		{
+			"name": "Head Part 5",
+			"from": [7.5, 26.02372, 8.64841],
+			"to": [8.5, 28.92372, 11.54841],
+			"rotation": {"angle": -45, "axis": "x", "origin": [8, 27.47372, 8.54841]},
+			"faces": {
+				"north": {"uv": [1.25, 3.75, 1.5, 4.5], "texture": "#layer0"},
+				"east": {"uv": [2.5, 0, 5, 2], "texture": "#layer0"},
+				"south": {"uv": [1.5, 4.25, 1.75, 5], "texture": "#layer0"},
+				"west": {"uv": [0, 0, 2.5, 2], "texture": "#layer0"},
+				"up": {"uv": [1, 5.25, 0.75, 3.75], "texture": "#layer0"},
+				"down": {"uv": [1.25, 3.75, 1, 5.25], "texture": "#layer0"}
+			}
+		},
+		{
+			"name": "Head Part 6",
+			"from": [7.55, 25.82372, 8.44841],
+			"to": [8.45, 29.12372, 11.74841],
+			"rotation": {"angle": -45, "axis": "x", "origin": [8, 27.47372, 8.54841]},
+			"faces": {
+				"north": {"uv": [5.5, 2, 6.25, 2.75], "texture": "#layer0"},
+				"east": {"uv": [5.5, 2, 6.25, 2.75], "texture": "#layer0"},
+				"south": {"uv": [5.5, 2, 6.25, 2.75], "texture": "#layer0"},
+				"west": {"uv": [5.5, 2, 6.25, 2.75], "texture": "#layer0"},
+				"up": {"uv": [5.5, 2, 6.25, 2.75], "texture": "#layer0"},
+				"down": {"uv": [5.5, 2, 6.25, 2.75], "texture": "#layer0"}
 			}
 		},
 		{
 			"name": "Head Part 4",
-			"from": [7.9, 24.93147, 2.8062],
-			"to": [8.1, 31.43147, 7.2062],
+			"from": [7.6, 24.93147, 2.7062],
+			"to": [8.4, 31.43147, 7.1062],
 			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 28.13147, 4.9562]},
 			"faces": {
 				"north": {"uv": [0.75, 5.25, 1, 8.25], "texture": "#layer0"},
 				"east": {"uv": [13, 7.75, 16, 11], "texture": "#layer0"},
 				"south": {"uv": [0, 5.25, 0.25, 8.25], "texture": "#layer0"},
 				"west": {"uv": [7, 0, 10, 3.25], "texture": "#layer0"},
-				"up": {"uv": [0.5, 5.25, 0.25, 3.75], "texture": "#layer0"},
+				"up": {"uv": [16, 8.75, 15.5, 7.75], "texture": "#layer0"},
 				"down": {"uv": [0.75, 3.75, 0.5, 5.25], "texture": "#layer0"}
 			}
 		},
 		{
 			"name": "Head Part 5",
-			"from": [7.9, 21.93147, 5.4062],
-			"to": [8.1, 26.73147, 9.1062],
+			"from": [7.6, 21.93147, 5.3062],
+			"to": [8.4, 26.83147, 9.2062],
 			"rotation": {"angle": -45, "axis": "x", "origin": [8, 24.13147, 7.6562]},
 			"faces": {
 				"north": {"uv": [0.5, 5.25, 0.75, 8.25], "texture": "#layer0"},
@@ -64,35 +92,41 @@
 			}
 		}
 	],
+	"gui_light": "front",
 	"display": {
 		"thirdperson_righthand": {
-			"translation": [0, -22, 0],
+			"translation": [-1, -26, -3.25],
 			"scale": [1.25, 1.25, 1.25]
 		},
 		"thirdperson_lefthand": {
-			"translation": [0, -22, 0],
-			"scale": [1.25, 1.25, 1.25]
+			"translation": [-1, -27, -3.25],
+			"scale": [1, 1.25, 1.25]
 		},
 		"firstperson_righthand": {
-			"translation": [0, -8.75, 2.75],
+			"rotation": [15, 0, -5],
+			"translation": [-4.25, -10, 1],
 			"scale": [0.68, 0.68, 0.68]
 		},
 		"firstperson_lefthand": {
-			"translation": [0, -8.75, 2.75],
+			"rotation": [15, 0, -5],
+			"translation": [-4.25, -10, 1],
 			"scale": [0.68, 0.68, 0.68]
 		},
 		"ground": {
-			"translation": [0, 2, 0],
+			"translation": [0, -10, 0],
 			"scale": [0.6, 0.6, 0.6]
 		},
 		"gui": {
 			"rotation": [0, 134, 0],
-			"translation": [0, -6.75, 0],
+			"translation": [0, -10, 0],
 			"scale": [0.5, 0.5, 0.5]
+		},
+		"head": {
+			"translation": [0, -9.5, 0]
 		},
 		"fixed": {
 			"rotation": [0, -90, 0],
-			"translation": [0, -7, 0],
+			"translation": [0, -10, 0],
 			"scale": [0.6, 0.6, 0.6]
 		},
 		"on_shelf": {
@@ -110,7 +144,7 @@
 					"name": "Head Part 1",
 					"origin": [8, 8.6, 9.3],
 					"color": 0,
-					"children": [0, 1, 2, 3]
+					"children": [0, 1, 2, 3, 4, 5]
 				}
 			]
 		}

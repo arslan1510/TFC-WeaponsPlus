@@ -228,6 +228,19 @@ public final class ModItemTagsProvider implements DataProvider {
                 futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("tfc", "deals_crushing_damage"), allMorningstars, tfcTagPathProvider));
             }
             
+            // Collect all quarterstaves for general tags (crushing)
+            var allQuarterstaves = MetalHelper.getAllMetalNames()
+                .map(ModItems::getQuarterstaffForMetal)
+                .filter(java.util.Optional::isPresent)
+                .map(java.util.Optional::get)
+                .toList();
+            
+            if (!allQuarterstaves.isEmpty()) {
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools"), allQuarterstaves, commonTagPathProvider));
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("c", "tools/melee_weapons"), allQuarterstaves, commonTagPathProvider));
+                futures.add(createTagFile(output, ResourceLocation.fromNamespaceAndPath("tfc", "deals_crushing_damage"), allQuarterstaves, tfcTagPathProvider));
+            }
+            
             // Add longswords to TFC metal-specific tool tags (like tfc:tools/red_steel)
             // This matches how TFC includes swords in their metal tool tags
             MetalHelper.getAllMetalNames().forEach(metalName -> {
@@ -268,6 +281,12 @@ public final class ModItemTagsProvider implements DataProvider {
                 ModItems.getMorningstarForMetal(metalName).ifPresent(morningstar -> {
                     ResourceLocation tfcToolTagId = ResourceLocation.fromNamespaceAndPath("tfc", "tools/" + normalizedMetal);
                     futures.add(createTagFile(output, tfcToolTagId, morningstar, tfcTagPathProvider));
+                });
+                
+                // Add quarterstaffs to TFC metal-specific tool tags
+                ModItems.getQuarterstaffForMetal(metalName).ifPresent(quarterstaff -> {
+                    ResourceLocation tfcToolTagId = ResourceLocation.fromNamespaceAndPath("tfc", "tools/" + normalizedMetal);
+                    futures.add(createTagFile(output, tfcToolTagId, quarterstaff, tfcTagPathProvider));
                 });
             });
             

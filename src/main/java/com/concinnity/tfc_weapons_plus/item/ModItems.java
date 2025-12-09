@@ -8,6 +8,7 @@ import com.concinnity.tfc_weapons_plus.item.weapon.ShortswordItem;
 import com.concinnity.tfc_weapons_plus.item.weapon.GreatAxeItem;
 import com.concinnity.tfc_weapons_plus.item.weapon.GreatHammerItem;
 import com.concinnity.tfc_weapons_plus.item.weapon.MorningstarItem;
+import com.concinnity.tfc_weapons_plus.item.weapon.QuarterstaffItem;
 import com.concinnity.tfc_weapons_plus.util.NameUtils;
 
 import java.util.HashMap;
@@ -74,6 +75,9 @@ public final class ModItems {
     
     // Morningstar items (9 metals)
     public static final Map<String, DeferredItem<Item>> MORNINGSTAR_VARIANTS = new HashMap<>();
+    
+    // Quarterstaff items (9 metals)
+    public static final Map<String, DeferredItem<Item>> QUARTERSTAFF_VARIANTS = new HashMap<>();
     
     static {
         // Register metal variants for guard, pommel, and hilt
@@ -185,6 +189,16 @@ public final class ModItems {
                 MORNINGSTAR_VARIANTS.put(metalName, ITEMS.register(morningstarId,
                     () -> new MorningstarItem(metalName, weaponProps)));
             });
+            
+            // Register quarterstaff item for this metal (crushing weapon)
+            String quarterstaffId = "metal/quarterstaff/" + normalizedMetal;
+            MetalHelper.getMetalProperties(metalName).ifPresent(props -> {
+                Item.Properties weaponProps = new Item.Properties()
+                    .durability(props.durability());
+                
+                QUARTERSTAFF_VARIANTS.put(metalName, ITEMS.register(quarterstaffId,
+                    () -> new QuarterstaffItem(metalName, weaponProps)));
+            });
         });
     }
     
@@ -208,7 +222,8 @@ public final class ModItems {
             GREATHAMMER_HEAD_VARIANTS.values().stream().map(DeferredItem::get),
             GREATHAMMER_VARIANTS.values().stream().map(DeferredItem::get),
             MORNINGSTAR_HEAD_VARIANTS.values().stream().map(DeferredItem::get),
-            MORNINGSTAR_VARIANTS.values().stream().map(DeferredItem::get)
+            MORNINGSTAR_VARIANTS.values().stream().map(DeferredItem::get),
+            QUARTERSTAFF_VARIANTS.values().stream().map(DeferredItem::get)
         ).flatMap(s -> s);
     }
     
@@ -329,6 +344,14 @@ public final class ModItems {
      */
     public static Optional<Item> getMorningstarForMetal(String metalName) {
         return Optional.ofNullable(MORNINGSTAR_VARIANTS.get(metalName))
+            .map(DeferredItem::get);
+    }
+    
+    /**
+     * Get quarterstaff item for a specific metal
+     */
+    public static Optional<Item> getQuarterstaffForMetal(String metalName) {
+        return Optional.ofNullable(QUARTERSTAFF_VARIANTS.get(metalName))
             .map(DeferredItem::get);
     }
     

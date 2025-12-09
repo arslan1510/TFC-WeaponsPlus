@@ -3,13 +3,13 @@
 	"credit": "Made by C",
 	"texture_size": [32, 32],
 	"textures": {
-		"layer0": "tfc_weapons_plus:shortsword_blade"
+		"layer0": "tfc_weapons_plus:item/metal/shortsword_blade/wrought_iron"
 	},
 	"elements": [
 		{
 			"from": [7.75, 6.1, 8.8],
-			"to": [8.35, 14.3, 9.2],
-			"rotation": {"angle": 0, "axis": "y", "origin": [6.1, 5.9, 7.5]},
+			"to": [8.35, 14, 9.2],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.025, 11.97154, 7.975]},
 			"faces": {
 				"north": {"uv": [0, 0, 7, 8], "texture": "#layer0"},
 				"east": {"uv": [0, 0, 7, 8], "texture": "#layer0"},
@@ -20,9 +20,9 @@
 			}
 		},
 		{
-			"from": [7.85, 6.1, 9.2],
-			"to": [8.15, 14.1, 9.5],
-			"rotation": {"angle": 0, "axis": "y", "origin": [6.1, 5.9, 7.5]},
+			"from": [7.95, 6.1, 9.2],
+			"to": [8.15, 13.9, 9.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.025, 11.97154, 7.975]},
 			"faces": {
 				"north": {"uv": [0, 0, 7, 8], "texture": "#layer0"},
 				"east": {"uv": [0, 0, 7, 8], "texture": "#layer0"},
@@ -33,9 +33,9 @@
 			}
 		},
 		{
-			"from": [7.65, 5.5, 7.9],
-			"to": [8.35, 14.8, 8.4],
-			"rotation": {"angle": 0, "axis": "y", "origin": [6.1, 5.9, 6.8]},
+			"from": [7.85, 5.5, 7.9],
+			"to": [8.15, 14.8, 8.4],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.025, 11.97154, 7.975]},
 			"faces": {
 				"north": {"uv": [0, 0, 7, 8], "texture": "#layer0"},
 				"east": {"uv": [0, 0, 7, 8], "texture": "#layer0"},
@@ -46,9 +46,9 @@
 			}
 		},
 		{
-			"from": [7.65, 6.1, 8.4],
-			"to": [8.35, 14.6, 8.8],
-			"rotation": {"angle": 0, "axis": "y", "origin": [6.1, 5.9, 6.8]},
+			"from": [7.75, 6.1, 8.4],
+			"to": [8.25, 14.6, 8.8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.025, 11.97154, 7.975]},
 			"faces": {
 				"north": {"uv": [0, 0, 7, 8], "texture": "#layer0"},
 				"east": {"uv": [0, 0, 7, 8], "texture": "#layer0"},
@@ -60,8 +60,8 @@
 		},
 		{
 			"from": [7.75, 6.1, 6.75],
-			"to": [8.35, 14.3, 7.15],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8.05, 10.325, 7.175]},
+			"to": [8.35, 14, 7.15],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.025, 11.97154, 7.975]},
 			"faces": {
 				"north": {"uv": [0, 0, 7, 8], "texture": "#layer0"},
 				"east": {"uv": [0, 0, 7, 8], "texture": "#layer0"},
@@ -72,9 +72,9 @@
 			}
 		},
 		{
-			"from": [7.85, 6.1, 6.45],
-			"to": [8.15, 14.1, 6.75],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8.05, 10.325, 7.175]},
+			"from": [7.95, 6.1, 6.45],
+			"to": [8.15, 13.9, 6.75],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.025, 11.97154, 7.975]},
 			"faces": {
 				"north": {"uv": [0, 0, 7, 8], "texture": "#layer0"},
 				"east": {"uv": [0, 0, 7, 8], "texture": "#layer0"},
@@ -85,9 +85,9 @@
 			}
 		},
 		{
-			"from": [7.65, 5.5, 7.55],
-			"to": [8.35, 14.8, 8.05],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8.05, 10.325, 7.175]},
+			"from": [7.85, 5.5, 7.55],
+			"to": [8.15, 14.8, 8.05],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.025, 11.97154, 7.975]},
 			"faces": {
 				"north": {"uv": [0, 0, 7, 8], "texture": "#layer0"},
 				"east": {"uv": [0, 0, 7, 8], "texture": "#layer0"},
@@ -98,9 +98,9 @@
 			}
 		},
 		{
-			"from": [7.65, 6.1, 7.15],
-			"to": [8.35, 14.6, 7.55],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8.05, 10.325, 7.175]},
+			"from": [7.75, 6.1, 7.15],
+			"to": [8.25, 14.6, 7.55],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.025, 11.97154, 7.975]},
 			"faces": {
 				"north": {"uv": [0, 0, 7, 8], "texture": "#layer0"},
 				"east": {"uv": [0, 0, 7, 8], "texture": "#layer0"},
@@ -108,6 +108,19 @@
 				"west": {"uv": [0, 0, 7, 8], "texture": "#layer0"},
 				"up": {"uv": [0, 0, 7, 8], "rotation": 180, "texture": "#layer0"},
 				"down": {"uv": [0, 0, 0.1, 0.2], "rotation": 180, "texture": "#layer0"}
+			}
+		},
+		{
+			"from": [7.7, 12.26663, 5.48191],
+			"to": [8.4, 14.46663, 7.68191],
+			"rotation": {"angle": 45, "axis": "x", "origin": [8.025, 11.97154, 7.975]},
+			"faces": {
+				"north": {"uv": [0, 0, 1, 1], "texture": "#layer0"},
+				"east": {"uv": [0, 0, 1, 1], "texture": "#layer0"},
+				"south": {"uv": [0, 0, 1, 1], "texture": "#layer0"},
+				"west": {"uv": [0, 0, 1, 1], "texture": "#layer0"},
+				"up": {"uv": [0, 0, 1, 1], "texture": "#layer0"},
+				"down": {"uv": [0, 0, 1, 1], "texture": "#layer0"}
 			}
 		}
 	],
@@ -155,7 +168,7 @@
 					"name": "Blade",
 					"origin": [8, 8, 8],
 					"color": 0,
-					"children": [0, 1, 2, 3, 4, 5, 6, 7]
+					"children": [0, 1, 2, 3, 4, 5, 6, 7, 8]
 				}
 			]
 		}

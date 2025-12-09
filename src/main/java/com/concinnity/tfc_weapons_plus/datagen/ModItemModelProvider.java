@@ -92,6 +92,12 @@ public final class ModItemModelProvider extends ItemModelProvider {
                 withExistingParent("item/metal/morningstar_head/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/morningstar_head"))
                     .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/morningstar_head/" + normalizedMetal));
             });
+            
+            // Quarterstaff models - uses custom 3D parent model
+            ModItems.getQuarterstaffForMetal(metalName).ifPresent(quarterstaff -> {
+                withExistingParent("item/metal/quarterstaff/" + normalizedMetal, ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/quarterstaff"))
+                    .texture("layer0", ResourceLocation.fromNamespaceAndPath(TFCWeaponsPlus.MODID, "item/metal/quarterstaff/" + normalizedMetal));
+            });
         });
         
         // Generate models for longswords (same metal for blade and hilt)

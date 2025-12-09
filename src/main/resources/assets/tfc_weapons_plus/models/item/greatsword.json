@@ -3,7 +3,8 @@
 	"credit": "Made by C",
 	"texture_size": [64, 64],
 	"textures": {
-		"layer0": "tfc_weapons_plus:item/metal/greatsword/wrought_iron"
+		"layer0": "tfc_weapons_plus:base",
+		"particle": "tfc_weapons_plus:item/metal/greatsword/wrought_iron"
 	},
 	"elements": [
 		{
@@ -217,6 +218,7 @@
 			}
 		}
 	],
+	"gui_light": "front",
 	"display": {
 		"thirdperson_righthand": {
 			"translation": [-0.5, 1.75, 2]

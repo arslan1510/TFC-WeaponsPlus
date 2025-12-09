@@ -32,6 +32,7 @@ public final class ModRecipeProvider extends RecipeProvider {
         generateGreatAxeAssemblyRecipes(output);
         generateGreatHammerAssemblyRecipes(output);
         generateMorningstarAssemblyRecipes(output);
+        generateQuarterstaffAssemblyRecipes(output);
     }
     
     /**
@@ -191,7 +192,7 @@ public final class ModRecipeProvider extends RecipeProvider {
     }
     
     /**
-     * Create greataxe assembly recipe: greataxe = greataxe_head + 2 wooden rods (diagonal)
+     * Create greataxe assembly recipe: greataxe = greataxe_head + 2 grips (diagonal /)
      */
     private void createGreatAxeAssemblyRecipe(RecipeOutput output, String metalName) {
         ModItems.getGreatAxeHeadForMetal(metalName).ifPresent(head -> {
@@ -200,10 +201,10 @@ public final class ModRecipeProvider extends RecipeProvider {
                 
                 ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, greataxe)
                     .pattern("  H")
-                    .pattern(" R ")
-                    .pattern("R  ")
+                    .pattern(" G ")
+                    .pattern("G  ")
                     .define('H', head)
-                    .define('R', net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM, net.minecraft.resources.ResourceLocation.parse("c:rods/wooden")))
+                    .define('G', ModItems.GRIP.get())
                     .unlockedBy("has_head", has(head))
                     .save(output, "metal/greataxe/assembly_" + normalizedMetal);
             });
@@ -215,7 +216,7 @@ public final class ModRecipeProvider extends RecipeProvider {
     }
     
     /**
-     * Create greathammer assembly recipe: greathammer = greathammer_head + 2 wooden rods (diagonal)
+     * Create greathammer assembly recipe: greathammer = greathammer_head + 2 grips (diagonal /)
      */
     private void createGreatHammerAssemblyRecipe(RecipeOutput output, String metalName) {
         ModItems.getGreatHammerHeadForMetal(metalName).ifPresent(head -> {
@@ -224,10 +225,10 @@ public final class ModRecipeProvider extends RecipeProvider {
                 
                 ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, greathammer)
                     .pattern("  H")
-                    .pattern(" R ")
-                    .pattern("R  ")
+                    .pattern(" G ")
+                    .pattern("G  ")
                     .define('H', head)
-                    .define('R', net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM, net.minecraft.resources.ResourceLocation.parse("c:rods/wooden")))
+                    .define('G', ModItems.GRIP.get())
                     .unlockedBy("has_head", has(head))
                     .save(output, "metal/greathammer/assembly_" + normalizedMetal);
             });
@@ -265,6 +266,31 @@ public final class ModRecipeProvider extends RecipeProvider {
     
     private void generateMorningstarAssemblyRecipes(RecipeOutput output) {
         MetalHelper.getAllMetalNames().forEach(metalName -> createMorningstarAssemblyRecipe(output, metalName));
+    }
+    
+    /**
+     * Create quarterstaff assembly recipe: pommel / grip / pommel (diagonal /)
+     */
+    private void createQuarterstaffAssemblyRecipe(RecipeOutput output, String metalName) {
+        ModItems.getPommelForMetal(metalName).ifPresent(pommel -> {
+            ModItems.getQuarterstaffForMetal(metalName).ifPresent(quarterstaff -> {
+                String normalizedMetal = NameUtils.normalizeMetalName(metalName);
+                
+                ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, quarterstaff)
+                    .pattern("  P")
+                    .pattern(" G ")
+                    .pattern("P  ")
+                    .define('P', pommel)
+                    .define('G', ModItems.GRIP.get())
+                    .unlockedBy("has_pommel", has(pommel))
+                    .unlockedBy("has_grip", has(ModItems.GRIP.get()))
+                    .save(output, "metal/quarterstaff/assembly_" + normalizedMetal);
+            });
+        });
+    }
+    
+    private void generateQuarterstaffAssemblyRecipes(RecipeOutput output) {
+        MetalHelper.getAllMetalNames().forEach(metalName -> createQuarterstaffAssemblyRecipe(output, metalName));
     }
     
 }

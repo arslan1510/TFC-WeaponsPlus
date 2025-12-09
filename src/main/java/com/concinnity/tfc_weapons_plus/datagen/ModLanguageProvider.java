@@ -126,6 +126,11 @@ public final class ModLanguageProvider extends LanguageProvider {
                 ModItems.getMorningstarForMetal(metalName).ifPresent(morningstar -> {
                     add(morningstar, props.name() + " Morningstar");
                 });
+                
+                // Quarterstaff variants
+                ModItems.getQuarterstaffForMetal(metalName).ifPresent(quarterstaff -> {
+                    add(quarterstaff, props.name() + " Quarterstaff");
+                });
             });
         });
         

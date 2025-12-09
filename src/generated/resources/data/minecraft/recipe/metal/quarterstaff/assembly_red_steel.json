@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "item": "tfc_weapons_plus:wood/grip"
+    },
+    "P": {
+      "item": "tfc_weapons_plus:metal/pommel/red_steel"
+    }
+  },
+  "pattern": [
+    "  P",
+    " G ",
+    "P  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "tfc_weapons_plus:metal/quarterstaff/red_steel"
+  }
+}

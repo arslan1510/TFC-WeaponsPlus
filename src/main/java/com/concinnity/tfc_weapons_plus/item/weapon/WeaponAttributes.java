@@ -140,5 +140,24 @@ public final class WeaponAttributes {
                 EquipmentSlotGroup.MAINHAND)
             .build();
     }
+    
+    /**
+     * Create attributes for a quarterstaff (bashing/crushing).
+     * Uses sword-like damage/speed while dealing crushing damage via tags.
+     */
+    public static ItemAttributeModifiers createQuarterstaffAttributes(Tier tier) {
+        // Match sword profile: 3 base + tier bonus, speed -2.4
+        int attackDamage = 3 + (int) tier.getAttackDamageBonus();
+        float attackSpeed = -2.4f;
+        
+        return ItemAttributeModifiers.builder()
+            .add(Attributes.ATTACK_DAMAGE,
+                new AttributeModifier(SwordItem.BASE_ATTACK_DAMAGE_ID, attackDamage, AttributeModifier.Operation.ADD_VALUE),
+                EquipmentSlotGroup.MAINHAND)
+            .add(Attributes.ATTACK_SPEED,
+                new AttributeModifier(SwordItem.BASE_ATTACK_SPEED_ID, attackSpeed, AttributeModifier.Operation.ADD_VALUE),
+                EquipmentSlotGroup.MAINHAND)
+            .build();
+    }
 }
 

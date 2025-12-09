@@ -1,0 +1,6 @@
+{
+  "parent": "tfc_weapons_plus:item/quarterstaff",
+  "textures": {
+    "layer0": "tfc_weapons_plus:item/metal/quarterstaff/black_steel"
+  }
+}

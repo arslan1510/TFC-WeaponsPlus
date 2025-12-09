@@ -2,17 +2,17 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
+    "G": {
+      "item": "tfc_weapons_plus:wood/grip"
+    },
     "H": {
       "item": "tfc_weapons_plus:metal/greathammer_head/black_steel"
-    },
-    "R": {
-      "tag": "c:rods/wooden"
     }
   },
   "pattern": [
     "  H",
-    " R ",
-    "R  "
+    " G ",
+    "G  "
   ],
   "result": {
     "count": 1,
