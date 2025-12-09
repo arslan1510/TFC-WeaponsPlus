@@ -1,6 +1,12 @@
 {
   "replace": false,
   "values": [
+    "tfc_weapons_plus:metal/longsword/blue_steel",
+    "tfc_weapons_plus:metal/greatsword/blue_steel",
+    "tfc_weapons_plus:metal/shortsword/blue_steel",
+    "tfc_weapons_plus:metal/greataxe/blue_steel",
+    "tfc_weapons_plus:metal/greathammer/blue_steel",
+    "tfc_weapons_plus:metal/morningstar/blue_steel",
     "tfc_weapons_plus:metal/quarterstaff/blue_steel"
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "parent": "tfc_weapons_plus:item/guard",
+  "parent": "tfc_weapons_plus:item/metal/guard/guard",
   "textures": {
     "layer0": "tfc_weapons_plus:item/metal/guard/black_bronze"
   }

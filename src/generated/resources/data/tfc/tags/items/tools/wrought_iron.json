@@ -1,6 +1,12 @@
 {
   "replace": false,
   "values": [
-    "tfc_weapons_plus:metal/greathammer/wrought_iron"
+    "tfc_weapons_plus:metal/longsword/wrought_iron",
+    "tfc_weapons_plus:metal/greatsword/wrought_iron",
+    "tfc_weapons_plus:metal/shortsword/wrought_iron",
+    "tfc_weapons_plus:metal/greataxe/wrought_iron",
+    "tfc_weapons_plus:metal/greathammer/wrought_iron",
+    "tfc_weapons_plus:metal/morningstar/wrought_iron",
+    "tfc_weapons_plus:metal/quarterstaff/wrought_iron"
   ]
 }

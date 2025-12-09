@@ -1,5 +1,5 @@
 {
-  "parent": "tfc_weapons_plus:item/quarterstaff",
+  "parent": "tfc_weapons_plus:item/metal/quarterstaff/quarterstaff",
   "textures": {
     "layer0": "tfc_weapons_plus:item/metal/quarterstaff/blue_steel"
   }

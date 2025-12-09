@@ -1,11 +1,9 @@
 {
   "type": "tfc:heating",
+  "duration": 600,
   "ingredient": {
-    "item": "tfc_weapons_plus:metal/greataxe_head/black_bronze"
+    "ingredient": "tfc:sheet/black_bronze"
   },
-  "result_fluid": {
-    "amount": 200,
-    "id": "tfc:metal/black_bronze"
-  },
-  "temperature": 1070.0
+  "result": "tfc_weapons_plus:metal/greataxe_head/black_bronze",
+  "temperature": 600
 }

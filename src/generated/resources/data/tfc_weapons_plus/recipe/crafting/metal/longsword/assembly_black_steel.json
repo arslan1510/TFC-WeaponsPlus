@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "tfc_weapons_plus:metal/longsword_blade/black_steel"
+    },
+    "H": {
+      "item": "tfc_weapons_plus:metal/hilt/black_steel"
+    }
+  },
+  "pattern": [
+    "B",
+    "H"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tfc_weapons_plus:metal/longsword/black_steel"
+  }
+}

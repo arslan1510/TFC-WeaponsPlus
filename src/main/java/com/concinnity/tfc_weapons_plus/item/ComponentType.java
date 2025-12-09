@@ -1,72 +1,34 @@
 package com.concinnity.tfc_weapons_plus.item;
 
 /**
- * Sealed interface for component types using modern Java 21 sealed classes
+ * Component types for weapon crafting.
+ * Using enum instead of sealed interface for better performance and simpler switch statements.
  */
-public sealed interface ComponentType permits ComponentType.Grip, ComponentType.Guard, ComponentType.Pommel, ComponentType.Hilt, ComponentType.LongswordBlade, ComponentType.GreatswordBlade, ComponentType.ShortswordBlade, ComponentType.GreatAxeHead, ComponentType.GreatHammerHead, ComponentType.MorningstarHead {
-    
-    String name();
-    
-    record Grip() implements ComponentType {
-        @Override
-        public String name() { return "grip"; }
-    }
-    
-    record Guard() implements ComponentType {
-        @Override
-        public String name() { return "guard"; }
-    }
-    
-    record Pommel() implements ComponentType {
-        @Override
-        public String name() { return "pommel"; }
-    }
-    
-    record Hilt() implements ComponentType {
-        @Override
-        public String name() { return "hilt"; }
-    }
-    
-    record LongswordBlade() implements ComponentType {
-        @Override
-        public String name() { return "longsword_blade"; }
-    }
-    
-    record GreatswordBlade() implements ComponentType {
-        @Override
-        public String name() { return "greatsword_blade"; }
-    }
-    
-    record ShortswordBlade() implements ComponentType {
-        @Override
-        public String name() { return "shortsword_blade"; }
-    }
-    
-    record GreatAxeHead() implements ComponentType {
-        @Override
-        public String name() { return "greataxe_head"; }
-    }
-    
-    record GreatHammerHead() implements ComponentType {
-        @Override
-        public String name() { return "greathammer_head"; }
-    }
-    
-    record MorningstarHead() implements ComponentType {
-        @Override
-        public String name() { return "morningstar_head"; }
-    }
-    
-    // Constants for easy access
-    ComponentType GRIP = new Grip();
-    ComponentType GUARD = new Guard();
-    ComponentType POMMEL = new Pommel();
-    ComponentType HILT = new Hilt();
-    ComponentType LONGSWORD_BLADE = new LongswordBlade();
-    ComponentType GREATSWORD_BLADE = new GreatswordBlade();
-    ComponentType SHORTSWORD_BLADE = new ShortswordBlade();
-    ComponentType GREATAXE_HEAD = new GreatAxeHead();
-    ComponentType GREATHAMMER_HEAD = new GreatHammerHead();
-    ComponentType MORNINGSTAR_HEAD = new MorningstarHead();
-}
+public enum ComponentType {
+    GRIP("grip", false),
+    GUARD("guard", true),
+    POMMEL("pommel", true),
+    HILT("hilt", true),
+    LONGSWORD_BLADE("longsword_blade", true),
+    GREATSWORD_BLADE("greatsword_blade", true),
+    SHORTSWORD_BLADE("shortsword_blade", true),
+    GREATAXE_HEAD("greataxe_head", true),
+    GREATHAMMER_HEAD("greathammer_head", true),
+    MORNINGSTAR_HEAD("morningstar_head", true);
 
+    private final String name;
+    private final boolean metallic;
+
+    ComponentType(String name, boolean metallic) {
+        this.name = name;
+        this.metallic = metallic;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean isMetallic() {
+        return metallic;
+    }
+}

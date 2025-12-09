@@ -1,11 +1,9 @@
 {
   "type": "tfc:heating",
+  "duration": 600,
   "ingredient": {
-    "item": "tfc_weapons_plus:metal/morningstar_head/black_steel"
+    "ingredient": "tfc:ingot/black_steel"
   },
-  "result_fluid": {
-    "amount": 100,
-    "id": "tfc:metal/black_steel"
-  },
-  "temperature": 1485.0
+  "result": "tfc_weapons_plus:metal/morningstar_head/black_steel",
+  "temperature": 600
 }

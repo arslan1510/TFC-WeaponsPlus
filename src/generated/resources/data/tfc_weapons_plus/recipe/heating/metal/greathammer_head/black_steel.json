@@ -1,11 +1,9 @@
 {
   "type": "tfc:heating",
+  "duration": 600,
   "ingredient": {
-    "item": "tfc_weapons_plus:metal/greathammer_head/black_steel"
+    "ingredient": "tfc:double_sheet/black_steel"
   },
-  "result_fluid": {
-    "amount": 400,
-    "id": "tfc:metal/black_steel"
-  },
-  "temperature": 1485.0
+  "result": "tfc_weapons_plus:metal/greathammer_head/black_steel",
+  "temperature": 600
 }

@@ -1,6 +1,12 @@
 {
   "replace": false,
   "values": [
+    "tfc_weapons_plus:metal/longsword/bronze",
+    "tfc_weapons_plus:metal/greatsword/bronze",
+    "tfc_weapons_plus:metal/shortsword/bronze",
+    "tfc_weapons_plus:metal/greataxe/bronze",
+    "tfc_weapons_plus:metal/greathammer/bronze",
+    "tfc_weapons_plus:metal/morningstar/bronze",
     "tfc_weapons_plus:metal/quarterstaff/bronze"
   ]
 }

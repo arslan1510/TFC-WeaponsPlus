@@ -3,82 +3,100 @@ package com.concinnity.tfc_weapons_plus;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
-import com.concinnity.tfc_weapons_plus.datagen.ModDataGenerators;
+import com.concinnity.tfc_weapons_plus.client.TFCWeaponsPlusClientEvents;
+import com.concinnity.tfc_weapons_plus.client.TFCWeaponsPlusClientForgeEvents;
 import com.concinnity.tfc_weapons_plus.item.ModItems;
 
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
 
-@Mod(TFCWeaponsPlus.MODID)
+@Mod(TFCWeaponsPlus.MOD_ID)
 public final class TFCWeaponsPlus {
-    public static final String MODID = "tfc_weapons_plus";
-    private static final Logger LOGGER = LogUtils.getLogger();
-    
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = 
-        DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
-    
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> MODULAR_WEAPON_TAB = 
-        CREATIVE_MODE_TABS.register("modular_weapon", () -> CreativeModeTab.builder()
+    public static final String MOD_ID = "tfc_weapons_plus";
+    public static final Logger LOG = LogUtils.getLogger();
+
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
+        DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MOD_ID);
+
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> WEAPONS_PLUS_TAB =
+        CREATIVE_MODE_TABS.register("weapons_plus", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.tfc_weapons_plus"))
-            .icon(() -> ModItems.getGreatswordForMetal("copper")
-                .map(ItemStack::new)
-                .orElseGet(() -> ModItems.getLongswordForMetal("copper")
-                    .map(ItemStack::new)
-                    .orElseGet(() -> new ItemStack(ModItems.GRIP.get()))))
-            .displayItems((parameters, output) -> {
-                ModItems.getAllItems().forEach(output::accept);
-            })
+            .icon(TFCWeaponsPlus::pickIcon)
+            .displayItems((parameters, output) -> ModItems.getAllItems().forEach(output::accept))
             .build());
-    
-    public TFCWeaponsPlus(IEventBus modEventBus) {
-        LOGGER.info("Initializing TFC Weapons Plus mod");
-        
-        // Register items
-        ModItems.ITEMS.register(modEventBus);
-        
-        // Register creative tabs
-        CREATIVE_MODE_TABS.register(modEventBus);
-        
-        // Register event listeners
-        modEventBus.addListener(this::commonSetup);
-        modEventBus.addListener(this::addCreative);
-        modEventBus.addListener(ModDataGenerators::gatherData);
-        
-        // Register server events
-        NeoForge.EVENT_BUS.register(this);
+
+    public TFCWeaponsPlus(ModContainer modContainer, IEventBus modBus, Dist dist) {
+        LOG.info("Initializing TFC Weapons Plus mod");
+
+        modBus.register(TFCWeaponsPlus.class);
+        ModItems.ITEMS.register(modBus);
+        CREATIVE_MODE_TABS.register(modBus);
+        modBus.addListener(this::commonSetup);
+
+        TFCWeaponsPlusForgeEvents.init(NeoForge.EVENT_BUS);
+
+        if (dist == Dist.CLIENT) {
+            TFCWeaponsPlusClientEvents.init(modContainer, modBus);
+            TFCWeaponsPlusClientForgeEvents.init(NeoForge.EVENT_BUS);
+        }
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            LOGGER.info("TFC Weapons Plus common setup");
-            // Initialize TFC integration
-            IntegrationManager.initialize();
+            LOG.info("TFC Weapons Plus common setup");
+            // Register items after TFC is confirmed to be loaded
+            ModItems.registerItems();
+            // Initialize item cache for fast lookups
+            ModItems.initializeCache();
+            LOG.info("Item cache initialized for fast lookups");
         });
     }
 
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        // Items are already added to our custom tab via displayItems
-        // Optionally also add to combat tab
+    private static ItemStack pickIcon() {
+        // Direct item access (no Optional overhead)
+        try {
+            return new ItemStack(ModItems.getGreatswordForMetal("steel"));
+        } catch (Exception e) {
+            try {
+                return new ItemStack(ModItems.getLongswordForMetal("steel"));
+            } catch (Exception ex) {
+                return new ItemStack(ModItems.GRIP.get());
+            }
+        }
+    }
+
+    @SubscribeEvent
+    private static void onCreativeTabBuild(final BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.COMBAT) {
             ModItems.getAllItems().forEach(event::accept);
         }
     }
 
-    @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event) {
-        LOGGER.info("TFC Weapons Plus server starting");
+    /**
+     * Shorthand for {@code ResourceLocation.fromNamespaceAndPath(MOD_ID, path)}.
+     */
+    public static ResourceLocation location(final String path) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+    }
+
+    /**
+     * Helper for creating modid prepended lang keys.
+     */
+    public static String lang(final String langKey) {
+        return MOD_ID + "." + langKey;
     }
 }
-

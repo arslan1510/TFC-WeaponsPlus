@@ -1,11 +1,9 @@
 {
   "type": "tfc:heating",
+  "duration": 600,
   "ingredient": {
-    "item": "tfc_weapons_plus:metal/longsword_blade/red_steel"
+    "ingredient": "tfc:double_ingot/red_steel"
   },
-  "result_fluid": {
-    "amount": 200,
-    "id": "tfc:metal/red_steel"
-  },
-  "temperature": 1540.0
+  "result": "tfc_weapons_plus:metal/longsword_blade/red_steel",
+  "temperature": 600
 }

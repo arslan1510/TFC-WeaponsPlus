@@ -479,104 +479,40 @@
       }
     }
   ],
-  "display": {
-    "thirdperson_righthand": {
-      "translation": [
-        0,
-        2,
-        2
-      ]
-    },
-    "thirdperson_lefthand": {
-      "translation": [
-        0,
-        2,
-        2
-      ]
-    },
-    "firstperson_righthand": {
-      "rotation": [
-        15,
-        0,
-        -5
-      ],
-      "translation": [
-        1,
-        1.5,
-        1
-      ],
-      "scale": [
-        0.68,
-        0.68,
-        0.68
-      ]
-    },
-    "firstperson_lefthand": {
-      "rotation": [
-        15,
-        0,
-        -5
-      ],
-      "translation": [
-        1,
-        1.5,
-        1
-      ],
-      "scale": [
-        0.68,
-        0.68,
-        0.68
-      ]
-    },
-    "ground": {
-      "scale": [
-        0.6,
-        0.6,
-        0.6
-      ]
-    },
-    "gui": {
-      "rotation": [
-        30,
-        -135,
-        0
-      ],
-      "translation": [
-        0,
-        -2.75,
-        0
-      ],
-      "scale": [
-        0.5,
-        0.5,
-        0.5
-      ]
-    },
-    "fixed": {
-      "rotation": [
-        0,
-        90,
-        0
-      ],
-      "translation": [
-        0,
-        -4,
-        0
-      ],
-      "scale": [
-        0.6,
-        0.6,
-        0.6
-      ]
-    },
-    "on_shelf": {
-      "rotation": [
-        0,
-        90,
-        0
-      ]
-    }
-  },
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [-0.5, 0.75, 2]
+		},
+		"thirdperson_lefthand": {
+			"translation": [-0.5, 0.75, 2]
+		},
+		"firstperson_righthand": {
+			"rotation": [15, 0, -5],
+			"translation": [1, 1.5, 1],
+			"scale": [0.68, 0.68, 0.68]
+		},
+		"firstperson_lefthand": {
+			"rotation": [15, 0, -5],
+			"translation": [1, 1.5, 1],
+			"scale": [0.68, 0.68, 0.68]
+		},
+		"ground": {
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"gui": {
+			"rotation": [30, -135, 0],
+			"translation": [0, -2.75, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"fixed": {
+			"rotation": [0, 90, 0],
+			"translation": [0, -4, 0],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"on_shelf": {
+			"rotation": [0, 90, 0]
+		}
+	},
   "groups": [
     {
       "name": "Blade Part 2",

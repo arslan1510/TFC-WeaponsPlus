@@ -1,11 +1,9 @@
 {
   "type": "tfc:heating",
+  "duration": 600,
   "ingredient": {
-    "item": "tfc_weapons_plus:metal/greathammer_head/copper"
+    "ingredient": "tfc:double_sheet/copper"
   },
-  "result_fluid": {
-    "amount": 400,
-    "id": "tfc:metal/copper"
-  },
-  "temperature": 1080.0
+  "result": "tfc_weapons_plus:metal/greathammer_head/copper",
+  "temperature": 600
 }

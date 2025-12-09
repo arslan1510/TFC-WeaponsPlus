@@ -1,14 +1,32 @@
 {
   "replace": false,
   "values": [
-    "tfc_weapons_plus:metal/morningstar/black_steel",
-    "tfc_weapons_plus:metal/morningstar/red_steel",
-    "tfc_weapons_plus:metal/morningstar/copper",
+    "tfc_weapons_plus:metal/greathammer/bismuth_bronze",
     "tfc_weapons_plus:metal/morningstar/bismuth_bronze",
-    "tfc_weapons_plus:metal/morningstar/wrought_iron",
+    "tfc_weapons_plus:metal/quarterstaff/bismuth_bronze",
+    "tfc_weapons_plus:metal/greathammer/black_bronze",
     "tfc_weapons_plus:metal/morningstar/black_bronze",
-    "tfc_weapons_plus:metal/morningstar/steel",
+    "tfc_weapons_plus:metal/quarterstaff/black_bronze",
+    "tfc_weapons_plus:metal/greathammer/bronze",
     "tfc_weapons_plus:metal/morningstar/bronze",
-    "tfc_weapons_plus:metal/morningstar/blue_steel"
+    "tfc_weapons_plus:metal/quarterstaff/bronze",
+    "tfc_weapons_plus:metal/greathammer/copper",
+    "tfc_weapons_plus:metal/morningstar/copper",
+    "tfc_weapons_plus:metal/quarterstaff/copper",
+    "tfc_weapons_plus:metal/greathammer/wrought_iron",
+    "tfc_weapons_plus:metal/morningstar/wrought_iron",
+    "tfc_weapons_plus:metal/quarterstaff/wrought_iron",
+    "tfc_weapons_plus:metal/greathammer/steel",
+    "tfc_weapons_plus:metal/morningstar/steel",
+    "tfc_weapons_plus:metal/quarterstaff/steel",
+    "tfc_weapons_plus:metal/greathammer/black_steel",
+    "tfc_weapons_plus:metal/morningstar/black_steel",
+    "tfc_weapons_plus:metal/quarterstaff/black_steel",
+    "tfc_weapons_plus:metal/greathammer/blue_steel",
+    "tfc_weapons_plus:metal/morningstar/blue_steel",
+    "tfc_weapons_plus:metal/quarterstaff/blue_steel",
+    "tfc_weapons_plus:metal/greathammer/red_steel",
+    "tfc_weapons_plus:metal/morningstar/red_steel",
+    "tfc_weapons_plus:metal/quarterstaff/red_steel"
   ]
 }

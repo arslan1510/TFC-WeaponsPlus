@@ -1,8 +1,8 @@
 {
-  "forging_temperature": 1080.0,
-  "heat_capacity": 5.714,
+  "forging_temperature": 648.0,
+  "heat_capacity": 0.14285715,
   "ingredient": {
     "item": "tfc_weapons_plus:metal/longsword_blade/copper"
   },
-  "welding_temperature": 1080.0
+  "welding_temperature": 864.0
 }

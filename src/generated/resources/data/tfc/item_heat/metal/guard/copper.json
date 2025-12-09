@@ -1,8 +1,8 @@
 {
-  "forging_temperature": 1080.0,
-  "heat_capacity": 2.857,
+  "forging_temperature": 648.0,
+  "heat_capacity": 0.08571429,
   "ingredient": {
     "item": "tfc_weapons_plus:metal/guard/copper"
   },
-  "welding_temperature": 1080.0
+  "welding_temperature": 864.0
 }

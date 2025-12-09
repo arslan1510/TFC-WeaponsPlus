@@ -1,6 +1,12 @@
 {
   "replace": false,
   "values": [
+    "tfc_weapons_plus:metal/longsword/copper",
+    "tfc_weapons_plus:metal/greatsword/copper",
+    "tfc_weapons_plus:metal/shortsword/copper",
+    "tfc_weapons_plus:metal/greataxe/copper",
+    "tfc_weapons_plus:metal/greathammer/copper",
+    "tfc_weapons_plus:metal/morningstar/copper",
     "tfc_weapons_plus:metal/quarterstaff/copper"
   ]
 }

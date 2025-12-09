@@ -1,0 +1,8 @@
+{
+  "forging_temperature": 642.0,
+  "heat_capacity": 0.42857146,
+  "ingredient": {
+    "item": "tfc_weapons_plus:metal/greatsword/black_bronze"
+  },
+  "welding_temperature": 856.0
+}

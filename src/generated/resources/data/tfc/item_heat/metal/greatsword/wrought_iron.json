@@ -1,0 +1,8 @@
+{
+  "forging_temperature": 921.00006,
+  "heat_capacity": 0.42857146,
+  "ingredient": {
+    "item": "tfc_weapons_plus:metal/greatsword/wrought_iron"
+  },
+  "welding_temperature": 1228.0
+}
