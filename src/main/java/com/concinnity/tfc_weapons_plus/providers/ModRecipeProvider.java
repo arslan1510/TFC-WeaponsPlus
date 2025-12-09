@@ -64,10 +64,39 @@ public final class ModRecipeProvider extends RecipeProvider {
         }
     }
 
+    private record TFCBladeHiltRecipe(
+        String weaponType,
+        String bladePath,
+        String weaponPath
+    ) {
+        void generate(RecipeOutput output, String metalName) {
+            Item hilt = ModItems.getHiltForMetal(metalName);
+            String normalized = NameUtils.normalizeMetalName(metalName);
+            ResourceLocation bladeLoc = ResourceLocation.parse(bladePath + "/" + normalized);
+            ResourceLocation weaponLoc = ResourceLocation.parse(weaponPath + "/" + normalized);
+
+            var registry = net.minecraft.core.registries.BuiltInRegistries.ITEM;
+            if (registry.containsKey(bladeLoc) && registry.containsKey(weaponLoc)) {
+                Item blade = registry.get(bladeLoc);
+                Item weapon = registry.get(weaponLoc);
+                ShapedRecipeBuilder.shaped(RecipeCategory.MISC, weapon, 1)
+                    .pattern("B").pattern("H")
+                    .define('B', blade).define('H', hilt)
+                    .unlockedBy("has_hilt", has(hilt))
+                    .unlockedBy("has_blade", has(blade))
+                    .save(output, recipeId("metal/" + weaponType + "/assembly_" + normalized));
+            }
+        }
+    }
+
     private static final List<BladeHiltRecipe> BLADE_HILT_RECIPES = List.of(
         new BladeHiltRecipe("longsword", ModItems::getLongswordBladeForMetal, ModItems::getLongswordForMetal),
         new BladeHiltRecipe("greatsword", ModItems::getGreatswordBladeForMetal, ModItems::getGreatswordForMetal),
         new BladeHiltRecipe("shortsword", ModItems::getShortswordBladeForMetal, ModItems::getShortswordForMetal)
+    );
+
+    private static final List<TFCBladeHiltRecipe> TFC_BLADE_HILT_RECIPES = List.of(
+        new TFCBladeHiltRecipe("sword", "tfc:metal/sword_blade", "tfc:metal/sword")
     );
 
     private static final List<HeadGripRecipe> HEAD_GRIP_RECIPES = List.of(
@@ -82,9 +111,9 @@ public final class ModRecipeProvider extends RecipeProvider {
     @Override
     protected void buildRecipes(RecipeOutput output) {
         generateHiltAssemblyRecipes(output);
-        generateSwordAssemblyRecipes(output);
         metalNames().forEach(metalName -> {
             BLADE_HILT_RECIPES.forEach(recipe -> recipe.generate(output, metalName));
+            TFC_BLADE_HILT_RECIPES.forEach(recipe -> recipe.generate(output, metalName));
             HEAD_GRIP_RECIPES.forEach(recipe -> recipe.generate(output, metalName));
             generateMorningstarRecipe(output, metalName);
             generateQuarterstaffRecipe(output, metalName);
@@ -105,29 +134,6 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_guard", has(guard))
                 .unlockedBy("has_pommel", has(pommel))
                 .save(output, recipeId("metal/hilt/assembly_" + normalized));
-        });
-    }
-
-    private void generateSwordAssemblyRecipes(RecipeOutput output) {
-        metalNames().forEach(metalName -> {
-            Item hilt = ModItems.getHiltForMetal(metalName);
-            String normalized = NameUtils.normalizeMetalName(metalName);
-            String bladeId = "tfc:metal/sword_blade/" + normalized;
-            String swordId = "tfc:metal/sword/" + normalized;
-            var bladeLoc = ResourceLocation.parse(bladeId);
-            var swordLoc = ResourceLocation.parse(swordId);
-
-            if (net.minecraft.core.registries.BuiltInRegistries.ITEM.containsKey(bladeLoc) &&
-                net.minecraft.core.registries.BuiltInRegistries.ITEM.containsKey(swordLoc)) {
-                var blade = net.minecraft.core.registries.BuiltInRegistries.ITEM.get(bladeLoc);
-                var sword = net.minecraft.core.registries.BuiltInRegistries.ITEM.get(swordLoc);
-                ShapedRecipeBuilder.shaped(RecipeCategory.MISC, sword, 1)
-                    .pattern("B").pattern("H")
-                    .define('B', blade).define('H', hilt)
-                    .unlockedBy("has_hilt", has(hilt))
-                    .unlockedBy("has_blade", has(blade))
-                    .save(output, recipeId("metal/sword/assembly_" + normalized));
-            }
         });
     }
 
