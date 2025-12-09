@@ -57,8 +57,8 @@ public final class ModRecipeProvider extends RecipeProvider {
             String normalized = NameUtils.normalizeMetalName(metalName);
 
             ShapedRecipeBuilder.shaped(RecipeCategory.MISC, weapon, 1)
-                .pattern("  H").pattern(" G ").pattern("G  ")
-                .define('H', head).define('G', ModItems.GRIP.get())
+                .pattern("  H").pattern(" L ").pattern("G  ")
+                .define('H', head).define('L', TFCTags.Items.LUMBER).define('G', ModItems.GRIP.get())
                 .unlockedBy("has_head", has(head))
                 .save(output, recipeId("metal/" + weaponType + "/assembly_" + normalized));
         }
@@ -143,7 +143,7 @@ public final class ModRecipeProvider extends RecipeProvider {
         String normalized = NameUtils.normalizeMetalName(metalName);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, weapon, 1)
-            .pattern("H").pattern("H").pattern("R")
+            .pattern("H").pattern("R")
             .define('H', head).define('R', ModItems.GRIP.get())
             .unlockedBy("has_head", has(head))
             .save(output, recipeId("metal/morningstar/assembly_" + normalized));
@@ -155,7 +155,7 @@ public final class ModRecipeProvider extends RecipeProvider {
         String normalized = NameUtils.normalizeMetalName(metalName);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, weapon, 1)
-            .pattern(" L").pattern(" H").pattern("L ")
+            .pattern("  L").pattern(" H ").pattern("L  ")
             .define('L', TFCTags.Items.LUMBER).define('H', hilt)
             .unlockedBy("has_hilt", has(hilt))
             .save(output, recipeId("metal/quarterstaff/assembly_" + normalized));

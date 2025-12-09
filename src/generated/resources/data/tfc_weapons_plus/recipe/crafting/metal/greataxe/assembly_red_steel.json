@@ -7,11 +7,14 @@
     },
     "H": {
       "item": "tfc_weapons_plus:metal/greataxe_head/red_steel"
+    },
+    "L": {
+      "tag": "tfc:lumber"
     }
   },
   "pattern": [
     "  H",
-    " G ",
+    " L ",
     "G  "
   ],
   "result": {

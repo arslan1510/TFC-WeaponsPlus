@@ -1,6 +1,6 @@
-// 1.21.1	2025-12-10T03:30:36.817348041	Item Tags (Common & Minecraft)
+// 1.21.1	2025-12-10T04:09:33.076370112	Item Tags (Common & Minecraft)
 d5c9df87b90c51df80a9a2571f66a87d2c33053a data/c/tags/items/tools.json
-d835e17dc44b33cd94b49a82dd9ec30cd36ccb9f data/minecraft/tags/item/axes.json
+807d43613fe3af08a4822737bd97a6656d9bb2f0 data/minecraft/tags/item/axes.json
 79de12f3784535601de0ec0604a04fd7f1df88b0 data/minecraft/tags/item/swords.json
 131bbde198ec0387e01172ea21c77d8d9fc17b76 data/tfc/tags/item/deals_crushing_damage.json
 ee8b155d253dd100deefab255a82c11bbcaa03a4 data/tfc/tags/item/deals_piercing_damage.json
