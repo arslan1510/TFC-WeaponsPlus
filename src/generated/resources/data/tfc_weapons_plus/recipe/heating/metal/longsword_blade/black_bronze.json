@@ -1,9 +1,0 @@
-{
-  "type": "tfc:heating",
-  "duration": 600,
-  "ingredient": {
-    "ingredient": "tfc:double_ingot/black_bronze"
-  },
-  "result": "tfc_weapons_plus:metal/longsword_blade/black_bronze",
-  "temperature": 600
-}

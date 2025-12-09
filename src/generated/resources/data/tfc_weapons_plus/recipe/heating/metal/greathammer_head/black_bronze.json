@@ -1,9 +1,0 @@
-{
-  "type": "tfc:heating",
-  "duration": 600,
-  "ingredient": {
-    "ingredient": "tfc:double_sheet/black_bronze"
-  },
-  "result": "tfc_weapons_plus:metal/greathammer_head/black_bronze",
-  "temperature": 600
-}

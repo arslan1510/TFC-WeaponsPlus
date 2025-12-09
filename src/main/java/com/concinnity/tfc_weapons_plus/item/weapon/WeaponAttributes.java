@@ -31,20 +31,23 @@ public final class WeaponAttributes {
 
         /**
          * Create WeaponStats from WeaponRegistry data
+         * Uses exponential drop-off for tier bonuses to prevent overpowered high-tier weapons
          */
         public static WeaponStats from(Tier tier, String metalName, String weaponType) {
             WeaponRegistry.WeaponStatsMeta stats = WeaponRegistry.getWeaponStats(weaponType);
-            float densityMultiplier = WeaponRegistry.getMetalDensityMultiplier(metalName);
             float tierBonus = tier.getAttackDamageBonus();
 
-            // Calculate final damage: baseDamage * weightMod + tierBonus
-            float totalWeight = stats.baseWeight() * densityMultiplier;
-            float weightDamageMod = 1.0f + (totalWeight - 1.0f) * 2.0f;
-            float attackDamage = stats.baseDamage() * weightDamageMod + tierBonus;
+            // Exponential drop-off for tier bonus: pow(tierBonus, 0.6) provides diminishing returns
+            // Low tiers (copper ~2): 2^0.6 * 1.5 = ~2.3 damage
+            // Mid tiers (steel ~6): 6^0.6 * 1.5 = ~4.3 damage
+            // High tiers (blue steel ~13): 13^0.6 * 1.5 = ~6.5 damage
+            float scaledTierBonus = (float)(Math.pow(tierBonus, 0.6) * 1.5);
 
-            // Calculate final speed: baseSpeed - weightPenalty (clamped)
-            float weightSpeedPenalty = (stats.baseWeight() - 1.0f) * 1.0f;
-            float attackSpeed = Math.max(-3.5f, Math.min(-1.5f, stats.baseSpeed() - weightSpeedPenalty));
+            // Calculate final damage: baseDamage + tier scaling (no metal density)
+            float attackDamage = stats.baseDamage() + scaledTierBonus;
+
+            // Use base speed directly from weapon stats
+            float attackSpeed = stats.baseSpeed();
 
             return new WeaponStats(attackDamage, attackSpeed);
         }

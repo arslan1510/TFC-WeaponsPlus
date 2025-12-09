@@ -1,9 +1,0 @@
-{
-  "type": "tfc:heating",
-  "duration": 600,
-  "ingredient": {
-    "ingredient": "tfc:double_ingot/wrought_iron"
-  },
-  "result": "tfc_weapons_plus:metal/longsword_blade/wrought_iron",
-  "temperature": 600
-}
