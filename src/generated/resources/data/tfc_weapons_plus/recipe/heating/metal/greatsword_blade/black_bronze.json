@@ -1,11 +1,9 @@
 {
   "type": "tfc:heating",
+  "duration": 600,
   "ingredient": {
-    "item": "tfc_weapons_plus:metal/greatsword_blade/black_bronze"
+    "ingredient": "tfc:double_sheet/black_bronze"
   },
-  "result_fluid": {
-    "amount": 400,
-    "id": "tfc:metal/black_bronze"
-  },
-  "temperature": 1070.0
+  "result": "tfc_weapons_plus:metal/greatsword_blade/black_bronze",
+  "temperature": 600
 }

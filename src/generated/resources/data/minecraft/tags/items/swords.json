@@ -1,14 +1,32 @@
 {
   "replace": false,
   "values": [
-    "tfc_weapons_plus:metal/shortsword/black_steel",
-    "tfc_weapons_plus:metal/shortsword/red_steel",
-    "tfc_weapons_plus:metal/shortsword/copper",
+    "tfc_weapons_plus:metal/longsword/bismuth_bronze",
+    "tfc_weapons_plus:metal/greatsword/bismuth_bronze",
     "tfc_weapons_plus:metal/shortsword/bismuth_bronze",
-    "tfc_weapons_plus:metal/shortsword/wrought_iron",
+    "tfc_weapons_plus:metal/longsword/black_bronze",
+    "tfc_weapons_plus:metal/greatsword/black_bronze",
     "tfc_weapons_plus:metal/shortsword/black_bronze",
-    "tfc_weapons_plus:metal/shortsword/steel",
+    "tfc_weapons_plus:metal/longsword/bronze",
+    "tfc_weapons_plus:metal/greatsword/bronze",
     "tfc_weapons_plus:metal/shortsword/bronze",
-    "tfc_weapons_plus:metal/shortsword/blue_steel"
+    "tfc_weapons_plus:metal/longsword/copper",
+    "tfc_weapons_plus:metal/greatsword/copper",
+    "tfc_weapons_plus:metal/shortsword/copper",
+    "tfc_weapons_plus:metal/longsword/wrought_iron",
+    "tfc_weapons_plus:metal/greatsword/wrought_iron",
+    "tfc_weapons_plus:metal/shortsword/wrought_iron",
+    "tfc_weapons_plus:metal/longsword/steel",
+    "tfc_weapons_plus:metal/greatsword/steel",
+    "tfc_weapons_plus:metal/shortsword/steel",
+    "tfc_weapons_plus:metal/longsword/black_steel",
+    "tfc_weapons_plus:metal/greatsword/black_steel",
+    "tfc_weapons_plus:metal/shortsword/black_steel",
+    "tfc_weapons_plus:metal/longsword/blue_steel",
+    "tfc_weapons_plus:metal/greatsword/blue_steel",
+    "tfc_weapons_plus:metal/shortsword/blue_steel",
+    "tfc_weapons_plus:metal/longsword/red_steel",
+    "tfc_weapons_plus:metal/greatsword/red_steel",
+    "tfc_weapons_plus:metal/shortsword/red_steel"
   ]
 }

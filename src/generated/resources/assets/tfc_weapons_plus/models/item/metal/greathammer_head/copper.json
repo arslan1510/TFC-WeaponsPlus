@@ -1,5 +1,5 @@
 {
-  "parent": "tfc_weapons_plus:item/greathammer_head",
+  "parent": "tfc_weapons_plus:item/metal/greathammer_head/greathammer_head",
   "textures": {
     "layer0": "tfc_weapons_plus:item/metal/greathammer_head/copper"
   }

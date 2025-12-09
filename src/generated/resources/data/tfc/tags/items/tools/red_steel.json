@@ -1,6 +1,12 @@
 {
   "replace": false,
   "values": [
+    "tfc_weapons_plus:metal/longsword/red_steel",
+    "tfc_weapons_plus:metal/greatsword/red_steel",
+    "tfc_weapons_plus:metal/shortsword/red_steel",
+    "tfc_weapons_plus:metal/greataxe/red_steel",
+    "tfc_weapons_plus:metal/greathammer/red_steel",
+    "tfc_weapons_plus:metal/morningstar/red_steel",
     "tfc_weapons_plus:metal/quarterstaff/red_steel"
   ]
 }

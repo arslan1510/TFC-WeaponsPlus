@@ -1,11 +1,9 @@
 {
   "type": "tfc:heating",
+  "duration": 600,
   "ingredient": {
-    "item": "tfc_weapons_plus:metal/longsword_blade/bronze"
+    "ingredient": "tfc:double_ingot/bronze"
   },
-  "result_fluid": {
-    "amount": 200,
-    "id": "tfc:metal/bronze"
-  },
-  "temperature": 950.0
+  "result": "tfc_weapons_plus:metal/longsword_blade/bronze",
+  "temperature": 600
 }

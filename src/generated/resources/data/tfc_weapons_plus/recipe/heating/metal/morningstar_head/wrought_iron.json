@@ -1,11 +1,9 @@
 {
   "type": "tfc:heating",
+  "duration": 600,
   "ingredient": {
-    "item": "tfc_weapons_plus:metal/morningstar_head/wrought_iron"
+    "ingredient": "tfc:ingot/wrought_iron"
   },
-  "result_fluid": {
-    "amount": 100,
-    "id": "tfc:metal/cast_iron"
-  },
-  "temperature": 1535.0
+  "result": "tfc_weapons_plus:metal/morningstar_head/wrought_iron",
+  "temperature": 600
 }

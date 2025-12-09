@@ -1,11 +1,9 @@
 {
   "type": "tfc:heating",
+  "duration": 600,
   "ingredient": {
-    "item": "tfc_weapons_plus:metal/shortsword_blade/bronze"
+    "ingredient": "tfc:ingot/bronze"
   },
-  "result_fluid": {
-    "amount": 100,
-    "id": "tfc:metal/bronze"
-  },
-  "temperature": 950.0
+  "result": "tfc_weapons_plus:metal/shortsword_blade/bronze",
+  "temperature": 600
 }

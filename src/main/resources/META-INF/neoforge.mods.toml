@@ -85,17 +85,15 @@ description='''${mod_description}'''
     ordering="NONE"
     side="BOTH"
 
-# TerraFirmaCraft dependency - required at runtime, optional for data generation
-# Note: Made optional to allow data generation without TFC installed
-# The mod will check for TFC at runtime and fail gracefully if not present
+# TerraFirmaCraft dependency - required
 [[dependencies.${mod_id}]]
     modId="tfc"
-    type="optional"
+    type="required"
     # TFC version range - adjust based on actual TFC version for 1.21
     versionRange="[4.0.0,)"
     ordering="AFTER"
     side="BOTH"
-    reason="This mod is an addon for TerraFirmaCraft and requires it to function at runtime"
+    reason="This mod is an addon for TerraFirmaCraft and requires it to function"
 
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares
 # that your mod requires GL version 3.2 or higher. Other features will be added. They are side aware so declaring this won't

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "tfc_weapons_plus:wood/grip"
+    },
+    "H": {
+      "item": "tfc_weapons_plus:metal/greataxe_head/red_steel"
+    }
+  },
+  "pattern": [
+    "  H",
+    " G ",
+    "G  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "tfc_weapons_plus:metal/greataxe/red_steel"
+  }
+}

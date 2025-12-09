@@ -1,8 +1,8 @@
 {
-  "forging_temperature": 1070.0,
-  "heat_capacity": 5.714,
+  "forging_temperature": 642.0,
+  "heat_capacity": 0.14285715,
   "ingredient": {
     "item": "tfc_weapons_plus:metal/longsword_blade/black_bronze"
   },
-  "welding_temperature": 1070.0
+  "welding_temperature": 856.0
 }

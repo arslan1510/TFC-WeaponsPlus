@@ -1,8 +1,8 @@
 {
-  "forging_temperature": 1485.0,
-  "heat_capacity": 5.714,
+  "forging_temperature": 891.00006,
+  "heat_capacity": 0.14285715,
   "ingredient": {
     "item": "tfc_weapons_plus:metal/greataxe_head/black_steel"
   },
-  "welding_temperature": 1485.0
+  "welding_temperature": 1188.0
 }
