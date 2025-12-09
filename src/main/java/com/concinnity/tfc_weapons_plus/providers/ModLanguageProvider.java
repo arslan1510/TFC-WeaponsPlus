@@ -2,13 +2,15 @@ package com.concinnity.tfc_weapons_plus.providers;
 
 import com.concinnity.tfc_weapons_plus.TFCWeaponsPlus;
 import com.concinnity.tfc_weapons_plus.item.ModItems;
-import com.concinnity.tfc_weapons_plus.util.MetalData;
 
+import net.dries007.tfc.util.Metal;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Stream;
 
 /**
  * Generates language translations using data-driven approach
@@ -50,28 +52,46 @@ public final class ModLanguageProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         add(ModItems.GRIP.get(), "Grip");
-        
-        MetalData.stream().forEach(metal -> {
-            MetalData.Props props = MetalData.dataProps(metal);
+
+        metalStream().forEach(metal -> {
             String metalName = metal.getSerializedName();
-            
+            String displayName = capitalize(metalName);
+
             // Component translations
             COMPONENT_TRANSLATIONS.forEach(entry -> {
                 getItemForType(entry.type, metalName).ifPresent(item ->
-                    add(item, props.name() + " " + entry.suffix));
+                    add(item, displayName + " " + entry.suffix));
             });
-            
+
             // Weapon translations
             WEAPON_TRANSLATIONS.forEach(entry -> {
                 getItemForType(entry.type, metalName).ifPresent(item ->
-                    add(item, props.name() + " " + entry.suffix));
+                    add(item, displayName + " " + entry.suffix));
             });
         });
-        
-        add("tooltip.tfc_weapons_plus.component_type", "Component Type: %s");
-        add("tooltip.tfc_weapons_plus.material", "Material: %s");
-        add("tooltip.tfc_weapons_plus.metal_tier", "Tier: %s");
+
         add("itemGroup.tfc_weapons_plus", "TFC Weapons Plus");
+    }
+
+    private static Stream<Metal> metalStream() {
+        return Arrays.stream(Metal.values())
+            .filter(metal -> metal.tier() > 0 && metal.allParts());
+    }
+
+    private static String capitalize(String serializedName) {
+        String[] parts = serializedName.split("_");
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < parts.length; i++) {
+            if (i > 0) result.append(" ");
+            String part = parts[i];
+            if (!part.isEmpty()) {
+                result.append(Character.toUpperCase(part.charAt(0)));
+                if (part.length() > 1) {
+                    result.append(part.substring(1));
+                }
+            }
+        }
+        return result.toString();
     }
 
     private java.util.Optional<net.minecraft.world.item.Item> getItemForType(String type, String metalName) {

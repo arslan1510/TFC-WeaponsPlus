@@ -58,8 +58,6 @@ public final class TFCWeaponsPlus {
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             LOG.info("TFC Weapons Plus common setup");
-            // Register items after TFC is confirmed to be loaded
-            ModItems.registerItems();
             // Initialize item cache for fast lookups
             ModItems.initializeCache();
             LOG.info("Item cache initialized for fast lookups");

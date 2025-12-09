@@ -1,4 +1,4 @@
-// 1.21.1	2025-12-10T01:48:03.303729021	Item Models: tfc_weapons_plus
+// 1.21.1	2025-12-10T03:30:36.810309328	Item Models: tfc_weapons_plus
 0cfe4f5dd6e247e5e3b05e617da6641858b7572d assets/tfc_weapons_plus/models/item/metal/greataxe/bismuth_bronze.json
 835cb68b30c898e01da1b16c32a1080d539a94da assets/tfc_weapons_plus/models/item/metal/greataxe/black_bronze.json
 7fcf4e8a04e5b91396e1cad97ba09b6366876573 assets/tfc_weapons_plus/models/item/metal/greataxe/black_steel.json
@@ -143,4 +143,4 @@ bdaed6797f521f359aa34bad28b12f3e5c6e869f assets/tfc_weapons_plus/models/item/met
 364d38c221dc8010cb183a04b999611945973b92 assets/tfc_weapons_plus/models/item/metal/shortsword_blade/red_steel.json
 e3e46d12a472e140bccc6039d4fe9bb621a2bdb4 assets/tfc_weapons_plus/models/item/metal/shortsword_blade/steel.json
 03a9e8ef45f72095c0ba841c88548a6bbf0436e0 assets/tfc_weapons_plus/models/item/metal/shortsword_blade/wrought_iron.json
-9a8b4e14a5622ed6c1b20b68e9426f4c14fb4259 assets/tfc_weapons_plus/models/item/wood/grip.json
+b8fb2686c747bc1f434d22083cf37fcbe78b6be4 assets/tfc_weapons_plus/models/item/wood/grip.json

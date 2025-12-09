@@ -2,6 +2,6 @@
   "ingredient": {
     "item": "tfc_weapons_plus:metal/greatsword/bronze"
   },
-  "size": "large",
-  "weight": "heavy"
+  "size": "huge",
+  "weight": "very_heavy"
 }
