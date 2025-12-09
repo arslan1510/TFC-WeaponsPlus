@@ -2,22 +2,13 @@
   "replace": false,
   "values": [
     "tfc_weapons_plus:metal/greataxe/bismuth_bronze",
-    "tfc_weapons_plus:metal/morningstar/bismuth_bronze",
     "tfc_weapons_plus:metal/greataxe/black_bronze",
-    "tfc_weapons_plus:metal/morningstar/black_bronze",
     "tfc_weapons_plus:metal/greataxe/bronze",
-    "tfc_weapons_plus:metal/morningstar/bronze",
     "tfc_weapons_plus:metal/greataxe/copper",
-    "tfc_weapons_plus:metal/morningstar/copper",
     "tfc_weapons_plus:metal/greataxe/wrought_iron",
-    "tfc_weapons_plus:metal/morningstar/wrought_iron",
     "tfc_weapons_plus:metal/greataxe/steel",
-    "tfc_weapons_plus:metal/morningstar/steel",
     "tfc_weapons_plus:metal/greataxe/black_steel",
-    "tfc_weapons_plus:metal/morningstar/black_steel",
     "tfc_weapons_plus:metal/greataxe/blue_steel",
-    "tfc_weapons_plus:metal/morningstar/blue_steel",
-    "tfc_weapons_plus:metal/greataxe/red_steel",
-    "tfc_weapons_plus:metal/morningstar/red_steel"
+    "tfc_weapons_plus:metal/greataxe/red_steel"
   ]
 }
