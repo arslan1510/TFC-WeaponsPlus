@@ -19,6 +19,34 @@
 				"up": {"uv": [6, 9.5, 5, 8.5], "texture": "#layer0"},
 				"down": {"uv": [9.5, 5, 8.5, 6], "texture": "#layer0"}
 			}
+		},
+		{
+			"name": "Handle",
+			"from": [6.675, 6.475, 6.675],
+			"to": [9.325, 7.075, 9.325],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 1.075, 8]},
+			"faces": {
+				"north": {"uv": [5.5, 2.5, 7, 3.5], "texture": "#layer0"},
+				"east": {"uv": [5.5, 2.5, 7, 3.5], "texture": "#layer0"},
+				"south": {"uv": [5.5, 2.5, 7, 3.5], "texture": "#layer0"},
+				"west": {"uv": [5.5, 2.5, 7, 3.5], "texture": "#layer0"},
+				"up": {"uv": [5.5, 2.5, 7, 3.5], "texture": "#layer0"},
+				"down": {"uv": [5.5, 2.5, 7, 3.5], "texture": "#layer0"}
+			}
+		},
+		{
+			"name": "Handle",
+			"from": [6.675, 0.875, 6.675],
+			"to": [9.325, 1.475, 9.325],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, -4.525, 8]},
+			"faces": {
+				"north": {"uv": [5.5, 2.5, 7, 3.5], "texture": "#layer0"},
+				"east": {"uv": [5.5, 2.5, 7, 3.5], "texture": "#layer0"},
+				"south": {"uv": [5.5, 2.5, 7, 3.5], "texture": "#layer0"},
+				"west": {"uv": [5.5, 2.5, 7, 3.5], "texture": "#layer0"},
+				"up": {"uv": [5.5, 2.5, 7, 3.5], "texture": "#layer0"},
+				"down": {"uv": [5.5, 2.5, 7, 3.5], "texture": "#layer0"}
+			}
 		}
 	],
 	"gui_light": "front",

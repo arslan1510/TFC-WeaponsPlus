@@ -15,7 +15,7 @@
 			"faces": {
 				"north": {"uv": [2.25, 4.25, 2.5, 6], "texture": "#layer0"},
 				"east": {"uv": [7, 8.5, 13, 12.25], "texture": "#layer0"},
-				"south": {"uv": [2.5, 4.25, 2.75, 6], "texture": "#layer0"},
+				"south": {"uv": [2.5, 4.75, 2.75, 6], "texture": "#layer0"},
 				"west": {"uv": [10, 0.75, 16, 4.5], "texture": "#layer0"},
 				"up": {"uv": [2.25, 5.5, 2, 3.75], "texture": "#layer0"},
 				"down": {"uv": [2, 3.75, 1.75, 5.5], "texture": "#layer0"}
@@ -24,7 +24,7 @@
 		{
 			"name": "Head Part 4",
 			"from": [7.6, 30.57237, 5.69402],
-			"to": [8.4, 32, 10.29402],
+			"to": [8.4, 32, 10.19402],
 			"rotation": {"angle": 0, "axis": "x", "origin": [8, 26.91775, 6.64402]},
 			"faces": {
 				"north": {"uv": [2.25, 3.75, 2.5, 4.25], "texture": "#layer0"},
@@ -37,9 +37,9 @@
 		},
 		{
 			"name": "Head Part 5",
-			"from": [7.5, 26.02372, 8.64841],
-			"to": [8.5, 28.92372, 11.54841],
-			"rotation": {"angle": -45, "axis": "x", "origin": [8, 27.47372, 8.54841]},
+			"from": [7.75, 25.36974, 9.69443],
+			"to": [8.25, 29.76974, 10.84443],
+			"rotation": {"angle": 0, "axis": "x", "origin": [8, 28.56974, 9.64443]},
 			"faces": {
 				"north": {"uv": [1.25, 3.75, 1.5, 4.5], "texture": "#layer0"},
 				"east": {"uv": [2.5, 0, 5, 2], "texture": "#layer0"},
@@ -47,20 +47,6 @@
 				"west": {"uv": [0, 0, 2.5, 2], "texture": "#layer0"},
 				"up": {"uv": [1, 5.25, 0.75, 3.75], "texture": "#layer0"},
 				"down": {"uv": [1.25, 3.75, 1, 5.25], "texture": "#layer0"}
-			}
-		},
-		{
-			"name": "Head Part 6",
-			"from": [7.55, 25.82372, 8.44841],
-			"to": [8.45, 29.12372, 11.74841],
-			"rotation": {"angle": -45, "axis": "x", "origin": [8, 27.47372, 8.54841]},
-			"faces": {
-				"north": {"uv": [5.5, 2, 6.25, 2.75], "texture": "#layer0"},
-				"east": {"uv": [5.5, 2, 6.25, 2.75], "texture": "#layer0"},
-				"south": {"uv": [5.5, 2, 6.25, 2.75], "texture": "#layer0"},
-				"west": {"uv": [5.5, 2, 6.25, 2.75], "texture": "#layer0"},
-				"up": {"uv": [5.5, 2, 6.25, 2.75], "texture": "#layer0"},
-				"down": {"uv": [5.5, 2, 6.25, 2.75], "texture": "#layer0"}
 			}
 		},
 		{
@@ -118,8 +104,7 @@
 		},
 		"gui": {
 			"rotation": [0, 134, 0],
-			"translation": [0, -10, 0],
-			"scale": [0.5, 0.5, 0.5]
+			"translation": [0, -18.5, 0]
 		},
 		"head": {
 			"translation": [0, -9.5, 0]
@@ -144,7 +129,7 @@
 					"name": "Head Part 1",
 					"origin": [8, 8.6, 9.3],
 					"color": 0,
-					"children": [0, 1, 2, 3, 4, 5]
+					"children": [0, 1, 2, 3, 4]
 				}
 			]
 		}
