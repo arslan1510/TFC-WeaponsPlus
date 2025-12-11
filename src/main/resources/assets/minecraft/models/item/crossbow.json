@@ -591,13 +591,13 @@
 			"scale": [4, 4, 4]
 		},
 		"firstperson_lefthand": {
-			"rotation": [0, 180, 0],
+			"rotation": [0, -180, 0],
 			"translation": [6, 23, -0.75],
 			"scale": [4, 4, 4]
 		},
 		"ground": {
 			"translation": [0, 8.75, 5.25],
-			"scale": [3, 3, 3]
+			"scale": [2, 2, 2]
 		},
 		"gui": {
 			"rotation": [-90, 0, -180],

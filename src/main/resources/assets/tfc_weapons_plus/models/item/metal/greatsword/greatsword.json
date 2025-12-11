@@ -3,8 +3,8 @@
 	"credit": "Made by C",
 	"texture_size": [64, 64],
 	"textures": {
-		"layer0": "tfc_weapons_plus:item/metal/greatsword/steel",
-		"particle": "tfc_weapons_plus:item/metal/greatsword/steel"
+		"particle": "tfc_weapons_plus:item/metal/greatsword/steel",
+		"layer0": "tfc_weapons_plus:item/metal/greatsword/steel"
 	},
 	"elements": [
 		{
@@ -16,7 +16,7 @@
 				"north": {"uv": [6.5, 5.38806, 7, 6.25], "texture": "#layer0"},
 				"east": {"uv": [6.5, 6.88806, 7, 7.75], "texture": "#layer0"},
 				"south": {"uv": [0, 7.38806, 0.5, 8.25], "texture": "#layer0"},
-				"west": {"uv": [0.5, 7.25, 1, 8], "texture": "#layer0"},
+				"west": {"uv": [0.5, 7.25, 1, 8.5], "texture": "#layer0"},
 				"up": {"uv": [3, 7.5, 2.5, 7], "texture": "#layer0"},
 				"down": {"uv": [7.5, 2.75, 7, 3.25], "texture": "#layer0"}
 			}
@@ -149,8 +149,8 @@
 		},
 		{
 			"name": "Blade Part 2",
-			"from": [7.45, 24.32733, 4.40429],
-			"to": [8.55, 31.52733, 11.60429],
+			"from": [7.45, 24.37733, 4.45429],
+			"to": [8.55, 31.47733, 11.55429],
 			"rotation": {"angle": -45, "axis": "x", "origin": [8.5, 27.92733, 8.00429]},
 			"faces": {
 				"north": {"uv": [5.5, 3.25, 5.75, 4.75], "texture": "#layer0"},
@@ -163,8 +163,8 @@
 		},
 		{
 			"name": "Blade Part 3",
-			"from": [8, 24.19346, 4.26395],
-			"to": [8, 31.66613, 11.73665],
+			"from": [8, 24.34346, 4.38895],
+			"to": [8, 31.59113, 11.66165],
 			"rotation": {"angle": -45, "axis": "x", "origin": [7.95, 27.9298, 8.01395]},
 			"faces": {
 				"north": {"uv": [5.5, 3.25, 5.75, 4.75], "texture": "#layer0"},
@@ -191,6 +191,20 @@
 		},
 		{
 			"name": "Blade Side 2",
+			"from": [7.48055, 7.9, 7.45867],
+			"to": [8.53055, 27.55, 8.50867],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8.00555, 15.7, 7.98367]},
+			"faces": {
+				"north": {"uv": [5, 5.75, 5.25, 10], "texture": "#layer0"},
+				"east": {"uv": [5.25, 5.75, 5.5, 10], "texture": "#layer0"},
+				"south": {"uv": [5.5, 5.75, 5.75, 10], "texture": "#layer0"},
+				"west": {"uv": [5.75, 5.5, 6, 9.75], "texture": "#layer0"},
+				"up": {"uv": [6.25, 2.25, 6, 2], "texture": "#layer0"},
+				"down": {"uv": [7.375, 2.375, 7.125, 2.625], "texture": "#layer0"}
+			}
+		},
+		{
+			"name": "Blade Side 2",
 			"from": [6.525, 7.9, 11.5],
 			"to": [7.325, 27.9, 12.3],
 			"rotation": {"angle": 45, "axis": "y", "origin": [8.2, 8.2, 10.9]},
@@ -205,16 +219,16 @@
 		},
 		{
 			"name": "Pommel",
-			"from": [6.75, 0.5, 6.8],
-			"to": [9.25, 2.5, 9.2],
-			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0.5, 7]},
+			"from": [6.75, 1.6, 6.8],
+			"to": [9.15, 2.5, 9.2],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7.95, 1.5, 8]},
 			"faces": {
-				"north": {"uv": [6.75, 3.75, 7.5, 4.25], "texture": "#layer0"},
-				"east": {"uv": [7, 5.25, 7.5, 5.75], "texture": "#layer0"},
-				"south": {"uv": [6.75, 4.25, 7.5, 4.75], "texture": "#layer0"},
-				"west": {"uv": [7, 5.75, 7.5, 6.25], "texture": "#layer0"},
-				"up": {"uv": [7.75, 2.75, 7, 2.25], "texture": "#layer0"},
-				"down": {"uv": [7.75, 2.25, 7, 2.75], "texture": "#layer0"}
+				"north": {"uv": [9.5, 5.25, 10.25, 6], "texture": "#layer0"},
+				"east": {"uv": [9.5, 5.25, 10.25, 6], "texture": "#layer0"},
+				"south": {"uv": [9.5, 5.25, 10.25, 6], "texture": "#layer0"},
+				"west": {"uv": [9.5, 5.25, 10.25, 6], "texture": "#layer0"},
+				"up": {"uv": [9.5, 5.25, 10.25, 6], "texture": "#layer0"},
+				"down": {"uv": [9.5, 5.25, 10.25, 6], "texture": "#layer0"}
 			}
 		}
 	],
@@ -273,9 +287,9 @@
 					"name": "Blade",
 					"origin": [8, 8, 8],
 					"color": 0,
-					"children": [9, 10, 11, 12, 13]
+					"children": [9, 10, 11, 12, 13, 14]
 				},
-				14
+				15
 			]
 		}
 	]
