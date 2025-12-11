@@ -92,9 +92,23 @@
 		},
 		{
 			"name": "Blade Part 2",
-			"from": [7.7, 27.83535, 6.95],
-			"to": [8.3, 30.03535, 9.15],
-			"rotation": {"angle": -45, "axis": "x", "origin": [8, 28.88535, 8.01464]},
+			"from": [7.7, 27.91035, 7],
+			"to": [8.3, 30.06035, 9.15],
+			"rotation": {"angle": -45, "axis": "x", "origin": [8, 28.91035, 8.01464]},
+			"faces": {
+				"north": {"uv": [4.5, 0, 5, 10], "texture": "#layer0"},
+				"east": {"uv": [6, 8.5, 7, 9.5], "texture": "#layer0"},
+				"south": {"uv": [4.5, 0, 5, 10], "texture": "#layer0"},
+				"west": {"uv": [8.5, 6, 9.5, 7], "texture": "#layer0"},
+				"up": {"uv": [10, 6.5, 9.5, 5.5], "texture": "#layer0"},
+				"down": {"uv": [10, 5.5, 9.5, 6.5], "texture": "#layer0"}
+			}
+		},
+		{
+			"name": "Blade Part 3",
+			"from": [8, 27.88535, 6.975],
+			"to": [8, 30.08535, 9.2],
+			"rotation": {"angle": -45, "axis": "x", "origin": [7.975, 28.88535, 8.01464]},
 			"faces": {
 				"north": {"uv": [4.5, 0, 5, 10], "texture": "#layer0"},
 				"east": {"uv": [6, 8.5, 7, 9.5], "texture": "#layer0"},
@@ -213,9 +227,9 @@
 					"name": "Blade Part 2",
 					"origin": [8, 8, 8],
 					"color": 0,
-					"children": [6, 7, 8]
+					"children": [6, 7, 8, 9]
 				},
-				9
+				10
 			]
 		}
 	]
