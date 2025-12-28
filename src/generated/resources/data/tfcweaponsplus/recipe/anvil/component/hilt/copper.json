@@ -1,0 +1,17 @@
+{
+  "type": "tfc:anvil",
+  "apply_bonus": true,
+  "ingredient": {
+    "tag": "c:ingots/copper"
+  },
+  "result": {
+    "count": 1,
+    "id": "tfcweaponsplus:component/hilt/copper"
+  },
+  "rules": [
+    "hit_last",
+    "draw_any",
+    "shrink_not_last"
+  ],
+  "tier": 1
+}

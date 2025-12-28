@@ -1,8 +1,0 @@
-{
-  "forging_temperature": 924.00006,
-  "heat_capacity": 10.0,
-  "ingredient": {
-    "item": "tfc_weapons_plus:metal/greathammer_head/steel"
-  },
-  "welding_temperature": 1232.0
-}

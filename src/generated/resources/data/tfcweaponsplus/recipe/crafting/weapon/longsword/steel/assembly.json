@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "B": {
+      "item": "tfcweaponsplus:component/longsword_blade/steel"
+    },
+    "H": {
+      "item": "tfcweaponsplus:component/hilt/steel"
+    }
+  },
+  "pattern": [
+    "B",
+    "H"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tfcweaponsplus:weapon/longsword/steel"
+  }
+}

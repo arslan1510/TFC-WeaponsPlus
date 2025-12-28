@@ -1,8 +1,0 @@
-{
-  "forging_temperature": 591.0,
-  "heat_capacity": 4.285714,
-  "ingredient": {
-    "item": "tfc_weapons_plus:metal/shortsword/bismuth_bronze"
-  },
-  "welding_temperature": 788.0
-}

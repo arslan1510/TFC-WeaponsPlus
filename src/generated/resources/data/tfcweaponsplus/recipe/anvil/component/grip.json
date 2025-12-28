@@ -1,0 +1,17 @@
+{
+  "type": "tfc:anvil",
+  "apply_bonus": true,
+  "ingredient": {
+    "tag": "tfc:lumber"
+  },
+  "result": {
+    "count": 1,
+    "id": "tfcweaponsplus:component/grip"
+  },
+  "rules": [
+    "hit_last",
+    "draw_any",
+    "shrink_not_last"
+  ],
+  "tier": 0
+}

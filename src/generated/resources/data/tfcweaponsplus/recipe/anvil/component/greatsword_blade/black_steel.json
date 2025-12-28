@@ -1,0 +1,17 @@
+{
+  "type": "tfc:anvil",
+  "apply_bonus": true,
+  "ingredient": {
+    "tag": "c:double_sheets/black_steel"
+  },
+  "result": {
+    "count": 1,
+    "id": "tfcweaponsplus:component/greatsword_blade/black_steel"
+  },
+  "rules": [
+    "bend_third_last",
+    "bend_second_last",
+    "hit_last"
+  ],
+  "tier": 5
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "item": "tfcweaponsplus:component/guard/black_steel"
+    },
+    "P": {
+      "item": "tfcweaponsplus:component/pommel/black_steel"
+    },
+    "R": {
+      "item": "tfcweaponsplus:component/grip"
+    }
+  },
+  "pattern": [
+    " P ",
+    " G ",
+    " R "
+  ],
+  "result": {
+    "count": 1,
+    "id": "tfcweaponsplus:component/hilt/black_steel"
+  }
+}

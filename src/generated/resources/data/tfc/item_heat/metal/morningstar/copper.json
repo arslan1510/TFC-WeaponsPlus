@@ -1,8 +1,0 @@
-{
-  "forging_temperature": 648.0,
-  "heat_capacity": 4.285714,
-  "ingredient": {
-    "item": "tfc_weapons_plus:metal/morningstar/copper"
-  },
-  "welding_temperature": 864.0
-}

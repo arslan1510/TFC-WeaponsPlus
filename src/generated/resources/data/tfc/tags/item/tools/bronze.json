@@ -1,12 +1,32 @@
 {
-  "replace": false,
   "values": [
-    "tfc_weapons_plus:metal/longsword/bronze",
-    "tfc_weapons_plus:metal/greatsword/bronze",
-    "tfc_weapons_plus:metal/shortsword/bronze",
-    "tfc_weapons_plus:metal/greataxe/bronze",
-    "tfc_weapons_plus:metal/greathammer/bronze",
-    "tfc_weapons_plus:metal/morningstar/bronze",
-    "tfc_weapons_plus:metal/quarterstaff/bronze"
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greathammer/bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/morningstar/bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/bronze",
+      "required": false
+    }
   ]
 }

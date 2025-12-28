@@ -1,0 +1,16 @@
+{
+  "type": "tfc:anvil",
+  "apply_bonus": true,
+  "ingredient": {
+    "tag": "c:ingots/steel"
+  },
+  "result": {
+    "count": 1,
+    "id": "tfcweaponsplus:component/morningstar_head/steel"
+  },
+  "rules": [
+    "hit_second_last",
+    "hit_last"
+  ],
+  "tier": 4
+}

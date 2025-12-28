@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_head": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greathammer_head/black_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tfcweaponsplus:crafting/weapon/greathammer/black_steel/assembly"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_head"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tfcweaponsplus:crafting/weapon/greathammer/black_steel/assembly"
+    ]
+  }
+}

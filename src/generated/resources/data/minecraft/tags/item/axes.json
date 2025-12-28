@@ -1,14 +1,40 @@
 {
-  "replace": false,
   "values": [
-    "tfc_weapons_plus:metal/greataxe/bismuth_bronze",
-    "tfc_weapons_plus:metal/greataxe/black_bronze",
-    "tfc_weapons_plus:metal/greataxe/bronze",
-    "tfc_weapons_plus:metal/greataxe/copper",
-    "tfc_weapons_plus:metal/greataxe/wrought_iron",
-    "tfc_weapons_plus:metal/greataxe/steel",
-    "tfc_weapons_plus:metal/greataxe/black_steel",
-    "tfc_weapons_plus:metal/greataxe/blue_steel",
-    "tfc_weapons_plus:metal/greataxe/red_steel"
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/bismuth_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/black_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/copper",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/wrought_iron",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/black_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/blue_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/red_steel",
+      "required": false
+    }
   ]
 }

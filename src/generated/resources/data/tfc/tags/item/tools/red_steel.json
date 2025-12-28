@@ -1,12 +1,32 @@
 {
-  "replace": false,
   "values": [
-    "tfc_weapons_plus:metal/longsword/red_steel",
-    "tfc_weapons_plus:metal/greatsword/red_steel",
-    "tfc_weapons_plus:metal/shortsword/red_steel",
-    "tfc_weapons_plus:metal/greataxe/red_steel",
-    "tfc_weapons_plus:metal/greathammer/red_steel",
-    "tfc_weapons_plus:metal/morningstar/red_steel",
-    "tfc_weapons_plus:metal/quarterstaff/red_steel"
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/red_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/red_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greathammer/red_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/red_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/red_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/morningstar/red_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/red_steel",
+      "required": false
+    }
   ]
 }

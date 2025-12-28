@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "B": {
+      "item": "tfcweaponsplus:component/greatsword_blade/black_bronze"
+    },
+    "H": {
+      "item": "tfcweaponsplus:component/hilt/black_bronze"
+    }
+  },
+  "pattern": [
+    "B",
+    "H"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tfcweaponsplus:weapon/greatsword/black_bronze"
+  }
+}

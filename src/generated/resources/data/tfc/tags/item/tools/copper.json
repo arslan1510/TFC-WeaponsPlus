@@ -1,12 +1,32 @@
 {
-  "replace": false,
   "values": [
-    "tfc_weapons_plus:metal/longsword/copper",
-    "tfc_weapons_plus:metal/greatsword/copper",
-    "tfc_weapons_plus:metal/shortsword/copper",
-    "tfc_weapons_plus:metal/greataxe/copper",
-    "tfc_weapons_plus:metal/greathammer/copper",
-    "tfc_weapons_plus:metal/morningstar/copper",
-    "tfc_weapons_plus:metal/quarterstaff/copper"
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/copper",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/copper",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greathammer/copper",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/copper",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/copper",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/morningstar/copper",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/copper",
+      "required": false
+    }
   ]
 }

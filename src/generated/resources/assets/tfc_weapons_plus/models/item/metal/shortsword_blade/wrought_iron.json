@@ -1,6 +1,0 @@
-{
-  "parent": "tfc_weapons_plus:item/metal/shortsword_blade/shortsword_blade",
-  "textures": {
-    "layer0": "tfc_weapons_plus:item/metal/shortsword_blade/wrought_iron"
-  }
-}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_hilt": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/hilt/copper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tfcweaponsplus:crafting/weapon/quarterstaff/copper/assembly"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_hilt"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tfcweaponsplus:crafting/weapon/quarterstaff/copper/assembly"
+    ]
+  }
+}

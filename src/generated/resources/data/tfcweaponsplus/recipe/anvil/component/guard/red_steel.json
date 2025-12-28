@@ -1,0 +1,16 @@
+{
+  "type": "tfc:anvil",
+  "apply_bonus": true,
+  "ingredient": {
+    "tag": "c:ingots/red_steel"
+  },
+  "result": {
+    "count": 1,
+    "id": "tfcweaponsplus:component/guard/red_steel"
+  },
+  "rules": [
+    "hit_second_last",
+    "hit_last"
+  ],
+  "tier": 6
+}

@@ -1,0 +1,17 @@
+{
+  "type": "tfc:anvil",
+  "apply_bonus": true,
+  "ingredient": {
+    "tag": "c:double_sheets/copper"
+  },
+  "result": {
+    "count": 1,
+    "id": "tfcweaponsplus:component/greatsword_blade/copper"
+  },
+  "rules": [
+    "bend_third_last",
+    "bend_second_last",
+    "hit_last"
+  ],
+  "tier": 1
+}

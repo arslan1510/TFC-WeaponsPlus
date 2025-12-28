@@ -1,14 +1,40 @@
 {
-  "replace": false,
   "values": [
-    "tfc_weapons_plus:metal/shortsword/bismuth_bronze",
-    "tfc_weapons_plus:metal/shortsword/black_bronze",
-    "tfc_weapons_plus:metal/shortsword/bronze",
-    "tfc_weapons_plus:metal/shortsword/copper",
-    "tfc_weapons_plus:metal/shortsword/wrought_iron",
-    "tfc_weapons_plus:metal/shortsword/steel",
-    "tfc_weapons_plus:metal/shortsword/black_steel",
-    "tfc_weapons_plus:metal/shortsword/blue_steel",
-    "tfc_weapons_plus:metal/shortsword/red_steel"
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/bismuth_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/black_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/copper",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/wrought_iron",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/black_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/blue_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/red_steel",
+      "required": false
+    }
   ]
 }

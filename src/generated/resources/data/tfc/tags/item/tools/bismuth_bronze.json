@@ -1,12 +1,32 @@
 {
-  "replace": false,
   "values": [
-    "tfc_weapons_plus:metal/longsword/bismuth_bronze",
-    "tfc_weapons_plus:metal/greatsword/bismuth_bronze",
-    "tfc_weapons_plus:metal/shortsword/bismuth_bronze",
-    "tfc_weapons_plus:metal/greataxe/bismuth_bronze",
-    "tfc_weapons_plus:metal/greathammer/bismuth_bronze",
-    "tfc_weapons_plus:metal/morningstar/bismuth_bronze",
-    "tfc_weapons_plus:metal/quarterstaff/bismuth_bronze"
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/bismuth_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/bismuth_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greathammer/bismuth_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/bismuth_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/bismuth_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/morningstar/bismuth_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/bismuth_bronze",
+      "required": false
+    }
   ]
 }

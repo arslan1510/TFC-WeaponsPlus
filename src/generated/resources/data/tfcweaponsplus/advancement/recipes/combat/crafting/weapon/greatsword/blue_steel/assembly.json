@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blade": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greatsword_blade/blue_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_hilt": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/hilt/blue_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tfcweaponsplus:crafting/weapon/greatsword/blue_steel/assembly"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_hilt",
+      "has_blade"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tfcweaponsplus:crafting/weapon/greatsword/blue_steel/assembly"
+    ]
+  }
+}

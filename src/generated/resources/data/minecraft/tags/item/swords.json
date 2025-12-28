@@ -1,32 +1,112 @@
 {
-  "replace": false,
   "values": [
-    "tfc_weapons_plus:metal/longsword/bismuth_bronze",
-    "tfc_weapons_plus:metal/greatsword/bismuth_bronze",
-    "tfc_weapons_plus:metal/shortsword/bismuth_bronze",
-    "tfc_weapons_plus:metal/longsword/black_bronze",
-    "tfc_weapons_plus:metal/greatsword/black_bronze",
-    "tfc_weapons_plus:metal/shortsword/black_bronze",
-    "tfc_weapons_plus:metal/longsword/bronze",
-    "tfc_weapons_plus:metal/greatsword/bronze",
-    "tfc_weapons_plus:metal/shortsword/bronze",
-    "tfc_weapons_plus:metal/longsword/copper",
-    "tfc_weapons_plus:metal/greatsword/copper",
-    "tfc_weapons_plus:metal/shortsword/copper",
-    "tfc_weapons_plus:metal/longsword/wrought_iron",
-    "tfc_weapons_plus:metal/greatsword/wrought_iron",
-    "tfc_weapons_plus:metal/shortsword/wrought_iron",
-    "tfc_weapons_plus:metal/longsword/steel",
-    "tfc_weapons_plus:metal/greatsword/steel",
-    "tfc_weapons_plus:metal/shortsword/steel",
-    "tfc_weapons_plus:metal/longsword/black_steel",
-    "tfc_weapons_plus:metal/greatsword/black_steel",
-    "tfc_weapons_plus:metal/shortsword/black_steel",
-    "tfc_weapons_plus:metal/longsword/blue_steel",
-    "tfc_weapons_plus:metal/greatsword/blue_steel",
-    "tfc_weapons_plus:metal/shortsword/blue_steel",
-    "tfc_weapons_plus:metal/longsword/red_steel",
-    "tfc_weapons_plus:metal/greatsword/red_steel",
-    "tfc_weapons_plus:metal/shortsword/red_steel"
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/bismuth_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/black_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/copper",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/wrought_iron",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/black_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/blue_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/red_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/bismuth_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/black_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/copper",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/wrought_iron",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/black_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/blue_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/red_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/bismuth_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/black_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/copper",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/wrought_iron",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/black_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/blue_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/red_steel",
+      "required": false
+    }
   ]
 }

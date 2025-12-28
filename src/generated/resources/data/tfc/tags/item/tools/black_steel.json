@@ -1,12 +1,32 @@
 {
-  "replace": false,
   "values": [
-    "tfc_weapons_plus:metal/longsword/black_steel",
-    "tfc_weapons_plus:metal/greatsword/black_steel",
-    "tfc_weapons_plus:metal/shortsword/black_steel",
-    "tfc_weapons_plus:metal/greataxe/black_steel",
-    "tfc_weapons_plus:metal/greathammer/black_steel",
-    "tfc_weapons_plus:metal/morningstar/black_steel",
-    "tfc_weapons_plus:metal/quarterstaff/black_steel"
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/black_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/black_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greathammer/black_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/black_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/black_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/morningstar/black_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/black_steel",
+      "required": false
+    }
   ]
 }
