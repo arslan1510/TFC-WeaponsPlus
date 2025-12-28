@@ -32,7 +32,7 @@ public class ModItemSizeProvider implements DataProvider {
 
             generateItemSizes().forEach(entry -> {
                 Path path = output.getOutputFolder()
-                        .resolve("data/tfc/item_sizes/%s/%s.json".formatted(TFCWeaponsPlus.MOD_ID, entry.name()));
+                        .resolve("data/%s/tfc/item_sizes/%s.json".formatted(TFCWeaponsPlus.MOD_ID, entry.name()));
                 futures.add(DataProvider.saveStable(cache, entry.json(), path));
             });
 
@@ -45,20 +45,19 @@ public class ModItemSizeProvider implements DataProvider {
     }
 
     private ItemSizeEntry createEntry(ResourceUtils.ItemVariant variant) {
-        String name = variant.metal()
-                .map(m -> "%s/%s/%s".formatted(
-                        variant.item().getCategory().getSerializedName(),
-                        m.getSerializedName(),
-                        variant.item().getSerializedName()))
-                .orElseGet(() -> "%s/%s".formatted(
-                        variant.item().getCategory().getSerializedName(),
-                        variant.item().getSerializedName()));
+        String registryPath = variant.getRegistryPath();
 
         JsonObject json = new JsonObject();
+
+        // Add ingredient property
+        JsonObject ingredient = new JsonObject();
+        ingredient.addProperty("item", "%s:%s".formatted(TFCWeaponsPlus.MOD_ID, registryPath));
+        json.add("ingredient", ingredient);
+
         json.addProperty("size", variant.item().getSize().name().toLowerCase());
         json.addProperty("weight", variant.item().getWeight().name().toLowerCase());
 
-        return new ItemSizeEntry(name, json);
+        return new ItemSizeEntry(registryPath, json);
     }
 
     @Override

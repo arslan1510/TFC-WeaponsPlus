@@ -27,7 +27,12 @@ public class CreativeModeTabs {
 
     public static final Supplier<CreativeModeTab> ITEMS_TAB = CREATIVE_MODE_TAB.register("tfcweaponsplus",
             () -> CreativeModeTab.builder()
-                    .title(Component.translatable("creativetab.tfc_weapons_plus.items"))
+                    .title(Component.translatable("creativetab.tfcweaponsplus.items"))
+                    .icon(() -> ItemRegistry.getRegister().getEntries().stream()
+                        .filter(entry -> entry.getId().getPath().equals("weapon/greatsword/steel"))
+                        .findFirst()
+                        .map(entry -> entry.get().getDefaultInstance())
+                        .orElse(net.minecraft.world.item.Items.IRON_SWORD.getDefaultInstance()))
                     .displayItems((parameters, output) -> populateCreativeTab(output))
                     .build()
             );
@@ -37,17 +42,7 @@ public class CreativeModeTabs {
     }
 
     private static void populateCreativeTab(CreativeModeTab.Output output) {
-        Arrays.stream(WeaponType.values())
-            .forEach(type -> addItemVariants(output, type.getSerializedName()));
-        Arrays.stream(ComponentType.values())
-            .forEach(type -> addItemVariants(output, type.getSerializedName()));
-    }
-
-    private static void addItemVariants(CreativeModeTab.Output output, String itemName) {
-        METAL_TIER_ORDER.stream()
-            .map(metal -> metal.getSerializedName() + "/" + itemName)
-            .flatMap(key -> ItemRegistry.getRegister().getEntries().stream()
-                .filter(entry -> entry.getId().getPath().equals(key)))
+        ItemRegistry.getRegister().getEntries().stream()
             .map(DeferredHolder::get)
             .forEach(output::accept);
     }

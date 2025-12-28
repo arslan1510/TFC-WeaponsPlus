@@ -1,4 +1,5 @@
 {
+  "creativetab.tfcweaponsplus.items": "TFC Weapons Plus",
   "item.tfcweaponsplus.component.greataxe_head.bismuth_bronze": "Bismuth Bronze Greataxe Head",
   "item.tfcweaponsplus.component.greataxe_head.black_bronze": "Black Bronze Greataxe Head",
   "item.tfcweaponsplus.component.greataxe_head.black_steel": "Black Steel Greataxe Head",
@@ -144,5 +145,5 @@
   "item.tfcweaponsplus.weapon.shortsword.red_steel": "Red Steel Shortsword",
   "item.tfcweaponsplus.weapon.shortsword.steel": "Steel Shortsword",
   "item.tfcweaponsplus.weapon.shortsword.wrought_iron": "Wrought Iron Shortsword",
-  "itemGroup.tfc_weapons_plus": "TFC Weapons Plus"
+  "itemGroup.tfcweaponsplus": "TFC Weapons Plus"
 }

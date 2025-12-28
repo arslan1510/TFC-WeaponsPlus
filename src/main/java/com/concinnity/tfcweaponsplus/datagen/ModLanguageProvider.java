@@ -26,7 +26,8 @@ public class ModLanguageProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         generateTranslations().forEach(entry -> add(entry.key(), entry.value()));
-        add("itemGroup.tfc_weapons_plus", "TFC Weapons Plus");
+        add("itemGroup.tfcweaponsplus", "TFC Weapons Plus");
+        add("creativetab.tfcweaponsplus.items", "TFC Weapons Plus");
     }
 
     private Stream<TranslationEntry> generateTranslations() {
