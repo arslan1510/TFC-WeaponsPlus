@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "H": {
+      "item": "tfcweaponsplus:component/hilt/wrought_iron"
+    },
+    "L": {
+      "tag": "tfc:lumber"
+    }
+  },
+  "pattern": [
+    "  L",
+    " H ",
+    "L  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "tfcweaponsplus:weapon/quarterstaff/wrought_iron"
+  }
+}

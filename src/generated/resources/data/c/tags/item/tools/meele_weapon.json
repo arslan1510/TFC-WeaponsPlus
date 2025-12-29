@@ -1,0 +1,256 @@
+{
+  "values": [
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/bismuth_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/black_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/copper",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/wrought_iron",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/black_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/blue_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greatsword/red_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/bismuth_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/black_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/copper",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/wrought_iron",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/black_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/blue_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greataxe/red_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greathammer/bismuth_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greathammer/black_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greathammer/bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greathammer/copper",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greathammer/wrought_iron",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greathammer/steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greathammer/black_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greathammer/blue_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/greathammer/red_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/bismuth_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/black_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/copper",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/wrought_iron",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/black_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/blue_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/longsword/red_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/bismuth_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/black_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/copper",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/wrought_iron",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/black_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/blue_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/shortsword/red_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/morningstar/bismuth_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/morningstar/black_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/morningstar/bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/morningstar/copper",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/morningstar/wrought_iron",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/morningstar/steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/morningstar/black_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/morningstar/blue_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/morningstar/red_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/bismuth_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/black_bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/bronze",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/copper",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/wrought_iron",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/black_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/blue_steel",
+      "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/quarterstaff/red_steel",
+      "required": false
+    }
+  ]
+}

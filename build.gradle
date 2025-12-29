@@ -25,6 +25,13 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    maven {
+        url = uri("https://maven.pkg.github.com/traister101/datagen-util")
+        credentials {
+            username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
+            password = project.findProperty("gpr.token") ?: System.getenv("GITHUB_TOKEN")
+        }
+    }
 }
 
 base {
@@ -123,6 +130,7 @@ dependencies {
     implementation "curse.maven:terrafirmacraft-302973:${tfc_file_id}"
     implementation "curse.maven:patchouli-306770:${patchouli_file_id}"
     implementation "curse.maven:geckolib-388172:${geckolib_file_id}"
+    implementation "mod.traister101.datagenutils:datagen_utils-${minecraft_version}:${datagen_utils_version}"
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"

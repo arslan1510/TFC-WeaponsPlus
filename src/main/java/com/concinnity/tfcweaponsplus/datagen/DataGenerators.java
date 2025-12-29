@@ -1,30 +1,25 @@
 package com.concinnity.tfcweaponsplus.datagen;
 
 import com.concinnity.tfcweaponsplus.TFCWeaponsPlus;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.PackOutput;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
-import java.util.concurrent.CompletableFuture;
-
 @EventBusSubscriber(modid = TFCWeaponsPlus.MOD_ID)
-public class DataGenerators {
+public final class DataGenerators {
 
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
-        DataGenerator generator = event.getGenerator();
-        PackOutput output = generator.getPackOutput();
-        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
+        final var generator = event.getGenerator();
+        final var output = generator.getPackOutput();
+        final var lookupProvider = event.getLookupProvider();
+        final var existingFileHelper = event.getExistingFileHelper();
 
-        generator.addProvider(event.includeServer(), new ModItemTagsProvider(output, lookupProvider));
+        generator.addProvider(event.includeServer(), new ModItemTagsProvider(output, lookupProvider, existingFileHelper));
         generator.addProvider(event.includeServer(), new ModItemSizeProvider(output, lookupProvider));
-        generator.addProvider(event.includeServer(), new ModAnvilRecipeProvider(output, lookupProvider));
-        generator.addProvider(event.includeServer(), new ModHeatingRecipeProvider(output, lookupProvider));
-        generator.addProvider(event.includeServer(), new ModRecipeProvider(output, lookupProvider));
+        final var itemHeatProvider =  generator.addProvider(event.includeServer(), new ModItemHeatProvider(output, lookupProvider));
+        generator.addProvider(event.includeServer(), new ModRecipeProvider(output, lookupProvider, itemHeatProvider));
         generator.addProvider(event.includeClient(), new ModLanguageProvider(output));
-        generator.addProvider(event.includeClient(), new ModItemModelProvider(output, event.getExistingFileHelper()));
+        generator.addProvider(event.includeClient(), new ModItemModelProvider(output, existingFileHelper));
     }
 }

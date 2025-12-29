@@ -1,69 +1,43 @@
-
 package com.concinnity.tfcweaponsplus.datagen;
 
 import com.concinnity.tfcweaponsplus.TFCWeaponsPlus;
+import com.concinnity.tfcweaponsplus.registration.ItemRegistry;
 import com.concinnity.tfcweaponsplus.utils.ResourceUtils;
-import com.google.gson.JsonObject;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.data.CachedOutput;
-import net.minecraft.data.DataProvider;
+import mod.traister101.datagenutils.data.tfc.ItemSizeProvider;
+import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.item.Item;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.NotNull;
 
-import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
-public class ModItemSizeProvider implements DataProvider {
-    private final PackOutput output;
-    private final CompletableFuture<HolderLookup.Provider> lookupProvider;
+public class ModItemSizeProvider extends ItemSizeProvider {
 
-    public ModItemSizeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        this.output = output;
-        this.lookupProvider = lookupProvider;
+    public ModItemSizeProvider(PackOutput output, CompletableFuture<Provider> lookup) {
+        super(output, TFCWeaponsPlus.MOD_ID, lookup);
     }
 
     @Override
-    public @NotNull CompletableFuture<?> run(@NotNull CachedOutput cache) {
-        return lookupProvider.thenCompose(provider -> {
-            List<CompletableFuture<?>> futures = new ArrayList<>();
+    protected void addData(@NotNull Provider provider) {
+        Map<String, DeferredHolder<Item, ? extends Item>> itemMap = ItemRegistry.getRegister().getEntries().stream()
+                .collect(Collectors.toMap(
+                        holder -> holder.getId().getPath(),
+                        holder -> holder
+                ));
 
-            generateItemSizes().forEach(entry -> {
-                Path path = output.getOutputFolder()
-                        .resolve("data/%s/tfc/item_sizes/%s.json".formatted(TFCWeaponsPlus.MOD_ID, entry.name()));
-                futures.add(DataProvider.saveStable(cache, entry.json(), path));
-            });
+        ResourceUtils.generateItemVariants().forEach(variant -> {
+            var path = variant.getRegistryPath();
 
-            return CompletableFuture.allOf(futures.toArray(CompletableFuture[]::new));
+            Optional.ofNullable(itemMap.get(path))
+                    .ifPresentOrElse(itemHolder -> {
+                        var size = variant.item().getSize();
+                        var weight = variant.item().getWeight();
+                        add(path, size(itemHolder.get(), size, weight));
+                    }, () -> TFCWeaponsPlus.LOGGER.warn("Could not find registered item for variant: {}", path));
         });
     }
-
-    private Stream<ItemSizeEntry> generateItemSizes() {
-        return ResourceUtils.generateItemVariants().map(this::createEntry);
-    }
-
-    private ItemSizeEntry createEntry(ResourceUtils.ItemVariant variant) {
-        String registryPath = variant.getRegistryPath();
-
-        JsonObject json = new JsonObject();
-
-        // Add ingredient property
-        JsonObject ingredient = new JsonObject();
-        ingredient.addProperty("item", "%s:%s".formatted(TFCWeaponsPlus.MOD_ID, registryPath));
-        json.add("ingredient", ingredient);
-
-        json.addProperty("size", variant.item().getSize().name().toLowerCase());
-        json.addProperty("weight", variant.item().getWeight().name().toLowerCase());
-
-        return new ItemSizeEntry(registryPath, json);
-    }
-
-    @Override
-    public @NotNull String getName() {
-        return "TFC Weapons Plus Item Sizes";
-    }
-
-    private record ItemSizeEntry(String name, JsonObject json) {}
 }

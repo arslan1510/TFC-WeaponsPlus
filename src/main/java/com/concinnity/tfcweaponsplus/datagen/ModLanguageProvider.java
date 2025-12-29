@@ -1,48 +1,42 @@
-
 package com.concinnity.tfcweaponsplus.datagen;
 
 import com.concinnity.tfcweaponsplus.TFCWeaponsPlus;
-import com.concinnity.tfcweaponsplus.models.ComponentType;
-import com.concinnity.tfcweaponsplus.models.IItem;
-import com.concinnity.tfcweaponsplus.models.WeaponType;
-
+import com.concinnity.tfcweaponsplus.registration.ItemRegistry;
 import com.concinnity.tfcweaponsplus.utils.ResourceUtils;
-import com.concinnity.tfcweaponsplus.utils.TFCUtils;
-import net.dries007.tfc.util.Metal;
-
+import mod.traister101.datagenutils.data.EnhancedLanguageProvider;
+import mod.traister101.datagenutils.data.util.LanguageTranslation;
 import net.minecraft.data.PackOutput;
-import net.neoforged.neoforge.common.data.LanguageProvider;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
-import java.util.Optional;
 import java.util.stream.Stream;
 
-public class ModLanguageProvider extends LanguageProvider {
+public class ModLanguageProvider extends EnhancedLanguageProvider {
 
-    public ModLanguageProvider(PackOutput output) {
-        super(output, TFCWeaponsPlus.MOD_ID, "en_us");
+    public ModLanguageProvider(PackOutput output, ExtraLanguageProvider... extraLanguageProviders) {
+        super(output, TFCWeaponsPlus.MOD_ID, "en_us", extraLanguageProviders);
     }
 
     @Override
     protected void addTranslations() {
-        generateTranslations().forEach(entry -> add(entry.key(), entry.value()));
-        add("itemGroup.tfcweaponsplus", "TFC Weapons Plus");
-        add("creativetab.tfcweaponsplus.items", "TFC Weapons Plus");
+        ResourceUtils.generateItemVariants().forEach(variant -> {
+            String key = "item.%s.%s".formatted(TFCWeaponsPlus.MOD_ID, variant.getTranslationPath());
+            
+            String itemName = capitalize(variant.item().getSerializedName());
+            String displayName = variant.metal()
+                    .map(m -> "%s %s".formatted(capitalize(m.getSerializedName()), itemName))
+                    .orElse(itemName);
+
+            add(LanguageTranslation.of(key, displayName));
+        });
+
+        add(LanguageTranslation.of("itemGroup.tfcweaponsplus", "TFC Weapons Plus"));
+        add(LanguageTranslation.of("creativetab.tfcweaponsplus.items", "TFC Weapons Plus"));
     }
 
-    private Stream<TranslationEntry> generateTranslations() {
-        return ResourceUtils.generateItemVariants().map(this::createEntry);
-    }
-
-    private TranslationEntry createEntry(ResourceUtils.ItemVariant variant) {
-        String key = "item.%s.%s".formatted(TFCWeaponsPlus.MOD_ID, variant.getTranslationPath());
-
-        String itemName = capitalize(variant.item().getSerializedName());
-        String displayName = variant.metal()
-                .map(m -> "%s %s".formatted(capitalize(m.getSerializedName()), itemName))
-                .orElse(itemName);
-
-        return new TranslationEntry(key, displayName);
+    @Override
+    protected @NotNull Stream<KnownRegistryContents<?>> knownRegistryContents() {
+        return Stream.of(KnownRegistryContents.item(ItemRegistry.getRegister()));
     }
 
     private static String capitalize(String text) {
@@ -51,6 +45,4 @@ public class ModLanguageProvider extends LanguageProvider {
                 .reduce((a, b) -> a + " " + b)
                 .orElse("");
     }
-
-    private record TranslationEntry(String key, String value) {}
 }

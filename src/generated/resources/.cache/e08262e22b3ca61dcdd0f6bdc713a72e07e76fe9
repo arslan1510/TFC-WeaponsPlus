@@ -1,5 +1,6 @@
-// 1.21.1	2025-12-29T00:02:15.369315725	Tags for minecraft:item mod id tfcweaponsplus
+// 1.21.1	2025-12-29T17:47:07.387148075	Tags for minecraft:item mod id tfcweaponsplus
 f66786c42aa434853a9dae7f08c08bdb89e63382 data/c/tags/item/tools.json
+f66786c42aa434853a9dae7f08c08bdb89e63382 data/c/tags/item/tools/meele_weapon.json
 1d357286f9b7b8bbec14f97e7723e3b2d3e0d5f4 data/minecraft/tags/item/axes.json
 bedc1ef9018c6ae9e7916ae24b1c49bfa979e2f4 data/minecraft/tags/item/swords.json
 718a36bc650fae04403f63c9708b8322fe1ae48f data/tfc/tags/item/deals_crushing_damage.json

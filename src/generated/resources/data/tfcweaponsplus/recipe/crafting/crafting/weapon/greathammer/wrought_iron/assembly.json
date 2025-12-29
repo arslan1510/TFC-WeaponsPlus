@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "tfcweaponsplus:component/grip"
+    },
+    "H": {
+      "item": "tfcweaponsplus:component/greathammer_head/wrought_iron"
+    },
+    "L": {
+      "tag": "tfc:lumber"
+    }
+  },
+  "pattern": [
+    "  H",
+    " L ",
+    "G  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "tfcweaponsplus:weapon/greathammer/wrought_iron"
+  }
+}

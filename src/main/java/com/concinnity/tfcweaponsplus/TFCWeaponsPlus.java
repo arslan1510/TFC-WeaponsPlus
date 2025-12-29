@@ -19,10 +19,8 @@ public final class TFCWeaponsPlus {
 
     public TFCWeaponsPlus(IEventBus modEventBus, ModContainer modContainer){
         modEventBus.addListener(this::commonSetup);
-
         ItemRegistry.registerAll();
         ItemRegistry.getRegister().register(modEventBus);
-
         CreativeModeTabs.register(modEventBus);
     }
 

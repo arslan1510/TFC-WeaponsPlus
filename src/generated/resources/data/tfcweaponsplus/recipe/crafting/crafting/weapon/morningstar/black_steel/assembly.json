@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "H": {
+      "item": "tfcweaponsplus:component/morningstar_head/black_steel"
+    },
+    "R": {
+      "item": "tfcweaponsplus:component/grip"
+    }
+  },
+  "pattern": [
+    "H",
+    "R"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tfcweaponsplus:weapon/morningstar/black_steel"
+  }
+}

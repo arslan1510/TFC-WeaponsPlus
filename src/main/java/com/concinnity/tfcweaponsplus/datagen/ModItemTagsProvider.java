@@ -1,11 +1,13 @@
 package com.concinnity.tfcweaponsplus.datagen;
 
 import com.concinnity.tfcweaponsplus.TFCWeaponsPlus;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import com.concinnity.tfcweaponsplus.models.WeaponType;
 import com.concinnity.tfcweaponsplus.utils.ResourceUtils;
 import com.concinnity.tfcweaponsplus.utils.TFCUtils;
 import net.dries007.tfc.util.Metal;
-import net.minecraft.core.HolderLookup;
+
+import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
@@ -22,17 +24,18 @@ import java.util.function.Predicate;
 
 public class ModItemTagsProvider extends ItemTagsProvider {
     private static final TagKey<Item> C_TOOLS = createTag("c", "tools");
+    private static final TagKey<Item> C_TOOLS_MELEE = createTag("c", "tools/meele_weapon");
     private static final TagKey<Item> TFC_TOOL_RACK = createTag("tfc", "usable_on_tool_rack");
     private static final TagKey<Item> TFC_SLASHING = createTag("tfc", "deals_slashing_damage");
     private static final TagKey<Item> TFC_CRUSHING = createTag("tfc", "deals_crushing_damage");
     private static final TagKey<Item> TFC_PIERCING = createTag("tfc", "deals_piercing_damage");
 
-    public ModItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(output, lookupProvider, CompletableFuture.completedFuture(TagsProvider.TagLookup.empty()), TFCWeaponsPlus.MOD_ID, null);
+    public ModItemTagsProvider(PackOutput output, CompletableFuture<Provider> lookupProvider, ExistingFileHelper existingFileHelper) {
+        super(output, lookupProvider, CompletableFuture.completedFuture(TagsProvider.TagLookup.empty()), TFCWeaponsPlus.MOD_ID, existingFileHelper);
     }
 
     @Override
-    protected void addTags(@NotNull HolderLookup.Provider provider) {
+    protected void addTags(@NotNull Provider provider) {
         List<ResourceUtils.ItemVariant> allWeapons = ResourceUtils.generateItemVariants()
                 .filter(variant -> variant.item() instanceof WeaponType)
                 .toList();
@@ -46,10 +49,12 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     private void addGeneralWeaponTags(List<ResourceUtils.ItemVariant> weapons) {
         TagsProvider.TagAppender<Item> toolsTag = tag(C_TOOLS);
         TagsProvider.TagAppender<Item> toolRackTag = tag(TFC_TOOL_RACK);
+        TagsProvider.TagAppender<Item> toolsMeleeTag = tag(C_TOOLS_MELEE);
 
         weapons.forEach(variant -> {
             ResourceLocation itemId = createResourceLocation(variant);
             toolsTag.addOptional(itemId);
+            toolsMeleeTag.addOptional(itemId);
             toolRackTag.addOptional(itemId);
         });
     }
