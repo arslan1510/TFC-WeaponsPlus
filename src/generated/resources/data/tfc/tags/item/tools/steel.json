@@ -27,6 +27,10 @@
     {
       "id": "tfcweaponsplus:weapon/quarterstaff/steel",
       "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/sword/steel",
+      "required": false
     }
   ]
 }

@@ -1,87 +1,101 @@
 {
 	"credit": "Made with Blockbench",
 	"parent": "builtin/entity",
+	"texture_size": [
+	  32,
+	  32
+	],
 	"display": {
-		"thirdperson_righthand": {
-			"translation": [
-				-0.25,
-				-6.25,
-				1
-			]
-		},
-		"thirdperson_lefthand": {
-			"translation": [
-				-0.25,
-				-6.25,
-				1
-			]
-		},
-		"firstperson_righthand": {
-			"translation": [
-				0,
-				-6,
-				0
-			]
-		},
-		"firstperson_lefthand": {
-			"translation": [
-				0,
-				-6,
-				0
-			]
-		},
-		"ground": {
-			"translation": [
-				0,
-				-4.75,
-				0
-			]
-		},
-		"gui": {
-			"rotation": [
-				88,
-				45,
-				-90
-			],
-			"translation": [
-				-6,
-				-6,
-				0
-			],
-			"scale": [
-				0.5,
-				0.5,
-				0.5
-			]
-		},
-		"fixed": {
-			"rotation": [
-				0,
-				90,
-				0
-			],
-			"translation": [
-				0.25,
-				-9.75,
-				0.25
-			],
-			"scale": [
-				0.55,
-				0.55,
-				0.54
-			]
-		},
-		"on_shelf": {
-			"rotation": [
-				0,
-				90,
-				0
-			],
-			"translation": [
-				0.25,
-				0,
-				0
-			]
-		}
+	  "thirdperson_righthand": {
+		"translation": [
+		  -0.5,
+		  -6,
+		  1.25
+		]
+	  },
+	  "thirdperson_lefthand": {
+		"translation": [
+		  -0.5,
+		  -6,
+		  1.25
+		]
+	  },
+	  "firstperson_righthand": {
+		"translation": [
+		  0,
+		  -9,
+		  0
+		]
+	  },
+	  "firstperson_lefthand": {
+		"translation": [
+		  0,
+		  -9,
+		  0
+		]
+	  },
+	  "ground": {
+		"translation": [
+		  0,
+		  -4.75,
+		  0
+		],
+		"scale": [
+		  0.75,
+		  0.75,
+		  0.75
+		]
+	  },
+	  "gui": {
+		"rotation": [
+		  88,
+		  45,
+		  -90
+		],
+		"translation": [
+		  -6,
+		  -6,
+		  0
+		],
+		"scale": [
+		  0.45,
+		  0.45,
+		  0.45
+		]
+	  },
+	  "fixed": {
+		"rotation": [
+		  0,
+		  90,
+		  0
+		],
+		"translation": [
+		  0.25,
+		  -9.75,
+		  0.25
+		],
+		"scale": [
+		  0.48,
+		  0.48,
+		  0.48
+		]
+	  },
+	  "on_shelf": {
+		"rotation": [
+		  0,
+		  90,
+		  0
+		],
+		"translation": [
+		  0.25,
+		  -1,
+		  0
+		],
+		"scale": [
+		  0.75,
+		  0.75,
+		  0.75
+		]
+	  }
 	}
-}
+  }

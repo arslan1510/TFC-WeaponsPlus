@@ -50,7 +50,8 @@ public class ModRecipeProvider extends EnhancedRecipeProvider {
             new AnvilSpec(ComponentType.GREATSWORD_BLADE, "c:double_sheets/%s", List.of(ForgeRule.BEND_THIRD_LAST, ForgeRule.BEND_SECOND_LAST, ForgeRule.HIT_LAST)),
             new AnvilSpec(ComponentType.GREATAXE_HEAD, "c:sheets/%s", List.of(ForgeRule.PUNCH_LAST, ForgeRule.HIT_SECOND_LAST)),
             new AnvilSpec(ComponentType.GREATHAMMER_HEAD, "c:double_sheets/%s", List.of(ForgeRule.PUNCH_LAST, ForgeRule.HIT_SECOND_LAST)),
-            new AnvilSpec(ComponentType.MORNINGSTAR_HEAD, "c:ingots/%s", List.of(ForgeRule.HIT_SECOND_LAST, ForgeRule.HIT_LAST))
+            new AnvilSpec(ComponentType.MORNINGSTAR_HEAD, "c:ingots/%s", List.of(ForgeRule.HIT_SECOND_LAST, ForgeRule.HIT_LAST)),
+            new AnvilSpec(ComponentType.SWORD_BLADE, "c:ingots/%s", List.of(ForgeRule.HIT_SECOND_LAST, ForgeRule.HIT_LAST))
     );
 
     public ModRecipeProvider(final PackOutput output, final CompletableFuture<HolderLookup.Provider> registries,
@@ -98,7 +99,8 @@ public class ModRecipeProvider extends EnhancedRecipeProvider {
     private static final List<BladeHiltRecipe> BLADE_HILT_RECIPES = List.of(
         new BladeHiltRecipe(WeaponType.LONGSWORD, ComponentType.LONGSWORD_BLADE),
         new BladeHiltRecipe(WeaponType.GREATSWORD, ComponentType.GREATSWORD_BLADE),
-        new BladeHiltRecipe(WeaponType.SHORTSWORD, ComponentType.SHORTSWORD_BLADE)
+        new BladeHiltRecipe(WeaponType.SHORTSWORD, ComponentType.SHORTSWORD_BLADE),
+        new BladeHiltRecipe(WeaponType.SWORD, ComponentType.SWORD_BLADE)
     );
 
     private static final List<HeadGripRecipe> HEAD_GRIP_RECIPES = List.of(

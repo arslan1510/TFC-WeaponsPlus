@@ -27,6 +27,10 @@
     {
       "id": "tfcweaponsplus:weapon/quarterstaff/wrought_iron",
       "required": false
+    },
+    {
+      "id": "tfcweaponsplus:weapon/sword/wrought_iron",
+      "required": false
     }
   ]
 }

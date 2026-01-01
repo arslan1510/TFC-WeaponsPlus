@@ -1,54 +1,32 @@
 {
-	"format_version": "1.21.6",
-	"credit": "Made by C",
-	"texture_size": [32, 32],
-	"textures": {
-		"layer0": "tfcweaponsplus:item/component/pommel/steel"
-	},
-	"elements": [
-		{
-			"name": "Pommel",
-			"from": [6.8, 0.5, 6.8],
-			"to": [9.3, 2.5, 9.2],
-			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0.5, 7]},
-			"faces": {
-				"north": {"uv": [8, 7.5, 9.5, 8.5], "texture": "#layer0", "tintindex": 0},
-				"east": {"uv": [7, 8.5, 8, 9.5], "texture": "#layer0", "tintindex": 0},
-				"south": {"uv": [8.5, 2, 10, 3], "texture": "#layer0", "tintindex": 0},
-				"west": {"uv": [8, 8.5, 9, 9.5], "texture": "#layer0", "tintindex": 0},
-				"up": {"uv": [10, 4, 8.5, 3], "texture": "#layer0", "tintindex": 0},
-				"down": {"uv": [10, 4, 8.5, 5], "texture": "#layer0", "tintindex": 0}
-			}
-		}
-	],
-	"gui_light": "front",
+	"credit": "Made with Blockbench",
+	"parent": "builtin/entity",
 	"display": {
-		"thirdperson_righthand": {
-			"translation": [0, 6.5, 2]
-		},
-		"thirdperson_lefthand": {
-			"translation": [0, 6.75, 2]
-		},
-		"firstperson_righthand": {
-			"rotation": [15, 0, -5],
-			"translation": [1, 4.5, 1],
-			"scale": [0.68, 0.68, 0.68]
-		},
-		"firstperson_lefthand": {
-			"rotation": [15, 0, -5],
-			"translation": [1, 4.75, 1],
-			"scale": [0.68, 0.68, 0.68]
-		},
-		"ground": {
-			"translation": [0, 3.75, 0]
-		},
-		"gui": {
-			"rotation": [30, -135, 0],
-			"translation": [0, 5.75, 0],
-			"scale": [1.26, 1.26, 1.26]
-		},
-		"fixed": {
-			"translation": [0, 6, 0]
-		}
+	  "thirdperson_righthand": {
+		"translation": [
+		  0,
+		  -0.75,
+		  0
+		]
+	  },
+	  "thirdperson_lefthand": {
+		"translation": [
+		  0,
+		  -0.75,
+		  0
+		]
+	  },
+	  "gui": {
+		"translation": [
+		  0,
+		  -0.5,
+		  0
+		],
+		"scale": [
+		  1.6,
+		  1.6,
+		  1.6
+		]
+	  }
 	}
-}
+  }

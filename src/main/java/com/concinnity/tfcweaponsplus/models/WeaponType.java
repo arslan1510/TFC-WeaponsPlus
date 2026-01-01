@@ -8,10 +8,12 @@ public enum WeaponType implements IItem {
     GREATAXE(Size.HUGE, Weight.VERY_HEAVY, -2.7, 12.0, 2.5, WeaponCategory.AXE, DamageType.SLASHING, 400),
     GREATHAMMER(Size.HUGE, Weight.VERY_HEAVY, -2.9, 13.0, 2.5, WeaponCategory.HAMMER, DamageType.CRUSHING, 400),
     LONGSWORD(Size.LARGE, Weight.HEAVY, -2.4, 7.0, 2.5, WeaponCategory.SWORD, DamageType.SLASHING, 200),
-    SHORTSWORD(Size.LARGE, Weight.MEDIUM, -2.0, 5.0, 2.0, WeaponCategory.SWORD, DamageType.SLASHING, 100),
-    MORNINGSTAR(Size.LARGE, Weight.HEAVY, -2.6, 8.0, 2.5, WeaponCategory.MACE, DamageType.CRUSHING, 100),
-    QUARTERSTAFF(Size.LARGE, Weight.MEDIUM, -2.0, 4.0, 3.0, WeaponCategory.STAFF, DamageType.PIERCING, 200);
+    SWORD(Size.LARGE, Weight.MEDIUM, -2.0, 5.0, 2.0, WeaponCategory.SWORD, DamageType.SLASHING, 100);
 
+    // SHORTSWORD(Size.LARGE, Weight.MEDIUM, -2.0, 5.0, 2.0, WeaponCategory.SWORD, DamageType.SLASHING, 100),
+    // MORNINGSTAR(Size.LARGE, Weight.HEAVY, -2.6, 8.0, 2.5, WeaponCategory.MACE, DamageType.CRUSHING, 100),
+    // QUARTERSTAFF(Size.LARGE, Weight.MEDIUM, -2.0, 4.0, 3.0, WeaponCategory.STAFF, DamageType.PIERCING, 200),
+    
     private final Size size;
     private final Weight weight;
     private final double baseAttackSpeed;

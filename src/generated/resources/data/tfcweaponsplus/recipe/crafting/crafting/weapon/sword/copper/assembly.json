@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "tfcweaponsplus:component/sword_blade/copper"
+    },
+    "H": {
+      "item": "tfcweaponsplus:component/hilt/copper"
+    }
+  },
+  "pattern": [
+    "B",
+    "H"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tfcweaponsplus:weapon/sword/copper"
+  }
+}
