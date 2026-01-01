@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_head": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greataxe_head/bismuth_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tfcweaponsplus:weapon/greataxe/bismuth_bronze/assembly"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_head"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tfcweaponsplus:weapon/greataxe/bismuth_bronze/assembly"
+    ]
+  }
+}

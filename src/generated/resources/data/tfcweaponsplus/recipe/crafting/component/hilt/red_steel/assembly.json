@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "tfcweaponsplus:component/guard/red_steel"
+    },
+    "P": {
+      "item": "tfcweaponsplus:component/pommel/red_steel"
+    },
+    "R": {
+      "item": "tfcweaponsplus:component/grip"
+    }
+  },
+  "pattern": [
+    " G ",
+    " R ",
+    " P "
+  ],
+  "result": {
+    "count": 1,
+    "id": "tfcweaponsplus:component/hilt/red_steel"
+  }
+}

@@ -87,12 +87,12 @@ public class ModRecipeProvider extends EnhancedRecipeProvider {
 
             if (guard.isPresent() && pommel.isPresent() && hilt.isPresent() && grip.isPresent()) {
                 CraftingRecipeBuilder.shaped(hilt.get(), 1)
-                    .pattern(" P ").pattern(" G ").pattern(" R ")
+                    .pattern(" G ").pattern(" R ").pattern(" P ")
                     .define('P', pommel.get()).define('G', guard.get()).define('R', grip.get())
                     .unlockedBy("has_grip", has(grip.get()))
                     .unlockedBy("has_guard", has(guard.get()))
                     .unlockedBy("has_pommel", has(pommel.get()))
-                    .save(output, recipeId("crafting/" + hiltVariant.getRegistryPath() + "/assembly"));
+                    .save(output, recipeId(hiltVariant.getRegistryPath() + "/assembly"));
             }
         });
     }
@@ -110,7 +110,7 @@ public class ModRecipeProvider extends EnhancedRecipeProvider {
                 .define('B', blade.get()).define('H', hilt.get())
                 .unlockedBy("has_hilt", has(hilt.get()))
                 .unlockedBy("has_blade", has(blade.get()))
-                .save(output, recipeId("crafting/" + weaponVariant.getRegistryPath() + "/assembly"));
+                .save(output, recipeId(weaponVariant.getRegistryPath() + "/assembly"));
         }
     }
 
@@ -127,7 +127,7 @@ public class ModRecipeProvider extends EnhancedRecipeProvider {
                 .define('B', blade.get()).define('H', hilt.get())
                 .unlockedBy("has_hilt", has(hilt.get()))
                 .unlockedBy("has_blade", has(blade.get()))
-                .save(output, recipeId("crafting/" + weaponVariant.getRegistryPath() + "/assembly"));
+                .save(output, recipeId(weaponVariant.getRegistryPath() + "/assembly"));
         }
     }
 
@@ -144,7 +144,7 @@ public class ModRecipeProvider extends EnhancedRecipeProvider {
                 .define('B', blade.get()).define('H', hilt.get())
                 .unlockedBy("has_hilt", has(hilt.get()))
                 .unlockedBy("has_blade", has(blade.get()))
-                .save(output, recipeId("crafting/" + weaponVariant.getRegistryPath() + "/assembly"));
+                .save(output, recipeId(weaponVariant.getRegistryPath() + "/assembly"));
         }
     }
 
@@ -176,7 +176,7 @@ public class ModRecipeProvider extends EnhancedRecipeProvider {
             
             builder.define('H', head.get()).define('P', pommel.get()).define('G', grip.get())
                 .unlockedBy("has_head", has(head.get()))
-                .save(output, recipeId("crafting/" + weaponVariant.getRegistryPath() + "/assembly"));
+                .save(output, recipeId(weaponVariant.getRegistryPath() + "/assembly"));
         }
     }
 
@@ -208,7 +208,7 @@ public class ModRecipeProvider extends EnhancedRecipeProvider {
             
             builder.define('H', head.get()).define('P', pommel.get()).define('G', grip.get())
                 .unlockedBy("has_head", has(head.get()))
-                .save(output, recipeId("crafting/" + weaponVariant.getRegistryPath() + "/assembly"));
+                .save(output, recipeId(weaponVariant.getRegistryPath() + "/assembly"));
         }
     }
 
@@ -234,12 +234,13 @@ public class ModRecipeProvider extends EnhancedRecipeProvider {
 
         spec.rules().forEach(builder::rule);
             
-        builder.save(output, recipeId("anvil/" + itemVariant.getRegistryPath()));
+        builder.save(output, recipeId(itemVariant.getRegistryPath()));
     }
 
     private static Stream<Metal> metalStream() {
         return Arrays.stream(Metal.values()).filter(TFCUtils::isValidMetal);
     }
+
 
     private static Item getItem(Map<String, ? extends DeferredHolder<Item, ? extends Item>> itemMap, String path) {
         DeferredHolder<Item, ? extends Item> holder = itemMap.get(path);

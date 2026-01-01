@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_head": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greataxe_head/steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tfcweaponsplus:weapon/greataxe/steel/assembly"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_head"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tfcweaponsplus:weapon/greataxe/steel/assembly"
+    ]
+  }
+}

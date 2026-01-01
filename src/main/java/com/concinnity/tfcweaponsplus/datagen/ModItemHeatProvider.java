@@ -12,7 +12,6 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.registries.DeferredHolder;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 import java.util.Optional;
@@ -26,7 +25,7 @@ public class ModItemHeatProvider extends ItemHeatProvider {
     }
 
     @Override
-    protected void addData(HolderLookup.@NotNull Provider provider) {
+    protected void addData(HolderLookup.Provider provider) {
         Map<String, DeferredHolder<Item, ? extends Item>> itemMap = ItemRegistry.getRegister().getEntries().stream()
                 .collect(Collectors.toMap(
                         holder -> holder.getId().getPath(),
@@ -39,7 +38,6 @@ public class ModItemHeatProvider extends ItemHeatProvider {
                     var metal = variant.metal().orElseThrow();
                     var amount = variant.item().getFluidAmount();
                     var path = variant.getRegistryPath();
-
                     Optional.ofNullable(itemMap.get(path))
                             .ifPresentOrElse(itemHolder -> getFluidHeat(metal).ifPresentOrElse(
                                     heat -> addAndMelt(path, Ingredient.of(itemHolder.get()), heat, amount),

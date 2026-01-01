@@ -35,7 +35,6 @@ public class ModAdvancements implements AdvancementSubProvider {
     }
 
     @Override
-    @SuppressWarnings({"null", "unused"})
     public void generate(AdvancementOutput output, HolderLookup.Provider registries) {
         var itemMap = ItemRegistry.getRegister().getEntries().stream()
                 .collect(Collectors.toMap(h -> h.getId().getPath(), h -> h));
