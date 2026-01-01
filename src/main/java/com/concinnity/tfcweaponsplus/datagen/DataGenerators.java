@@ -19,6 +19,7 @@ public final class DataGenerators {
         generator.addProvider(event.includeServer(), new ModItemSizeProvider(output, lookupProvider));
         final var itemHeatProvider =  generator.addProvider(event.includeServer(), new ModItemHeatProvider(output, lookupProvider));
         generator.addProvider(event.includeServer(), new ModRecipeProvider(output, lookupProvider, itemHeatProvider));
+        generator.addProvider(event.includeServer(), ModAdvancements.create(output, lookupProvider, existingFileHelper));
         generator.addProvider(event.includeClient(), new ModLanguageProvider(output));
         generator.addProvider(event.includeClient(), new ModItemModelProvider(output, existingFileHelper));
     }

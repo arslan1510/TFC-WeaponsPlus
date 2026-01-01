@@ -8,14 +8,14 @@
     "H": {
       "item": "tfcweaponsplus:component/greataxe_head/steel"
     },
-    "L": {
-      "tag": "tfc:lumber"
+    "P": {
+      "item": "tfcweaponsplus:component/pommel/steel"
     }
   },
   "pattern": [
-    "  H",
-    " L ",
-    "G  "
+    "HGH",
+    " G ",
+    " P "
   ],
   "result": {
     "count": 1,

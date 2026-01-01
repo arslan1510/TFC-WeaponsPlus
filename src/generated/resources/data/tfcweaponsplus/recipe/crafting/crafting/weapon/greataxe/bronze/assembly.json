@@ -8,14 +8,14 @@
     "H": {
       "item": "tfcweaponsplus:component/greataxe_head/bronze"
     },
-    "L": {
-      "tag": "tfc:lumber"
+    "P": {
+      "item": "tfcweaponsplus:component/pommel/bronze"
     }
   },
   "pattern": [
-    "  H",
-    " L ",
-    "G  "
+    " GH",
+    " G ",
+    " P "
   ],
   "result": {
     "count": 1,

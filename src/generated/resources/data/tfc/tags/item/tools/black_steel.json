@@ -17,18 +17,6 @@
       "required": false
     },
     {
-      "id": "tfcweaponsplus:weapon/shortsword/black_steel",
-      "required": false
-    },
-    {
-      "id": "tfcweaponsplus:weapon/morningstar/black_steel",
-      "required": false
-    },
-    {
-      "id": "tfcweaponsplus:weapon/quarterstaff/black_steel",
-      "required": false
-    },
-    {
       "id": "tfcweaponsplus:weapon/sword/black_steel",
       "required": false
     }

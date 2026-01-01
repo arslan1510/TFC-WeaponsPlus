@@ -4,9 +4,9 @@ import net.dries007.tfc.common.component.size.Size;
 import net.dries007.tfc.common.component.size.Weight;
 
 public enum WeaponType implements IItem {
-    GREATSWORD(Size.HUGE, Weight.VERY_HEAVY, -2.8, 10.0, 3.0, WeaponCategory.SWORD, DamageType.SLASHING, 400),
-    GREATAXE(Size.HUGE, Weight.VERY_HEAVY, -2.7, 12.0, 2.5, WeaponCategory.AXE, DamageType.SLASHING, 400),
-    GREATHAMMER(Size.HUGE, Weight.VERY_HEAVY, -2.9, 13.0, 2.5, WeaponCategory.HAMMER, DamageType.CRUSHING, 400),
+    GREATSWORD(Size.VERY_LARGE, Weight.VERY_HEAVY, -2.8, 10.0, 3.0, WeaponCategory.SWORD, DamageType.SLASHING, 400),
+    GREATAXE(Size.VERY_LARGE, Weight.VERY_HEAVY, -2.7, 12.0, 2.5, WeaponCategory.AXE, DamageType.SLASHING, 400),
+    GREATHAMMER(Size.VERY_LARGE, Weight.VERY_HEAVY, -2.9, 13.0, 2.5, WeaponCategory.HAMMER, DamageType.CRUSHING, 400),
     LONGSWORD(Size.LARGE, Weight.HEAVY, -2.4, 7.0, 2.5, WeaponCategory.SWORD, DamageType.SLASHING, 200),
     SWORD(Size.LARGE, Weight.MEDIUM, -2.0, 5.0, 2.0, WeaponCategory.SWORD, DamageType.SLASHING, 100);
 

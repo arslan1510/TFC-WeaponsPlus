@@ -1,18 +1,18 @@
-// 1.21.1	2026-01-01T11:55:40.555042276	Tags for minecraft:item mod id tfcweaponsplus
-f8427d0ac804fce365c45e123d68f38e6b27789e data/c/tags/item/tools.json
-f8427d0ac804fce365c45e123d68f38e6b27789e data/c/tags/item/tools/meele_weapon.json
+// 1.21.1	2026-01-01T12:56:47.73802997	Tags for minecraft:item mod id tfcweaponsplus
+9dc379fdffd1defbe79a1a6801866d9bcf389b74 data/c/tags/item/tools.json
+9dc379fdffd1defbe79a1a6801866d9bcf389b74 data/c/tags/item/tools/meele_weapon.json
 1d357286f9b7b8bbec14f97e7723e3b2d3e0d5f4 data/minecraft/tags/item/axes.json
-4611188d73a22f2d92cd8b03880f89229f378520 data/minecraft/tags/item/swords.json
-718a36bc650fae04403f63c9708b8322fe1ae48f data/tfc/tags/item/deals_crushing_damage.json
-782b1ddfc5bf59df0c17ea1bdf72c39251e3fc61 data/tfc/tags/item/deals_piercing_damage.json
-70d17b302244dc029e7ee763496b1dc373da7abb data/tfc/tags/item/deals_slashing_damage.json
-7a8453918b83a431812859a2b951d794c6238d24 data/tfc/tags/item/tools/bismuth_bronze.json
-d00c55ed37a86ca0bdb5efa0ebfe3a0b917f5cbe data/tfc/tags/item/tools/black_bronze.json
-8c5483806fd4b5765c4cd777268971fd50c4e07e data/tfc/tags/item/tools/black_steel.json
-b9906943b0c72680fcb1124b185d4abf5f53ee61 data/tfc/tags/item/tools/blue_steel.json
-96c1af73ac3a5dd0c07003178ee22f97169388fc data/tfc/tags/item/tools/bronze.json
-d8478fd2665b63a9dec69667955bfe85ab90dff8 data/tfc/tags/item/tools/copper.json
-bfbdff73d155a2a7180455cad5bfe4dee7ff82f3 data/tfc/tags/item/tools/red_steel.json
-1140501b29ae7c4a1b5de6df2a23a801d1706b76 data/tfc/tags/item/tools/steel.json
-cb910e7abf02e54b38162e145dc99a62f24b8761 data/tfc/tags/item/tools/wrought_iron.json
-f8427d0ac804fce365c45e123d68f38e6b27789e data/tfc/tags/item/usable_on_tool_rack.json
+e13c6643ed960ee1302d4d452026f8a0f4339270 data/minecraft/tags/item/swords.json
+061da147735e59adfadf9005812a932991866562 data/tfc/tags/item/deals_crushing_damage.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/tfc/tags/item/deals_piercing_damage.json
+546879cfab0beaa86467f0bddd9efd96788ffcee data/tfc/tags/item/deals_slashing_damage.json
+d99d7147fba2c8beff50e0a3a5ad14ca05bf8805 data/tfc/tags/item/tools/bismuth_bronze.json
+56a6cd2c62cf56b1991fcd2328fbf03680ce0246 data/tfc/tags/item/tools/black_bronze.json
+e3d12a2f267ab98b1bf6439cf2cf34e6b412b12c data/tfc/tags/item/tools/black_steel.json
+9e574b8fca1470a265569f100d96f67a8a46327c data/tfc/tags/item/tools/blue_steel.json
+bb1df928c8075e2cae81e5defa3b73422e87ba86 data/tfc/tags/item/tools/bronze.json
+75afa9d68c792b3077a78424ec65c54ed4757892 data/tfc/tags/item/tools/copper.json
+294fec7fa3c9d11689e4387a27154a289f3ba166 data/tfc/tags/item/tools/red_steel.json
+03ffa9dd6c479e1f86ed9d64240c9a6aafe73972 data/tfc/tags/item/tools/steel.json
+f2115f083ad94c9b40bee8b4b1641970dda9e4dd data/tfc/tags/item/tools/wrought_iron.json
+9dc379fdffd1defbe79a1a6801866d9bcf389b74 data/tfc/tags/item/usable_on_tool_rack.json

@@ -32,6 +32,8 @@ public class ModLanguageProvider extends EnhancedLanguageProvider {
 
         add(LanguageTranslation.of("itemGroup.tfcweaponsplus", "TFC Weapons Plus"));
         add(LanguageTranslation.of("creativetab.tfcweaponsplus.items", "TFC Weapons Plus"));
+        add(LanguageTranslation.of("advancements.tfcweaponsplus.root.title", "TFC Weapons Plus"));
+        add(LanguageTranslation.of("advancements.tfcweaponsplus.root.description", "Craft any weapon or component from TFC Weapons Plus"));
     }
 
     @Override

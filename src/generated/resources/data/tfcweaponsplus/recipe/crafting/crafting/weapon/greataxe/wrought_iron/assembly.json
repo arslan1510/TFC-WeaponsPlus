@@ -8,14 +8,14 @@
     "H": {
       "item": "tfcweaponsplus:component/greataxe_head/wrought_iron"
     },
-    "L": {
-      "tag": "tfc:lumber"
+    "P": {
+      "item": "tfcweaponsplus:component/pommel/wrought_iron"
     }
   },
   "pattern": [
-    "  H",
-    " L ",
-    "G  "
+    " GH",
+    " G ",
+    " P "
   ],
   "result": {
     "count": 1,

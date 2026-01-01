@@ -17,18 +17,6 @@
       "required": false
     },
     {
-      "id": "tfcweaponsplus:weapon/shortsword/bismuth_bronze",
-      "required": false
-    },
-    {
-      "id": "tfcweaponsplus:weapon/morningstar/bismuth_bronze",
-      "required": false
-    },
-    {
-      "id": "tfcweaponsplus:weapon/quarterstaff/bismuth_bronze",
-      "required": false
-    },
-    {
       "id": "tfcweaponsplus:weapon/sword/bismuth_bronze",
       "required": false
     }

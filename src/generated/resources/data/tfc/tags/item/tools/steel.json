@@ -17,18 +17,6 @@
       "required": false
     },
     {
-      "id": "tfcweaponsplus:weapon/shortsword/steel",
-      "required": false
-    },
-    {
-      "id": "tfcweaponsplus:weapon/morningstar/steel",
-      "required": false
-    },
-    {
-      "id": "tfcweaponsplus:weapon/quarterstaff/steel",
-      "required": false
-    },
-    {
       "id": "tfcweaponsplus:weapon/sword/steel",
       "required": false
     }

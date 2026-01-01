@@ -17,18 +17,6 @@
       "required": false
     },
     {
-      "id": "tfcweaponsplus:weapon/shortsword/red_steel",
-      "required": false
-    },
-    {
-      "id": "tfcweaponsplus:weapon/morningstar/red_steel",
-      "required": false
-    },
-    {
-      "id": "tfcweaponsplus:weapon/quarterstaff/red_steel",
-      "required": false
-    },
-    {
       "id": "tfcweaponsplus:weapon/sword/red_steel",
       "required": false
     }

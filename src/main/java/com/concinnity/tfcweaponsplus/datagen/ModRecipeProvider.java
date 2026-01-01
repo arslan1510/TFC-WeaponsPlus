@@ -9,7 +9,6 @@ import com.concinnity.tfcweaponsplus.utils.TFCUtils;
 import mod.traister101.datagenutils.data.EnhancedRecipeProvider;
 import mod.traister101.datagenutils.data.recipe.CraftingRecipeBuilder;
 import mod.traister101.datagenutils.data.recipe.tfc.AnvilRecipeBuilder;
-import net.dries007.tfc.common.TFCTags;
 import net.dries007.tfc.common.component.forge.ForgeRule;
 import net.dries007.tfc.common.recipes.AnvilRecipe;
 import net.dries007.tfc.common.recipes.outputs.ItemStackProvider;
@@ -45,12 +44,10 @@ public class ModRecipeProvider extends EnhancedRecipeProvider {
             new AnvilSpec(ComponentType.GUARD, "c:ingots/%s", List.of(ForgeRule.HIT_SECOND_LAST, ForgeRule.HIT_LAST)),
             new AnvilSpec(ComponentType.POMMEL, "c:ingots/%s", List.of(ForgeRule.HIT_SECOND_LAST, ForgeRule.HIT_LAST)),
             new AnvilSpec(ComponentType.HILT, "c:ingots/%s", List.of(ForgeRule.HIT_LAST, ForgeRule.DRAW_ANY, ForgeRule.SHRINK_NOT_LAST)),
-            new AnvilSpec(ComponentType.SHORTSWORD_BLADE, "c:ingots/%s", List.of(ForgeRule.HIT_SECOND_LAST, ForgeRule.HIT_LAST)),
             new AnvilSpec(ComponentType.LONGSWORD_BLADE, "c:double_ingots/%s", List.of(ForgeRule.BEND_THIRD_LAST, ForgeRule.BEND_SECOND_LAST, ForgeRule.HIT_LAST)),
             new AnvilSpec(ComponentType.GREATSWORD_BLADE, "c:double_sheets/%s", List.of(ForgeRule.BEND_THIRD_LAST, ForgeRule.BEND_SECOND_LAST, ForgeRule.HIT_LAST)),
             new AnvilSpec(ComponentType.GREATAXE_HEAD, "c:sheets/%s", List.of(ForgeRule.PUNCH_LAST, ForgeRule.HIT_SECOND_LAST)),
             new AnvilSpec(ComponentType.GREATHAMMER_HEAD, "c:double_sheets/%s", List.of(ForgeRule.PUNCH_LAST, ForgeRule.HIT_SECOND_LAST)),
-            new AnvilSpec(ComponentType.MORNINGSTAR_HEAD, "c:ingots/%s", List.of(ForgeRule.HIT_SECOND_LAST, ForgeRule.HIT_LAST)),
             new AnvilSpec(ComponentType.SWORD_BLADE, "c:ingots/%s", List.of(ForgeRule.HIT_SECOND_LAST, ForgeRule.HIT_LAST))
     );
 
@@ -58,56 +55,6 @@ public class ModRecipeProvider extends EnhancedRecipeProvider {
                              final AdditionalRecipeProvider... additionalRecipeProviders) {
         super(output, registries, additionalRecipeProviders);
     }
-
-    private record BladeHiltRecipe(WeaponType weaponType, ComponentType bladeComponent) {
-        void generate(RecipeOutput output, Metal metal, Function<ResourceUtils.ItemVariant, Optional<Item>> itemLookup) {
-            var hilt = itemLookup.apply(new ResourceUtils.ItemVariant(ComponentType.HILT, Optional.of(metal)));
-            var blade = itemLookup.apply(new ResourceUtils.ItemVariant(bladeComponent, Optional.of(metal)));
-            var weaponVariant = new ResourceUtils.ItemVariant(weaponType, Optional.of(metal));
-            var weapon = itemLookup.apply(weaponVariant);
-
-            if (hilt.isPresent() && blade.isPresent() && weapon.isPresent()) {
-                CraftingRecipeBuilder.shaped(weapon.get(), 1)
-                    .pattern("B")
-                    .pattern("H")
-                    .define('B', blade.get()).define('H', hilt.get())
-                    .unlockedBy("has_hilt", has(hilt.get()))
-                    .unlockedBy("has_blade", has(blade.get()))
-                    .save(output, recipeId("crafting/" + weaponVariant.getRegistryPath() + "/assembly"));
-            }
-        }
-    }
-
-    private record HeadGripRecipe(WeaponType weaponType, ComponentType headComponent, String... pattern) {
-        void generate(RecipeOutput output, Metal metal, Function<ResourceUtils.ItemVariant, Optional<Item>> itemLookup) {
-            var head = itemLookup.apply(new ResourceUtils.ItemVariant(headComponent, Optional.of(metal)));
-            var weaponVariant = new ResourceUtils.ItemVariant(weaponType, Optional.of(metal));
-            var weapon = itemLookup.apply(weaponVariant);
-            var grip = itemLookup.apply(new ResourceUtils.ItemVariant(ComponentType.GRIP, Optional.empty()));
-
-            if (head.isPresent() && weapon.isPresent() && grip.isPresent()) {
-                var builder = CraftingRecipeBuilder.shaped(weapon.get(), 1);
-                for (String p : pattern) builder.pattern(p);
-                
-                builder.define('H', head.get()).define('L', TFCTags.Items.LUMBER).define('G', grip.get())
-                    .unlockedBy("has_head", has(head.get()))
-                    .save(output, recipeId("crafting/" + weaponVariant.getRegistryPath() + "/assembly"));
-            }
-        }
-    }
-
-    private static final List<BladeHiltRecipe> BLADE_HILT_RECIPES = List.of(
-        new BladeHiltRecipe(WeaponType.LONGSWORD, ComponentType.LONGSWORD_BLADE),
-        new BladeHiltRecipe(WeaponType.GREATSWORD, ComponentType.GREATSWORD_BLADE),
-        new BladeHiltRecipe(WeaponType.SHORTSWORD, ComponentType.SHORTSWORD_BLADE),
-        new BladeHiltRecipe(WeaponType.SWORD, ComponentType.SWORD_BLADE)
-    );
-
-    private static final List<HeadGripRecipe> HEAD_GRIP_RECIPES = List.of(
-        new HeadGripRecipe(WeaponType.GREATAXE, ComponentType.GREATAXE_HEAD, "  H", " L ", "G  "),
-        new HeadGripRecipe(WeaponType.GREATHAMMER, ComponentType.GREATHAMMER_HEAD, "  H", " L ", "G  ")
-    );
-
 
     @Override
     protected void buildRecipes(@NotNull final RecipeOutput output, @NotNull final HolderLookup.Provider holderLookup) {
@@ -122,10 +69,11 @@ public class ModRecipeProvider extends EnhancedRecipeProvider {
         generateAnvilRecipes(output, itemMap);
 
         metalStream().forEach(metal -> {
-            BLADE_HILT_RECIPES.forEach(r -> r.generate(output, metal, itemLookup));
-            HEAD_GRIP_RECIPES.forEach(r -> r.generate(output, metal, itemLookup));
-            generateMorningstarRecipe(output, metal, itemLookup);
-            generateQuarterstaffRecipe(output, metal, itemLookup);
+            generateLongsword(output, metal, itemLookup);
+            generateGreatsword(output, metal, itemLookup);
+            generateSword(output, metal, itemLookup);
+            generateGreataxe(output, metal, itemLookup);
+            generateGreathammer(output, metal, itemLookup);
         });
     }
 
@@ -149,31 +97,117 @@ public class ModRecipeProvider extends EnhancedRecipeProvider {
         });
     }
 
-    private void generateMorningstarRecipe(RecipeOutput output, Metal metal, Function<ResourceUtils.ItemVariant, Optional<Item>> itemLookup) {
-        var weaponVariant = new ResourceUtils.ItemVariant(WeaponType.MORNINGSTAR, Optional.of(metal));
-        var head = itemLookup.apply(new ResourceUtils.ItemVariant(ComponentType.MORNINGSTAR_HEAD, Optional.of(metal)));
+    private void generateLongsword(RecipeOutput output, Metal metal, Function<ResourceUtils.ItemVariant, Optional<Item>> itemLookup) {
+        var hilt = itemLookup.apply(new ResourceUtils.ItemVariant(ComponentType.HILT, Optional.of(metal)));
+        var blade = itemLookup.apply(new ResourceUtils.ItemVariant(ComponentType.LONGSWORD_BLADE, Optional.of(metal)));
+        var weaponVariant = new ResourceUtils.ItemVariant(WeaponType.LONGSWORD, Optional.of(metal));
+        var weapon = itemLookup.apply(weaponVariant);
+
+        if (hilt.isPresent() && blade.isPresent() && weapon.isPresent()) {
+            CraftingRecipeBuilder.shaped(weapon.get(), 1)
+                .pattern("B")
+                .pattern("H")
+                .define('B', blade.get()).define('H', hilt.get())
+                .unlockedBy("has_hilt", has(hilt.get()))
+                .unlockedBy("has_blade", has(blade.get()))
+                .save(output, recipeId("crafting/" + weaponVariant.getRegistryPath() + "/assembly"));
+        }
+    }
+
+    private void generateGreatsword(RecipeOutput output, Metal metal, Function<ResourceUtils.ItemVariant, Optional<Item>> itemLookup) {
+        var hilt = itemLookup.apply(new ResourceUtils.ItemVariant(ComponentType.HILT, Optional.of(metal)));
+        var blade = itemLookup.apply(new ResourceUtils.ItemVariant(ComponentType.GREATSWORD_BLADE, Optional.of(metal)));
+        var weaponVariant = new ResourceUtils.ItemVariant(WeaponType.GREATSWORD, Optional.of(metal));
+        var weapon = itemLookup.apply(weaponVariant);
+
+        if (hilt.isPresent() && blade.isPresent() && weapon.isPresent()) {
+            CraftingRecipeBuilder.shaped(weapon.get(), 1)
+                .pattern("B")
+                .pattern("H")
+                .define('B', blade.get()).define('H', hilt.get())
+                .unlockedBy("has_hilt", has(hilt.get()))
+                .unlockedBy("has_blade", has(blade.get()))
+                .save(output, recipeId("crafting/" + weaponVariant.getRegistryPath() + "/assembly"));
+        }
+    }
+
+    private void generateSword(RecipeOutput output, Metal metal, Function<ResourceUtils.ItemVariant, Optional<Item>> itemLookup) {
+        var hilt = itemLookup.apply(new ResourceUtils.ItemVariant(ComponentType.HILT, Optional.of(metal)));
+        var blade = itemLookup.apply(new ResourceUtils.ItemVariant(ComponentType.SWORD_BLADE, Optional.of(metal)));
+        var weaponVariant = new ResourceUtils.ItemVariant(WeaponType.SWORD, Optional.of(metal));
+        var weapon = itemLookup.apply(weaponVariant);
+
+        if (hilt.isPresent() && blade.isPresent() && weapon.isPresent()) {
+            CraftingRecipeBuilder.shaped(weapon.get(), 1)
+                .pattern("B")
+                .pattern("H")
+                .define('B', blade.get()).define('H', hilt.get())
+                .unlockedBy("has_hilt", has(hilt.get()))
+                .unlockedBy("has_blade", has(blade.get()))
+                .save(output, recipeId("crafting/" + weaponVariant.getRegistryPath() + "/assembly"));
+        }
+    }
+
+    private void generateGreataxe(RecipeOutput output, Metal metal, Function<ResourceUtils.ItemVariant, Optional<Item>> itemLookup) {
+        int tier = TFCUtils.getMetalTier(metal.getSerializedName());
+        var head = itemLookup.apply(new ResourceUtils.ItemVariant(ComponentType.GREATAXE_HEAD, Optional.of(metal)));
+        var weaponVariant = new ResourceUtils.ItemVariant(WeaponType.GREATAXE, Optional.of(metal));
         var weapon = itemLookup.apply(weaponVariant);
         var grip = itemLookup.apply(new ResourceUtils.ItemVariant(ComponentType.GRIP, Optional.empty()));
+        var pommel = itemLookup.apply(new ResourceUtils.ItemVariant(ComponentType.POMMEL, Optional.of(metal)));
 
-        if (head.isPresent() && weapon.isPresent() && grip.isPresent()) {
-            CraftingRecipeBuilder.shaped(weapon.get(), 1)
-                .pattern("H").pattern("R")
-                .define('H', head.get()).define('R', grip.get())
+        if (head.isPresent() && weapon.isPresent() && grip.isPresent() && pommel.isPresent()) {
+            var builder = CraftingRecipeBuilder.shaped(weapon.get(), 1);
+            
+            switch (tier) {
+                case 3:
+                    builder.pattern("HGH")
+                           .pattern(" G ")
+                           .pattern(" P ");
+                    break;
+                case 1:
+                case 2:
+                default:
+                    builder.pattern(" GH")
+                           .pattern(" G ")
+                           .pattern(" P ");
+                    break;
+            }
+            
+            builder.define('H', head.get()).define('P', pommel.get()).define('G', grip.get())
                 .unlockedBy("has_head", has(head.get()))
                 .save(output, recipeId("crafting/" + weaponVariant.getRegistryPath() + "/assembly"));
         }
     }
 
-    private void generateQuarterstaffRecipe(RecipeOutput output, Metal metal, Function<ResourceUtils.ItemVariant, Optional<Item>> itemLookup) {
-        var weaponVariant = new ResourceUtils.ItemVariant(WeaponType.QUARTERSTAFF, Optional.of(metal));
-        var hilt = itemLookup.apply(new ResourceUtils.ItemVariant(ComponentType.HILT, Optional.of(metal)));
+    private void generateGreathammer(RecipeOutput output, Metal metal, Function<ResourceUtils.ItemVariant, Optional<Item>> itemLookup) {
+        int tier = TFCUtils.getMetalTier(metal.getSerializedName());
+        var head = itemLookup.apply(new ResourceUtils.ItemVariant(ComponentType.GREATHAMMER_HEAD, Optional.of(metal)));
+        var weaponVariant = new ResourceUtils.ItemVariant(WeaponType.GREATHAMMER, Optional.of(metal));
         var weapon = itemLookup.apply(weaponVariant);
+        var grip = itemLookup.apply(new ResourceUtils.ItemVariant(ComponentType.GRIP, Optional.empty()));
+        var pommel = itemLookup.apply(new ResourceUtils.ItemVariant(ComponentType.POMMEL, Optional.of(metal)));
 
-        if (hilt.isPresent() && weapon.isPresent()) {
-            CraftingRecipeBuilder.shaped(weapon.get(), 1)
-                .pattern("  L").pattern(" H ").pattern("L  ")
-                .define('L', TFCTags.Items.LUMBER).define('H', hilt.get())
-                .unlockedBy("has_hilt", has(hilt.get()))
+        if (head.isPresent() && weapon.isPresent() && grip.isPresent() && pommel.isPresent()) {
+            var builder = CraftingRecipeBuilder.shaped(weapon.get(), 1);
+
+            switch (tier) {
+                case 2:
+                case 3:
+                    builder.pattern("HGH")
+                           .pattern(" G ")
+                           .pattern(" P ");
+                    break;
+                case 1:
+                default:
+                    builder.pattern(" GH")
+                           .pattern(" G ")
+                           .pattern(" P ");
+                    break;  
+            }
+            
+            builder.define('H', head.get()).define('P', pommel.get()).define('G', grip.get())
+                .unlockedBy("has_head", has(head.get()))
                 .save(output, recipeId("crafting/" + weaponVariant.getRegistryPath() + "/assembly"));
         }
     }
@@ -253,7 +287,7 @@ public class ModRecipeProvider extends EnhancedRecipeProvider {
         @Override
         protected void ensureValid(@NotNull ResourceLocation id) {
             if (!ForgeRule.isConsistent(rules)) {
-                throw new IllegalStateException(id + " rules " + rules + " cannot be satisfied by any combination of steps!");
+                throw new IllegalStateException(id + " rules " + rules + " cannot be satisfied by any combination of steps.");
             }
             if (input == null) throw new IllegalStateException(id + " input not set");
         }

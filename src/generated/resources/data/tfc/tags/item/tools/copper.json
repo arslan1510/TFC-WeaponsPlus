@@ -17,18 +17,6 @@
       "required": false
     },
     {
-      "id": "tfcweaponsplus:weapon/shortsword/copper",
-      "required": false
-    },
-    {
-      "id": "tfcweaponsplus:weapon/morningstar/copper",
-      "required": false
-    },
-    {
-      "id": "tfcweaponsplus:weapon/quarterstaff/copper",
-      "required": false
-    },
-    {
       "id": "tfcweaponsplus:weapon/sword/copper",
       "required": false
     }

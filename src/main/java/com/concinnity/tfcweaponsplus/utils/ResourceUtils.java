@@ -27,10 +27,11 @@ public class ResourceUtils {
     }
     public static ResourceLocation getTextureFromRegistryName(ResourceLocation registryName) {
         RegistryNameParts parts = parseRegistryName(registryName);
+        String variant = parts.variant.isEmpty() ? parts.itemName : parts.variant;
         return of("textures/item/%s/%s/%s.png".formatted(
                 parts.category,
                 parts.itemName,
-                parts.variant
+                variant
         ));
     }
 

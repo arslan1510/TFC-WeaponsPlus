@@ -1,0 +1,1322 @@
+{
+  "criteria": {
+    "has_component/greataxe_head/bismuth_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greataxe_head/bismuth_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greataxe_head/black_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greataxe_head/black_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greataxe_head/black_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greataxe_head/black_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greataxe_head/blue_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greataxe_head/blue_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greataxe_head/bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greataxe_head/bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greataxe_head/copper": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greataxe_head/copper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greataxe_head/red_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greataxe_head/red_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greataxe_head/steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greataxe_head/steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greataxe_head/wrought_iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greataxe_head/wrought_iron"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greathammer_head/bismuth_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greathammer_head/bismuth_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greathammer_head/black_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greathammer_head/black_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greathammer_head/black_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greathammer_head/black_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greathammer_head/blue_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greathammer_head/blue_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greathammer_head/bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greathammer_head/bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greathammer_head/copper": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greathammer_head/copper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greathammer_head/red_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greathammer_head/red_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greathammer_head/steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greathammer_head/steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greathammer_head/wrought_iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greathammer_head/wrought_iron"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greatsword_blade/bismuth_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greatsword_blade/bismuth_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greatsword_blade/black_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greatsword_blade/black_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greatsword_blade/black_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greatsword_blade/black_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greatsword_blade/blue_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greatsword_blade/blue_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greatsword_blade/bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greatsword_blade/bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greatsword_blade/copper": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greatsword_blade/copper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greatsword_blade/red_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greatsword_blade/red_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greatsword_blade/steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greatsword_blade/steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/greatsword_blade/wrought_iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/greatsword_blade/wrought_iron"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/grip": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/grip"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/guard/bismuth_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/guard/bismuth_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/guard/black_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/guard/black_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/guard/black_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/guard/black_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/guard/blue_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/guard/blue_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/guard/bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/guard/bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/guard/copper": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/guard/copper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/guard/red_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/guard/red_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/guard/steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/guard/steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/guard/wrought_iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/guard/wrought_iron"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/hilt/bismuth_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/hilt/bismuth_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/hilt/black_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/hilt/black_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/hilt/black_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/hilt/black_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/hilt/blue_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/hilt/blue_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/hilt/bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/hilt/bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/hilt/copper": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/hilt/copper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/hilt/red_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/hilt/red_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/hilt/steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/hilt/steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/hilt/wrought_iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/hilt/wrought_iron"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/longsword_blade/bismuth_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/longsword_blade/bismuth_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/longsword_blade/black_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/longsword_blade/black_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/longsword_blade/black_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/longsword_blade/black_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/longsword_blade/blue_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/longsword_blade/blue_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/longsword_blade/bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/longsword_blade/bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/longsword_blade/copper": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/longsword_blade/copper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/longsword_blade/red_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/longsword_blade/red_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/longsword_blade/steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/longsword_blade/steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/longsword_blade/wrought_iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/longsword_blade/wrought_iron"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/pommel/bismuth_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/pommel/bismuth_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/pommel/black_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/pommel/black_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/pommel/black_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/pommel/black_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/pommel/blue_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/pommel/blue_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/pommel/bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/pommel/bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/pommel/copper": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/pommel/copper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/pommel/red_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/pommel/red_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/pommel/steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/pommel/steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/pommel/wrought_iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/pommel/wrought_iron"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/sword_blade/bismuth_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/sword_blade/bismuth_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/sword_blade/black_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/sword_blade/black_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/sword_blade/black_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/sword_blade/black_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/sword_blade/blue_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/sword_blade/blue_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/sword_blade/bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/sword_blade/bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/sword_blade/copper": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/sword_blade/copper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/sword_blade/red_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/sword_blade/red_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/sword_blade/steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/sword_blade/steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_component/sword_blade/wrought_iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:component/sword_blade/wrought_iron"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greataxe/bismuth_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greataxe/bismuth_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greataxe/black_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greataxe/black_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greataxe/black_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greataxe/black_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greataxe/blue_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greataxe/blue_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greataxe/bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greataxe/bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greataxe/copper": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greataxe/copper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greataxe/red_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greataxe/red_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greataxe/steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greataxe/steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greataxe/wrought_iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greataxe/wrought_iron"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greathammer/bismuth_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greathammer/bismuth_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greathammer/black_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greathammer/black_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greathammer/black_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greathammer/black_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greathammer/blue_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greathammer/blue_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greathammer/bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greathammer/bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greathammer/copper": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greathammer/copper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greathammer/red_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greathammer/red_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greathammer/steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greathammer/steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greathammer/wrought_iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greathammer/wrought_iron"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greatsword/bismuth_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greatsword/bismuth_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greatsword/black_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greatsword/black_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greatsword/black_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greatsword/black_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greatsword/blue_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greatsword/blue_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greatsword/bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greatsword/bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greatsword/copper": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greatsword/copper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greatsword/red_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greatsword/red_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greatsword/steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greatsword/steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/greatsword/wrought_iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/greatsword/wrought_iron"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/longsword/bismuth_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/longsword/bismuth_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/longsword/black_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/longsword/black_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/longsword/black_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/longsword/black_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/longsword/blue_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/longsword/blue_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/longsword/bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/longsword/bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/longsword/copper": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/longsword/copper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/longsword/red_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/longsword/red_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/longsword/steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/longsword/steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/longsword/wrought_iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/longsword/wrought_iron"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/sword/bismuth_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/sword/bismuth_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/sword/black_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/sword/black_bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/sword/black_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/sword/black_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/sword/blue_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/sword/blue_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/sword/bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/sword/bronze"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/sword/copper": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/sword/copper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/sword/red_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/sword/red_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/sword/steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/sword/steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_weapon/sword/wrought_iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tfcweaponsplus:weapon/sword/wrought_iron"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+    "description": {
+      "translate": "advancements.tfcweaponsplus.root.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "tfcweaponsplus:weapon/greatsword/black_steel"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancements.tfcweaponsplus.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_component/pommel/bronze",
+      "has_component/longsword_blade/copper",
+      "has_component/pommel/steel",
+      "has_component/greathammer_head/bismuth_bronze",
+      "has_component/greathammer_head/red_steel",
+      "has_weapon/sword/black_steel",
+      "has_weapon/greathammer/bronze",
+      "has_weapon/greatsword/black_steel",
+      "has_component/longsword_blade/steel",
+      "has_component/greatsword_blade/wrought_iron",
+      "has_component/longsword_blade/blue_steel",
+      "has_component/greatsword_blade/black_bronze",
+      "has_component/grip",
+      "has_weapon/sword/copper",
+      "has_component/greataxe_head/steel",
+      "has_weapon/longsword/steel",
+      "has_weapon/greathammer/blue_steel",
+      "has_component/longsword_blade/black_bronze",
+      "has_weapon/greatsword/red_steel",
+      "has_weapon/sword/bronze",
+      "has_component/hilt/black_steel",
+      "has_component/longsword_blade/bismuth_bronze",
+      "has_weapon/greathammer/black_steel",
+      "has_component/guard/red_steel",
+      "has_weapon/longsword/bismuth_bronze",
+      "has_weapon/greathammer/red_steel",
+      "has_component/guard/black_steel",
+      "has_weapon/greatsword/wrought_iron",
+      "has_component/greathammer_head/wrought_iron",
+      "has_weapon/greataxe/blue_steel",
+      "has_component/pommel/black_bronze",
+      "has_weapon/greatsword/black_bronze",
+      "has_component/guard/bronze",
+      "has_component/pommel/wrought_iron",
+      "has_component/greatsword_blade/copper",
+      "has_component/longsword_blade/wrought_iron",
+      "has_component/greatsword_blade/steel",
+      "has_weapon/longsword/wrought_iron",
+      "has_component/pommel/bismuth_bronze",
+      "has_weapon/longsword/black_bronze",
+      "has_component/greataxe_head/black_steel",
+      "has_component/greatsword_blade/bronze",
+      "has_component/greathammer_head/black_bronze",
+      "has_component/greataxe_head/copper",
+      "has_weapon/sword/steel",
+      "has_weapon/greataxe/steel",
+      "has_component/greataxe_head/bronze",
+      "has_component/guard/copper",
+      "has_component/greathammer_head/blue_steel",
+      "has_weapon/greatsword/bronze",
+      "has_weapon/greatsword/bismuth_bronze",
+      "has_component/sword_blade/blue_steel",
+      "has_component/greataxe_head/black_bronze",
+      "has_weapon/longsword/red_steel",
+      "has_component/hilt/steel",
+      "has_component/greataxe_head/wrought_iron",
+      "has_component/longsword_blade/bronze",
+      "has_weapon/greatsword/copper",
+      "has_weapon/sword/bismuth_bronze",
+      "has_component/greatsword_blade/blue_steel",
+      "has_component/greatsword_blade/black_steel",
+      "has_component/sword_blade/steel",
+      "has_component/sword_blade/bronze",
+      "has_component/sword_blade/red_steel",
+      "has_component/longsword_blade/black_steel",
+      "has_component/guard/black_bronze",
+      "has_weapon/sword/blue_steel",
+      "has_component/guard/wrought_iron",
+      "has_weapon/longsword/copper",
+      "has_component/guard/steel",
+      "has_weapon/longsword/bronze",
+      "has_component/pommel/black_steel",
+      "has_component/sword_blade/copper",
+      "has_weapon/greathammer/bismuth_bronze",
+      "has_component/hilt/blue_steel",
+      "has_component/guard/blue_steel",
+      "has_component/guard/bismuth_bronze",
+      "has_weapon/sword/red_steel",
+      "has_component/greataxe_head/red_steel",
+      "has_component/sword_blade/wrought_iron",
+      "has_component/greathammer_head/steel",
+      "has_component/greataxe_head/bismuth_bronze",
+      "has_weapon/greathammer/steel",
+      "has_component/sword_blade/black_bronze",
+      "has_weapon/greataxe/black_steel",
+      "has_component/hilt/red_steel",
+      "has_component/sword_blade/bismuth_bronze",
+      "has_weapon/greatsword/steel",
+      "has_weapon/greataxe/copper",
+      "has_component/hilt/bronze",
+      "has_weapon/sword/wrought_iron",
+      "has_weapon/longsword/black_steel",
+      "has_component/greatsword_blade/red_steel",
+      "has_weapon/sword/black_bronze",
+      "has_weapon/greataxe/red_steel",
+      "has_weapon/greataxe/bismuth_bronze",
+      "has_weapon/greatsword/blue_steel",
+      "has_component/greathammer_head/black_steel",
+      "has_weapon/greataxe/bronze",
+      "has_component/hilt/copper",
+      "has_component/sword_blade/black_steel",
+      "has_component/longsword_blade/red_steel",
+      "has_component/greataxe_head/blue_steel",
+      "has_component/hilt/wrought_iron",
+      "has_component/hilt/bismuth_bronze",
+      "has_weapon/greataxe/black_bronze",
+      "has_component/hilt/black_bronze",
+      "has_component/pommel/blue_steel",
+      "has_weapon/greataxe/wrought_iron",
+      "has_weapon/longsword/blue_steel",
+      "has_weapon/greathammer/copper",
+      "has_component/pommel/red_steel",
+      "has_component/pommel/copper",
+      "has_component/greathammer_head/copper",
+      "has_weapon/greathammer/wrought_iron",
+      "has_weapon/greathammer/black_bronze",
+      "has_component/greathammer_head/bronze",
+      "has_component/greatsword_blade/bismuth_bronze"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

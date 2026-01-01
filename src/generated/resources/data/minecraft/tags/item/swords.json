@@ -73,42 +73,6 @@
       "required": false
     },
     {
-      "id": "tfcweaponsplus:weapon/shortsword/bismuth_bronze",
-      "required": false
-    },
-    {
-      "id": "tfcweaponsplus:weapon/shortsword/black_bronze",
-      "required": false
-    },
-    {
-      "id": "tfcweaponsplus:weapon/shortsword/bronze",
-      "required": false
-    },
-    {
-      "id": "tfcweaponsplus:weapon/shortsword/copper",
-      "required": false
-    },
-    {
-      "id": "tfcweaponsplus:weapon/shortsword/wrought_iron",
-      "required": false
-    },
-    {
-      "id": "tfcweaponsplus:weapon/shortsword/steel",
-      "required": false
-    },
-    {
-      "id": "tfcweaponsplus:weapon/shortsword/black_steel",
-      "required": false
-    },
-    {
-      "id": "tfcweaponsplus:weapon/shortsword/blue_steel",
-      "required": false
-    },
-    {
-      "id": "tfcweaponsplus:weapon/shortsword/red_steel",
-      "required": false
-    },
-    {
       "id": "tfcweaponsplus:weapon/sword/bismuth_bronze",
       "required": false
     },

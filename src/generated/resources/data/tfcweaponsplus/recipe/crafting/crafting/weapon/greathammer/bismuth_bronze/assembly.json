@@ -8,14 +8,14 @@
     "H": {
       "item": "tfcweaponsplus:component/greathammer_head/bismuth_bronze"
     },
-    "L": {
-      "tag": "tfc:lumber"
+    "P": {
+      "item": "tfcweaponsplus:component/pommel/bismuth_bronze"
     }
   },
   "pattern": [
-    "  H",
-    " L ",
-    "G  "
+    " GH",
+    " G ",
+    " P "
   ],
   "result": {
     "count": 1,
